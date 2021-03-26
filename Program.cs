@@ -1,4 +1,5 @@
 ﻿using System;
+// This is main
 
 namespace cinema
 {
