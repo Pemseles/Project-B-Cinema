@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 
+
+
+
 namespace Console_Menu
 {
     class Program
@@ -11,6 +14,7 @@ namespace Console_Menu
 
         private static void Main(string[] args)
         {
+
 
             List<string> LoginScreen = new List<string>() {
                 "[Login   ]",
@@ -26,7 +30,7 @@ namespace Console_Menu
                 "the lord of the rings the return of the king       - Peter Jackson               13:45-15:15          zaal 2       3D",
                 "The Notebook                                       - Nick Cassavetes             15:40-17:10          zaal 1       IMAX",
                 "Joker                                              - Todd Phillips               16:00-17:30          zaal 3       4D",
-                "The Wolf of Wallstreet                             - Michael Scorsese            17:15-18:45          zaal 5       3D"
+                "The Wolf of Wallstreet                             - Martin Scorsese            17:15-18:45          zaal 5       3D"
             };
 
             Console.CursorVisible = false;
