@@ -11,8 +11,6 @@ namespace Console_Menu
 
         private static void Main(string[] args)
         {
-        
-
 
             List<string> LoginScreen = new List<string>() {
                 "[Login   ]",
