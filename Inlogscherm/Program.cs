@@ -17,9 +17,9 @@ namespace Console_Menu
 
 
             List<string> LoginScreen = new List<string>() {
-                "[Login   ]",
-                "[Register]",
-                "[Guest   ]"
+                "[     Inloggen    ]",
+                "[    Registeren   ]",
+                "[  Veder als gast ]"
             };
              List<string> movieList = new List<string>() {
                 "Titanic                                            - James Cameron               09:00-10:30          zaal 1       2D",
@@ -30,7 +30,7 @@ namespace Console_Menu
                 "the lord of the rings the return of the king       - Peter Jackson               13:45-15:15          zaal 2       3D",
                 "The Notebook                                       - Nick Cassavetes             15:40-17:10          zaal 1       IMAX",
                 "Joker                                              - Todd Phillips               16:00-17:30          zaal 3       4D",
-                "The Wolf of Wallstreet                             - Martin Scorsese            17:15-18:45          zaal 5       3D"
+                "The Wolf of Wallstreet                             - Martin Scorsese             17:15-18:45          zaal 5       3D"
             };
 
             Console.CursorVisible = false;
@@ -39,15 +39,15 @@ namespace Console_Menu
             {
                 string selectedMenuItem = MainScreen(LoginScreen);
                 // Login
-                if (selectedMenuItem == "[Login   ]")
+                if (selectedMenuItem == "[     Inloggen    ]")
                 {
                     bool login = true;
                     while (login == true) {
                         Console.Clear();
                         var pass = string.Empty;
                         ConsoleKey key;
-                        Console.Write("Username: "); Console.ReadLine();
-                        Console.Write("Password: "); do
+                        Console.Write("E-mail: "); Console.ReadLine();
+                        Console.Write("Wachtwoord: "); do
                         {
                             var keyInfo = Console.ReadKey(intercept: true);
                             key = keyInfo.Key;
@@ -82,7 +82,7 @@ namespace Console_Menu
                     }
 
                 }
-                else if (selectedMenuItem == "[Guest   ]")
+                else if (selectedMenuItem == "[  Veder als gast ]")
                 {
 
                     Console.Clear();
@@ -101,20 +101,20 @@ namespace Console_Menu
                 }
 
                 // Register
-                else if (selectedMenuItem == "[Register]")
+                else if (selectedMenuItem == "[    Registeren   ]")
                 {
                     Console.Clear();
                     bool name = true;
                     while (name == true)
                     {
-                        Console.Write("give an username:"); string Username = Console.ReadLine();
+                        Console.Write("E-mail:"); string Username = Console.ReadLine();
                         if (Username.Length >= 8)
                         {
                             name = false;
                         }
                     }
                     bool pw = true;
-                    string pw_strenght = "[Please enter a Password]                     ";
+                    string pw_strenght = "[Voer een wachtwoord in.]                     ";
                     while (pw == true)
                     {
                         // let's you put in a password and checks if it has an digit and a uppercase letter in it.
@@ -122,7 +122,7 @@ namespace Console_Menu
                         int digit = 0, letter = 0;
                         Console.Clear();
                         Console.WriteLine(pw_strenght);
-                        Console.Write("Give an 8 or longer password with a uppercase letter and a Number: ");
+                        Console.Write("Voer een wachtwoord in dat minimaal 1 hoofdletter en 1 cijfer er in heeft zitten: ");
                         var password = string.Empty;
                         ConsoleKey key;
                         do
@@ -148,34 +148,39 @@ namespace Console_Menu
                             if (char.IsUpper(password, c))
                             {
                                 letter = 1;
-                                pw_strenght = "[Your password is missing a digit Letter]               ";
+                                pw_strenght = "[Je wachtwoord mist een nummer.]               ";
                                 Console.Write(pw_strenght);
                             }
                             // check digit 
                             if (char.IsDigit(password, c))
                             {
                                 digit = 1;
-                                pw_strenght = "[Your password is missing a uppercase letter]  ";
+                                pw_strenght = "[Je wachtwoord mist een hoofdletter.]  ";
                             }
                             if (digit == 0 && letter == 0)
                             {
-                                pw_strenght = "[Your password is missing a digit and a uppercase letter]  ";
+                                pw_strenght = "[Je wachtwoord mist een hoofdletter en een cijfer.]  ";
                             }
                         }
                         // checks if the password is 8 or longer
                         if (password.Length < 8)
                         {
                             pw = true;
-                            pw_strenght = "[your password is to short]    ";
+                            pw_strenght = "[Je wachtwoord is niet lang genoeg.]    ";
 
                         }
                         // check if you are sure you want to use this as your password 
                         if (password.Length >= 8 && (digit == 1 && letter == 1))
                         {
                             Console.Clear();
-                            Console.WriteLine("Are you sure you want to use this password?     (Enter) or (Backspace): ");
+                            Console.Write("Voer het wachtwoord opnieuw in om hem te bevestigen :");
+                            string check = Console.ReadLine();
+                            if(check == password) {
                             //checks the pressed key
-                            ConsoleKeyInfo pressedkey = ReadKey();
+                            Console.Clear();
+                             Console.WriteLine("Om uw account te creëren druk <ENTER>, om uw gegevens opnieuw in te vullen druk <BACKSPACE>.");
+                             ConsoleKeyInfo pressedkey = ReadKey();
+                            
                             if (pressedkey.Key == ConsoleKey.Enter)
                             {
                                 pw = false;
@@ -184,11 +189,14 @@ namespace Console_Menu
                                 break;
 
                             }
-                            if (pressedkey.Key == ConsoleKey.Backspace)
+                                if (pressedkey.Key == ConsoleKey.Backspace)
+                                {
+                                    Console.Clear();
+                                    pw = true;
+                                }
+                            }
+                            else
                             {
-                                Console.Clear();
-                                Console.WriteLine("Create an Account:"); Console.Read();
-
                                 pw = true;
                             }
 
