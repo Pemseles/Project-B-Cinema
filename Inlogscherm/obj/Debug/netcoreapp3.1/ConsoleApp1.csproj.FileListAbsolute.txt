@@ -24,3 +24,32 @@ C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreap
 C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
 C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
 C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
+<<<<<<< Updated upstream
+=======
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.exe
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.deps.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.dev.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.dll
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.pdb
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.csprojAssemblyReference.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfoInputs.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfo.cs
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CoreCompileInputs.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.exe
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.deps.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\ConsoleApp1.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.AssemblyInfo.cs
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\ConsoleApp1.genruntimeconfig.cache
+>>>>>>> Stashed changes

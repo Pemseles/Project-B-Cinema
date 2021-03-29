@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj": {}
+    "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj": {
+    "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
-        "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+        "projectName": "Cinema Project B",
+        "projectPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
         "packagesPath": "C:\\Users\\Gebruiker\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
         "projectStyle": "PackageReference",
