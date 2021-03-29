@@ -19,7 +19,7 @@ namespace Console_Menu
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen    ]",
                 "[    Registeren   ]",
-                "[  Veder als gast ]"
+                "[  Verder als gast ]"
             };
              List<string> movieList = new List<string>() {
                 "Titanic                                            - James Cameron               09:00-10:30          zaal 1       2D",
@@ -266,7 +266,7 @@ namespace Console_Menu
             {
                 if (i == index)
                 {
-                    Console.Write("                                                        ");
+                    Console.Write("                                                   ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
                     
@@ -274,7 +274,7 @@ namespace Console_Menu
                 }
                 else
                 {
-                    Console.Write("                                                        ");
+                    Console.Write("                                                   ");
                     Console.WriteLine(items[i]);
                 }
                 Console.ResetColor();
