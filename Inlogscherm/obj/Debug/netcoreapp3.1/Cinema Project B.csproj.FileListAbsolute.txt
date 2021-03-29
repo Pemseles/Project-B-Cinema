@@ -1,0 +1,13 @@
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.exe
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.deps.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.dev.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfo.cs
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache
