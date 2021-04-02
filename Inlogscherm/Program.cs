@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using static System.Console;
+using System.IO;
 
 // using consoleapp1.mapnaam.filenaam;
-
+using static ConsoleApp1.Film;
 
 namespace Console_Menu
 {
@@ -14,7 +17,48 @@ namespace Console_Menu
 
         private static void Main(string[] args)
         {
+            /*
+            // var options is voor het automatisch formatten van de JSON string
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
 
+            // jsontest is een object van JSONTest (functie uit Zoekfunctie.cs)
+            string[] genreArr = new string[] { "Actie", "Romantiek" };
+            ConsoleApp1.Film filmTest = new ConsoleApp1.Film("bee movie 16", "director henk", genreArr, 18);
+
+            /* hier wordt jsontest omgezet tot een JSON-format string, in dit geval:
+            
+            {
+                "Name": "bee movie 16",
+                "Director": "director henk",
+                "Genres": [
+                    "Actie",
+                    "Romantiek"
+                ],
+                "AgeRating": 18
+            }
+
+            *//*
+            string jsonString = JsonSerializer.Serialize(filmTest, options);
+
+            // hier wordt de JSON-format string geschreven naar deze path
+            File.WriteAllText(@"C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\JSON files\Testing.json", jsonString);
+            */
+            //--------------------------------------------------------------------------------------------------------------------------
+
+            // deze lijn maakt een niewe object van class FilmArr
+            ConsoleApp1.FilmArr filmTest = new ConsoleApp1.FilmArr();
+            // deze lijn opent de JSON file met alle films en maakt t een string
+            string jsonString2 = File.ReadAllText(@"C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\JSON files\FilmList.json");
+            // deze lijn maakt van de string een object array, met elke film een individueel item in de array
+            filmTest = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonString2);
+            // test om te zien of t werkt
+            // kijkt in de FilmArray[positie] gevolgd door een variable in de Film class
+            Console.WriteLine(filmTest.FilmArray[5].Name);
+
+            //--------------------------------------------------------------------------------------------------------------------------
 
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen    ]",
