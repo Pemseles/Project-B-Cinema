@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 
-
+// using consoleapp1.mapnaam.filenaam;
 
 
 namespace Console_Menu
@@ -18,8 +18,8 @@ namespace Console_Menu
 
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen    ]",
-                "[    Registeren   ]",
-                "[  Veder als gast ]"
+                "[    Registreren   ]",
+                "[  Verder als gast ]"
             };
              List<string> movieList = new List<string>() {
                 "Titanic                                            - James Cameron               09:00-10:30          zaal 1       2D",
@@ -82,7 +82,7 @@ namespace Console_Menu
                     }
 
                 }
-                else if (selectedMenuItem == "[  Veder als gast ]")
+                else if (selectedMenuItem == "[  Verder als gast ]")
                 {
 
                     Console.Clear();
@@ -101,7 +101,7 @@ namespace Console_Menu
                 }
 
                 // Register
-                else if (selectedMenuItem == "[    Registeren   ]")
+                else if (selectedMenuItem == "[    Registreren   ]")
                 {
                     Console.Clear();
                     bool name = true;
@@ -173,12 +173,12 @@ namespace Console_Menu
                         if (password.Length >= 8 && (digit == 1 && letter == 1))
                         {
                             Console.Clear();
-                            Console.Write("Voer het wachtwoord opnieuw in om hem te bevestigen :");
+                            Console.Write("Voer het wachtwoord opnieuw in om het te bevestigen :");
                             string check = Console.ReadLine();
                             if(check == password) {
                             //checks the pressed key
                             Console.Clear();
-                             Console.WriteLine("Om uw account te creëren druk <ENTER>, om uw gegevens opnieuw in te vullen druk <BACKSPACE>.");
+                             Console.WriteLine("Om uw account te creëren, druk <ENTER>. om uw gegevens opnieuw in te vullen, druk <BACKSPACE>.");
                              ConsoleKeyInfo pressedkey = ReadKey();
                             
                             if (pressedkey.Key == ConsoleKey.Enter)
