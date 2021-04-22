@@ -8,9 +8,12 @@ using System.IO;
 
 // using consoleapp1.mapnaam.filenaam;
 using static ConsoleApp1.Film;
+using static ConsoleApp1.Login;
+
 
 namespace Console_Menu
 {
+
     class Program
     {
         private static int index = 0;
@@ -19,6 +22,7 @@ namespace Console_Menu
 
         private static void Main(string[] args)
         {
+            
             /*
             // var options is voor het automatisch formatten van de JSON string
             var options = new JsonSerializerOptions
@@ -75,6 +79,27 @@ namespace Console_Menu
             ConsoleApp1.Zoekfunctie zoeken = new ConsoleApp1.Zoekfunctie(inputZoekfunctie);
             zoeken.ZoekMethod();
             Console.WriteLine(zoeken.InputZoek);
+
+
+
+
+
+            string AccountPath = Path.GetFullPath(@"Accounts.json");
+            string AccountsList = File.ReadAllText(AccountPath);
+            ConsoleApp1.LoginArr loginData  = new ConsoleApp1.LoginArr();
+            loginData = JsonSerializer.Deserialize<ConsoleApp1.LoginArr>(AccountsList);
+            Console.WriteLine(loginData.Accounts[0]);
+
+
+
+
+
+
+
+
+
+
+
 
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen    ]",
@@ -337,7 +362,7 @@ namespace Console_Menu
            
 ";
              */ 
-
+            
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)
