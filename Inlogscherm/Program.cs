@@ -64,17 +64,19 @@ namespace Console_Menu
 
             string filmJSONPath = Path.GetFullPath(@"FilmList.json");
             Console.WriteLine(filmJSONPath);
-            string jsonStringFilmLijst = File.ReadAllText(filmJSONPath);
+            string jsonStringFilmList = File.ReadAllText(filmJSONPath);
 
-            ConsoleApp1.FilmArr filmLijst = new ConsoleApp1.FilmArr();
-            filmLijst = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmLijst);
+            ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
+            filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
             //Console.WriteLine(filmLijst.FilmArray[1].Name);
 
-            Console.WriteLine("Please enter thing. ");
-            string inputZoekfunctie = Console.ReadLine();
-            ConsoleApp1.Zoekfunctie zoeken = new ConsoleApp1.Zoekfunctie(inputZoekfunctie);
-            zoeken.ZoekMethod();
-            Console.WriteLine(zoeken.InputZoek);
+            Console.WriteLine("Geef hier op wat u zoekt :");
+            string searchClassInput = Console.ReadLine();
+            ConsoleApp1.SearchClass search1 = new ConsoleApp1.SearchClass(searchClassInput);
+            List<ConsoleApp1.Film> searchList = search1.FilmSearch(filmList);
+            string searchListString = search1.FilmLengthCheck(searchList);
+            Console.WriteLine(searchListString);
+            
 
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen    ]",

@@ -25,40 +25,82 @@ namespace ConsoleApp1
         // deze class heeft alle objects van de Film class
         public Film[] FilmArray { get; set; }
     }
-    // vraag user input aan (leeftijd, director, naam of genre)
-    // maak een for loop aan die door de JSON op zoek gaat
-    // wanneer input overeenkomt met iets uit de lijst, return film info ( leeftijdkwalificatie, director, genre, naam )
-    // vergeet niet dat alle overeenkomende input weergegeven moet worden
-    // optie leeftijdskwalificatie : geef films met overeenkomende leeftijd plus lager > vragen PO? waarschijnlijk zegt hij optie voor allebei vast en zeker, hoe vervelend ook
-    // een check maken of nummers in de input zitten > zo ja omzetten naar int
 
-    // string[] numbersInputArray = { "0" , "6" , "9" , "12" , "14" , "16" , "18"};
-    // string array met mogelijke kwalififacties leeftijd voor vergelijking met input
-
-    // for (i = 0 ; i < numbersInputArray.Length ; i++){
-    // if(inputZoek == numbersInputArray[i]){
-    // int inputLeeftijd = Convert.ToInt32(Console.ReadLine());
-    // }
-    // input naam veranderd voor leeftijdskwalificatie 
-
-    // misschien eerst vragen wat voor type input het is?
-    // console writeline is volgens mij standaard string
-    // ik bedoel genre/ director/ naam/ leeftijd > anders aan natnael vragen
-    // zou kunnen? maar t loopt door t hele json heen en moet de volledige info ophalen
-
-    class Zoekfunctie
+    class SearchClass 
     {
-        public string InputZoek;
+        public string InputSearch;
 
-        public Zoekfunctie(string userInput)
+        public SearchClass(string userInput)
         {
-            this.InputZoek = userInput;
+            this.InputSearch = userInput;
         }
 
-        public void ZoekMethod()
+        public List<Film> FilmSearch(FilmArr filmList)
         {
-            this.InputZoek = InputZoek + " testetstetsttettstettste";
+            List<Film> returnList = new List<Film>();
+            // om hier iets aan toe te voegen returnList.Add("wat er aan de ijst toegeveogd moet worden")
+            int inputAge = -513892;
+            string[] numbersInputArray = { "0" , "6" , "9" , "12" , "14" , "16" , "18"};
+            // string array met mogelijke kwalififacties leeftijd voor vergelijking met input
+            // inputage is hier zodat je het kan vergelijken met de agerating in json
+            // reden dat het dit getal is is omdat niets in de json een agerating heeft van -513892518
+
+            for (int i = 0 ; i < numbersInputArray.Length ; i++)
+            {
+               if  (this.InputSearch == numbersInputArray[i])
+               {
+                    inputAge = Convert.ToInt32(numbersInputArray[i]);
+                    // input naam veranderd voor leeftijdskwalificatie
+               }
+            }
+            // .ToLower() maakt alles kleine letters om problemen te voorkomen tijdens het vergelijken
+            for (int i = 0; i < filmList.FilmArray.Length; i++)
+            {
+                if (this.InputSearch.ToLower() == filmList.FilmArray[i].Name.ToLower())
+                {
+                    returnList.Add(filmList.FilmArray[i]);
+                }
+
+                else if (this.InputSearch.ToLower() == filmList.FilmArray[i].Director.ToLower())
+                {
+                    returnList.Add(filmList.FilmArray[i]);
+                }
+
+                for (int j = 0; j < filmList.FilmArray[i].Genres.Length; j++)
+                {
+                    if (this.InputSearch.ToLower() == filmList.FilmArray[i].Genres[j].ToLower())
+                    {
+                        returnList.Add(filmList.FilmArray[i]);
+                    }
+                }
+
+                if (inputAge == filmList.FilmArray[i].AgeRating)
+                {
+                    returnList.Add(filmList.FilmArray[i]);
+                }
+            } 
+            return returnList;
+        }
+
+        // check om te kijken of er wel films aan de lijst zijn toegevoegd
+        // zo niet geeft een error bericht
+        // zo ja returned deze de lijst
+        public string FilmLengthCheck(List<Film> filmList)
+        {
+            string returnString = "";
+            if (filmList.Count == 0)
+            {
+                return "Er is niets gevonden wat overeenkomt";
+            }
+            else
+            {
+                for (int i = 0; i < filmList.Count; i++)
+                {
+                    returnString = returnString + $"naam: {filmList[i].Name}, regisseur: {filmList[i].Director}, leeftijdskwalificatie: {filmList[i].AgeRating}";
+                    returnString = returnString + "\n";
+                }
+            }
+            return returnString;
         }
     }
-
 }
