@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using static System.Console;
+using System.IO;
 
 // using consoleapp1.mapnaam.filenaam;
-
+using static ConsoleApp1.Film;
 
 namespace Console_Menu
 {
@@ -12,16 +15,74 @@ namespace Console_Menu
     {
         private static int index = 0;
 
+
+
         private static void Main(string[] args)
         {
+            /*
+            // var options is voor het automatisch formatten van de JSON string
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
 
+            // jsontest is een object van JSONTest (functie uit Zoekfunctie.cs)
+            string[] genreArr = new string[] { "Actie", "Romantiek" };
+            ConsoleApp1.Film filmTest = new ConsoleApp1.Film("bee movie 16", "director henk", genreArr, 18);
+
+            /* hier wordt jsontest omgezet tot een JSON-format string, in dit geval:
+            
+            {
+                "Name": "bee movie 16",
+                "Director": "director henk",
+                "Genres": [
+                    "Actie",
+                    "Romantiek"
+                ],
+                "AgeRating": 18
+            }
+
+            *//*
+            string jsonString = JsonSerializer.Serialize(filmTest, options);
+
+            // hier wordt de JSON-format string geschreven naar deze path
+            File.WriteAllText(@"C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\JSON files\Testing.json", jsonString);
+            */
+            //--------------------------------------------------------------------------------------------------------------------------
+
+            // deze lijn maakt een niewe object van class FilmArr
+            //ConsoleApp1.FilmArr filmTest = new ConsoleApp1.FilmArr();
+            // deze lijn opent de JSON file met alle films en maakt t een string
+            //string jsonString2 = File.ReadAllText(@"C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\JSON files\FilmList.json");
+            // filepath veranderen ivm Natnael
+            // deze lijn maakt van de string een object array, met elke film een individueel item in de array
+            //filmTest = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonString2);
+            // test om te zien of t werkt
+            // kijkt in de FilmArray[positie] gevolgd door een variable in de Film class
+
+            //--------------------------------------------------------------------------------------------------------------------------
+
+            string filmJSONPath = Path.GetFullPath(@"FilmList.json");
+            Console.WriteLine(filmJSONPath);
+            string jsonStringFilmLijst = File.ReadAllText(filmJSONPath);
+
+            ConsoleApp1.FilmArr filmLijst = new ConsoleApp1.FilmArr();
+            filmLijst = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmLijst);
+            //Console.WriteLine(filmLijst.FilmArray[1].Name);
+
+            Console.WriteLine("Please enter thing. ");
+            string inputZoekfunctie = Console.ReadLine();
+            ConsoleApp1.Zoekfunctie zoeken = new ConsoleApp1.Zoekfunctie(inputZoekfunctie);
+            zoeken.ZoekMethod();
+            Console.WriteLine(zoeken.InputZoek);
 
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen    ]",
                 "[    Registreren   ]",
                 "[  Verder als gast ]"
             };
-             List<string> movieList = new List<string>() {
+
+            List<string> movieList = new List<string>() {
                 "Titanic                                            - James Cameron               09:00-10:30          zaal 1       2D",
                 "Avatar                                             - James Cameron               09:15-10:45          zaal 2       4D",
                 "Ready Player One                                   - Steven Spielberg            10.25-11:55          zaal 3       3D",
@@ -33,6 +94,21 @@ namespace Console_Menu
                 "The Wolf of Wallstreet                             - Martin Scorsese             17:15-18:45          zaal 5       3D"
             };
 
+            /*
+            string movieList = "";
+            for (int i = 0; i < filmTest.FilmArray.Length; i++)
+            {
+                movieList = movieList + filmTest.FilmArray[i].Name + " " + filmTest.FilmArray[i].Director + "  " + filmTest.FilmArray[i].AgeRating + "  ";
+                for (int j = 0; j < filmTest.FilmArray[i].Genres.Length; j++)
+                {
+                    movieList = movieList + filmTest.FilmArray[i].Genres[j] + " ";
+                }
+                movieList = movieList + "\n";
+            }
+            Console.WriteLine(movieList);
+            */
+
+            
             Console.CursorVisible = false;
             bool LoginStartScreen = true;
             while (LoginStartScreen)
@@ -260,7 +336,7 @@ namespace Console_Menu
 
            
 ";
-             */
+             */ 
 
             for (int i = 0; i < items.Count; i++)
             {
@@ -309,6 +385,6 @@ namespace Console_Menu
 
             Console.Clear();
             return "";
-        }
+        } 
     }
 }

@@ -11,3 +11,5 @@ C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netco
 C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
 C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
 C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
