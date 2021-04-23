@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using static System.Console;
 using System.IO;
 using Newtonsoft.Json;
-using System.Text.Json;
+//using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace ConsoleApp1 {
     
 
-    public class Account {
+    public class NewAccount {
         public int UID { get; set; }
         public int Level { get; set; }
         public string Email { get; set; }
@@ -19,7 +20,7 @@ namespace ConsoleApp1 {
         public string Lastname { get; set; }
         public string Age { get; set; }
         public string Address { get; set; }
-        public string[] Interests { get; set; }
+        public List<string> Interests { get; set; }
     }
 
 
@@ -30,31 +31,48 @@ namespace ConsoleApp1 {
         public string Firstname;
         public string Lastname;
         public string Address;
-        public string[] Interests;
-
-        public Account(string email)
-        { // Constructor
-            this.Email = email;
-            this.Age = 0; // Note that if we left this line out, Age would have the same value as 0 is the default value for an int
-        }
+        public List<string> Interests;
 
         // Load JSON
-        public void retrieveAccounts()
+       /*
+        public void RetrieveAccounts()
         {
-            this.Age + 1;
+            string AccountPath = Path.GetFullPath(@"Accounts.json");
+            string AccountsList = File.ReadAllText(AccountPath);
+            ConsoleApp1.NewAccount loginData = new ConsoleApp1.NewAccount();
+            loginData = JsonSerializer.Deserialize<ConsoleApp1.NewAccount>(AccountsList);
+            loginData.Accounts[1].Age = "13/04/2980";
         }
+        */
 
-        public void addAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests) {
+        public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests) {
 
-            Account newUser = new Account {
+            List<string> interestLists = interests.ToList();
+
+            NewAccount NewUser = new NewAccount
+            {
+                UID = 3,
+                Level = 1,
                 Email = email,
                 Pwd = pwd,
                 Firstname = firstname,
                 Lastname = lastname,
-                age = age,
+                Age = age,
                 Address = address,
-                Interests = interests
+                Interests = interestLists
+
             };
+
+            // serialize JSON to a string and then write string to a file
+            string AccountPath = Path.GetFullPath(@"Accounts.json");
+            File.WriteAllText(AccountPath, JsonConvert.SerializeObject(NewUser));
+
+            // serialize JSON directly to a file
+            using (StreamWriter file = File.CreateText(AccountPath))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, NewUser);
+            }
         }
     } // ./ Class
 
@@ -64,50 +82,3 @@ namespace ConsoleApp1 {
 
 // Input - Username/Email AND Password
 // Output - UID (User ID)
-/*
-namespace ConsoleApp1 { 
-    public class Login {
-
-
-
-
-        public int UID { get; set; }
-        public int Level { get; set; }
-        public string Email { get; set; }
-        public string Pwd { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
-        public string Age { get; set; }
-        public string Address { get; set; }
-        public string[] Intrests { get; set; }
-
-
-    }
-
-    public class LoginArr
-    {
-        public Login[] Accounts { get; set; }
-        
-    }
-}
-
-
-*/
-/*
-public class Accounts
-{
-    public string Age;
-    public string Email;
-    public string Pwd;
-    public string Firstname;
-    public string Lastname;
-    public string Address;
-    public string[] Interests;
-
-    public Account(string email)
-    { // Constructor
-        this.Email = email;
-        this.Age = 0; // Note that if we left this line out, Age would have the same value as 0 is the default value for an int
-    }
-}
-*/

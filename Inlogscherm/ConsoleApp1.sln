@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinema Project B", "Cinema 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSON", "JSON", "{BE563DCA-D082-4358-9883-7C737B690C7F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0FA329A3-1956-46AC-922D-4354D772BD8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

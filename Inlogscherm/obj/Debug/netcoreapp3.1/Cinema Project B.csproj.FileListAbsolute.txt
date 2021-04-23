@@ -28,3 +28,18 @@ C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreap
 C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
 C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
 C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csprojAssemblyReference.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfoInputs.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfo.cs
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CoreCompileInputs.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.exe
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.deps.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.dev.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.dll
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.pdb
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache

@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <None Remove="JSON files\NewFile1.txt" />
-    <None Remove="NewFile1.txt" />
   </ItemGroup>
 
   <ItemGroup>

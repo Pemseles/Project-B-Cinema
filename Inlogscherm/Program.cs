@@ -9,7 +9,7 @@ using System.IO;
 
 // using consoleapp1.mapnaam.filenaam;
 using static ConsoleApp1.Film;
-using static ConsoleApp1.Login;
+using static ConsoleApp1.Accounts;
 
 
 namespace Console_Menu
@@ -83,20 +83,21 @@ namespace Console_Menu
 
 
 
+            ConsoleApp1.Accounts user = new ConsoleApp1.Accounts();
+            string[] myInterests = { "Volvo", "BMW", "Ford", "Mazda" };
+            user.AddAccount("user1@email.com", "#1Geheim", "Ooga", "Booga", "2000-01-01", "Patatstraat 12", myInterests);
 
 
 
 
-
-
+            /*
             string AccountPath = Path.GetFullPath(@"Accounts.json");
             string AccountsList = File.ReadAllText(AccountPath);
             ConsoleApp1.LoginArr loginData = new ConsoleApp1.LoginArr();
             loginData = JsonSerializer.Deserialize<ConsoleApp1.LoginArr>(AccountsList);
             loginData.Accounts[1].Age = "13/04/2980";
 
-
-
+            */
 
 
 
@@ -121,23 +122,7 @@ namespace Console_Menu
                 "The Notebook                                       - Nick Cassavetes             15:40-17:10          zaal 1       IMAX",
                 "Joker                                              - Todd Phillips               16:00-17:30          zaal 3       4D",
                 "The Wolf of Wallstreet                             - Martin Scorsese             17:15-18:45          zaal 5       3D"
-            };
-
-            /*
-            string movieList = "";
-            for (int i = 0; i < filmTest.FilmArray.Length; i++)
-            {
-                movieList = movieList + filmTest.FilmArray[i].Name + " " + filmTest.FilmArray[i].Director + "  " + filmTest.FilmArray[i].AgeRating + "  ";
-                for (int j = 0; j < filmTest.FilmArray[i].Genres.Length; j++)
-                {
-                    movieList = movieList + filmTest.FilmArray[i].Genres[j] + " ";
-                }
-                movieList = movieList + "\n";
-            }
-            Console.WriteLine(movieList);
-            */
-
-            
+            };       
             Console.CursorVisible = false;
             bool LoginStartScreen = true;
             while (LoginStartScreen)
