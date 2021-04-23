@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "WV+JNLHP1cC0FspI2OgjaYHL/YHVoAY5dBtX9B48Z1zmhUCkD+D4Cr8HQprK1ONg54Qi/VvwoDKENXfEvzcqPQ==",
+  "dgSpecHash": "cVGnwq6r2wZ7I0KYtYVXQTgetJ6Eo+MFvochNpCoK0/W7wSGKobQvx8IUdnApIZey7Icf1EGkkp1m9vuLmqbGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
+  "projectFilePath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
