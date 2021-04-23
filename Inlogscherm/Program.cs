@@ -6,6 +6,7 @@ using System.Text.Json.Serialization;
 using static System.Console;
 using System.IO;
 
+
 // using consoleapp1.mapnaam.filenaam;
 using static ConsoleApp1.Film;
 using static ConsoleApp1.Login;
@@ -22,7 +23,7 @@ namespace Console_Menu
 
         private static void Main(string[] args)
         {
-            
+
             /*
             // var options is voor het automatisch formatten van de JSON string
             var options = new JsonSerializerOptions
@@ -72,7 +73,7 @@ namespace Console_Menu
 
             ConsoleApp1.FilmArr filmLijst = new ConsoleApp1.FilmArr();
             filmLijst = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmLijst);
-            //Console.WriteLine(filmLijst.FilmArray[1].Name);
+            Console.WriteLine(filmLijst.FilmArray[1].Name);
 
             Console.WriteLine("Please enter thing. ");
             string inputZoekfunctie = Console.ReadLine();
@@ -84,12 +85,15 @@ namespace Console_Menu
 
 
 
+
+
+
+
             string AccountPath = Path.GetFullPath(@"Accounts.json");
             string AccountsList = File.ReadAllText(AccountPath);
-            ConsoleApp1.LoginArr loginData  = new ConsoleApp1.LoginArr();
+            ConsoleApp1.LoginArr loginData = new ConsoleApp1.LoginArr();
             loginData = JsonSerializer.Deserialize<ConsoleApp1.LoginArr>(AccountsList);
-            Console.WriteLine(loginData.Accounts[0]);
-
+            loginData.Accounts[1].Age = "13/04/2980";
 
 
 
