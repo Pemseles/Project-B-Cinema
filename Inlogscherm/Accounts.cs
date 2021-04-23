@@ -66,13 +66,6 @@ namespace ConsoleApp1 {
             // serialize JSON to a string and then write string to a file
             string AccountPath = Path.GetFullPath(@"Accounts.json");
             File.WriteAllText(AccountPath, JsonConvert.SerializeObject(NewUser));
-
-            // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText(AccountPath))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, NewUser);
-            }
         }
     } // ./ Class
 

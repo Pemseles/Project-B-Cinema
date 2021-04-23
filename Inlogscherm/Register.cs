@@ -10,7 +10,7 @@ namespace ConsoleApp1
 {
     class Register
     {
-        static void Main(string[] args)
+        public static void register()
         {
             // checks if the given number is logic
             static bool check(int EndValue, int beginvalue, int input)
