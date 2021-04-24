@@ -67,21 +67,8 @@ namespace Console_Menu
 
             //--------------------------------------------------------------------------------------------------------------------------
 
-            string filmJSONPath = Path.GetFullPath(@"FilmList.json");
-            Console.WriteLine(filmJSONPath);
-            string jsonStringFilmList = File.ReadAllText(filmJSONPath);
 
-            ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
-            filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
-            //Console.WriteLine(filmLijst.FilmArray[1].Name);
 
-            Console.WriteLine("Geef hier op wat u zoekt :");
-            string searchClassInput = Console.ReadLine();
-            ConsoleApp1.SearchClass search1 = new ConsoleApp1.SearchClass(searchClassInput);
-            List<ConsoleApp1.Film> searchList = search1.FilmSearch(filmList);
-            string searchListString = search1.FilmLengthCheck(searchList);
-            Console.WriteLine(searchListString);
-            
 
 
 
@@ -116,27 +103,18 @@ namespace Console_Menu
                 "[  Verder als gast ]"
             };
 
-            List<string> movieList = new List<string>() {
-                "Titanic                                            - James Cameron               09:00-10:30          zaal 1       2D",
-                "Avatar                                             - James Cameron               09:15-10:45          zaal 2       4D",
-                "Ready Player One                                   - Steven Spielberg            10.25-11:55          zaal 3       3D",
-                "Pulp Fiction                                       - Quentin Tarantino           11:20-12:50          zaal 4       DOLBY",
-                "Interstellar                                       - Christopher Nolan           12:50-14:20          zaal 5       IMAX",
-                "the lord of the rings the return of the king       - Peter Jackson               13:45-15:15          zaal 2       3D",
-                "The Notebook                                       - Nick Cassavetes             15:40-17:10          zaal 1       IMAX",
-                "Joker                                              - Todd Phillips               16:00-17:30          zaal 3       4D",
-                "The Wolf of Wallstreet                             - Martin Scorsese             17:15-18:45          zaal 5       3D"
-            };       
+
             Console.CursorVisible = false;
             bool LoginStartScreen = true;
             while (LoginStartScreen)
             {
                 string selectedMenuItem = MainScreen(LoginScreen);
                 // Login
-                if (selectedMenuItem == "[     Inloggen    ]")
+                if (selectedMenuItem == "[     Inloggen     ]")
                 {
                     bool login = true;
-                    while (login == true) {
+                    while (login == true)
+                    {
                         Console.Clear();
                         var pass = string.Empty;
                         ConsoleKey key;
@@ -160,12 +138,20 @@ namespace Console_Menu
 
                         login = false;
                         Console.Clear();
-                        LoginStartScreen = false;
-                        for (int i = 0; i < movieList.Count; i++)
-                        {
-                            Console.WriteLine(movieList[i]);
-                            Console.WriteLine();
-                        }
+                        string filmJSONPath = Path.GetFullPath(@"FilmList.json");
+                        string jsonStringFilmList = File.ReadAllText(filmJSONPath);
+
+                        ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
+                        filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
+                        //Console.WriteLine(filmLijst.FilmArray[1].Name);
+
+                        Console.Write("Geef hier op wat u zoekt :");
+                        string searchClassInput = Console.ReadLine();
+                        ConsoleApp1.SearchClass search1 = new ConsoleApp1.SearchClass(searchClassInput);
+                        List<ConsoleApp1.Film> searchList = search1.FilmSearch(filmList);
+                        string searchListString = search1.FilmLengthCheck(searchList);
+                        Console.WriteLine(searchListString);
+
                         ConsoleKeyInfo ckey = Console.ReadKey();
                         if (ckey.Key == ConsoleKey.Enter)
                         {
@@ -178,27 +164,36 @@ namespace Console_Menu
                 }
                 else if (selectedMenuItem == "[  Verder als gast ]")
                 {
+                    while (true)
+                    {
+                        Console.Clear();
+                        string filmJSONPath = Path.GetFullPath(@"FilmList.json");
+                        string jsonStringFilmList = File.ReadAllText(filmJSONPath);
 
-                    Console.Clear();
-                    LoginStartScreen = false;
-                    for (int i = 0; i < movieList.Count; i++)
-                    {
-                        Console.WriteLine(movieList[i]);
-                        Console.WriteLine();
+                        ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
+                        filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
+                        //Console.WriteLine(filmLijst.FilmArray[1].Name);
+
+                        Console.Write("Geef hier op wat u zoekt :");
+                        string searchClassInput = Console.ReadLine();
+                        ConsoleApp1.SearchClass search1 = new ConsoleApp1.SearchClass(searchClassInput);
+                        List<ConsoleApp1.Film> searchList = search1.FilmSearch(filmList);
+                        string searchListString = search1.FilmLengthCheck(searchList);
+                        Console.WriteLine(searchListString);
+
+                        ConsoleKeyInfo ckey = Console.ReadKey();
+                        if (ckey.Key == ConsoleKey.Enter)
+                        {
+                            Environment.Exit(0);
+                        }
                     }
-                    ConsoleKeyInfo ckey = Console.ReadKey();
-                    if (ckey.Key == ConsoleKey.Enter)
-                    {
-                        Environment.Exit(0);
-                    }
-                    
                 }
 
                 // Register
                 else if (selectedMenuItem == "[    Registreren   ]")
                 {
                     Console.Clear();
-                    
+
                     ConsoleApp1.Register.register();
                 }
             }
@@ -206,7 +201,7 @@ namespace Console_Menu
 
         private static string MainScreen(List<string> items)
         {
-            
+
             Console.Write("                         ");
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
@@ -245,8 +240,8 @@ namespace Console_Menu
 
            
 ";
-             */ 
-            
+             */
+
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)
@@ -254,7 +249,7 @@ namespace Console_Menu
                     Console.Write("                                                    ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    
+
                     Console.WriteLine(items[i]);
                 }
                 else
@@ -294,6 +289,6 @@ namespace Console_Menu
 
             Console.Clear();
             return "";
-        } 
+        }
     }
 }
