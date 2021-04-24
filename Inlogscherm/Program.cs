@@ -68,7 +68,7 @@ namespace Console_Menu
             //--------------------------------------------------------------------------------------------------------------------------
 
 
-            
+
 
 
 
@@ -201,7 +201,7 @@ namespace Console_Menu
 
         private static string MainScreen(List<string> items)
         {
-            
+
             Console.Write("                         ");
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
@@ -240,8 +240,8 @@ namespace Console_Menu
 
            
 ";
-             */ 
-            
+             */
+
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)
@@ -249,7 +249,7 @@ namespace Console_Menu
                     Console.Write("                                                    ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    
+
                     Console.WriteLine(items[i]);
                 }
                 else
@@ -289,6 +289,6 @@ namespace Console_Menu
 
             Console.Clear();
             return "";
-        } 
+        }
     }
 }
