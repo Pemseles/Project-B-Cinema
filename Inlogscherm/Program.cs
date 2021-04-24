@@ -88,6 +88,7 @@ namespace Console_Menu
             user.AddAccount("user1@email.com", "#1Geheim", "Johnny", "Bravo", "2000-01-01", "Patatstraat 12", myInterests);
             user.AddAccount("user1@email.com", "#1Geheim", "bloep", "Boga", "2000-01-01", "Patatstraat 12", myInterests);
 
+            Console.Clear();
 
 
 
@@ -108,7 +109,7 @@ namespace Console_Menu
 
 
             List<string> LoginScreen = new List<string>() {
-                "[     Inloggen    ]",
+                "[     Inloggen     ]",
                 "[    Registreren   ]",
                 "[  Verder als gast ]"
             };
@@ -195,6 +196,7 @@ namespace Console_Menu
                 else if (selectedMenuItem == "[    Registreren   ]")
                 {
                     Console.Clear();
+                    
                     ConsoleApp1.Register.register();
                 }
             }
@@ -247,7 +249,7 @@ namespace Console_Menu
             {
                 if (i == index)
                 {
-                    Console.Write("                                                        ");
+                    Console.Write("                                                    ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
                     
@@ -255,7 +257,7 @@ namespace Console_Menu
                 }
                 else
                 {
-                    Console.Write("                                                        ");
+                    Console.Write("                                                    ");
                     Console.WriteLine(items[i]);
                 }
                 Console.ResetColor();
