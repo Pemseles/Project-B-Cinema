@@ -71,14 +71,12 @@ namespace Console_Menu
 
 
 
-
             ConsoleApp1.Accounts user = new ConsoleApp1.Accounts();
             string[] myInterests = { "Volvo", "BMW", "Ford", "Mazda" };
             user.AddAccount("user1@email.com", "#1Geheim", "Johnny", "Bravo", "2000-01-01", "Patatstraat 12", myInterests);
             user.AddAccount("user1@email.com", "#1Geheim", "bloep", "Boga", "2000-01-01", "Patatstraat 12", myInterests);
 
             Console.Clear();
-
 
 
             /*
@@ -89,11 +87,6 @@ namespace Console_Menu
             loginData.Accounts[1].Age = "13/04/2980";
 
             */
-
-
-
-
-
 
 
 
@@ -118,7 +111,9 @@ namespace Console_Menu
                         Console.Clear();
                         var pass = string.Empty;
                         ConsoleKey key;
-                        Console.Write("E-mail: "); Console.ReadLine();
+                        Console.Write("E-mail: ");      
+                        string email = Console.ReadLine();
+                        
                         Console.Write("Wachtwoord: "); do
                         {
                             var keyInfo = Console.ReadKey(intercept: true);
@@ -135,7 +130,7 @@ namespace Console_Menu
                                 pass += keyInfo.KeyChar;
                             }
                         } while (key != ConsoleKey.Enter);
-
+                        string loginemail = Console.ReadLine();
                         login = false;
                         Console.Clear();
                         string filmJSONPath = Path.GetFullPath(@"FilmList.json");

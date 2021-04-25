@@ -46,9 +46,9 @@ namespace ConsoleApp1 {
         */
 
         public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests) {
-
+            string AccountPath = Path.GetFullPath(@"Accounts.json");
             List<string> interestLists = interests.ToList();
-
+            
             NewAccount NewUser = new NewAccount
             {
                 UID = 3,
@@ -63,9 +63,12 @@ namespace ConsoleApp1 {
 
             };
 
+           
             // serialize JSON to a string and then write string to a file
-            string AccountPath = Path.GetFullPath(@"Accounts.json");
-            File.WriteAllText(AccountPath, JsonConvert.SerializeObject(NewUser));
+            
+            File.AppendAllText(AccountPath, JsonConvert.SerializeObject(NewUser,  Formatting.Indented));
+
+
         }
     } // ./ Class
 
