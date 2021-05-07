@@ -70,15 +70,5 @@ namespace ConsoleApp1
             }
             return false;
         }
-        
-        
-
-
-
-
-
-
-
-
     }
 }

@@ -148,17 +148,11 @@ namespace ConsoleApp1
                 else if (selectedMenuItem == "[  Verder als gast ]")
                 {
 
-                    while (true)
-                    {
                         Console.Clear();
                         ConsoleApp1.MainMenu.Mainmenu();
+                        
 
-                        ConsoleKeyInfo ckey = Console.ReadKey();
-                        if (ckey.Key == ConsoleKey.Enter)
-                        {
-                            Environment.Exit(0);
-                        }
-                    }
+                    
                 }
 
                 // Register
@@ -218,7 +212,7 @@ namespace ConsoleApp1
             {
                 if (i == index)
                 {
-                    Console.Write("                                                    ");
+                    Console.Write("                                                ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
 
@@ -226,7 +220,7 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    Console.Write("                                                    ");
+                    Console.Write("                                                ");
                     Console.WriteLine(items[i]);
                 }
                 Console.ResetColor();
