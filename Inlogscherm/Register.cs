@@ -10,10 +10,12 @@ namespace ConsoleApp1
 {
     class Register
     {
+        ConsoleApp1.Restrictions check = new ConsoleApp1.Restrictions();
+        
         private static int index = 0;
         private static string RegisterScreen(List<string> items)
         {
-
+            
 
             for (int i = 0; i < items.Count; i++)
             {
@@ -62,17 +64,20 @@ namespace ConsoleApp1
             Console.Clear();
             return "";
         }
+
         public static void register()
         {
             // checks if the given number is logic
             static bool check(int EndValue, int beginvalue, int input)
             {
+                
                 Console.Clear();
                 bool checker = false;
                 if (input > beginvalue && input <= EndValue)
                 {
                     checker = true;
                 }
+                
                 return checker;
             }
             // checks if date is a number and realistic
@@ -123,6 +128,7 @@ namespace ConsoleApp1
                     }
                 }
                 Console.Clear();
+
                 return $"{Days}/{Months}/{Years}";
             }
             // let's you enter a firstname or a lastname
@@ -258,7 +264,6 @@ namespace ConsoleApp1
 
                     }
 
-
                 }
                 return password;
             }
@@ -300,8 +305,13 @@ namespace ConsoleApp1
                         address = Console.ReadLine();
                         break;
                 }
+                
+                if (ConsoleApp1.Restrictions.SW(3, address, 0) == false)
+                {
+                    address = Address(num);
+                }
                 return address;
-
+                
             }
             bool registerbool = true;
             string Firstname = "";
@@ -335,43 +345,43 @@ namespace ConsoleApp1
                  };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = RegisterScreen(LoginScreens);
-                if (selectedMenuItem == "[     Voornaam     ]")
+                if (selectedMenuItem == "[     Voornaam     ]" + Firstname)
                 {
                     Firstname = Name(0);
                 }
-                if (selectedMenuItem == "[    Achternaam    ]")
+                if (selectedMenuItem == "[    Achternaam    ]" + Lastname)
                 {
                     Lastname = Name(1);
                 }
-                if (selectedMenuItem == "[   Geboortedatum  ]")
+                if (selectedMenuItem == "[   Geboortedatum  ]" + age)
                 {
                     age = Date();
                 }
-                if (selectedMenuItem == "[    Straatnaam    ]")
+                if (selectedMenuItem == "[    Straatnaam    ]" + street)
                 {
                     street = Address(1);
                 }
-                if (selectedMenuItem == "[    Huisnummer    ]")
+                if (selectedMenuItem == "[    Huisnummer    ]" + housenum)
                 {
                     housenum = Address(2);
                 }
-                if (selectedMenuItem == "[     Postcode     ]")
+                if (selectedMenuItem == "[     Postcode     ]" + postalcode)
                 {
                     postalcode = Address(3);
                 }
-                if (selectedMenuItem == "[    Woonplaats    ]")
+                if (selectedMenuItem == "[    Woonplaats    ]" + city)
                 {
                     city = Address(4);
                 }
-                if (selectedMenuItem == "[      Email       ]")
+                if (selectedMenuItem == "[      Email       ]" + email)
                 {
                     email = Email();
                 }
-                if (selectedMenuItem == "[    Wachtwoord    ]")
+                if (selectedMenuItem == "[    Wachtwoord    ]" + password)
                 {
                     password = Password();
                 }
-                if (selectedMenuItem == "[    Interessen    ]")
+                if (selectedMenuItem == "[    Interessen    ]" + intreststring)
                 {
                     intrest = Intrest();
                     intreststring = "";
