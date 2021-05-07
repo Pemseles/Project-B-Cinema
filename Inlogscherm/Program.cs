@@ -135,11 +135,6 @@ namespace ConsoleApp1
                         Console.Clear();
                         ConsoleApp1.MainMenu.Mainmenu();
 
-                        ConsoleKeyInfo ckey = Console.ReadKey();
-                        if (ckey.Key == ConsoleKey.Enter)
-                        {
-                            Environment.Exit(0);
-                        }
 
 
                     }
