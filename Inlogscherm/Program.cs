@@ -154,7 +154,6 @@ namespace ConsoleApp1
                 else if (selectedMenuItem == "[    Registreren   ]")
                 {
                     Console.Clear();
-
                     ConsoleApp1.Register.register();
                 }
             }
@@ -190,7 +189,6 @@ namespace ConsoleApp1
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-
             /*string logo = @"        
                          ██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
                         ██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝

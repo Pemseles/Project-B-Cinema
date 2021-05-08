@@ -112,6 +112,7 @@ namespace ConsoleApp1
             res.Add(4);
             res.Add(18);
             res.Add(19);
+            
             //int ticket = Int16.Parse(Console.ReadLine());
             bool a = true;
             //Console.Write("how big is the cinema hall: ");
@@ -289,7 +290,7 @@ namespace ConsoleApp1
 
 
                 }
-                Console.Clear();
+                Console.Clear();                
                 MainScreen(items, people, keys, res, seats, ticket);
                 return index;
             }

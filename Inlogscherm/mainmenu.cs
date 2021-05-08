@@ -166,6 +166,7 @@ namespace ConsoleApp1
                     Console.Clear();
                     Registers.moviehall();
                     back();
+                    Console.SetWindowSize(120, 30);
                     // if account registratie == vip 
                     // kan dit geopend worden 
                 }

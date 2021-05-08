@@ -29,12 +29,33 @@ namespace ConsoleApp1
 
         private static bool Digit(string s)
         {
+            int x = 0;
             for (int i = 0; i < s.Length; i++)
             {
                 if (char.IsDigit(s[i]))
                 {
-                    return true;
+                    x += 1;
                 }
+            }
+            if(x == s.Length)
+            {
+                return true;
+            }
+            return false;
+        }
+        private static bool Letter(string s)
+        {
+            int x = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (char.IsLetter(s[i]))
+                {
+                    x += 1;
+                }
+            }
+            if (x == s.Length)
+            {
+                return true;
             }
             return false;
         }
@@ -66,7 +87,9 @@ namespace ConsoleApp1
                 case 4:
                     return Restrictions.Sym(s);
                     break;
-                
+                case 5:
+                    return Restrictions.Letter(s);
+                    break;
             }
             return false;
         }
