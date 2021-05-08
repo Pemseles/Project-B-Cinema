@@ -36,7 +36,10 @@ namespace ConsoleApp1
             }
 
             ConsoleKeyInfo ckey = Console.ReadKey();
+            if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
+            {
 
+            }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
                 if (index == 10)

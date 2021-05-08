@@ -222,7 +222,11 @@ namespace ConsoleApp1
             }
 
             ConsoleKeyInfo ckey = Console.ReadKey();
-
+            // vragen aan PO over f11 key(fullscreen) of het disabled moet worden, zo ja vragen aan peercoach.
+            if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
+            {
+                Console.Clear();
+            }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
                 if (index == 2)
