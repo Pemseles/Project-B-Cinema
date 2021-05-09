@@ -10,10 +10,12 @@ namespace ConsoleApp1
 {
     class Register
     {
+        ConsoleApp1.Restrictions check = new ConsoleApp1.Restrictions();
+        
         private static int index = 0;
         private static string RegisterScreen(List<string> items)
         {
-
+            
 
             for (int i = 0; i < items.Count; i++)
             {
@@ -34,10 +36,13 @@ namespace ConsoleApp1
             }
 
             ConsoleKeyInfo ckey = Console.ReadKey();
+            if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
+            {
 
+            }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index == 10)
+                if (index == 11)
                 {
                     index = 0;
                 }
@@ -47,7 +52,7 @@ namespace ConsoleApp1
             {
                 if (index <= 0)
                 {
-                    index = 10;
+                    index = 11;
                 }
                 else { index--; }
             }
@@ -62,17 +67,20 @@ namespace ConsoleApp1
             Console.Clear();
             return "";
         }
+
         public static void register()
         {
             // checks if the given number is logic
             static bool check(int EndValue, int beginvalue, int input)
             {
+                
                 Console.Clear();
                 bool checker = false;
                 if (input > beginvalue && input <= EndValue)
                 {
                     checker = true;
                 }
+                
                 return checker;
             }
             // checks if date is a number and realistic
@@ -89,63 +97,93 @@ namespace ConsoleApp1
                     {
                         Console.Write("Dag: ");
                         string Day = Console.ReadLine();
-                        Days = int.Parse(Day);
-                        bool day = check(31, 0, Days);
-                        index++;
-                        if (day == false)
+                        if (ConsoleApp1.Restrictions.SW(3, Day, 0) == false)
                         {
                             index = 0;
+
+                        }
+                        else
+                        {
+                            Days = int.Parse(Day);
+                            bool day = check(31, 0, Days);
+                            index++;
+                            if (day == false)
+                            {
+                                index = 0;
+                            }
                         }
                     }
                     if (index == 1)
                     {
                         Console.Write("Maand: ");
                         string Month = Console.ReadLine();
-                        Months = int.Parse(Month);
-                        bool month = check(12, 0, Months);
-                        index++;
-                        if (month == false)
+                        if (ConsoleApp1.Restrictions.SW(3, Month, 0) == false)
                         {
                             index = 1;
+
+                        }
+                        else
+                        {
+                            Months = int.Parse(Month);
+                            bool month = check(12, 0, Months);
+                            index++;
+                            if (month == false)
+                            {
+                                index = 1;
+                            }
                         }
                     }
                     if (index == 2)
                     {
                         Console.Write("Jaar: ");
                         string Year = Console.ReadLine();
-                        Years = int.Parse(Year);
-                        bool year = check(2021, 1900, Years);
-                        index++;
-                        if (year == false)
+                        if (ConsoleApp1.Restrictions.SW(3, Year, 0) == false)
                         {
                             index = 2;
+
+                        }
+                        else
+                        {
+                            Years = int.Parse(Year);
+                            bool year = check(2021, 1900, Years);
+                            index++;
+                            if (year == false)
+                            {
+                                index = 2;
+                            }
                         }
                     }
                 }
                 Console.Clear();
+
                 return $"{Days}/{Months}/{Years}";
             }
             // let's you enter a firstname or a lastname
             static string Name(int x)
             {
+                string name = "";
                 Console.Clear();
-                if (x == 0)
-                {
-                    Console.Write("voer uw naam in: ");
-                }
-                else
-                {
-                    Console.Write("voer uw achternaam in: ");
-                }
-                string name = Console.ReadLine();
-                for (int i = 0; i < name.Length; i++)
-                {
-                    if (char.IsDigit(name, i))
+                    switch (x)
                     {
-                        Console.Clear();
-                        Name(x);
-                    }
-                }
+                        case 1:
+                            Console.Write("voer uw naam in: ");
+                            name = Console.ReadLine();
+                            if(ConsoleApp1.Restrictions.SW(5, name, 0) == true && name.Length > 1)
+                            {
+                                break;
+                            }
+                            name = Name(1);
+                            break;
+                        case 2:
+                            Console.Write("voer uw achternaam in: ");
+                            name = Console.ReadLine();
+                            if (ConsoleApp1.Restrictions.SW(5, name, 0) == true && name.Length > 1)
+                            {
+                                break;
+                            }
+                            name = Name(2);
+                            break;
+                    }               
                 return name;
             }
             // let's you enter a email that contains a '@' and a '.'
@@ -169,6 +207,7 @@ namespace ConsoleApp1
             {
                 Console.Clear();
                 var password = "";
+                var check = "";
                 bool pw = true;
                 string pw_strenght = "[Voer een wachtwoord in.]                     ";
                 while (pw == true)
@@ -230,34 +269,33 @@ namespace ConsoleApp1
                     {
                         Console.Clear();
                         Console.Write("Voer het wachtwoord opnieuw in om het te bevestigen :");
-                        string check = Console.ReadLine();
-                        if (check == password)
+                        check = string.Empty;
+                        ConsoleKey key1;
+                        do
                         {
-                            //checks the pressed key
-                            Console.Clear();
-                            Console.WriteLine("Om uw account te creëren, druk <ENTER>. om uw gegevens opnieuw in te vullen, druk <BACKSPACE>.");
-                            ConsoleKeyInfo pressedkey = ReadKey();
+                            var keyInfo = Console.ReadKey(intercept: true);
+                            key1 = keyInfo.Key;
 
-                            if (pressedkey.Key == ConsoleKey.Enter)
+                            if (key1 == ConsoleKey.Backspace && password.Length > 0)
                             {
-                                pw = false;
-                                Console.Clear();
-                                break;
-
+                                Console.Write("\b \b");
+                                check = check[0..^1];
                             }
-                            if (pressedkey.Key == ConsoleKey.Backspace)
+                            else if (!char.IsControl(keyInfo.KeyChar))
                             {
-                                Console.Clear();
-                                pw = true;
+                                Console.Write("*");
+                                check += keyInfo.KeyChar;
                             }
+                        } while (key1 != ConsoleKey.Enter);
+                        if (password == check)
+                        {
+                            pw = false;
                         }
                         else
                         {
                             pw = true;
                         }
-
                     }
-
 
                 }
                 return password;
@@ -265,15 +303,31 @@ namespace ConsoleApp1
             //let's you enter your intrests
             static string[] Intrest()
             {
-                Console.Clear();
-                Console.Write("hoeveel intresses heeft u: ");
-                string times = Console.ReadLine();
+                string times = "";
+                while (true)
+                {
+                    Console.Clear();
+                    Console.Write("hoeveel intresses heeft u: ");
+                    times = Console.ReadLine();
+                    if (ConsoleApp1.Restrictions.SW(3, times, 0) == true)
+                    {
+                        break;
+                    }
+                }
                 int Times = int.Parse(times);
                 string[] intrest = new string[Times];
                 for (int i = 0; i < Times; i++)
-                {
-                    Console.Write("voer een intresse in: ");
-                    intrest[i] = Console.ReadLine();
+                {                
+                    while (true)
+                    {
+                        Console.Clear();
+                        Console.Write("voer een intresse in: ");
+                        intrest[i] = Console.ReadLine();
+                        if(ConsoleApp1.Restrictions.SW(5, intrest[i], 0) == true && intrest[i].Length > 1)
+                        {
+                            break;
+                        }
+                    }
                 }
                 return intrest;
             }
@@ -284,24 +338,63 @@ namespace ConsoleApp1
                 string address = "";
                 switch (num) {
                     case 1:
+                        // langste straatnaam is 55 letters in Nederland
                         Console.Write("voer uw straat in: ");
                         address = Console.ReadLine();
-                    break;
+                        if (ConsoleApp1.Restrictions.SW(5, address, 0) == true && address.Length < 56)
+                        {
+                            break;                           
+                        }
+                        address = Address(1);
+                        break;
+                        
                     case 2:
+                        // hoogste huisnummer in Nederland is 5 getallen lang
                         Console.Write("voer uw huisnummer in: ");
                         address = Console.ReadLine();
+                        if (ConsoleApp1.Restrictions.SW(3, address, 0) == true && address.Length < 6)
+                        {
+                            break;
+                        }
+                        address = Address(2);
                         break;
                     case 3:
-                        Console.Write("voer uw postcode in: ");
+                        Console.Write("Voer de eerste 4 cijfers van uw postcode in: ");
                         address = Console.ReadLine();
+                        if (ConsoleApp1.Restrictions.SW(3, address, 0) == true && address.Length == 4)
+                        {
+                            while (true)
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Voer de laatste 2 letters van uw postcode in: ");
+                                Console.Write(address);
+                                
+                                string add = Console.ReadLine();
+                                if(add.Length == 2 && ConsoleApp1.Restrictions.SW(5, add, 0) == true && ConsoleApp1.Restrictions.SW(2, add, 0) == true)
+                                {
+                                    address += add;
+                                    break;
+                                }
+                            }       
+                            break;
+                        }
+                        address = Address(3);
                         break;
                     case 4:
+                        // langste woonplaatsnaam is 25 tekens lang
                         Console.Write("voer uw woonplaats in: ");
                         address = Console.ReadLine();
+                        if (ConsoleApp1.Restrictions.SW(5, address, 0) == true && address.Length < 26)
+                        {
+                            break;
+                        }
+                        address = Address(4);
                         break;
                 }
-                return address;
+                
 
+                return address;
+                
             }
             bool registerbool = true;
             string Firstname = "";
@@ -316,6 +409,8 @@ namespace ConsoleApp1
             string[] intrest = new string[0];
             string error = "";
             string intreststring = "";
+            string pass = "";
+
             while (registerbool == true)
             {
                 Console.Clear();
@@ -329,49 +424,54 @@ namespace ConsoleApp1
                 "[     Postcode     ]" + postalcode,
                 "[    Woonplaats    ]" + city,
                 "[      Email       ]" + email,
-                "[    Wachtwoord    ]" + password,
+                "[    Wachtwoord    ]" + pass,
                 "[    Interessen    ]" + intreststring,
-                "[ Account aanmaken ]" + error
+                "[ Account aanmaken ]" + error,
+                "[     Annuleren    ]"
                  };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = RegisterScreen(LoginScreens);
-                if (selectedMenuItem == "[     Voornaam     ]")
+                if (selectedMenuItem == "[     Voornaam     ]" + Firstname)
                 {
-                    Firstname = Name(0);
+                    Firstname = Name(1);
                 }
-                if (selectedMenuItem == "[    Achternaam    ]")
+                if (selectedMenuItem == "[    Achternaam    ]" + Lastname)
                 {
-                    Lastname = Name(1);
+                    Lastname = Name(2);
                 }
-                if (selectedMenuItem == "[   Geboortedatum  ]")
+                if (selectedMenuItem == "[   Geboortedatum  ]" + age)
                 {
                     age = Date();
                 }
-                if (selectedMenuItem == "[    Straatnaam    ]")
+                if (selectedMenuItem == "[    Straatnaam    ]" + street)
                 {
                     street = Address(1);
                 }
-                if (selectedMenuItem == "[    Huisnummer    ]")
+                if (selectedMenuItem == "[    Huisnummer    ]" + housenum)
                 {
                     housenum = Address(2);
                 }
-                if (selectedMenuItem == "[     Postcode     ]")
+                if (selectedMenuItem == "[     Postcode     ]" + postalcode)
                 {
                     postalcode = Address(3);
                 }
-                if (selectedMenuItem == "[    Woonplaats    ]")
+                if (selectedMenuItem == "[    Woonplaats    ]" + city)
                 {
                     city = Address(4);
                 }
-                if (selectedMenuItem == "[      Email       ]")
+                if (selectedMenuItem == "[      Email       ]" + email)
                 {
                     email = Email();
                 }
-                if (selectedMenuItem == "[    Wachtwoord    ]")
+                if (selectedMenuItem == "[    Wachtwoord    ]" + pass)
                 {
                     password = Password();
+                    for (int i = 0; i < password.Length; i++)
+                    {
+                        pass += "*";
+                    }
                 }
-                if (selectedMenuItem == "[    Interessen    ]")
+                if (selectedMenuItem == "[    Interessen    ]" + intreststring)
                 {
                     intrest = Intrest();
                     intreststring = "";
@@ -391,6 +491,11 @@ namespace ConsoleApp1
                     {
                         error = "U heeft niet alle velden ingevuld";
                     }
+                }
+                if(selectedMenuItem == "[     Annuleren    ]")
+                {                   
+                    Console.Clear();
+                    registerbool = false;
                 }
                 }
             string address = street + housenum + postalcode + city;

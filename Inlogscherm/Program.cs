@@ -8,11 +8,12 @@ using System.IO;
 
 
 // using consoleapp1.mapnaam.filenaam;
+using static ConsoleApp1.MainMenu;
 using static ConsoleApp1.Film;
 using static ConsoleApp1.Accounts;
 
 
-namespace Console_Menu
+namespace ConsoleApp1
 {
 
     class Program
@@ -69,8 +70,6 @@ namespace Console_Menu
 
 
 
-
-
             ConsoleApp1.Accounts user = new ConsoleApp1.Accounts();
             string[] myInterests = { "Actie", "Drama", "Komedie"};
             string[] myInterests2 = { "Thriller", "Drama", "Romantiek" };
@@ -89,8 +88,9 @@ namespace Console_Menu
             ConsoleApp1.LoginArr loginData = new ConsoleApp1.LoginArr();
             loginData = JsonSerializer.Deserialize<ConsoleApp1.LoginArr>(AccountsList);
             loginData.Accounts[1].Age = "13/04/2980";
-
             */
+
+            
 
 
 
@@ -137,54 +137,27 @@ namespace Console_Menu
                         string loginemail = Console.ReadLine();
                         login = false;
                         Console.Clear();
-                        string filmJSONPath = Path.GetFullPath(@"FilmList.json");
-                        string jsonStringFilmList = File.ReadAllText(filmJSONPath);
+                        ConsoleApp1.MainMenu.Mainmenu();
 
-                        ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
-                        filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
-                        //Console.WriteLine(filmLijst.FilmArray[1].Name);
 
-                        Console.Write("Geef hier op wat u zoekt :");
-                        string searchClassInput = Console.ReadLine();
-                        ConsoleApp1.SearchClass search1 = new ConsoleApp1.SearchClass(searchClassInput);
-                        List<ConsoleApp1.Film> searchList = search1.FilmSearch(filmList);
-                        string searchListString = search1.FilmLengthCheck(searchList);
-                        Console.WriteLine(searchListString);
+
                     }
 
                 }
                 else if (selectedMenuItem == "[  Verder als gast ]")
                 {
-                    while (true)
-                    {
+
                         Console.Clear();
-                        string filmJSONPath = Path.GetFullPath(@"FilmList.json");
-                        string jsonStringFilmList = File.ReadAllText(filmJSONPath);
+                        ConsoleApp1.MainMenu.Mainmenu();
+                        
 
-                        ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
-                        filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
-                        //Console.WriteLine(filmLijst.FilmArray[1].Name);
-
-                        Console.Write("Geef hier op wat u zoekt :");
-                        string searchClassInput = Console.ReadLine();
-                        ConsoleApp1.SearchClass search1 = new ConsoleApp1.SearchClass(searchClassInput);
-                        List<ConsoleApp1.Film> searchList = search1.FilmSearch(filmList);
-                        string searchListString = search1.FilmLengthCheck(searchList);
-                        Console.WriteLine(searchListString);
-
-                        ConsoleKeyInfo ckey = Console.ReadKey();
-                        if (ckey.Key == ConsoleKey.Enter)
-                        {
-                            Environment.Exit(0);
-                        }
-                    }
+                    
                 }
 
                 // Register
                 else if (selectedMenuItem == "[    Registreren   ]")
                 {
                     Console.Clear();
-
                     ConsoleApp1.Register.register();
                 }
             }
@@ -220,7 +193,6 @@ namespace Console_Menu
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine();
-
             /*string logo = @"        
                          ██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
                         ██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
@@ -237,7 +209,7 @@ namespace Console_Menu
             {
                 if (i == index)
                 {
-                    Console.Write("                                                    ");
+                    Console.Write("                                                ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
 
@@ -245,14 +217,18 @@ namespace Console_Menu
                 }
                 else
                 {
-                    Console.Write("                                                    ");
+                    Console.Write("                                                ");
                     Console.WriteLine(items[i]);
                 }
                 Console.ResetColor();
             }
 
             ConsoleKeyInfo ckey = Console.ReadKey();
-
+            // vragen aan PO over f11 key(fullscreen) of het disabled moet worden, zo ja vragen aan peercoach.
+            if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
+            {
+                Console.Clear();
+            }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
                 if (index == 2)
