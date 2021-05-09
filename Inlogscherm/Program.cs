@@ -20,15 +20,23 @@ namespace ConsoleApp1
     {
         private static int index = 0;
 
-
-
         private static void Main(string[] args)
         {
+            /* Debug & Testing ************************************
+            ConsoleApp1.Orders newOrder = new Orders();
+            foreach(int seat in newOrder.GetSeatCoords(5))
+            {
+                Console.WriteLine(seat);
+            }
+            /* ./ Debug & Testing *********************************/
+
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen     ]",
                 "[    Registreren   ]",
                 "[  Verder als gast ]"
             };
+
+           
 
 
             Console.CursorVisible = false;

@@ -157,10 +157,58 @@ namespace ConsoleApp1 {
             }
         }
        
-        
-
     } // ./ Class
 
+    public class Order
+    {
+        public int ID { get; set; }
+        public int UID { get; set; }
+        public int MovieID { get; set; }
+        public string ordernumber { get; set; }
+        public List<int> SeatCoords { get; set; }
+        public List<int> ProductIDs { get; set; }
+    }
+
+    public class Orders
+    {
+        public string orderPath = Path.GetFullPath(@"Orders.json");
+        public string accountPath = Path.GetFullPath(@"Accounts.json");
+
+        // Get Current Seats - Methods
+        public int[] GetSeatCoords(int movieID)
+        {
+            var jsonData = System.IO.File.ReadAllText(orderPath);
+            var orderList = JsonConvert.DeserializeObject<List<Order>>(jsonData);
+
+            // Determine the size of the array:
+            int index = 0;
+            foreach (Order order in orderList)
+            {
+                if(movieID == order.MovieID)
+                {
+                    foreach(int seat in order.SeatCoords)
+                    {
+                        index++;
+                    }
+                }
+            }
+
+            int[] SeatCoords = new int[index];
+            index = 0;
+            foreach (Order order in orderList)
+            {
+                if (movieID == order.MovieID)
+                {
+                    foreach (int seat in order.SeatCoords)
+                    {
+                        SeatCoords[index] = seat;
+                        index++;
+                    }
+                }
+            }
+            return SeatCoords;
+        }
+    }
 }
 
 /*==================================================================================================================== *

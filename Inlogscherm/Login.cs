@@ -39,7 +39,11 @@ namespace ConsoleApp1
                 } while (key != ConsoleKey.Enter);
                 string loginemail = Console.ReadLine();
                 login = false;
+
                 Console.Clear();
+                ConsoleApp1.Accounts userLogin = new Accounts();
+                Console.Write(loginemail, pass);
+                Console.Write(userLogin.Login(loginemail, pass));
             }
 
         }
