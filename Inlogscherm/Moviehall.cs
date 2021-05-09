@@ -91,9 +91,6 @@ namespace ConsoleApp1
 
     }
 
-
-
-
     class Registers
     {
         private static int people = 100;
