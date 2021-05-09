@@ -69,16 +69,17 @@ namespace ConsoleApp1
             //--------------------------------------------------------------------------------------------------------------------------
 
 
-
+            
             ConsoleApp1.Accounts user = new ConsoleApp1.Accounts();
             string[] myInterests = { "Actie", "Drama", "Komedie"};
             string[] myInterests2 = { "Thriller", "Drama", "Romantiek" };
-            user.AddAccount($"user{user.GenerateID()}@mail.com", $"#{user.GenerateID()}Geheim", "John", "Doe", "199-03-07", "Patatstraat 12", myInterests);
+            user.AddAccount($"user{user.GenerateID()}@mail.com", $"#{user.GenerateID()}Geheim", "John", "Doe", "1999-03-07", "Patatstraat 12", myInterests);
             user.AddAccount($"user{user.GenerateID()}@mail.com", $"#{user.GenerateID()}Geheim", "Jane", "Doe", "2000-01-01", "Frietstraat 23", myInterests2);
 
             user.Login("user2@mail.com", "#2Geheim");
 
-            user.UpgradeToVip(3);
+            user.UpgradeToVip(5);
+
             //Console.Clear();
 
 

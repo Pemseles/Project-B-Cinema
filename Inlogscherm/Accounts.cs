@@ -37,15 +37,21 @@ namespace ConsoleApp1 {
 
         // Generate new UID - Method
         public int GenerateID(){
+
             int uid = 0;
+            try {
+                var jsonData = System.IO.File.ReadAllText(accountPath);
+                var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
 
-            var jsonData = System.IO.File.ReadAllText(accountPath);
-            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
-
-            foreach (var element in accountsList) { uid = element.UID; };
-
-            return uid + 1;
-        }
+                foreach (Account element in accountsList) { uid = element.UID; };
+                return uid + 1;
+            }
+            catch (Exception) // Excute if there are no entries in the JSON
+            {
+                return 0;
+            }
+            
+            }
 
         // INSERT Acount to JSON - Method
         public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests)
