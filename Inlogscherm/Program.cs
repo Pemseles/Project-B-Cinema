@@ -72,11 +72,15 @@ namespace Console_Menu
 
 
             ConsoleApp1.Accounts user = new ConsoleApp1.Accounts();
-            string[] myInterests = { "Volvo", "BMW", "Ford", "Mazda" };
-            user.AddAccount("user1@email.com", "#1Geheim", "Johnny", "Bravo", "2000-01-01", "Patatstraat 12", myInterests);
-            user.AddAccount("user1@email.com", "#1Geheim", "bloep", "Boga", "2000-01-01", "Patatstraat 12", myInterests);
+            string[] myInterests = { "Actie", "Drama", "Komedie"};
+            string[] myInterests2 = { "Thriller", "Drama", "Romantiek" };
+            user.AddAccount($"user{user.GenerateID()}@mail.com", $"#{user.GenerateID()}Geheim", "John", "Doe", "199-03-07", "Patatstraat 12", myInterests);
+            user.AddAccount($"user{user.GenerateID()}@mail.com", $"#{user.GenerateID()}Geheim", "Jane", "Doe", "2000-01-01", "Frietstraat 23", myInterests2);
 
-            Console.Clear();
+            user.Login("user2@mail.com", "#2Geheim");
+
+            user.UpgradeToVip(3);
+            //Console.Clear();
 
 
             /*
@@ -146,14 +150,6 @@ namespace Console_Menu
                         List<ConsoleApp1.Film> searchList = search1.FilmSearch(filmList);
                         string searchListString = search1.FilmLengthCheck(searchList);
                         Console.WriteLine(searchListString);
-
-                        ConsoleKeyInfo ckey = Console.ReadKey();
-                        if (ckey.Key == ConsoleKey.Enter)
-                        {
-                            Environment.Exit(0);
-                        }
-
-
                     }
 
                 }
