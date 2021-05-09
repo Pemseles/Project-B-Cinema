@@ -14,6 +14,7 @@ namespace ConsoleApp1
     public class Film
     {
         // deze class heeft filmnaam, director, array met genres en agerating, die je kan omzetten tot JSON-string en van JSON tot object
+        public int ID { get; set; }
         public string Name { get; set; }
         public string Director { get; set; }
         public string[] Genres { get; set; }

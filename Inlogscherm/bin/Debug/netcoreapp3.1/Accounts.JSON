@@ -283,5 +283,35 @@
       "Drama",
       "Romantiek"
     ]
+  },
+  {
+    "UID": 19,
+    "Level": 1,
+    "Email": "user19@mail.com",
+    "Pwd": "#19Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "199-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 20,
+    "Level": 1,
+    "Email": "user20@mail.com",
+    "Pwd": "#20Geheim",
+    "Firstname": "Jane",
+    "Lastname": "Doe",
+    "Age": "2000-01-01",
+    "Address": "Frietstraat 23",
+    "Interests": [
+      "Thriller",
+      "Drama",
+      "Romantiek"
+    ]
   }
 ]

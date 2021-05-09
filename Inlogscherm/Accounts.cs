@@ -37,7 +37,7 @@ namespace ConsoleApp1 {
 
         // Generate new UID - Method
         public int GenerateID(){
-            int uid = 4;
+            int uid = 0;
 
             var jsonData = System.IO.File.ReadAllText(accountPath);
             var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
@@ -150,17 +150,16 @@ namespace ConsoleApp1 {
                 System.IO.File.WriteAllText(accountPath, jsonData);
             }
         }
-           
+       
+        
 
     } // ./ Class
 
 }
 
-/*
+/*==================================================================================================================== *
  * 
- * ====================================================================================================================
- * 
- * public class Accounts {
+ public class Accounts {
     public string Age;
     public string Email; 
     public string Pwd;
