@@ -173,6 +173,7 @@ namespace ConsoleApp1 {
     {
         public string orderPath = Path.GetFullPath(@"Orders.json");
         public string accountPath = Path.GetFullPath(@"Accounts.json");
+        public string productsPath = Path.GetFullPath(@"ProductList.json");
 
         // Get Current Seats - Methods
         public int[] GetSeatCoords(int movieID)
