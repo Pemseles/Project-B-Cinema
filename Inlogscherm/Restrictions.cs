@@ -63,7 +63,7 @@ namespace ConsoleApp1
         private static bool Sym(string s)
         {
             for (int i = 0; i < s.Length; i++) {
-                if (Char.IsSymbol(s[i]))
+                if (char.IsSymbol(s[i]))
                 {
                     return true;
                 }

@@ -43,3 +43,18 @@ G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm
 G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
 G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.exe
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.deps.json
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.json
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.dev.json
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csprojAssemblyReference.cache
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfoInputs.cache
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfo.cs
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CoreCompileInputs.cache
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache

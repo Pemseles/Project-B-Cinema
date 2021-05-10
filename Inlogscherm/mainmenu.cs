@@ -123,28 +123,28 @@ namespace ConsoleApp1
                     back();
                     // open de movies json
                 }
-                if (selectedMenuItem == "[      Snacks      ]")
+                else if (selectedMenuItem == "[      Snacks      ]")
                 {
                     Console.Clear();
                     Console.WriteLine("Dit is de lijst met snacks");
                     back();
                     // open de snacks json
                 }
-                if (selectedMenuItem == "[  Informatiemenu  ]")
+                else if (selectedMenuItem == "[  Informatiemenu  ]")
                 {
                     Console.Clear();
                     Console.WriteLine("Dit is het informatie menu");
                     back();
                     // open de info panels
                 }
-                if (selectedMenuItem == "[    Review menu   ]")
+                else if (selectedMenuItem == "[    Review menu   ]")
                 {
                     Console.Clear();
                     Console.WriteLine("Dit is het review menu");
                     back();
                     // open de review list of json
                 }
-                if (selectedMenuItem == "[   Winkel mandje  ]")
+                else if (selectedMenuItem == "[   Winkel mandje  ]")
                 {
                     Console.Clear();
                     Console.WriteLine("Dit is het winkelmandje");
@@ -153,7 +153,7 @@ namespace ConsoleApp1
                     // if email == seats.email && email == snacksselected.email
                     // zo misschien info ophalen per account
                 }
-                if (selectedMenuItem == "[    VIP pagina    ]")
+                else if (selectedMenuItem == "[    VIP pagina    ]")
                 {
                     Console.Clear();
                     Console.WriteLine("dit is de VIP pagina");
@@ -161,7 +161,7 @@ namespace ConsoleApp1
                     // if account registratie == vip 
                     // kan dit geopend worden 
                 }
-                if (selectedMenuItem == "[       Zalen      ]")
+                else if (selectedMenuItem == "[       Zalen      ]")
                 {
                     Console.Clear();
                     Registers.moviehall();
@@ -170,7 +170,7 @@ namespace ConsoleApp1
                     // if account registratie == vip 
                     // kan dit geopend worden 
                 }
-                if (selectedMenuItem == "[     Uitloggen    ]")
+                else if (selectedMenuItem == "[     Uitloggen    ]")
                 {
                     Console.Clear();
                     mainmenubool = false;   

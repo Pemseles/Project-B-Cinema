@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {}
+    "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {}
   },
   "projects": {
-    "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {
+    "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+        "projectUniqueName": "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
         "projectName": "Cinema Project B",
-        "projectPath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
-        "packagesPath": "C:\\Users\\Sergio Kik\\.nuget\\packages\\",
-        "outputPath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\obj\\",
+        "projectPath": "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+        "packagesPath": "C:\\Users\\avien\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Sergio Kik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\avien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

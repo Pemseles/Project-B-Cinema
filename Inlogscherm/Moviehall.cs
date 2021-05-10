@@ -101,6 +101,8 @@ namespace ConsoleApp1
         private static List<int> seats = new List<int>();
         public static void moviehall()
         {
+            
+            // functie in orders int array in for-lopen , functie Add toevoegen6
             CursorVisible = false;
             res.Add(1);
             res.Add(23);

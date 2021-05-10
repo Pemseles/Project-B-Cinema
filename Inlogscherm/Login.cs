@@ -12,8 +12,8 @@ namespace ConsoleApp1
     {
         public static void login()
         {
-            bool login = true;
-            while (login == true)
+            bool login = false;
+            while (login == false)
             {
                 Console.Clear();
                 var pass = string.Empty;
@@ -38,14 +38,14 @@ namespace ConsoleApp1
                     }
                 } while (key != ConsoleKey.Enter);
                 string loginemail = Console.ReadLine();
-                login = false;
+                login = true;
 
                 Console.Clear();
                 ConsoleApp1.Accounts userLogin = new Accounts();
                 Console.Write(loginemail, pass);
                 Console.Write(userLogin.Login(loginemail, pass));
             }
-
+            // aanpassing maken naar false -- t gaat fout tot t goed gaat
         }
     }
 }

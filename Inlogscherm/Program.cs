@@ -22,7 +22,7 @@ namespace ConsoleApp1
 
         private static void Main(string[] args)
         {
-            /* Debug & Testing ************************************
+            /* Debug & Testing ************************************/
             ConsoleApp1.Orders newOrder = new Orders();
             foreach(int seat in newOrder.GetSeatCoords(5))
             {
