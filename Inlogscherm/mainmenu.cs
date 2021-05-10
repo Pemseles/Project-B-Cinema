@@ -7,6 +7,7 @@ using static System.Console;
 using System.IO;
 using static ConsoleApp1.MainMenu;
 using static ConsoleApp1.Registers;
+using static ConsoleApp1.Infopanels;
 // restricties opzetten voor gebruik van alleen backspace en enter anders redrawd ie m 
 namespace ConsoleApp1
 {
@@ -133,6 +134,7 @@ namespace ConsoleApp1
                 if (selectedMenuItem == "[  Informatiemenu  ]")
                 {
                     Console.Clear();
+                    Infopanels.InfoScreen();
                     Console.WriteLine("Dit is het informatie menu");
                     back();
                     // open de info panels
