@@ -70,7 +70,7 @@ namespace ConsoleApp1
 
 
 
-            ConsoleApp1.Accounts user = new ConsoleApp1.Accounts();
+            /*ConsoleApp1.Accounts user = new ConsoleApp1.Accounts();
             string[] myInterests = { "Actie", "Drama", "Komedie"};
             string[] myInterests2 = { "Thriller", "Drama", "Romantiek" };
             user.AddAccount($"user{user.GenerateID()}@mail.com", $"#{user.GenerateID()}Geheim", "John", "Doe", "199-03-07", "Patatstraat 12", myInterests);
@@ -137,7 +137,7 @@ namespace ConsoleApp1
                         string loginemail = Console.ReadLine();
                         login = false;
                         Console.Clear();
-                        ConsoleApp1.MainMenu.Mainmenu();
+                        MainMenu.Mainmenu();
 
 
 

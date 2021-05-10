@@ -77,19 +77,14 @@ namespace ConsoleApp1
             {
                 case 1:
                     return Restrictions.Len(len,s);
-                    break;
                 case 2:
                     return Restrictions.Caps(s);
-                    break;
                 case 3:
                     return Restrictions.Digit(s);
-                    break;
                 case 4:
                     return Restrictions.Sym(s);
-                    break;
                 case 5:
                     return Restrictions.Letter(s);
-                    break;
             }
             return false;
         }

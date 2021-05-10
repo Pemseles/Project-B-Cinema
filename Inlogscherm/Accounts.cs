@@ -40,9 +40,9 @@ namespace ConsoleApp1 {
             int uid = 0;
 
             var jsonData = System.IO.File.ReadAllText(accountPath);
-            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+            //var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
 
-            foreach (var element in accountsList) { uid = element.UID; };
+            //foreach (var element in accountsList) { uid = element.UID; };
 
             return uid + 1;
         }

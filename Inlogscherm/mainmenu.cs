@@ -134,8 +134,8 @@ namespace ConsoleApp1
                 if (selectedMenuItem == "[  Informatiemenu  ]")
                 {
                     Console.Clear();
-                    Infopanels.InfoScreen();
-                    Console.WriteLine("Dit is het informatie menu");
+                    Infopanels panelObj = new Infopanels();
+                    panelObj.InfoScreen();
                     back();
                     // open de info panels
                 }
