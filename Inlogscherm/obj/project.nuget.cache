@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Ej1Z0lDbyLbjLW+nHI02+ZYHVyQoMWUKfCuqS995pv6bhfYkTJ80hqsL5ewQ8tbYzTqUhaimARPuNDqjYFH4tQ==",
+  "dgSpecHash": "CXRtP1kWDzcO5+nMgF+KQyJOVebKzX/t7q+YVNZuzMNuqyMWp807TlXqfp1tCSVNk5rDVbGD1fDvVDBr15MvMw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+  "projectFilePath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\avien\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Sergio Kik\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
