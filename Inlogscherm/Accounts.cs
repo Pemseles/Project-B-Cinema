@@ -97,6 +97,7 @@ namespace ConsoleApp1 {
 
             foreach(Account obj in accountsList)
             {
+                Console.WriteLine(obj.Email, obj.Pwd);
                 // Check if email and pwd are equal
                 if(obj.Email == email && obj.Pwd == pwd)
                 {

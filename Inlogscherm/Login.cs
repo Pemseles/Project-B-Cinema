@@ -10,7 +10,7 @@ namespace ConsoleApp1
 {
     public class Login
     {
-        public static void login()
+        public static void loginFunc()
         {
             bool login = false;
             while (login == false)
@@ -42,8 +42,10 @@ namespace ConsoleApp1
 
                 Console.Clear();
                 ConsoleApp1.Accounts userLogin = new Accounts();
-                Console.Write(loginemail, pass);
-                Console.Write(userLogin.Login(loginemail, pass));
+                if(userLogin.Login(email, pass) == -1)
+                {
+                    loginFunc();
+                }
             }
             // aanpassing maken naar false -- t gaat fout tot t goed gaat
         }

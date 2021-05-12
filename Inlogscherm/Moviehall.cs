@@ -104,14 +104,13 @@ namespace ConsoleApp1
             
             // functie in orders int array in for-lopen , functie Add toevoegen6
             CursorVisible = false;
-            res.Add(1);
-            res.Add(23);
-            res.Add(33);
-            res.Add(15);
-            res.Add(4);
-            res.Add(18);
-            res.Add(19);
-            
+
+            ConsoleApp1.Orders newOrder = new Orders();
+            foreach (int seat in newOrder.GetSeatCoords(5))
+            {
+                res.Add(seat);
+            }
+
             //int ticket = Int16.Parse(Console.ReadLine());
             bool a = true;
             //Console.Write("how big is the cinema hall: ");

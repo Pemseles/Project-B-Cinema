@@ -47,7 +47,7 @@ namespace ConsoleApp1
                 // Login
                 if (selectedMenuItem == "[     Inloggen     ]")
                 {
-                    ConsoleApp1.Login.login();
+                    ConsoleApp1.Login.loginFunc();
                     ConsoleApp1.MainMenu.Mainmenu();
 
                 }
