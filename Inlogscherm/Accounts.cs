@@ -8,8 +8,7 @@ using Newtonsoft.Json;
 //using System.Text.Json;
 //using System.Text.Json.Serialization;
 
-namespace ConsoleApp1
-{
+namespace ConsoleApp1 {
 
     public class Account
     {
@@ -37,11 +36,9 @@ namespace ConsoleApp1
         public string accountPath = Path.GetFullPath(@"Accounts.json");
 
         // Generate new UID - Method
-        public int GenerateID()
-        {
+        public int GenerateID(){
             int uid = 0;
-            try
-            {
+            try {
                 var jsonData = System.IO.File.ReadAllText(accountPath);
                 var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
 
@@ -52,8 +49,8 @@ namespace ConsoleApp1
             {
                 return 0;
             }
-
-        }
+            
+            }
 
         // INSERT Acount to JSON - Method
         public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests)
@@ -97,10 +94,10 @@ namespace ConsoleApp1
             var jsonData = System.IO.File.ReadAllText(accountPath);
             var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
 
-            foreach (Account obj in accountsList)
+            foreach(Account obj in accountsList)
             {
                 // Check if email and pwd are equal
-                if (obj.Email == email && obj.Pwd == pwd)
+                if(obj.Email == email && obj.Pwd == pwd)
                 {
                     // Account Found
                     uid = obj.UID;
@@ -123,15 +120,14 @@ namespace ConsoleApp1
             {
                 if (uid == obj.UID)
                 {
-                    if (obj.Level > 2)
-                    {
+                    if (obj.Level > 2) {
                         Console.WriteLine("FOUT: Een Administrator Account kan geen VIP worden");
                         break;
-                    }
+                    } 
                     else if (obj.Level == 2)
                     {
                         Console.WriteLine("FOUT: Account heeft al VIP status");
-                    }
+                    } 
                     else
                     {
                         valid = true;
@@ -144,7 +140,7 @@ namespace ConsoleApp1
         // Upgrade to VIP - Method
         public void UpgradeToVip(int uid)
         {
-            if (CheckValidUprade(uid))
+            if (CheckValidUprade(uid)) 
             {
                 var jsonData = System.IO.File.ReadAllText(accountPath);
                 var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
@@ -159,7 +155,7 @@ namespace ConsoleApp1
                 System.IO.File.WriteAllText(accountPath, jsonData);
             }
         }
-
+       
     } // ./ Class
 
     public class Order
@@ -172,37 +168,15 @@ namespace ConsoleApp1
         public List<int> ProductIDs { get; set; }
     }
 
-    public class Theaterhall
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public int NumberOfSeats { get; set; }
-        public List<int> VipSeatCoords { get; set; }
-        public int Active { get; set; }
-    }
-
-    public class Product
-    {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public double Price { get; set; }
-        public int Active { get; set; }
-    }
-
-
     public class Orders
     {
-        // Database Paths:
         public string orderPath = Path.GetFullPath(@"Orders.json");
         public string accountPath = Path.GetFullPath(@"Accounts.json");
         public string productsPath = Path.GetFullPath(@"ProductList.json");
-        public string theatherhallPath = Path.GetFullPath(@"Theaterhalls.json");
 
         // Get Current Seats - Methods
         public int[] GetSeatCoords(int movieID)
         {
-            /// Returns an Int Array of taken seatnumbers
             var jsonData = System.IO.File.ReadAllText(orderPath);
             var orderList = JsonConvert.DeserializeObject<List<Order>>(jsonData);
 
@@ -210,9 +184,9 @@ namespace ConsoleApp1
             int index = 0;
             foreach (Order order in orderList)
             {
-                if (movieID == order.MovieID)
+                if(movieID == order.MovieID)
                 {
-                    foreach (int seat in order.SeatCoords)
+                    foreach(int seat in order.SeatCoords)
                     {
                         index++;
                     }
@@ -234,43 +208,87 @@ namespace ConsoleApp1
             }
             return SeatCoords;
         }
-
-        // Get VIP Seats
-        public int[] GetVipSeatCoords(int TheatherHallID)
-        {
-            /// Returns an Int Array of taken seatnumbers
-            var jsonData = System.IO.File.ReadAllText(theatherhallPath);
-            var theater = JsonConvert.DeserializeObject<List<Theaterhall>>(jsonData);
-
-            // Determine the amount of Vip Seats
-            int index = 0;
-            foreach (Theaterhall hall in theater)
-            {
-                if (hall.ID == TheatherHallID)
-                {
-                    foreach (int VipSeat in hall.VipSeatCoords)
-                    {
-                        index++;
-                    }
-                }
-            }
-
-            // Create an int array
-            int[] VipSeatCoords = new int[index];
-            index = 0;
-            
-            // Add the Vip seatcoords to an Int Array
-            foreach (Theaterhall hall in theater)
-            {
-                if (hall.ID == TheatherHallID)
-                {
-                    foreach (int VipSeat in hall.VipSeatCoords)
-                    {
-                        VipSeatCoords[index++] = VipSeat;
-                    }
-                }
-            }
-            return VipSeatCoords;
-        }
     }
 }
+
+/*==================================================================================================================== *
+ * 
+ public class Accounts {
+    public string Age;
+    public string Email; 
+    public string Pwd;
+    public string Firstname;
+    public string Lastname;
+    public string Address;
+    public List<string> Interests;
+    public string accountPath = Path.GetFullPath(@"Accounts.json");
+
+    // Load accounts.json - Method
+    public void DeserilizeAccounts()
+    {
+        string jsonString = File.ReadAllText(accountPath);
+
+        var accountsSerialized = JsonSerializer.Deserialize<NewAccount>(jsonString);
+        Console.Write(accountsSerialized);
+
+    }
+
+    // INSERT Acount to JSON - Method
+    public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests) {
+
+        string jsonString = File.ReadAllText(accountPath);
+
+
+
+        List<string> interestLists = interests.ToList();
+        NewAccount NewUser = new NewAccount
+        {
+            UID = 3,
+            Level = 1,
+            Email = email,
+            Pwd = pwd,
+            Firstname = firstname,
+            Lastname = lastname,
+            Age = age,
+            Address = address,
+            Interests = interestLists
+
+        };
+
+
+        var options = new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            AllowTrailingCommas = true
+        };
+
+
+
+        string newJsonString = JsonSerializer.Serialize(NewUser, options);
+
+        string newJsonnewJsonString = jsonString + ',' + newJsonString;
+        Console.Write(newJsonString);
+        File.WriteAllText(accountPath, newJsonString);
+
+        // serialize JSON to a string and then write string to a file
+
+    }
+} // ./ Class
+
+}
+*/
+// Dag: ___ Maand: ___ Jaar: ___
+
+// Input - Username/Email AND Password
+// Output - UID (User ID)
+// Load JSON
+/*
+ public void RetrieveAccounts()
+ {
+     string AccountPath = Path.GetFullPath(@"Accounts.json");
+     string AccountsList = File.ReadAllText(AccountPath);
+     ConsoleApp1.NewAccount loginData = new ConsoleApp1.NewAccount();
+     loginData = JsonSerializer.Deserialize<ConsoleApp1.NewAccount>(AccountsList);
+     loginData.Accounts[1].Age = "13/04/2980";
+ }
+ */

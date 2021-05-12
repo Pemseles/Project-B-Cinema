@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using static System.Console;
 using System.IO;
 
@@ -99,13 +99,13 @@ namespace ConsoleApp1
         private static List<int> res = new List<int>();
         private static int index = 0;
         private static List<int> seats = new List<int>();
-        private static ConsoleApp1.Orders newOrder = new Orders();
         public static void moviehall()
         {
             
             // functie in orders int array in for-lopen , functie Add toevoegen6
             CursorVisible = false;
 
+            ConsoleApp1.Orders newOrder = new Orders();
             foreach (int seat in newOrder.GetSeatCoords(5))
             {
                 res.Add(seat);
@@ -221,7 +221,7 @@ namespace ConsoleApp1
 
                         Console.Write(items[i]);
                     }
-                    else if (newOrder.GetVipSeatCoords(1).Contains(i))
+                    else if (i >= 30 && i < 40)
                     {
                         Console.BackgroundColor = ConsoleColor.Yellow;
                         Console.ForegroundColor = ConsoleColor.Black;
