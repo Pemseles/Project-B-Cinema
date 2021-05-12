@@ -46,7 +46,7 @@ namespace ConsoleApp1
                 ConsoleApp1.Accounts userLogin = new Accounts();
                 if(userLogin.Login(email, pass) == -1)
                 {
-                    Console.WriteLine("Email or Password is Incorrect\n");
+                    Console.WriteLine("Email or Wachtwoord is onjuist\nProbeer het nog een keer");
                     loginFunc();
 
                 }
