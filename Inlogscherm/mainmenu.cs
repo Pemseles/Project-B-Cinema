@@ -81,19 +81,19 @@ namespace ConsoleApp1
             while (mainmenubool == true)
             {
                 List<string> Mainscreen = new List<string>() {
-                "[     Zoekbalk     ]" ,
-                "[     Filmlijst    ]" ,
-                "[      Snacks      ]" ,
+                "[     Zoek films   ]" ,
+                "[     Alle films   ]" ,
+                "[Hapjes en drankjes]" ,
                 "[  Informatiemenu  ]" ,
                 "[    Review menu   ]" ,
-                "[   Winkel mandje  ]" ,
+                "[    Winkelmand    ]" ,
                 "[    VIP pagina    ]" ,
-                "[       Zalen      ]"  ,
+                "[       Zalen      ]" ,
                 "[     Uitloggen    ]"
                  };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
-                if (selectedMenuItem == "[     Zoekbalk     ]")
+                if (selectedMenuItem == "[     Zoek films   ]")
                 {
                     Console.Clear();
                     
@@ -116,17 +116,17 @@ namespace ConsoleApp1
                     back();
 
                 }
-                if (selectedMenuItem == "[     Filmlijst    ]")
+                if (selectedMenuItem == "[     Alle films   ]")
                 {
                     Console.Clear();
                     Console.WriteLine("Dit is de filmlijst");
                     back();
                     // open de movies json
                 }
-                else if (selectedMenuItem == "[      Snacks      ]")
+                else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {
                     Console.Clear();
-                    Console.WriteLine("Dit is de lijst met snacks");
+                    ConsoleApp1.Products.Productmenu();
                     back();
                     // open de snacks json
                 }
@@ -144,11 +144,9 @@ namespace ConsoleApp1
                     back();
                     // open de review list of json
                 }
-                else if (selectedMenuItem == "[   Winkel mandje  ]")
+                else if (selectedMenuItem == "[    Winkelmand    ]")
                 {
                     Console.Clear();
-                    Console.WriteLine("Dit is het winkelmandje");
-                    back();
                     // open de seats json + snackselected json
                     // if email == seats.email && email == snacksselected.email
                     // zo misschien info ophalen per account
