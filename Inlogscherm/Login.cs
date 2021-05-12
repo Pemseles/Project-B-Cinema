@@ -10,12 +10,14 @@ namespace ConsoleApp1
 {
     public class Login
     {
+        public bool fail = false;
         public static void loginFunc()
         {
+            
             bool login = false;
             while (login == false)
             {
-                Console.Clear();
+                //Console.Clear();
                 var pass = string.Empty;
                 ConsoleKey key;
                 Console.Write("E-mail: ");
@@ -44,7 +46,9 @@ namespace ConsoleApp1
                 ConsoleApp1.Accounts userLogin = new Accounts();
                 if(userLogin.Login(email, pass) == -1)
                 {
+                    Console.WriteLine("Email or Password is Incorrect\n");
                     loginFunc();
+
                 }
             }
             // aanpassing maken naar false -- t gaat fout tot t goed gaat
