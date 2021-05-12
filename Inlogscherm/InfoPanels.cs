@@ -19,6 +19,7 @@ namespace ConsoleApp1
 
         public Infopanels()
         {
+            // laadt hier de infopanels, niet via json want deze veranderen niet en t zijn dr niet zo veel
             this.PanelLocation = @"
             [   Om te genieten van uw aankopen en onze service kunt u naar een van onze locaties.   ]
             [   Onze locaties zijn als volgt:                                                       ]
@@ -105,6 +106,7 @@ namespace ConsoleApp1
 
         private string InfoScreenSelect(List<string> items, string SelectedPanel)
         {
+            // wordt gecalled in Infoscreen() om ingedrukte toets te bepalen
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)
@@ -123,6 +125,7 @@ namespace ConsoleApp1
                 Console.ResetColor();
                 
             }
+            // tekent de infopanels met de SelectedPanel, die alleen verandert als je enter drukt.
             DrawInfo(SelectedPanel);
             ConsoleKeyInfo ckey = Console.ReadKey();
             if (ckey.Key == ConsoleKey.DownArrow)
@@ -144,6 +147,7 @@ namespace ConsoleApp1
                 Console.Clear();
                 return items[index];
             }
+            // else returnt SelectedPanel zodat de infopanel open blijft totdat het verandert
             else
             {
                 return SelectedPanel;
@@ -154,9 +158,11 @@ namespace ConsoleApp1
 
         public void InfoScreen()
         {
+            // deze 3 dingen veranderen afhankelijk van wat SelectedPanel is
             index = 0;
             bool infoPanelBool = true;
             string SelectedPanel = "";
+
             while (infoPanelBool)
             {
                 List<string> infoScreenLayout = new List<string>() { 
@@ -183,6 +189,7 @@ namespace ConsoleApp1
 
         private void DrawInfo(string currentPanel)
         {
+            // tekent de infopanels afhankelijk van welke panel geselecteerd is
             if (currentPanel == "[     Locatie     ]")
             {
                 Console.Write(this.PanelLocation);

@@ -14,8 +14,9 @@ namespace ConsoleApp1
     public class MainMenu
     {
         private static int index = 0;
+        public static FilmArr filmList;
 
-            private static string MainScreen(List<string> items)
+        private static string MainScreen(List<string> items)
         {
             for (int i = 0; i < items.Count; i++)
             {
@@ -42,19 +43,17 @@ namespace ConsoleApp1
             }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index == 8)
+                if (index < 8)
                 {
-                    index = 0;
+                    index++;
                 }
-                else { index++; }
             }
             else if (ckey.Key == ConsoleKey.UpArrow)
             {
-                if (index <= 0)
+                if (index > 0)
                 {
-                    index = 8;
+                    index--;
                 }
-                else { index--; }
             }
             else if (ckey.Key == ConsoleKey.Enter)
             {
@@ -77,35 +76,36 @@ namespace ConsoleApp1
             } 
         }
         public static void Mainmenu()
-        {           
+        {
+            string filmJSONPath = Path.GetFullPath(@"FilmList.json");
+            string jsonStringFilmList = File.ReadAllText(filmJSONPath);
+            filmList = new ConsoleApp1.FilmArr();
+            filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
+            Checkout Cart = new Checkout();
             bool mainmenubool = true;
             while (mainmenubool == true)
             {
                 List<string> Mainscreen = new List<string>() {
-                "[     Zoekbalk     ]" ,
+                "[    Zoek films    ]" ,
                 "[     Filmlijst    ]" ,
                 "[      Snacks      ]" ,
                 "[  Informatiemenu  ]" ,
                 "[    Review menu   ]" ,
-                "[   Winkel mandje  ]" ,
+                "[   Winkelmandje   ]" ,
                 "[    VIP pagina    ]" ,
-                "[       Zalen      ]"  ,
+                "[       Zalen      ]" ,
                 "[     Uitloggen    ]"
-                 };
+                };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
-                if (selectedMenuItem == "[     Zoekbalk     ]")
+                if (selectedMenuItem == "[    Zoek films    ]")
                 {
                     Console.Clear();
                     
                     Console.WriteLine("Dit is de zoekbalk");                    
                     // kortere reference werkt niet : argument toevoegen
                     //ConsoleApp1.SearchClass.FilmSearch();
-                    string filmJSONPath = Path.GetFullPath(@"FilmList.json");
-                    string jsonStringFilmList = File.ReadAllText(filmJSONPath);
 
-                    ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
-                    filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
                     //Console.WriteLine(filmLijst.FilmArray[1].Name);
                     back();
                     Console.Write("Geef hier op wat u zoekt :");
@@ -146,10 +146,10 @@ namespace ConsoleApp1
                     back();
                     // open de review list of json
                 }
-                if (selectedMenuItem == "[   Winkel mandje  ]")
+                if (selectedMenuItem == "[   Winkelmandje   ]")
                 {
                     Console.Clear();
-                    Console.WriteLine("Dit is het winkelmandje");
+                    Cart.PaymentScreen();
                     back();
                     // open de seats json + snackselected json
                     // if email == seats.email && email == snacksselected.email
