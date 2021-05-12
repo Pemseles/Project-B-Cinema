@@ -37,15 +37,21 @@ namespace ConsoleApp1 {
 
         // Generate new UID - Method
         public int GenerateID(){
+
             int uid = 0;
+            try {
+                var jsonData = System.IO.File.ReadAllText(accountPath);
+                var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
 
-            var jsonData = System.IO.File.ReadAllText(accountPath);
-            //var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
-
-            //foreach (var element in accountsList) { uid = element.UID; };
-
-            return uid + 1;
-        }
+                foreach (Account element in accountsList) { uid = element.UID; };
+                return uid + 1;
+            }
+            catch (Exception) // Excute if there are no entries in the JSON
+            {
+                return 0;
+            }
+            
+            }
 
         // INSERT Acount to JSON - Method
         public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests)
@@ -91,6 +97,7 @@ namespace ConsoleApp1 {
 
             foreach(Account obj in accountsList)
             {
+                Console.WriteLine(obj.Email, obj.Pwd);
                 // Check if email and pwd are equal
                 if(obj.Email == email && obj.Pwd == pwd)
                 {
@@ -151,10 +158,59 @@ namespace ConsoleApp1 {
             }
         }
        
-        
-
     } // ./ Class
 
+    public class Order
+    {
+        public int ID { get; set; }
+        public int UID { get; set; }
+        public int MovieID { get; set; }
+        public string ordernumber { get; set; }
+        public List<int> SeatCoords { get; set; }
+        public List<int> ProductIDs { get; set; }
+    }
+
+    public class Orders
+    {
+        public string orderPath = Path.GetFullPath(@"Orders.json");
+        public string accountPath = Path.GetFullPath(@"Accounts.json");
+        public string productsPath = Path.GetFullPath(@"ProductList.json");
+
+        // Get Current Seats - Methods
+        public int[] GetSeatCoords(int movieID)
+        {
+            var jsonData = System.IO.File.ReadAllText(orderPath);
+            var orderList = JsonConvert.DeserializeObject<List<Order>>(jsonData);
+
+            // Determine the size of the array:
+            int index = 0;
+            foreach (Order order in orderList)
+            {
+                if(movieID == order.MovieID)
+                {
+                    foreach(int seat in order.SeatCoords)
+                    {
+                        index++;
+                    }
+                }
+            }
+
+            int[] SeatCoords = new int[index];
+            index = 0;
+            foreach (Order order in orderList)
+            {
+                if (movieID == order.MovieID)
+                {
+                    foreach (int seat in order.SeatCoords)
+                    {
+                        SeatCoords[index] = seat;
+                        index++;
+                    }
+                }
+            }
+            return SeatCoords;
+        }
+    }
 }
 
 /*==================================================================================================================== *

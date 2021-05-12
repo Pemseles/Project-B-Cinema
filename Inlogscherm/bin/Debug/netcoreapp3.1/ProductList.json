@@ -1,0 +1,58 @@
+[
+    {
+        "ID": 0,
+        "Name": "Coca Cola Medium",
+        "type": "Drink",
+        "Price": 2.20,
+        "Active": 1
+    },
+    {
+        "ID": 1,
+        "Name": "Coca Cola Large",
+        "type": "Drink",
+        "Price": 2.40,
+        "Active": 1
+    },
+    {
+        "ID": 2,
+        "Name": "Heineken",
+        "type": "Alcohol",
+        "Price": 2.60,
+        "Active": 1
+    },
+    {
+        "ID": 3,
+        "Name": "Heineken 0.0",
+        "type": "Alcohol",
+        "Price": 2.60,
+        "Active": 1
+    },
+    {
+        "ID": 4,
+        "Name": "Popcorn",
+        "type": "Snack",
+        "Price": 2.40,
+        "Active": 1
+    },
+    {
+        "ID": 5,
+        "Name": "24 Karaats Popcorn",
+        "type": "Snack",
+        "Price": 24499.00,
+        "Active": 1
+    },
+    {
+        "ID": 6,
+        "Name": "Lays Paprika Chips Small",
+        "type": "Snack",
+        "Price": 1.99,
+        "Active": 1
+    },
+    {
+        "ID": 7,
+        "Name": "M&M Small",
+        "type": "Snack",
+        "Price": 1.80,
+        "Active": 1
+    }
+]

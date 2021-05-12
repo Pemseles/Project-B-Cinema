@@ -91,9 +91,6 @@ namespace ConsoleApp1
 
     }
 
-
-
-
     class Registers
     {
         private static int people = 100;
@@ -104,15 +101,16 @@ namespace ConsoleApp1
         private static List<int> seats = new List<int>();
         public static void moviehall()
         {
-            CursorVisible = false;
-            res.Add(1);
-            res.Add(23);
-            res.Add(33);
-            res.Add(15);
-            res.Add(4);
-            res.Add(18);
-            res.Add(19);
             
+            // functie in orders int array in for-lopen , functie Add toevoegen6
+            CursorVisible = false;
+
+            ConsoleApp1.Orders newOrder = new Orders();
+            foreach (int seat in newOrder.GetSeatCoords(5))
+            {
+                res.Add(seat);
+            }
+
             //int ticket = Int16.Parse(Console.ReadLine());
             //bool a = true;
             //Console.Write("how big is the cinema hall: ");
