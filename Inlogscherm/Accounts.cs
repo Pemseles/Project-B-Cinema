@@ -186,8 +186,8 @@ namespace ConsoleApp1
         public int ID { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
-        public double Price { get; set; }
-        public int Active { get; set; }
+        public decimal Price { get; set; }
+        public bool Active { get; set; }
     }
 
 
@@ -271,6 +271,26 @@ namespace ConsoleApp1
                 }
             }
             return VipSeatCoords;
+        }
+
+        public List<Product> GetProducts(string type)
+        {
+            /// Returns an Int Array of taken seatnumbers
+            var jsonData = System.IO.File.ReadAllText(productsPath);
+            var productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
+
+            List<Product> myProducts = new List<Product>();
+
+            // Determine the size of the array:
+            foreach (Product product in productList)
+            {
+                if(type == product.Type)
+                {
+                    myProducts.Add(product);
+                }
+            }
+           
+            return myProducts;
         }
     }
 }
