@@ -23,8 +23,11 @@ namespace ConsoleApp1
         private static void Main(string[] args)
         {
             /* Debug & Testing ************************************/
-           
-           
+            ConsoleApp1.Orders newOrder = new Orders();
+            foreach(int seat in newOrder.GetVipSeatCoords(1))
+            {
+                Console.WriteLine(seat);
+            }
             /* ./ Debug & Testing *********************************/
 
             List<string> LoginScreen = new List<string>() {

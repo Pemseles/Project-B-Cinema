@@ -96,8 +96,7 @@ namespace ConsoleApp1
                 if (selectedMenuItem == "[     Zoek films   ]")
                 {
                     Console.Clear();
-                    
-                    Console.WriteLine("Dit is de zoekbalk");                    
+               
                     // kortere reference werkt niet : argument toevoegen
                     //ConsoleApp1.SearchClass.FilmSearch();
                     string filmJSONPath = Path.GetFullPath(@"FilmList.json");
@@ -106,7 +105,7 @@ namespace ConsoleApp1
                     ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
                     filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
                     //Console.WriteLine(filmLijst.FilmArray[1].Name);
-                    back();
+                    
                     Console.Write("Geef hier op wat u zoekt :");
                     string searchClassInput = Console.ReadLine();
                     ConsoleApp1.SearchClass search1 = new ConsoleApp1.SearchClass(searchClassInput);

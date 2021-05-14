@@ -12,9 +12,11 @@ using static ConsoleApp1.Registers;
 namespace ConsoleApp1{
 public class Products
     {
-       
+        public string productsPath = Path.GetFullPath(@"ProductList.json");        
+        public static ConsoleApp1.Orders newOrder = new Orders();
         private static int index = 0;
         private static string MainScreen(List<string> items)
+        
         {
                 for (int i = 0; i < items.Count; i++)
                 {
@@ -78,45 +80,79 @@ public class Products
                 }
             }
             
+
+
+        // to do:    zorgen dat het loopt door de opties en je t kan selecteren
+        //           wanneer er iets geselcteerd wordt zorgen dat het in een Orders JSON opeslagen wordt
             public static void Productmenu()
-            {
+            { // Euroteken: 20AC
+
                 bool productmenubool = true;
                 while (productmenubool == true)
                 {
+                
                     List<string> ProductMenu = new List<string>() {
-                "[      Snacks      ]" ,
-                "[     Drankjes     ]" ,
-                "[   Combi Deals    ]" ,
-                "[       Terug      ]"
-                 };
+                        "[      Snacks      ]" ,
+                        "[     Drankjes     ]" ,
+                        "[      Alcohol     ]" ,
+                        "[   Combi Deals    ]" ,
+                        "[       Terug      ]"
+                    };
                     // kijkt bij welke index de user zich bevind
                     string selectedMenuItem = MainScreen(ProductMenu);
-                    if (selectedMenuItem == "[      Snacks      ]")
+                if (selectedMenuItem == "[      Snacks      ]")
+                {
+                    Console.Clear();
+                    var Snacks = newOrder.GetProducts("Snack");
+                    foreach(var Snack in Snacks)
                     {
-                        Console.Clear();
-                        Console.WriteLine("Dit is de snack lijst");
-                        back();
-                        // haalt lijst met productid food op
+                        Console.WriteLine($"[ snack : {Snack.Name},  prijs : {Snack.Price}] ");
                     }
-                    else if (selectedMenuItem == "[     Drankjes     ]")
+
+                    back();
+                    // haalt lijst met productid snack op
+                }
+                else if (selectedMenuItem == "[     Drankjes     ]")
+                {
+                    Console.Clear();
+                    var Drinks = newOrder.GetProducts("Drink");
+                    foreach (var Drink in Drinks)
                     {
-                        Console.Clear();
-                        Console.WriteLine("Dit is de drankjes lijst");
-                        back();
-                        // haalt lijst met productid drink op
+                        Console.WriteLine($"[ drankje : {Drink.Name}, prijs : {Drink.Price} ]");
                     }
-                    else if (selectedMenuItem == "[   Combi Deals    ]")
+
+                    back();
+                    // haalt lijst met productid drink op
+                }
+                else if (selectedMenuItem ==  "[      Alcohol     ]")
+                {
+                    Console.Clear();
+                    var Alcohols = newOrder.GetProducts("Alcohol");
+                    foreach (var Alcohol in Alcohols)
                     {
-                        Console.Clear();
-                        Console.WriteLine("Dit is de lijst met combinatie deals");
-                        back();
-                        // haalt lijst met productid deals op
-                    } 
-                    else if (selectedMenuItem == "[       Terug      ]")
+                        Console.WriteLine($"[ alcohol: {Alcohol.Name}, prijs : {Alcohol.Price} ]");
+                    }
+
+                    back();
+                    // haalt lijst met productid alcohol op
+                }
+                else if (selectedMenuItem == "[   Combi Deals    ]")
+                {
+                    Console.Clear();
+                    var Deals = newOrder.GetProducts("Combi");
+                    foreach (var Deal in Deals)
                     {
+                        Console.WriteLine($"[ deal : {Deal.Name}, prijs : {Deal.Price} ]");
+                    }
+
+                    back();
+                    // haalt lijst met productid combi op
+                }
+                else if (selectedMenuItem == "[       Terug      ]")
+                {
                     Console.Clear();
                     MainMenu.Mainmenu();
-                    }
+                }
                     
                
                 }

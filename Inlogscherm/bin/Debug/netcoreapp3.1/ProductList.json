@@ -2,57 +2,200 @@
     {
         "ID": 0,
         "Name": "Coca Cola Medium",
-        "type": "Drink",
+        "Type": "Drink",
         "Price": 2.20,
         "Active": 1
     },
     {
         "ID": 1,
         "Name": "Coca Cola Large",
-        "type": "Drink",
+        "Type": "Drink",
         "Price": 2.40,
         "Active": 1
     },
     {
         "ID": 2,
-        "Name": "Heineken",
-        "type": "Alcohol",
-        "Price": 2.60,
+        "Name": "Lipton Ijsthee",
+        "Type": "Drink",
+        "Price": 2.20,
         "Active": 1
     },
     {
         "ID": 3,
-        "Name": "Heineken 0.0",
-        "type": "Alcohol",
-        "Price": 2.60,
+        "Name": "Fanta Orange",
+        "Type": "Drink",
+        "Price": 2.20,
         "Active": 1
     },
     {
         "ID": 4,
-        "Name": "Popcorn",
-        "type": "Snack",
-        "Price": 2.40,
+        "Name": "Fanta Cassis",
+        "Type": "Drink",
+        "Price": 2.20,
         "Active": 1
     },
     {
         "ID": 5,
-        "Name": "24 Karaats Popcorn",
-        "type": "Snack",
-        "Price": 24499.00,
+        "Name": "Spa Blauw",
+        "Type": "Drink",
+        "Price": 1.99,
         "Active": 1
     },
     {
         "ID": 6,
-        "Name": "Lays Paprika Chips Small",
-        "type": "Snack",
+        "Name": "Spa Rood",
+        "Type": "Drink",
         "Price": 1.99,
         "Active": 1
     },
     {
         "ID": 7,
-        "Name": "M&M Small",
-        "type": "Snack",
+        "Name": "7up",
+        "Type": "Drink",
+        "Price": 2.20,
+        "Active": 1
+    },
+    {
+        "ID": 8,
+        "Name": "Rivella",
+        "Type": "Drink",
+        "Price": 1.99,
+        "Active": 1
+    },
+
+    {
+        "ID": 10,
+        "Name": "Heineken",
+        "Type": "Alcohol",
+        "Price": 2.60,
+        "Active": 1
+    },
+    {
+        "ID": 11,
+        "Name": "Heineken 0.0",
+        "Type": "Alcohol",
+        "Price": 2.60,
+        "Active": 1
+    },
+    {
+        "ID": 12,
+        "Name": "Bavaria 0.0",
+        "Type": "Alcohol",
+        "Price": 2.60,
+        "Active": 1
+    },
+    {
+        "ID": 13,
+        "Name": "Amstel Bier",
+        "Type": "Alcohol",
+        "Price": 2.60,
+        "Active": 1
+    },
+    {
+        "ID": 14,
+        "Name": "Grolsch Pilsener",
+        "Type": "Alcohol",
+        "Price": 2.60,
+        "Active": 1
+    },
+
+    {
+        "ID": 20,
+        "Name": "Popcorn zout",
+        "Type": "Snack",
+        "Price": 2.40,
+        "Active": 1
+    },
+    {
+        "ID": 24,
+        "Name": "Popcorn zoet",
+        "Type": "Snack",
+        "Price": 2.40,
+        "Active": 1
+    },
+    {
+        "ID": 21,
+        "Name": "24 Karaats Popcorn",
+        "Type": "Snack",
+        "Price": 24499.00,
+        "Active": 1
+    },
+    {
+        "ID": 22,
+        "Name": "Lays Paprika Chips Small",
+        "Type": "Snack",
+        "Price": 1.99,
+        "Active": 1
+    },
+    {
+        "ID": 26,
+        "Name": "Lays Naturel Chips small",
+        "Type": "Snack",
+        "Price": 1.99,
+        "Active": 1
+    },
+    {
+        "ID": 23,
+        "Name": "M&M Pinda",
+        "Type": "Snack",
         "Price": 1.80,
+        "Active": 1
+    },
+    {
+        "ID": 25,
+        "Name": "M&M Choco",
+        "Type": "Snack",
+        "Price": 1.80,
+        "Active": 1
+    },
+    {
+        "ID": 27,
+        "Name": "Maltesers",
+        "Type": "Snack",
+        "Price": 1.80,
+        "Active": 1
+    },
+
+    {
+        "ID": 30,
+        "Name": "Popcorn zout met drankje naar keuze",
+        "Type": "Combi",
+        "Price": 3.49,
+        "Active": 1
+    },
+    {
+        "ID": 31,
+        "Name": "Popcorn zoet met drankje naar keuze",
+        "Type": "Combi",
+        "Price": 3.49,
+        "Active": 1
+    },
+    {
+        "ID": 32,
+        "Name": "Kindermenu : kleine popcorn en drankje naar keuze",
+        "Type": "Combi",
+        "Price": 2.75,
+        "Active": 1
+    },
+    {
+        "ID": 33,
+        "Name": "M&Ms Pinda met drankje naar keuze",
+        "Type": "Combi",
+        "Price": 3.25,
+        "Active": 1
+    },
+    {
+        "ID": 34,
+        "Name": "M&Ms Choco met drankje naar keuze",
+        "Type": "Combi",
+        "Price": 3.25,
+        "Active": 1
+    },
+    {
+        "ID": 35,
+        "Name": "Maltesers met drankje naar keuze",
+        "Type": "Combi",
+        "Price": 3.25,
         "Active": 1
     }
 ]
