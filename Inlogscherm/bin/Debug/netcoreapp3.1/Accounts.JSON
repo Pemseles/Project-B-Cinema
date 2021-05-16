@@ -1,0 +1,264 @@
+[
+  {
+    "UID": 0,
+    "Level": 3,
+    "Email": "admin@cinescoop.com",
+    "Pwd": "Admin#1",
+    "Firstname": "Admin",
+    "Lastname": "Admin",
+    "Age": "2000-01-01",
+    "Address": "Silicon Valley Bakerstreet 12 1234 ab",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 1,
+    "Level": 1,
+    "Email": "user1@mail.com",
+    "Pwd": "#1Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "1999-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 2,
+    "Level": 2,
+    "Email": "user2@mail.com",
+    "Pwd": "#2Geheim",
+    "Firstname": "Jane",
+    "Lastname": "Doe",
+    "Age": "2000-01-01",
+    "Address": "Frietstraat 23",
+    "Interests": [
+      "Thriller",
+      "Drama",
+      "Romantiek"
+    ]
+  },
+  {
+    "UID": 3,
+    "Level": 2,
+    "Email": "user3@mail.com",
+    "Pwd": "#3Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "1999-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 4,
+    "Level": 1,
+    "Email": "user4@mail.com",
+    "Pwd": "#4Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "1999-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 5,
+    "Level": 2,
+    "Email": "user5@mail.com",
+    "Pwd": "#5Geheim",
+    "Firstname": "Jane",
+    "Lastname": "Doe",
+    "Age": "2000-01-01",
+    "Address": "Frietstraat 23",
+    "Interests": [
+      "Thriller",
+      "Drama",
+      "Romantiek"
+    ]
+  },
+  {
+    "UID": 6,
+    "Level": 1,
+    "Email": "user6@mail.com",
+    "Pwd": "#6Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "1999-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 7,
+    "Level": 1,
+    "Email": "user7@mail.com",
+    "Pwd": "#7Geheim",
+    "Firstname": "Jane",
+    "Lastname": "Doe",
+    "Age": "2000-01-01",
+    "Address": "Frietstraat 23",
+    "Interests": [
+      "Thriller",
+      "Drama",
+      "Romantiek"
+    ]
+  },
+  {
+    "UID": 8,
+    "Level": 1,
+    "Email": "user8@mail.com",
+    "Pwd": "#8Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "1999-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 9,
+    "Level": 1,
+    "Email": "user9@mail.com",
+    "Pwd": "#9Geheim",
+    "Firstname": "Jane",
+    "Lastname": "Doe",
+    "Age": "2000-01-01",
+    "Address": "Frietstraat 23",
+    "Interests": [
+      "Thriller",
+      "Drama",
+      "Romantiek"
+    ]
+  },
+  {
+    "UID": 10,
+    "Level": 1,
+    "Email": "user10@mail.com",
+    "Pwd": "#10Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "1999-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 11,
+    "Level": 1,
+    "Email": "user11@mail.com",
+    "Pwd": "#11Geheim",
+    "Firstname": "Jane",
+    "Lastname": "Doe",
+    "Age": "2000-01-01",
+    "Address": "Frietstraat 23",
+    "Interests": [
+      "Thriller",
+      "Drama",
+      "Romantiek"
+    ]
+  },
+  {
+    "UID": 12,
+    "Level": 1,
+    "Email": "user12@mail.com",
+    "Pwd": "#12Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "1999-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 13,
+    "Level": 1,
+    "Email": "user13@mail.com",
+    "Pwd": "#13Geheim",
+    "Firstname": "Jane",
+    "Lastname": "Doe",
+    "Age": "2000-01-01",
+    "Address": "Frietstraat 23",
+    "Interests": [
+      "Thriller",
+      "Drama",
+      "Romantiek"
+    ]
+  },
+  {
+    "UID": 14,
+    "Level": 1,
+    "Email": "user14@mail.com",
+    "Pwd": "#14Geheim",
+    "Firstname": "John",
+    "Lastname": "Doe",
+    "Age": "1999-03-07",
+    "Address": "Patatstraat 12",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 15,
+    "Level": 1,
+    "Email": "user15@mail.com",
+    "Pwd": "#15Geheim",
+    "Firstname": "Jane",
+    "Lastname": "Doe",
+    "Age": "2000-01-01",
+    "Address": "Frietstraat 23",
+    "Interests": [
+      "Thriller",
+      "Drama",
+      "Romantiek"
+    ]
+  },
+  {
+    "UID": 16,
+    "Level": 1,
+    "Email": "",
+    "Pwd": "",
+    "Firstname": "",
+    "Lastname": "",
+    "Age": "",
+    "Address": "",
+    "Interests": []
+  },
+  {
+    "UID": 17,
+    "Level": 1,
+    "Email": "",
+    "Pwd": "",
+    "Firstname": "",
+    "Lastname": "",
+    "Age": "",
+    "Address": "",
+    "Interests": []
+  }
+]

@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\gadem\\.nuget\\packages\\": {}
+    "C:\\Users\\chris\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
-      "packagesPath": "C:\\Users\\gadem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
+      "projectPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
+      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gadem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,8 +60,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

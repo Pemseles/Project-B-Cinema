@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj": {}
+    "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj": {
+    "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
-        "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+        "projectName": "Cinema Project B",
+        "projectPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
         "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
         "projectStyle": "PackageReference",
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
