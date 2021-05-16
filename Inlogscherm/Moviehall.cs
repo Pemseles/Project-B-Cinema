@@ -112,7 +112,7 @@ namespace ConsoleApp1
             }
 
             //int ticket = Int16.Parse(Console.ReadLine());
-            bool a = true;
+            //bool a = true;
             //Console.Write("how big is the cinema hall: ");
             //string ans = Console.ReadLine();
             //int people = Int16.Parse(ans);
