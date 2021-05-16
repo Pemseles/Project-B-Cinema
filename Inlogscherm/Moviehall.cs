@@ -118,15 +118,15 @@ namespace ConsoleApp1
             //int people = Int16.Parse(ans);
             if (people > 0 && people <= 150)
             {
-                Console.SetWindowSize(70, 20);
+                Console.SetWindowSize(100, 30);
             }
             else if (people > 150 && people <= 250)
             {
-                Console.SetWindowSize(70, 30);
+                Console.SetWindowSize(100, 40);
             }
             else if (people > 250 && people <= 602)
             {
-                Console.SetWindowSize(70, 40);
+                Console.SetWindowSize(100, 50);
             }
 
 
@@ -198,7 +198,10 @@ namespace ConsoleApp1
             {
                 for (int i = 0; i < items.Count; i++)
                 {
-
+                    if(i % 10 == 0)
+                    {
+                        Console.Write("                ");
+                    }
                     if (res.Contains(i))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
