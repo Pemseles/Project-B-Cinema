@@ -42,9 +42,9 @@ namespace ConsoleApp1
             }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index == 11)
+                if (index > 10)
                 {
-                    index = 0;
+                    index = 11;
                 }
                 else { index++; }
             }
@@ -52,7 +52,7 @@ namespace ConsoleApp1
             {
                 if (index <= 0)
                 {
-                    index = 11;
+                    index = 0;
                 }
                 else { index--; }
             }

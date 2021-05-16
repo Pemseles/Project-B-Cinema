@@ -12,6 +12,7 @@ namespace ConsoleApp1
 {
     class Review
     {
+        static int index3 = 0;
         static int index2 = 0;
         static int index = 0;
         static string star = "";
@@ -106,6 +107,7 @@ namespace ConsoleApp1
         }
         public static string review_menu()
         {
+            
             List<string> movies = new List<string>();
             string filmJSONPath = Path.GetFullPath(@"FilmList.json");
             string jsonStringFilmList = File.ReadAllText(filmJSONPath);
@@ -155,11 +157,12 @@ namespace ConsoleApp1
 
                 }
             }
+           
             while (true)
             {
                 for (int i = 0; i < movies.Count; i++)
                 {
-                    if (i == index)
+                    if (i == index3)
                     {
                         Console.Write("                                                ");
                         Console.BackgroundColor = ConsoleColor.Gray;
@@ -173,6 +176,7 @@ namespace ConsoleApp1
                     }
                     Console.ResetColor();
                 }
+                
                 ConsoleKeyInfo ckey = Console.ReadKey();
                 if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
                 {
@@ -180,23 +184,23 @@ namespace ConsoleApp1
                 }
                 if (ckey.Key == ConsoleKey.DownArrow)
                 {
-                    if (index == movies.Count - 1)
+                    if (index3 == movies.Count - 1)
                     {
-                        index = movies.Count - 1;
+                        index3 = movies.Count - 1;
                     }
-                    else { index++; }
+                    else { index3++; }
                 }
                 else if (ckey.Key == ConsoleKey.UpArrow)
                 {
-                    if (index <= 0)
+                    if (index3 <= 0)
                     {
-                        index = 0;
+                        index3 = 0;
                     }
-                    else { index--; }
+                    else { index3--; }
                 }
                 else if (ckey.Key == ConsoleKey.Enter)
                 {
-                    string movie = movies[index];
+                    string movie = movies[index3];
                     Console.Clear();
                     return movie;
                 }
@@ -218,9 +222,12 @@ namespace ConsoleApp1
             Console.Write("                                  ");  Console.Write(rev);
             Console.WriteLine();
             Console.Write("                                                 <Vorige>   <1/14>   <Volgende>");
+            Console.ReadKey();
+            Console.Clear();
         }
         public static string rev_menu(List<string> items)
         {
+            
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)
@@ -242,7 +249,7 @@ namespace ConsoleApp1
             ConsoleKeyInfo ckey = Console.ReadKey();
             if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
             {
-
+                Console.Clear();
             }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
@@ -307,6 +314,7 @@ namespace ConsoleApp1
                 {
                     Console.Clear();
                     reviewscreenbool = false;
+                    MainMenu.Mainmenu();
                 }
             }
         }

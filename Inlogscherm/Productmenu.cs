@@ -47,7 +47,7 @@ namespace ConsoleApp1
             {
                 if (index == 4)
                 {
-                    index = 0;
+                    index = 4;
                 }
                 else { index++; }
             }
@@ -55,7 +55,7 @@ namespace ConsoleApp1
             {
                 if (index <= 0)
                 {
-                    index = 4;
+                    index = 0;
                 }
                 else { index--; }
             }
@@ -137,9 +137,9 @@ namespace ConsoleApp1
                     }
                     if (ckey.Key == ConsoleKey.DownArrow)
                     {
-                        if (index == Snacks.Count)
+                        if (index == Snacks.Count-1)
                         {
-                            index = 0;
+                            index = Snacks.Count-1;
                         }
                         else { index++; }
                     }
@@ -147,7 +147,7 @@ namespace ConsoleApp1
                     {
                         if (index <= 0)
                         {
-                            index = Snacks.Count;
+                            index = 0;
                         }
                         else { index--; }
                     }
@@ -199,9 +199,9 @@ namespace ConsoleApp1
                     }
                     if (ckey.Key == ConsoleKey.DownArrow)
                     {
-                        if (index == Drinks.Count)
+                        if (index == Drinks.Count-1)
                         {
-                            index = 0;
+                            index = Drinks.Count-1;
                         }
                         else { index++; }
                     }
@@ -209,7 +209,7 @@ namespace ConsoleApp1
                     {
                         if (index <= 0)
                         {
-                            index = Drinks.Count;
+                            index = 0;
                         }
                         else { index--; }
                     }
@@ -260,9 +260,9 @@ namespace ConsoleApp1
                     }
                     if (ckey.Key == ConsoleKey.DownArrow)
                     {
-                        if (index == Alcohols.Count)
+                        if (index == Alcohols.Count-1)
                         {
-                            index = 0;
+                            index = Alcohols.Count-1;
                         }
                         else { index++; }
                     }
@@ -270,7 +270,7 @@ namespace ConsoleApp1
                     {
                         if (index <= 0)
                         {
-                            index = Alcohols.Count;
+                            index = 0;
                         }
                         else { index--; }
                     }
@@ -320,9 +320,9 @@ namespace ConsoleApp1
                     }
                     if (ckey.Key == ConsoleKey.DownArrow)
                     {
-                        if (index == Deals.Count)
+                        if (index == Deals.Count-1)
                         {
-                            index = 0;
+                            index = Deals.Count-1;
                         }
                         else { index++; }
                     }
@@ -330,7 +330,7 @@ namespace ConsoleApp1
                     {
                         if (index <= 0)
                         {
-                            index = Deals.Count;
+                            index = 0;
                         }
                         else { index--; }
                     }
@@ -346,16 +346,18 @@ namespace ConsoleApp1
                         Console.Clear();
                         break;
                     }
-
+                
                     // haalt lijst met productid combi op
 
-                    while (selectedMenuItem == "[       Terug      ]")
-                    {
-                        Console.Clear();
-                        MainMenu.Mainmenu();
-                    }
                 }
-            }
+
+                if (selectedMenuItem == "[       Terug      ]")
+                {
+                    Console.Clear();
+                    productmenubool = false;
+                    MainMenu.Mainmenu();
+                }
+            }  
         }
     }
 }

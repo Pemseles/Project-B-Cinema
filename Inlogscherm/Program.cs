@@ -23,11 +23,11 @@ namespace ConsoleApp1
         private static void Main(string[] args)
         {
             /* Debug & Testing ************************************/
-            ConsoleApp1.Orders newOrder = new Orders();
-            foreach(int seat in newOrder.GetVipSeatCoords(1))
-            {
-                Console.WriteLine(seat);
-            }
+            //ConsoleApp1.Orders newOrder = new Orders();
+            //foreach(int seat in newOrder.GetVipSeatCoords(1))
+            //{
+            //    Console.WriteLine(seat);
+            //}
             /* ./ Debug & Testing *********************************/
 
             List<string> LoginScreen = new List<string>() {
@@ -137,7 +137,7 @@ namespace ConsoleApp1
             {
                 if (index == 2)
                 {
-                    index = 0;
+                    index = 2;
                 }
                 else { index++; }
             }
@@ -145,7 +145,7 @@ namespace ConsoleApp1
             {
                 if (index <= 0)
                 {
-                    index = 2;
+                    index = 0;
                 }
                 else { index--; }
             }

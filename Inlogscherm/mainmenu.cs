@@ -43,7 +43,7 @@ namespace ConsoleApp1
             {
                 if (index == 8)
                 {
-                    index = 0;
+                    index = 8;
                 }
                 else { index++; }
             }
@@ -51,7 +51,7 @@ namespace ConsoleApp1
             {
                 if (index <= 0)
                 {
-                    index = 8;
+                    index = 0;
                 }
                 else { index--; }
             }
