@@ -310,6 +310,7 @@ namespace ConsoleApp1
                                 Console.WriteLine($"[ deal : {Deal.Name}, prijs : {Deal.Price} ]");
                             }
                             Console.ResetColor();
+                            i++;
                         }
                     }
                     ConsoleKeyInfo ckey = Console.ReadKey();
