@@ -164,13 +164,13 @@ namespace ConsoleApp1
             if (x.Count > 1)
             {
                 Console.WriteLine($"Je hebt deze stoelen geselecteerd : {s} \n KLopt dit?");
-                Console.Write("Maak uw keuze : ");
+                Console.Write("Maak uw keuze : \n");
                 Console.WriteLine("Ja");
                 Console.WriteLine("Nee");
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        // return naar mainpage
+                        ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
                         // reset de seats
@@ -180,13 +180,13 @@ namespace ConsoleApp1
             else
             {
                 Console.WriteLine($"Je hebt deze stoel geselecteerd : {s} \n Klopt dit?");
-                Console.Write("Maak uw keuze : ");
+                Console.Write("Maak uw keuze : \n");
                 Console.WriteLine("Ja");
                 Console.WriteLine("Nee");
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        // return naar mainpage
+                        ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
                         // reset de seats

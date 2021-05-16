@@ -146,6 +146,8 @@ namespace ConsoleApp1
                 else if (selectedMenuItem == "[    Winkelmand    ]")
                 {
                     Console.Clear();
+                    Console.WriteLine("Dit is de winkelmand");
+                    back();
                     // open de seats json + snackselected json
                     // if email == seats.email && email == snacksselected.email
                     // zo misschien info ophalen per account
@@ -164,8 +166,7 @@ namespace ConsoleApp1
                     Registers.moviehall();
                     back();
                     Console.SetWindowSize(120, 30);
-                    // if account registratie == vip 
-                    // kan dit geopend worden 
+                    
                 }
                 else if (selectedMenuItem == "[     Uitloggen    ]")
                 {

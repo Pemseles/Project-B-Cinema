@@ -51,7 +51,7 @@ namespace ConsoleApp1
 
                 }
             }
-            // aanpassing maken naar false -- t gaat fout tot t goed gaat
+            
         }
     }
 }
