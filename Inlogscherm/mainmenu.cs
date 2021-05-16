@@ -81,23 +81,22 @@ namespace ConsoleApp1
             while (mainmenubool == true)
             {
                 List<string> Mainscreen = new List<string>() {
-                "[     Zoekbalk     ]" ,
-                "[     Filmlijst    ]" ,
-                "[      Snacks      ]" ,
+                "[     Zoek films   ]" ,
+                "[     Alle films   ]" ,
+                "[Hapjes en drankjes]" ,
                 "[  Informatiemenu  ]" ,
                 "[    Review menu   ]" ,
-                "[   Winkel mandje  ]" ,
+                "[    Winkelmand    ]" ,
                 "[    VIP pagina    ]" ,
-                "[       Zalen      ]"  ,
+                "[       Zalen      ]" ,
                 "[     Uitloggen    ]"
                  };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
-                if (selectedMenuItem == "[     Zoekbalk     ]")
+                if (selectedMenuItem == "[     Zoek films   ]")
                 {
                     Console.Clear();
-                    
-                    Console.WriteLine("Dit is de zoekbalk");                    
+               
                     // kortere reference werkt niet : argument toevoegen
                     //ConsoleApp1.SearchClass.FilmSearch();
                     string filmJSONPath = Path.GetFullPath(@"FilmList.json");
@@ -106,7 +105,7 @@ namespace ConsoleApp1
                     ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
                     filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
                     //Console.WriteLine(filmLijst.FilmArray[1].Name);
-                    back();
+                    
                     Console.Write("Geef hier op wat u zoekt :");
                     string searchClassInput = Console.ReadLine();
                     ConsoleApp1.SearchClass search1 = new ConsoleApp1.SearchClass(searchClassInput);
@@ -116,17 +115,17 @@ namespace ConsoleApp1
                     back();
 
                 }
-                if (selectedMenuItem == "[     Filmlijst    ]")
+                if (selectedMenuItem == "[     Alle films   ]")
                 {
                     Console.Clear();
                     Console.WriteLine("Dit is de filmlijst");
                     back();
                     // open de movies json
                 }
-                else if (selectedMenuItem == "[      Snacks      ]")
+                else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {
                     Console.Clear();
-                    Console.WriteLine("Dit is de lijst met snacks");
+                    ConsoleApp1.Products.Productmenu();
                     back();
                     // open de snacks json
                 }
@@ -144,7 +143,7 @@ namespace ConsoleApp1
                     back();
                     // open de review list of json
                 }
-                else if (selectedMenuItem == "[   Winkel mandje  ]")
+                else if (selectedMenuItem == "[    Winkelmand    ]")
                 {
                     Console.Clear();
 
@@ -168,8 +167,7 @@ namespace ConsoleApp1
                     Registers.moviehall();
                     back();
                     Console.SetWindowSize(120, 30);
-                    // if account registratie == vip 
-                    // kan dit geopend worden 
+                    
                 }
                 else if (selectedMenuItem == "[     Uitloggen    ]")
                 {

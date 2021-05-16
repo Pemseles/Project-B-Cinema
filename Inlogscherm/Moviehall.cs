@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using System.Linq;
+using Newtonsoft.Json;
 using static System.Console;
 using System.IO;
 
@@ -99,19 +99,18 @@ namespace ConsoleApp1
         private static List<int> res = new List<int>();
         private static int index = 0;
         private static List<int> seats = new List<int>();
+        private static ConsoleApp1.Orders newOrder = new Orders();
         public static void moviehall()
         {
             
             // functie in orders int array in for-lopen , functie Add toevoegen6
             CursorVisible = false;
-            res.Add(1);
-            res.Add(23);
-            res.Add(33);
-            res.Add(15);
-            res.Add(4);
-            res.Add(18);
-            res.Add(19);
-            
+
+            foreach (int seat in newOrder.GetSeatCoords(5))
+            {
+                res.Add(seat);
+            }
+
             //int ticket = Int16.Parse(Console.ReadLine());
             bool a = true;
             //Console.Write("how big is the cinema hall: ");
@@ -165,13 +164,13 @@ namespace ConsoleApp1
             if (x.Count > 1)
             {
                 Console.WriteLine($"Je hebt deze stoelen geselecteerd : {s} \n KLopt dit?");
-                Console.Write("Maak uw keuze : ");
+                Console.Write("Maak uw keuze : \n");
                 Console.WriteLine("Ja");
                 Console.WriteLine("Nee");
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        // return naar mainpage
+                        ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
                         // reset de seats
@@ -181,13 +180,13 @@ namespace ConsoleApp1
             else
             {
                 Console.WriteLine($"Je hebt deze stoel geselecteerd : {s} \n Klopt dit?");
-                Console.Write("Maak uw keuze : ");
+                Console.Write("Maak uw keuze : \n");
                 Console.WriteLine("Ja");
                 Console.WriteLine("Nee");
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        // return naar mainpage
+                        ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
                         // reset de seats
@@ -222,7 +221,7 @@ namespace ConsoleApp1
 
                         Console.Write(items[i]);
                     }
-                    else if (i >= 30 && i < 40)
+                    else if (newOrder.GetVipSeatCoords(1).Contains(i))
                     {
                         Console.BackgroundColor = ConsoleColor.Yellow;
                         Console.ForegroundColor = ConsoleColor.Black;

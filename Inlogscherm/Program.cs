@@ -24,7 +24,7 @@ namespace ConsoleApp1
         {
             /* Debug & Testing ************************************/
             ConsoleApp1.Orders newOrder = new Orders();
-            foreach(int seat in newOrder.GetSeatCoords(5))
+            foreach(int seat in newOrder.GetVipSeatCoords(1))
             {
                 Console.WriteLine(seat);
             }
@@ -47,7 +47,7 @@ namespace ConsoleApp1
                 // Login
                 if (selectedMenuItem == "[     Inloggen     ]")
                 {
-                    ConsoleApp1.Login.login();
+                    ConsoleApp1.Login.loginFunc();
                     ConsoleApp1.MainMenu.Mainmenu();
 
                 }

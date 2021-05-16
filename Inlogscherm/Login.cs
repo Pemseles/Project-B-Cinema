@@ -10,12 +10,14 @@ namespace ConsoleApp1
 {
     public class Login
     {
-        public static void login()
+        public bool fail = false;
+        public static void loginFunc()
         {
+            
             bool login = false;
             while (login == false)
             {
-                Console.Clear();
+                //Console.Clear();
                 var pass = string.Empty;
                 ConsoleKey key;
                 Console.Write("E-mail: ");
@@ -42,10 +44,14 @@ namespace ConsoleApp1
 
                 Console.Clear();
                 ConsoleApp1.Accounts userLogin = new Accounts();
-                Console.Write(loginemail, pass);
-                Console.Write(userLogin.Login(loginemail, pass));
+                if(userLogin.Login(email, pass) == -1)
+                {
+                    Console.WriteLine("Email or Wachtwoord is onjuist\nProbeer het nog een keer");
+                    loginFunc();
+
+                }
             }
-            // aanpassing maken naar false -- t gaat fout tot t goed gaat
+            
         }
     }
 }
