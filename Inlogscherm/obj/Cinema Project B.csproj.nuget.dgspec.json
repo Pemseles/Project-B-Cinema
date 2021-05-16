@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {}
+    "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {}
   },
   "projects": {
-    "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {
+    "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+        "projectUniqueName": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
         "projectName": "Cinema Project B",
-        "projectPath": "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
-        "packagesPath": "C:\\Users\\avien\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\avien\\OneDrive\\Documenten\\IMPORTANT KEEP\\school\\First Year HR\\Project 2\\Project-B-Cinema\\Inlogscherm\\obj\\",
+        "projectPath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+        "packagesPath": "C:\\Users\\gadem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\avien\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\gadem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -257,19 +257,13 @@ namespace ConsoleApp1
                 }
                 else if (ckey.Key == ConsoleKey.DownArrow)
                 {
-                    if (index >= people)
-                    {
-                        index = 0;
-                    }
-                    else { index += 10; }
+
+                    index += 10; 
                 }
                 else if (ckey.Key == ConsoleKey.LeftArrow)
                 {
-                    if (index <= 0)
-                    {
-                        index = people;
-                    }
-                    else { index--; }
+
+                    index--;
                 }
                 else if (ckey.Key == ConsoleKey.Enter)
                 {

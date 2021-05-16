@@ -140,13 +140,14 @@ namespace ConsoleApp1
                 else if (selectedMenuItem == "[    Review menu   ]")
                 {
                     Console.Clear();
-                    Console.WriteLine("Dit is het review menu");
+                    Review.Revmenu();
                     back();
                     // open de review list of json
                 }
                 else if (selectedMenuItem == "[   Winkel mandje  ]")
                 {
                     Console.Clear();
+
                     Console.WriteLine("Dit is het winkelmandje");
                     back();
                     // open de seats json + snackselected json
