@@ -194,10 +194,25 @@ namespace ConsoleApp1
                 string email = Console.ReadLine();
                 for (int i = 0; i < email.Length; i++)
                 {
-                    if (email.Contains('@') && email.Contains('.') && email.Length > 10)
+                    if (email.Contains('@') && email.Contains('.') && email.Length > 4)
                     {
-                        Console.Clear();
-                        return email;
+                        int ats = 0;
+                        int dotssecondpart = 0;
+                        foreach (char c in email)
+                            if (c == '@') ats++;
+                        foreach (char c in email.Split('@')[1])
+                            if (c == '.') dotssecondpart++;
+                        if (email.Split('@').Length == 2 && ats == 1 && email.Split('@')[0].Length > 0 && email.Split('@')[1].Length > 2 && dotssecondpart == 1)
+                        {
+                            string firstpart = email.Split('@')[0];
+                            string secondpart = email.Split('@')[1].Split('.')[0];
+                            string thirdpart = email.Split('@')[1].Split('.')[1];
+                            if (firstpart.Length > 0 && secondpart.Length > 0 && thirdpart.Length > 0)
+                            {
+                                Console.Clear();
+                                return email;
+                            }
+                        }
                     }
                 }
                 Email();

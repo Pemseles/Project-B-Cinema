@@ -119,9 +119,17 @@ namespace ConsoleApp1
                 if (selectedMenuItem == "[     Alle films   ]")
                 {
                     Console.Clear();
-                    Console.WriteLine("Dit is de filmlijst");
-                    back();
-                    // open de movies json
+
+                    string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
+                    var movielist = JsonSerializer.Deserialize<Movielist>(moviesjson);
+                    string[] FilmList = new string[movielist.movies.Length];
+                    for (int i = 0; i < movielist.movies.Length; i++)
+                    {
+                        FilmList[i] = movielist.movies[i].moviename;
+                    }
+                    var selectedmovie = filmmenu.Filmmenu(FilmList);
+                    Console.WriteLine(selectedmovie.id + selectedmovie.moviename + selectedmovie.date);
+                    Console.ReadLine();
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {
