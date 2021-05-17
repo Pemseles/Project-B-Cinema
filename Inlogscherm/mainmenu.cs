@@ -123,7 +123,11 @@ namespace ConsoleApp1
                     string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
                     var movielist = JsonSerializer.Deserialize<Movielist>(moviesjson);
                     string[] FilmList = new string[movielist.movies.Length];
+<<<<<<< Updated upstream
                     for (int i = 0;i<movielist.movies.Length;i++)
+=======
+                    for (int i = 0; i < movielist.movies.Length; i++)
+>>>>>>> Stashed changes
                     {
                         FilmList[i] = movielist.movies[i].moviename;
                     }

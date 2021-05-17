@@ -13,9 +13,15 @@
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< Updated upstream
       "projectUniqueName": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
       "projectPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
+=======
+      "projectUniqueName": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+      "projectName": "Cinema Project B",
+      "projectPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+>>>>>>> Stashed changes
       "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
       "projectStyle": "PackageReference",
