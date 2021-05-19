@@ -14,7 +14,9 @@ namespace ConsoleApp1
     {
         private static int index = 0;
 
-            private static string MainScreen(List<string> items)
+        // OPMERKING :: Kunnen we deze 2 Methods MainScreen & Back Op 1 locatie Declareren
+        // en het dan overal opnieuw oproepen ipv. het elke keer te kopieren en het in een nieuwe class te plakken
+        public static string MainScreen(List<string> items)
         {
             for (int i = 0; i < items.Count; i++)
             {
@@ -89,7 +91,8 @@ namespace ConsoleApp1
                 "[    Winkelmand    ]" ,
                 "[    VIP pagina    ]" ,
                 "[       Zalen      ]" ,
-                "[     Uitloggen    ]"
+                "[   Mijn Account   ]" ,
+                "[     Uitloggen    ]",
                  };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
@@ -167,10 +170,25 @@ namespace ConsoleApp1
                     // if account registratie == vip 
                     // kan dit geopend worden 
                 }
+                else if (selectedMenuItem == "[   Mijn Account   ]")
+                {
+                    Console.Clear();
+                    MyAccount User = new MyAccount(Program.UID);
+                    User.OpenMenu();
+                    back();
+                    // Open Account Settings
+                }
                 else if (selectedMenuItem == "[     Uitloggen    ]")
                 {
                     Console.Clear();
-                    mainmenubool = false;   
+
+                    mainmenubool = false;
+                    /*
+                    System.Diagnostics.Process.Start(Application.ExecutablePath);
+
+                    // Closes the current process
+                    Environment.Exit(0);
+                    */ 
                 }
                 Console.Clear();
             }

@@ -130,7 +130,6 @@ namespace ConsoleApp1
             }
 
 
-
             List<string> movie = new List<string>(people);
 
             for (int i = 0, j = 1; i < people; i++, j++)
@@ -292,8 +291,6 @@ namespace ConsoleApp1
                 MainScreen(items, people, keys, res, seats, ticket);
                 return index;
             }
-
-
         }
     }
 }

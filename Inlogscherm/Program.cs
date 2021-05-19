@@ -5,8 +5,6 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using static System.Console;
 using System.IO;
-
-
 // using consoleapp1.mapnaam.filenaam;
 using static ConsoleApp1.MainMenu;
 using static ConsoleApp1.Film;
@@ -19,15 +17,15 @@ namespace ConsoleApp1
     class Program
     {
         private static int index = 0;
-
+        public static int UID;
         private static void Main(string[] args)
         {
             /* Debug & Testing ************************************/
-            ConsoleApp1.Orders newOrder = new Orders();
-            foreach(int seat in newOrder.GetVipSeatCoords(1))
-            {
-                Console.WriteLine(seat);
-            }
+            /* 
+            ConsoleApp1.Accounts newAccount = new Accounts();
+            string[] interests = new string[] { "Actie", "Romantiek", "Drama" };
+            newAccount.AddAccount($"user{newAccount.GenerateID()}@mail.com", $"#{newAccount.GenerateID()}Geheim", "Pietje", "Precies", "2000-01-01", "New York WallStreet 12 2247 dc", interests);
+           */
             /* ./ Debug & Testing *********************************/
 
             List<string> LoginScreen = new List<string>() {
@@ -35,9 +33,6 @@ namespace ConsoleApp1
                 "[    Registreren   ]",
                 "[  Verder als gast ]"
             };
-
-           
-
 
             Console.CursorVisible = false;
             bool LoginStartScreen = true;
@@ -47,13 +42,15 @@ namespace ConsoleApp1
                 // Login
                 if (selectedMenuItem == "[     Inloggen     ]")
                 {
-                    ConsoleApp1.Login.loginFunc();
+                    UID = ConsoleApp1.Login.loginFunc();
+                    Console.Write(UID);
                     ConsoleApp1.MainMenu.Mainmenu();
 
                 }
                 else if (selectedMenuItem == "[  Verder als gast ]")
                 {
                     Console.Clear();
+                    UID = -1;
                     ConsoleApp1.MainMenu.Mainmenu();   
                 }
 

@@ -5,11 +5,50 @@ using System.Linq;
 using static System.Console;
 using System.IO;
 using Newtonsoft.Json;
-//using System.Text.Json;
-//using System.Text.Json.Serialization;
+using System.Security.Cryptography;
 
 namespace ConsoleApp1
 {
+   
+    public sealed class PasswordHash // *Sealed Means that his Class cannot be inherited by other Classes
+    {
+        // Delcaring Sizes
+        const int SaltSize = 16, HashSize = 20, HashIter = 10000;
+        readonly byte[] _salt, _hash;
+        /* Salt is used to add extra hash to a hashed password to make it less sensitve to both Dictionary & BruteForce Attacks */
+        public PasswordHash(string password)
+        {
+            new RNGCryptoServiceProvider().GetBytes(_salt = new byte[SaltSize]);
+            _hash = new Rfc2898DeriveBytes(password, _salt, HashIter).GetBytes(HashSize);
+        }
+        public PasswordHash(byte[] hashBytes)
+        {
+            Array.Copy(hashBytes, 0, _salt = new byte[SaltSize], 0, SaltSize);
+            Array.Copy(hashBytes, SaltSize, _hash = new byte[HashSize], 0, HashSize);
+        }
+        public PasswordHash(byte[] salt, byte[] hash)
+        {
+            Array.Copy(salt, 0, _salt = new byte[SaltSize], 0, SaltSize);
+            Array.Copy(hash, 0, _hash = new byte[HashSize], 0, HashSize);
+        }
+        public byte[] ToArray()
+        {
+            byte[] hashBytes = new byte[SaltSize + HashSize];
+            Array.Copy(_salt, 0, hashBytes, 0, SaltSize);
+            Array.Copy(_hash, 0, hashBytes, SaltSize, HashSize);
+            return hashBytes;
+        }
+        public byte[] Salt { get { return (byte[])_salt.Clone(); } }
+        public byte[] Hash { get { return (byte[])_hash.Clone(); } }
+        public bool Verify(string password)
+        {
+            byte[] test = new Rfc2898DeriveBytes(password, _salt, HashIter).GetBytes(HashSize);
+            for (int i = 0; i < HashSize; i++)
+                if (test[i] != _hash[i])
+                    return false;
+            return true;
+        }
+    }
 
     public class Account
     {
@@ -39,6 +78,7 @@ namespace ConsoleApp1
         // Generate new UID - Method
         public int GenerateID()
         {
+            /// Checks Accounts.json and creates a new ID based on previous ID's from the Json.
             int uid = 0;
             try
             {
@@ -52,12 +92,24 @@ namespace ConsoleApp1
             {
                 return 0;
             }
+        }
 
+        // Encrypt String - Method
+        public string Encrypt(string pwd)
+        {
+            /// Hashes new Password and Convert to String (for JSON);
+            PasswordHash hash = new PasswordHash(pwd);
+            byte[] hashBytes = hash.ToArray();
+
+            // Store in String
+            string hashString = Convert.ToBase64String(hashBytes);
+            return hashString;
         }
 
         // INSERT Acount to JSON - Method
         public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests)
         {
+            /// Requires All and only Correct Parameters to Insert to the JSON File.
             // Convert Array to List
             List<string> interestLists = interests.ToList();
 
@@ -67,13 +119,16 @@ namespace ConsoleApp1
             var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData)
                                   ?? new List<Account>();
 
+            // Hashing the Password
+            string hashedPwd = Encrypt(pwd);
+
             // Add any new employees
             accountsList.Add(new Account()
             {
                 UID = GenerateID(),
                 Level = 1,
                 Email = email,
-                Pwd = pwd,
+                Pwd = hashedPwd,
                 Firstname = firstname,
                 Lastname = lastname,
                 Age = age,
@@ -83,15 +138,14 @@ namespace ConsoleApp1
 
             // Update json data string
             jsonData = JsonConvert.SerializeObject(accountsList, Formatting.Indented);
-            System.IO.File.WriteAllText(accountPath, jsonData);
-
             // serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(accountPath, jsonData);
         }
 
         // Login - Method
         public int Login(string email, string pwd)
         {
-            /// Returns the ID of the User, if incorrect Parameters, given return -1
+            /// Returns the ID of the User, if incorrect Parameters given: return -1
             int uid = -1;
 
             var jsonData = System.IO.File.ReadAllText(accountPath);
@@ -99,20 +153,81 @@ namespace ConsoleApp1
 
             foreach (Account obj in accountsList)
             {
-                // Check if email and pwd are equal
-                if (obj.Email == email && obj.Pwd == pwd)
-                {
-                    // Account Found
-                    uid = obj.UID;
-                    break;
-
+                // Look for a matching Email
+                if (obj.Email == email)
+                { // Email is Correct!
+                    // Convert back to Byte Array
+                    byte[] hashBytes = Convert.FromBase64String(obj.Pwd);
+                    PasswordHash hash = new PasswordHash(hashBytes);
+                    if (hash.Verify(pwd))
+                    {
+                        // Password is Valid! Return User ID
+                        uid = obj.UID;
+                        break;
+                    }
                 }
             }
             return uid;
         }
 
+         public bool CheckUniqueEmail(string email)
+        {
+            /// Takes string email as Parameter, Returns Boolean, whether Email is Unique or not.
+            var jsonData = System.IO.File.ReadAllText(accountPath);
+            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+
+            bool UniqueEmail = true;
+
+            // Unique till proven otherwise:
+            foreach (Account user in accountsList)
+            {
+                if (email == user.Email)
+                {
+                    // Set bool to false and break loop
+                    UniqueEmail = false;
+                    break;
+                }
+            }
+           return UniqueEmail;
+        }
+
+        public void UpdateEmail(int uid, string newEmail)
+        {
+            var jsonData = System.IO.File.ReadAllText(accountPath);
+            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+
+            foreach (Account user in accountsList)
+            {
+                if (uid == user.UID)
+                {
+                    user.Email = newEmail;
+                }
+            }
+            jsonData = JsonConvert.SerializeObject(accountsList, Formatting.Indented);
+            System.IO.File.WriteAllText(accountPath, jsonData);
+            Console.WriteLine("Je Email Adres is Gewijzigd!");
+        }
+
+        public void UpdatePwd(int uid, string newPwd)
+        {
+            var jsonData = System.IO.File.ReadAllText(accountPath);
+            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+
+            foreach (Account user in accountsList)
+            {
+                if (uid == user.UID)
+                {
+                    user.Pwd = Encrypt(newPwd);
+                }
+            }
+
+            jsonData = JsonConvert.SerializeObject(accountsList, Formatting.Indented);
+            System.IO.File.WriteAllText(accountPath, jsonData);
+            Console.WriteLine("Je Wachtwoord is Gewijzigd!");
+        }
+
         // Check if VIP Upgrade is possible - Method
-        public bool CheckValidUprade(int uid)
+        public bool CheckValidUprade(int uid, bool showErrors = false)
         {
             bool valid = false;
 
@@ -125,12 +240,12 @@ namespace ConsoleApp1
                 {
                     if (obj.Level > 2)
                     {
-                        Console.WriteLine("FOUT: Een Administrator Account kan geen VIP worden");
+                        if (showErrors) { Console.WriteLine("FOUT: Een Administrator Account kan geen VIP worden"); }
                         break;
                     }
                     else if (obj.Level == 2)
                     {
-                        Console.WriteLine("FOUT: Account heeft al VIP status");
+                        if (showErrors) { Console.WriteLine("FOUT: Account heeft al VIP status"); }
                     }
                     else
                     {
@@ -144,7 +259,7 @@ namespace ConsoleApp1
         // Upgrade to VIP - Method
         public void UpgradeToVip(int uid)
         {
-            if (CheckValidUprade(uid))
+            if (CheckValidUprade(uid, true))
             {
                 var jsonData = System.IO.File.ReadAllText(accountPath);
                 var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
@@ -159,7 +274,6 @@ namespace ConsoleApp1
                 System.IO.File.WriteAllText(accountPath, jsonData);
             }
         }
-
     } // ./ Class
 
     public class Order
@@ -275,13 +389,12 @@ namespace ConsoleApp1
 
         public List<Product> GetProducts(string type)
         {
-            /// Returns an Int Array of taken seatnumbers
+            /// Takes a string Type as Paramater and creates a list of all products of given Type:
             var jsonData = System.IO.File.ReadAllText(productsPath);
             var productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
 
             List<Product> myProducts = new List<Product>();
 
-            // Determine the size of the array:
             foreach (Product product in productList)
             {
                 if(type == product.Type)
