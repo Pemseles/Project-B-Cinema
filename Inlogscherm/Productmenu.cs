@@ -1,19 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using static System.Console;
 using System.IO;
-using static ConsoleApp1.MainMenu;
-using static ConsoleApp1.Registers;
+
 
 namespace ConsoleApp1
 {
     public class Products
     {
         public string productsPath = Path.GetFullPath(@"ProductList.json");
+        public string orderPath = Path.GetFullPath(@"Orders.json");
+
         public static ConsoleApp1.Orders newOrder = new Orders();
+        public static ConsoleApp1.Order addOrder = new Order();
+        /// <summary>
+        // t is geen fucking list, ff aanpassen
+        /// </summary>
         private static int index = 0;
 
         private static string MainScreen(List<string> items)
@@ -71,14 +75,9 @@ namespace ConsoleApp1
             return "";
         }
 
-        public static void back()
+        public static void resetIndex()
         {
-            ConsoleKeyInfo ckey = Console.ReadKey();
-            if (ckey.Key == ConsoleKey.Backspace)
-            {
-                Console.Clear();
-                Productmenu();
-            }
+            index = 0;
         }
 
 
@@ -91,7 +90,6 @@ namespace ConsoleApp1
             bool productmenubool = true;
             while (productmenubool == true)
             {
-
                 List<string> ProductMenu = new List<string>()
                     {
                         "[      Snacks      ]" ,
@@ -101,7 +99,6 @@ namespace ConsoleApp1
                         "[       Terug      ]"
                     };
                 // kijkt bij welke index de user zich bevind
-
 
                 string selectedMenuItem = MainScreen(ProductMenu);
 
@@ -153,17 +150,18 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
+                        addOrder.Add(Snacks[index].ID);
+                        resetIndex();
                         Console.Clear();
-                        Console.WriteLine($"{Snacks.Count}");
                         break;
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
                     {
+                        resetIndex();
                         Console.Clear();
                         break;
                     }
-
 
                     // haalt lijst met productid snack op
                 }
@@ -215,13 +213,15 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
+                        newOrder.Add(Drinks[index].ID);
+                        resetIndex();
                         Console.Clear();
-                        Console.WriteLine($"{Drinks.Count}");
                         break;
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
                     {
+                        resetIndex();
                         Console.Clear();
                         break;
                     }
@@ -276,13 +276,15 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
+                        newOrder.Add(Alcohols[index].ID);
+                        resetIndex();
                         Console.Clear();
-                        Console.WriteLine($"{Alcohols.Count}");
                         break;
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
                     {
+                        resetIndex();
                         Console.Clear();
                         break;
                     }
@@ -336,13 +338,15 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
+                        newOrder.Add(Deals[index].ID);
+                        resetIndex();
                         Console.Clear();
-                        Console.WriteLine($"{Deals.Count}");
                         break;
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
                     {
+                        resetIndex();
                         Console.Clear();
                         break;
                     }
@@ -353,6 +357,7 @@ namespace ConsoleApp1
 
                 if (selectedMenuItem == "[       Terug      ]")
                 {
+                    resetIndex();
                     Console.Clear();
                     productmenubool = false;
                     MainMenu.Mainmenu();

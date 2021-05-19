@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace ConsoleApp1
 {
-
+    //admin kan admins toevoegen
     public class Account
     {
         public int UID { get; set; }
