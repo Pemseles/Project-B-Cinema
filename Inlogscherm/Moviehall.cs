@@ -112,21 +112,21 @@ namespace ConsoleApp1
             }
 
             //int ticket = Int16.Parse(Console.ReadLine());
-            bool a = true;
+            //bool a = true;
             //Console.Write("how big is the cinema hall: ");
             //string ans = Console.ReadLine();
             //int people = Int16.Parse(ans);
             if (people > 0 && people <= 150)
             {
-                Console.SetWindowSize(70, 20);
+                Console.SetWindowSize(100, 30);
             }
             else if (people > 150 && people <= 250)
             {
-                Console.SetWindowSize(70, 30);
+                Console.SetWindowSize(100, 40);
             }
             else if (people > 250 && people <= 602)
             {
-                Console.SetWindowSize(70, 40);
+                Console.SetWindowSize(100, 50);
             }
 
 
@@ -163,13 +163,13 @@ namespace ConsoleApp1
             if (x.Count > 1)
             {
                 Console.WriteLine($"Je hebt deze stoelen geselecteerd : {s} \n KLopt dit?");
-                Console.Write("Maak uw keuze : ");
+                Console.Write("Maak uw keuze : \n");
                 Console.WriteLine("Ja");
                 Console.WriteLine("Nee");
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        // return naar mainpage
+                        ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
                         // reset de seats
@@ -179,13 +179,13 @@ namespace ConsoleApp1
             else
             {
                 Console.WriteLine($"Je hebt deze stoel geselecteerd : {s} \n Klopt dit?");
-                Console.Write("Maak uw keuze : ");
+                Console.Write("Maak uw keuze : \n");
                 Console.WriteLine("Ja");
                 Console.WriteLine("Nee");
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        // return naar mainpage
+                        ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
                         // reset de seats
@@ -197,7 +197,10 @@ namespace ConsoleApp1
             {
                 for (int i = 0; i < items.Count; i++)
                 {
-
+                    if(i % 10 == 0)
+                    {
+                        Console.Write("                ");
+                    }
                     if (res.Contains(i))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
@@ -255,19 +258,13 @@ namespace ConsoleApp1
                 }
                 else if (ckey.Key == ConsoleKey.DownArrow)
                 {
-                    if (index >= people)
-                    {
-                        index = 0;
-                    }
-                    else { index += 10; }
+
+                    index += 10; 
                 }
                 else if (ckey.Key == ConsoleKey.LeftArrow)
                 {
-                    if (index <= 0)
-                    {
-                        index = people;
-                    }
-                    else { index--; }
+
+                    index--;
                 }
                 else if (ckey.Key == ConsoleKey.Enter)
                 {

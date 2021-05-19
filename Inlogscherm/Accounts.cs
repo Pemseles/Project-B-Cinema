@@ -88,7 +88,7 @@ namespace ConsoleApp1
                 foreach (Account element in accountsList) { uid = element.UID; };
                 return uid + 1;
             }
-            catch (Exception) // Excute if there are no entries in the JSON
+            catch (Exception) // Execute if there are no entries in the JSON
             {
                 return 0;
             }
