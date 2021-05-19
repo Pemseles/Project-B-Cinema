@@ -14,10 +14,8 @@ namespace ConsoleApp1
         public string orderPath = Path.GetFullPath(@"Orders.json");
 
         public static ConsoleApp1.Orders newOrder = new Orders();
-        public static ConsoleApp1.Order addOrder = new Order();
-        /// <summary>
-        // t is geen fucking list, ff aanpassen
-        /// </summary>
+
+
         private static int index = 0;
 
         private static string MainScreen(List<string> items)
@@ -80,10 +78,7 @@ namespace ConsoleApp1
             index = 0;
         }
 
-
-
-        // to do:    zorgen dat het loopt door de opties en je t kan selecteren
-        //           wanneer er iets geselcteerd wordt zorgen dat het in een Orders JSON opeslagen wordt
+        public static List<int> addOrder = new List<int>();
         public static void Productmenu()
         { // Euroteken: 20AC
 
@@ -104,6 +99,7 @@ namespace ConsoleApp1
 
                 while (selectedMenuItem == "[      Snacks      ]")
                 {
+                    // haalt lijst met productid snack op
                     Console.Clear();
                     var Snacks = newOrder.GetProducts("Snack");
                     int i = 0;
@@ -151,9 +147,7 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Snacks[index].ID);
-                        resetIndex();
-                        Console.Clear();
-                        break;
+                        
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
@@ -163,10 +157,10 @@ namespace ConsoleApp1
                         break;
                     }
 
-                    // haalt lijst met productid snack op
                 }
                 while (selectedMenuItem == "[     Drankjes     ]")
                 {
+                    // haalt lijst met productid drink op
                     Console.Clear();
                     var Drinks = newOrder.GetProducts("Drink");
                     int i = 0;
@@ -213,10 +207,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
-                        newOrder.Add(Drinks[index].ID);
-                        resetIndex();
-                        Console.Clear();
-                        break;
+                        addOrder.Add(Drinks[index].ID);
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
@@ -226,10 +217,10 @@ namespace ConsoleApp1
                         break;
                     }
 
-                    // haalt lijst met productid drink op
                 }
                 while (selectedMenuItem == "[      Alcohol     ]")
                 {
+                    // haalt lijst met productid alcohol op
                     Console.Clear();
                     var Alcohols = newOrder.GetProducts("Alcohol");
                     int i = 0;
@@ -276,10 +267,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
-                        newOrder.Add(Alcohols[index].ID);
-                        resetIndex();
-                        Console.Clear();
-                        break;
+                        addOrder.Add(Alcohols[index].ID);
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
@@ -289,10 +277,10 @@ namespace ConsoleApp1
                         break;
                     }
 
-                    // haalt lijst met productid alcohol op
                 }
                 while (selectedMenuItem == "[   Combi Deals    ]")
                 {
+                    // haalt lijst met productid deal op
                     Console.Clear();
                     var Deals = newOrder.GetProducts("Combi");
                     int i = 0;
@@ -338,10 +326,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
-                        newOrder.Add(Deals[index].ID);
-                        resetIndex();
-                        Console.Clear();
-                        break;
+                        addOrder.Add(Deals[index].ID);
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
@@ -350,9 +335,6 @@ namespace ConsoleApp1
                         Console.Clear();
                         break;
                     }
-                
-                    // haalt lijst met productid combi op
-
                 }
 
                 if (selectedMenuItem == "[       Terug      ]")
