@@ -43,7 +43,7 @@ namespace ConsoleApp1
             }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index < 8)
+                if (index < 9)
                 {
                     index++;
                 }

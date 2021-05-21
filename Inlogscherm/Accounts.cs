@@ -402,7 +402,6 @@ namespace ConsoleApp1
                     myProducts.Add(product);
                 }
             }
-           
             return myProducts;
         }
     }

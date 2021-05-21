@@ -150,7 +150,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
-                        addOrder.Add(Snacks[index].ID);
+                       /* addOrder.Add(Snacks[index].ID); */
                         resetIndex();
                         Console.Clear();
                         break;
@@ -213,7 +213,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
-                        newOrder.Add(Drinks[index].ID);
+                        //newOrder.Add(Drinks[index].ID);
                         resetIndex();
                         Console.Clear();
                         break;
@@ -276,7 +276,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
-                        newOrder.Add(Alcohols[index].ID);
+                        //newOrder.Add(Alcohols[index].ID);
                         resetIndex();
                         Console.Clear();
                         break;
@@ -338,7 +338,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
-                        newOrder.Add(Deals[index].ID);
+                       // newOrder.Add(Deals[index].ID);
                         resetIndex();
                         Console.Clear();
                         break;

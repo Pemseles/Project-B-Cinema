@@ -6,8 +6,8 @@
     "Pwd": "cTsCKt+JMLBdXZPPVKRXWQvIZR4S97XtZcCMUTeB0rgO36Ft",
     "Firstname": "Admin",
     "Lastname": "Admin",
-    "Address": "Silicon Valley Bakerstreet 12 1234 ab",
     "Age": "1970-01-01",
+    "Address": "Silicon Valley Bakerstreet 12 1234 ab",
     "Interests": [
       "Actie",
       "Drama",
@@ -21,8 +21,8 @@
     "Pwd": "WwnDqqXYLloXJhm8+3ok66KwFLLb3+nsOA3PICnqfm5mORLk",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -36,8 +36,8 @@
     "Pwd": "kWKf3QYzGBqrBkUS1SDpFY4fz90S3Icx2oYbx9RNfBvnb3Ok",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -51,8 +51,8 @@
     "Pwd": "7FMJG/kd2D7fAgmAR4q7zjETgqzwIjU2zuYHdBe+paDCYhVk",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -66,8 +66,8 @@
     "Pwd": "tLUHK82hm2dUZziYGbge2X4eLhfvbPLdisVgalu0OQoovzYp",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "New York WallStreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -81,8 +81,8 @@
     "Pwd": "MiDOP231o3ho8HEqYag8NHcz8yHydFxJoc1l8Z7725TfdkzV",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "New York WallStreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -96,8 +96,8 @@
     "Pwd": "Xs3xasz04lsBaZuwo9B19dl1+r6Wed+197c1jkT8sCMfTb5i",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "New York WallStreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -111,8 +111,8 @@
     "Pwd": "fSbUJQVSGLqPgCbLyjTChIgYZvfDDZeXwQhk5AKgftvGNhc0",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "New York WallStreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -126,8 +126,8 @@
     "Pwd": "xZCWjyYndZS1n5DiqLoXmBOAzGVQ5z3xY2dORn4AduPdb224",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "New York WallStreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -141,8 +141,8 @@
     "Pwd": "kIDEYn1iu/+q56uZlzacDDfZtJHHgiEsos57pfnfuhrtQmgS",
     "Firstname": "Pietje",
     "Lastname": "Precies",
-    "Address": "New York WallStreet 12 2247 dc",
     "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
     "Interests": [
       "Actie",
       "Romantiek",
@@ -156,8 +156,8 @@
     "Pwd": "dpAiwD0jst7YSHUEBUfSn43WZlKxnW9ake3QqoTvjwijIrpf",
     "Firstname": "Jan",
     "Lastname": "Peter",
-    "Address": "peterstraat121234ABPeterDorp",
     "Age": "2/3/2004",
+    "Address": "peterstraat121234ABPeterDorp",
     "Interests": [
       "Actie",
       "Actie",
@@ -180,34 +180,15 @@
   {
     "UID": 17,
     "Level": 1,
-    "Email": "",
-    "Pwd": "",
-    "Firstname": "",
-    "Lastname": "",
-    "Age": "",
-    "Address": "",
-    "Interests": []
-  },
-  {
-    "UID": 18,
-    "Level": 1,
-    "Email": "",
-    "Pwd": "",
-    "Firstname": "",
-    "Lastname": "",
-    "Age": "",
-    "Address": "",
-    "Interests": []
-  },
-  {
-    "UID": 19,
-    "Level": 1,
-    "Email": "",
-    "Pwd": "",
-    "Firstname": "",
-    "Lastname": "",
-    "Age": "",
-    "Address": "",
-    "Interests": []
+    "Email": "peterjan@mail.com",
+    "Pwd": "qu8F6WqF8pYtRGuX/KprZV4T3icJpoCQM3PQcP3JFfPPfd2I",
+    "Firstname": "Peterjan",
+    "Lastname": "Driechtsen",
+    "Age": "5/4/1999",
+    "Address": "Peterstraat4541224FEVlietdrecht",
+    "Interests": [
+      "Actie",
+      "Drama"
+    ]
   }
 ]
