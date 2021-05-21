@@ -284,5 +284,18 @@
     "Age": "",
     "Address": "",
     "Interests": []
+  },
+  {
+    "UID": 20,
+    "Level": 1,
+    "Email": "Test@test.info",
+    "Pwd": "Testing66",
+    "Firstname": "test",
+    "Lastname": "tester",
+    "Age": "10/11/1920",
+    "Address": "teststraat102233AAtestburg",
+    "Interests": [
+      "testen"
+    ]
   }
 ]

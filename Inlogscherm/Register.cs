@@ -95,6 +95,7 @@ namespace ConsoleApp1
                     Console.Clear();
                     if (index == 0)
                     {
+                        Console.WriteLine("(geef een dag tussen 1 en 31)");
                         Console.Write("Dag: ");
                         string Day = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, Day, 0) == false)
@@ -115,6 +116,7 @@ namespace ConsoleApp1
                     }
                     if (index == 1)
                     {
+                        Console.WriteLine("(geef een maand tussen 1 en 12)");
                         Console.Write("Maand: ");
                         string Month = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, Month, 0) == false)
@@ -135,7 +137,7 @@ namespace ConsoleApp1
                     }
                     if (index == 2)
                     {
-                        Console.Write("Jaar: ");
+                        Console.WriteLine("(geef een jaar tussen 1900 en 2018)");
                         string Year = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, Year, 0) == false)
                         {
@@ -145,7 +147,7 @@ namespace ConsoleApp1
                         else
                         {
                             Years = int.Parse(Year);
-                            bool year = check(2021, 1900, Years);
+                            bool year = check(2018, 1900, Years);
                             index++;
                             if (year == false)
                             {
@@ -166,7 +168,8 @@ namespace ConsoleApp1
                     switch (x)
                     {
                         case 1:
-                            Console.Write("voer uw naam in: ");
+                        Console.WriteLine("(geef een naam op die bestaat uit alleen maar letters)");
+                        Console.Write("voer uw naam in: ");
                             name = Console.ReadLine();
                             if(ConsoleApp1.Restrictions.SW(5, name, 0) == true && name.Length > 1)
                             {
@@ -175,7 +178,8 @@ namespace ConsoleApp1
                             name = Name(1);
                             break;
                         case 2:
-                            Console.Write("voer uw achternaam in: ");
+                        Console.WriteLine("(geef een achternaam op die bestaat uit alleen maar letters)");
+                        Console.Write("voer uw achternaam in: ");
                             name = Console.ReadLine();
                             if (ConsoleApp1.Restrictions.SW(5, name, 0) == true && name.Length > 1)
                             {
@@ -190,6 +194,7 @@ namespace ConsoleApp1
             static string Email()
             {
                 Console.Clear();
+                Console.WriteLine("(het e-mailadres moet een @ en een . bevatten)");
                 Console.Write("voer uw e-mailadres in: ");
                 string email = Console.ReadLine();
                 for (int i = 0; i < email.Length; i++)
@@ -322,6 +327,7 @@ namespace ConsoleApp1
                 while (true)
                 {
                     Console.Clear();
+                    Console.WriteLine("voer een getal in");
                     Console.Write("hoeveel intresses heeft u: ");
                     times = Console.ReadLine();
                     if (ConsoleApp1.Restrictions.SW(3, times, 0) == true)
@@ -336,6 +342,7 @@ namespace ConsoleApp1
                     while (true)
                     {
                         Console.Clear();
+                        Console.Write("je antwoord mag alleen maar letters bevatten");
                         Console.Write("voer een intresse in: ");
                         intrest[i] = Console.ReadLine();
                         if(ConsoleApp1.Restrictions.SW(5, intrest[i], 0) == true && intrest[i].Length > 1)
@@ -354,6 +361,7 @@ namespace ConsoleApp1
                 switch (num) {
                     case 1:
                         // langste straatnaam is 55 letters in Nederland
+                        Console.WriteLine("je antwoord mag alleen maar letters bevatten");
                         Console.Write("voer uw straat in: ");
                         address = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(5, address, 0) == true && address.Length < 56)
@@ -365,6 +373,7 @@ namespace ConsoleApp1
                         
                     case 2:
                         // hoogste huisnummer in Nederland is 5 getallen lang
+                        Console.WriteLine("je antwoord mag alleen maar cijfers bevatten en niet langer dan 6 tekens zijn");
                         Console.Write("voer uw huisnummer in: ");
                         address = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, address, 0) == true && address.Length < 6)
@@ -374,14 +383,14 @@ namespace ConsoleApp1
                         address = Address(2);
                         break;
                     case 3:
-                        Console.Write("Voer de eerste 4 cijfers van uw postcode in: ");
+                        Console.WriteLine("Voer de eerste 4 cijfers van uw postcode in: ");
                         address = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, address, 0) == true && address.Length == 4)
                         {
                             while (true)
                             {
                                 Console.Clear();
-                                Console.WriteLine("Voer de laatste 2 letters van uw postcode in: ");
+                                Console.WriteLine("Voer de laatste 2 hoofdletters van uw postcode in: ");
                                 Console.Write(address);
                                 
                                 string add = Console.ReadLine();
@@ -397,6 +406,7 @@ namespace ConsoleApp1
                         break;
                     case 4:
                         // langste woonplaatsnaam is 25 tekens lang
+                        Console.WriteLine("je antwoord mag alleen maar letters bevatten");
                         Console.Write("voer uw woonplaats in: ");
                         address = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(5, address, 0) == true && address.Length < 26)
