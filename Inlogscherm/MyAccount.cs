@@ -8,7 +8,7 @@ namespace ConsoleApp1
         public int UID;
         public Accounts CurrentUser;
         public List<string> AccountMenu;
-
+        public int index;
         public MyAccount(int uid)
         {
             this.UID = uid;
@@ -19,6 +19,11 @@ namespace ConsoleApp1
                 "[  Account Upgraden   ]",
                 "[       Terug         ]"
                  };
+        }
+
+        public void resetIndex()
+        {
+            index = 0;
         }
 
         static string Email()
