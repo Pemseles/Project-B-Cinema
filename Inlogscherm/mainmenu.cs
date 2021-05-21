@@ -75,6 +75,13 @@ namespace ConsoleApp1
                 Mainmenu();
             } 
         }
+
+
+        public static void resetIndex()
+        {
+            index = 0;
+        }
+
         public static void Mainmenu()
         {
             string filmJSONPath = Path.GetFullPath(@"FilmList.json");
@@ -92,7 +99,6 @@ namespace ConsoleApp1
                 "[  Informatiemenu  ]" ,
                 "[    Review menu   ]" ,
                 "[   Winkelmandje   ]" ,
-                "[    VIP pagina    ]" ,
                 "[       Zalen      ]" ,
                 "[   Mijn Account   ]" ,
                 "[     Uitloggen    ]",
@@ -117,8 +123,9 @@ namespace ConsoleApp1
                     back();
 
                 }
-                if (selectedMenuItem == "[     Alle films   ]")
+                else if (selectedMenuItem == "[     Alle films   ]")
                 {
+                    resetIndex();
                     Console.Clear();
 
                     string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
@@ -134,28 +141,31 @@ namespace ConsoleApp1
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {
+                    resetIndex();
                     Console.Clear();
                     ConsoleApp1.Products.Productmenu();
                     back();
                     // open de snacks json
                 }
-                if (selectedMenuItem == "[  Informatiemenu  ]")
+                else if (selectedMenuItem == "[  Informatiemenu  ]")
                 {
+                    resetIndex();
                     Console.Clear();
                     Infopanels panelObj = new Infopanels();
                     panelObj.InfoScreen();
                     back();
                     // open de info panels
                 }
-                if (selectedMenuItem == "[    Review menu   ]")
+                else if (selectedMenuItem == "[    Review menu   ]")
                 {
                     Console.Clear();
                     Review.Revmenu();
                     back();
                     // open de review list of json
                 }
-                if (selectedMenuItem == "[   Winkelmandje   ]")
+                else if (selectedMenuItem == "[   Winkelmandje   ]")
                 {
+                    resetIndex();
                     Console.Clear();
                     Cart.PaymentScreen();
                     back();
@@ -163,16 +173,9 @@ namespace ConsoleApp1
                     // if email == seats.email && email == snacksselected.email
                     // zo misschien info ophalen per account
                 }
-                if (selectedMenuItem == "[    VIP pagina    ]")
+                else if (selectedMenuItem == "[       Zalen      ]")
                 {
-                    Console.Clear();
-                    Console.WriteLine("dit is de VIP pagina");
-                    back();
-                    // if account registratie == vip 
-                    // kan dit geopend worden 
-                }
-                if (selectedMenuItem == "[       Zalen      ]")
-                {
+                    resetIndex();
                     Console.Clear();
                     Registers.moviehall();
                     back();
@@ -181,6 +184,7 @@ namespace ConsoleApp1
                 }
                 else if (selectedMenuItem == "[   Mijn Account   ]")
                 {
+                    resetIndex();
                     Console.Clear();
                     MyAccount User = new MyAccount(Program.UID);
                     User.OpenMenu();
@@ -190,7 +194,7 @@ namespace ConsoleApp1
                 else if (selectedMenuItem == "[     Uitloggen    ]")
                 {
                     Console.Clear();
-
+                    resetIndex();
                     mainmenubool = false;
                     /*
                     System.Diagnostics.Process.Start(Application.ExecutablePath);
