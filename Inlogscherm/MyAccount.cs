@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using static ConsoleApp1.MainMenu;
 namespace ConsoleApp1
 {
     class MyAccount
@@ -145,6 +145,7 @@ namespace ConsoleApp1
 
                 if (selectedMenuItem == AccountMenu[0]) // Change Email
                 {
+                    MainMenu.resetIndex();
                     Console.Clear();
                     Console.Write("Weet je zeker dat je, je email wilt wijzigen?\nDruk op ENTER om verder te gaan.\nBACKSPACE om dit te annuleren.");
                     ConsoleKeyInfo ckey = Console.ReadKey();
