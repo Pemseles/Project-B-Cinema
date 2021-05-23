@@ -75,6 +75,15 @@ namespace ConsoleApp1
         public List<string> Interests;
         public string accountPath = Path.GetFullPath(@"Accounts.json");
 
+        // Retrieve Accountdata
+        public List<Account> RetrieveAccountData()
+        {
+            var jsonData = System.IO.File.ReadAllText(accountPath);
+            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+
+            return accountsList;
+        }
+
         // Generate new UID - Method
         public int GenerateID()
         {
@@ -82,8 +91,7 @@ namespace ConsoleApp1
             int uid = 0;
             try
             {
-                var jsonData = System.IO.File.ReadAllText(accountPath);
-                var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+                var accountsList = RetrieveAccountData();
 
                 foreach (Account element in accountsList) { uid = element.UID; };
                 return uid + 1;
@@ -148,8 +156,7 @@ namespace ConsoleApp1
             /// Returns the ID of the User, if incorrect Parameters given: return -1
             int uid = -1;
 
-            var jsonData = System.IO.File.ReadAllText(accountPath);
-            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+            var accountsList = RetrieveAccountData();
 
             foreach (Account obj in accountsList)
             {
@@ -170,6 +177,26 @@ namespace ConsoleApp1
             return uid;
         }
 
+        // Get Level - Method
+        public int GetLevel(int uid)
+        {
+            /// Takes UID as Parameter, Returns User Clearance Level
+            if (uid < 0) return 1; 
+            var accountsList = RetrieveAccountData();
+            int level = 0;
+            foreach (Account user in accountsList)
+            {
+                if (uid == user.UID)
+                {
+                    // Set bool to false and break loop
+                    level = user.Level;
+                    break;
+                }
+            }
+            Console.WriteLine(level);
+            return level;
+
+        }
          public bool CheckUniqueEmail(string email)
         {
             /// Takes string email as Parameter, Returns Boolean, whether Email is Unique or not.
