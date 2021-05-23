@@ -44,11 +44,15 @@ namespace ConsoleApp1
                
 
                 Console.Clear();
-                
+                if(pass.Length == 0 || email.Length == 0)
+                {
+                    Console.WriteLine("Voer alle velden in.");
+                    loginFunc();
+                }
                 if(userLogin.Login(email, pass) == -1)
                 {
                     Console.WriteLine("Email or Wachtwoord is onjuist\nProbeer het nog een keer");
-                    login = false;
+                    loginFunc();
 
                 }
                 login = true;

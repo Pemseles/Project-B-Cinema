@@ -21,11 +21,11 @@ namespace ConsoleApp1
         private static void Main(string[] args)
         {
             /* Debug & Testing ************************************/
-            /* 
+            
             ConsoleApp1.Accounts newAccount = new Accounts();
             string[] interests = new string[] { "Actie", "Romantiek", "Drama" };
             newAccount.AddAccount($"user{newAccount.GenerateID()}@mail.com", $"#{newAccount.GenerateID()}Geheim", "Pietje", "Precies", "2000-01-01", "New York WallStreet 12 2247 dc", interests);
-           */
+           
             /* ./ Debug & Testing *********************************/
 
             List<string> LoginScreen = new List<string>() {
