@@ -57,12 +57,12 @@ namespace ConsoleApp1
             // .ToLower() maakt alles kleine letters om problemen te voorkomen tijdens het vergelijken
             for (int i = 0; i < filmList.FilmArray.Length; i++)
             {
-                if (this.InputSearch.ToLower() == filmList.FilmArray[i].Name.ToLower())
+                if (filmList.FilmArray[i].Name.ToLower().Contains(this.InputSearch.ToLower()))
                 {
                     returnList.Add(filmList.FilmArray[i]);
                 }
 
-                else if (this.InputSearch.ToLower() == filmList.FilmArray[i].Director.ToLower())
+                else if (filmList.FilmArray[i].Director.ToLower().Contains(this.InputSearch.ToLower()))
                 {
                     returnList.Add(filmList.FilmArray[i]);
                 }
