@@ -128,20 +128,21 @@ namespace ConsoleApp1
             {
                 Console.SetWindowSize(100, 50);
             }
-
+            char[] Alphabet = Enumerable.Range('A', 'Z' - 'A' + 1).Select(i => (Char)i).ToArray();
 
             List<string> movie = new List<string>(people);
 
-            for (int i = 0, j = 1; i < people; i++, j++)
+            for (int i = 0, j = 1, y = 0; i < people; i++, j++)
             {
                 if (j % 10 == 0 && i != 0)
                 {
-                    movie.Add($" [ {j} ] \n");
+                    movie.Add($" [ {Alphabet[y]}{j} ] \n");
                     j = 0;
+                    y++;
                 }
                 else
                 {
-                    movie.Add($" [ {j} ] ");
+                    movie.Add($" [ {Alphabet[y]}{j} ] ");
                 }
             }
 
@@ -153,12 +154,11 @@ namespace ConsoleApp1
                 x.Add(MainScreen(movie, people, keys, res, seats, ticket));
                 ticket--;
             }
-            Console.Clear();
             string s = "";
             for (int c = 0; c < x.Count; c++)
             {
-                s += x[c] + 1 + ",";
 
+                s += $"{Alphabet[x[c] / 10]}{x[c]%10+1}, ";
             }
             if (x.Count > 1)
             {
@@ -169,6 +169,7 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
+                        Console.Clear();
                         ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
@@ -178,6 +179,7 @@ namespace ConsoleApp1
             }
             else
             {
+                
                 Console.WriteLine($"Je hebt deze stoel geselecteerd : {s} \n Klopt dit?");
                 Console.Write("Maak uw keuze : \n");
                 Console.WriteLine("Ja");
@@ -195,17 +197,30 @@ namespace ConsoleApp1
             // homescreen()
             static int MainScreen(List<string> items, int people, List<int> keys, List<int> res, List<int> seats, int ticket)
             {
-                for (int i = 0; i < items.Count; i++)
+                Console.Write("                   ");Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
+                Console.ResetColor(); Console.Write("                  "); Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝");
+                Console.ResetColor(); Console.Write("                  "); Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗");
+                Console.ResetColor();Console.Write("                  "); Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝");
+                Console.ResetColor();Console.Write("                  "); Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗");
+                Console.ResetColor();Console.Write("                   ");Console.BackgroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝");
+                Console.ResetColor();Console.WriteLine();Console.WriteLine();Console.WriteLine();
+                for (int i = 0, j=0; i < items.Count; i++)
                 {
                     if(i % 10 == 0)
                     {
-                        Console.Write("                ");
+                        Console.Write("            ");
+                        j++;
                     }
                     if (res.Contains(i))
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.ForegroundColor = ConsoleColor.Black;
-
                         Console.Write(items[i]);
                     }
 
@@ -237,7 +252,21 @@ namespace ConsoleApp1
                     }
                     Console.ResetColor();
                 }
-
+                Console.WriteLine();
+                Console.WriteLine("Legenda");
+                Console.WriteLine();
+                Console.Write("Gereserveerd: ");
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write("  "); Console.ResetColor(); Console.WriteLine();
+                Console.Write("Vip stoelen : ");
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write("  "); Console.ResetColor(); Console.WriteLine();
+                Console.Write("Geselecteerd: ");
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write("  "); Console.ResetColor(); Console.WriteLine(); Console.WriteLine();
                 ConsoleKeyInfo ckey = Console.ReadKey();
 
                 if (ckey.Key == ConsoleKey.RightArrow)
