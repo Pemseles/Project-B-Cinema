@@ -95,6 +95,7 @@ namespace ConsoleApp1
                 List<string> Mainscreen = new List<string>() {
                 "[    Zoek films    ]" ,
                 "[     Filmlijst    ]" ,
+                "[      Vandaag     ]" ,
                 "[Hapjes en drankjes]" ,
                 "[  Informatiemenu  ]" ,
                 "[    Review menu   ]" ,
@@ -123,7 +124,7 @@ namespace ConsoleApp1
                     back();
 
                 }
-                else if (selectedMenuItem == "[     Alle films   ]")
+                else if (selectedMenuItem == "[     Filmlijst    ]")
                 {
                     resetIndex();
                     Console.Clear();
@@ -138,6 +139,28 @@ namespace ConsoleApp1
                     var selectedmovie = filmmenu.Filmmenu(FilmList);
                     Console.WriteLine(selectedmovie.id + selectedmovie.moviename + selectedmovie.date);
                     Console.ReadLine();
+                }
+                else if (selectedMenuItem == "[      Vandaag     ]")
+                {
+                    resetIndex();
+                    Console.Clear();
+
+                    string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
+                    var movielist = JsonSerializer.Deserialize<Movielist>(moviesjson);
+                    //var today = DateTime.Now.ToString("yyyy-MM-dd");
+                    var today = "2021-04-01";
+                    var todaystring = "";
+                    for (int i = 0;i<movielist.movies.Length;i++)
+                    {
+                        if (movielist.movies[i].date == today)
+                        {
+                            todaystring += movielist.movies[i].moviename+"###";
+                        }
+                    }
+                    string[] todaylist = todaystring.Split("###");
+                    var selectedmovie = filmmenu.Filmmenu(todaylist, "ja");
+                    Registers.moviehall();
+
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {

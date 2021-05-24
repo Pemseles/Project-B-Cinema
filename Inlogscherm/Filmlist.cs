@@ -26,27 +26,55 @@ namespace ConsoleApp1
 
     public class filmmenu
     {
-        public static Movie Filmmenu(string[] items, int index = 0, bool done = false)
+        public static Movie Filmmenu(string[] items, string vandaag = "nee", bool done = false, int index = 0)
         {
             string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
             var movielist = JsonSerializer.Deserialize<Movielist>(moviesjson);
+            string filmname = "";
             while (!done)
             {
                 for (int i = 0; i < items.Length; i++)
                 {
                     if (i == index)
                     {
-                        Console.Write("                                                ");
+                        Console.Write("");
                         Console.BackgroundColor = ConsoleColor.Gray;
                         Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.WriteLine(items[i]);
+                        if (vandaag == "ja")
+                        {
+                            for (int j = 0; j < movielist.movies.Length; j++)
+                            {
+                                if (movielist.movies[j].moviename == items[i])
+                                {
+                                    Console.WriteLine($"{items[i]}\nTijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\nZaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine(items[i]);
+                        }
                     }
                     else
                     {
-                        Console.Write("                                                ");
-                        Console.WriteLine(items[i]);
+                        Console.Write("");
+                        if (vandaag == "ja")
+                        {
+                            for (int j = 0; j < movielist.movies.Length; j++)
+                            {
+                                if (movielist.movies[j].moviename == items[i])
+                                {
+                                    Console.WriteLine($"{items[i]}\nTijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\nZaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine(items[i]);
+                        }    
                     }
+
+                    
                     Console.ResetColor();
                 }
 
@@ -75,6 +103,7 @@ namespace ConsoleApp1
                     if (input == "j" || input == "J")
                     {
                         Console.Clear();
+                        filmname = items[index];
                         done = true;
                     }
                     else
@@ -84,6 +113,13 @@ namespace ConsoleApp1
                 }
 
                 Console.Clear();
+            }  
+            for (int i = 0;i<movielist.movies.Length;i++)
+            {
+                if (movielist.movies[i].moviename==filmname)
+                {
+                    return movielist.movies[i];
+                }
             }
             return movielist.movies[index]; 
         }
