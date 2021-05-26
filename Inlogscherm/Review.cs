@@ -10,37 +10,8 @@ using static ConsoleApp1.MainMenu;
 
 namespace ConsoleApp1
 {
-    public class Movie_rev
-    {
-        public string Movie { get; set; }
-        public string Username { get; set; }
-        public string Review { get; set; }
-        public int Stars { get; set; }
-    }
-    public class Zaal_rev
-    {
-        public string Movie { get; set; }
-        public string Username { get; set; }
-        public string Review { get; set; }
-        public int Stars { get; set; }
-    }
-    public class Cinescope_rev
-    {
-        public string Movie { get; set; }
-        public string Username { get; set; }
-        public string Review { get; set; }
-        public int Stars { get; set; }
-    }
-    public class rev_arr
-    {
-        public Movie_rev[] movie_rev { get; set; }
-        public Zaal_rev[] zaal_rev { get; set; }
-        public Cinescope_rev[] cinescope_rev { get; set; }
-    }
-    
     class Review
     {
-        string RevPath = Path.GetFullPath(@"Review.JSON");
         static int index3 = 0;
         static int index2 = 0;
         static int index = 0;
