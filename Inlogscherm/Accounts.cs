@@ -337,7 +337,7 @@ namespace ConsoleApp1
         // Database Paths:
         public string orderPath = Path.GetFullPath(@"Orders.json");
         public string accountPath = Path.GetFullPath(@"Accounts.json");
-        public static string productsPath = Path.GetFullPath(@"ProductList.json");
+        public string productsPath = Path.GetFullPath(@"ProductList.json");
         public string theatherhallPath = Path.GetFullPath(@"Theaterhalls.json");
         public string filmPath = Path.GetFullPath(@"Films.json");
 
@@ -494,7 +494,6 @@ namespace ConsoleApp1
             return VipSeatCoords;
         }
 
-        // overload 1, takes string type as param, (for use in Productmenu.cs)
         public List<Product> GetProducts(string type)
         {
             /// Takes a string Type as Paramater and creates a list of all products of given Type:
@@ -509,21 +508,6 @@ namespace ConsoleApp1
                 {
                     myProducts.Add(product);
                 }
-            }
-            return myProducts;
-        }
-        // overload 2, has no params, (for use in Checkout.cs)
-        public static List<Product> GetProducts()
-        {
-            /// Takes no Paramaters and creates a list of all products registered in json (used in Checkout.cs):
-            var jsonData = System.IO.File.ReadAllText(productsPath);
-            var productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
-
-            List<Product> myProducts = new List<Product>();
-
-            foreach (Product product in productList)
-            {
-                myProducts.Add(product);
             }
             return myProducts;
         }
