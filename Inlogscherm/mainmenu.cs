@@ -167,31 +167,11 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     //var today = DateTime.Now.ToString("yyyy-MM-dd");
-<<<<<<< HEAD
-                    var today = "2021-04-01";
-                    var todaystring = "";
-                    for (int i = 0;i<movielist.movies.Length;i++)
-                    {
-                        if (movielist.movies[i].date == today)
-                        {
-                            todaystring += movielist.movies[i].moviename+"###";
-                        }
-                    }
-                    string[] todaylist = todaystring.Split("###");
-                    var selectedmovie = filmmenu.Filmmenu(todaylist, "ja");
-                    Registers.moviehall();
-<<<<<<< HEAD
-                    
-=======
->>>>>>> parent of 57aff22 (Voortgang Checkout)
-
-=======
                     FilmMenu filmListToday = new FilmMenu();
                     Cart.UpdateFilmList(GetFilmList(true));
                     Movie selectedMovie = filmListToday.Filmmenu(GetFilmList(true));
                     
                     Registers.moviehall();
->>>>>>> parent of 37e8c56 (Merge branch 'local' into Thijmen)
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {

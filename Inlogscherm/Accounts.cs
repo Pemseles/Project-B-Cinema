@@ -75,6 +75,15 @@ namespace ConsoleApp1
         public List<string> Interests;
         public string accountPath = Path.GetFullPath(@"Accounts.json");
 
+        // Retrieve Accountdata
+        public List<Account> RetrieveAccountData()
+        {
+            var jsonData = System.IO.File.ReadAllText(accountPath);
+            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+
+            return accountsList;
+        }
+
         // Generate new UID - Method
         public int GenerateID()
         {
@@ -82,8 +91,7 @@ namespace ConsoleApp1
             int uid = 0;
             try
             {
-                var jsonData = System.IO.File.ReadAllText(accountPath);
-                var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+                var accountsList = RetrieveAccountData();
 
                 foreach (Account element in accountsList) { uid = element.UID; };
                 return uid + 1;
@@ -148,8 +156,7 @@ namespace ConsoleApp1
             /// Returns the ID of the User, if incorrect Parameters given: return -1
             int uid = -1;
 
-            var jsonData = System.IO.File.ReadAllText(accountPath);
-            var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+            var accountsList = RetrieveAccountData();
 
             foreach (Account obj in accountsList)
             {
@@ -170,6 +177,26 @@ namespace ConsoleApp1
             return uid;
         }
 
+        // Get Level - Method
+        public int GetLevel(int uid)
+        {
+            /// Takes UID as Parameter, Returns User Clearance Level
+            if (uid < 0) return 1; 
+            var accountsList = RetrieveAccountData();
+            int level = 0;
+            foreach (Account user in accountsList)
+            {
+                if (uid == user.UID)
+                {
+                    // Set bool to false and break loop
+                    level = user.Level;
+                    break;
+                }
+            }
+            Console.WriteLine(level);
+            return level;
+
+        }
          public bool CheckUniqueEmail(string email)
         {
             /// Takes string email as Parameter, Returns Boolean, whether Email is Unique or not.
@@ -305,14 +332,94 @@ namespace ConsoleApp1
     }
 
 
-    public class Orders
+    public class Utility
     {
         // Database Paths:
         public string orderPath = Path.GetFullPath(@"Orders.json");
         public string accountPath = Path.GetFullPath(@"Accounts.json");
-        public string productsPath = Path.GetFullPath(@"ProductList.json");
+        public static string productsPath = Path.GetFullPath(@"ProductList.json");
         public string theatherhallPath = Path.GetFullPath(@"Theaterhalls.json");
+        public string filmPath = Path.GetFullPath(@"Films.json");
 
+       public List<Object> retrieveJson(string jsonPath)
+        {
+            /// Returns an Int Array of taken seatnumbers
+            var jsonData = System.IO.File.ReadAllText(jsonPath);
+            var objectList = JsonConvert.DeserializeObject<List<Object>>(jsonData);
+
+            return objectList;
+        }
+
+        public void InsertJson(List<Object> objectList, string jsonPath)
+        {
+            // Update json data string
+            var jsonData = JsonConvert.SerializeObject(objectList, Formatting.Indented);
+            // serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(accountPath, jsonData);
+        }
+
+        public int GenerateID(string JsonPath)
+        {
+            /// Checks Accounts.json and creates a new ID based on previous ID's from the Json.
+            int newID = 0;
+            try
+            {
+                var objectList = retrieveJson(JsonPath);
+
+                foreach (Product element in objectList) { newID = element.ID; };
+                return newID + 1;
+            }
+            catch (Exception) // Execute if there are no entries in the JSON
+            {
+                return 0;
+            }
+        }
+    }
+
+    public class Admin : Utility
+    {
+        private int AdminID;
+        public Admin(int UID) { this.AdminID = UID; }
+
+        public void AddNewFilm(string filmName, string director, string[] genres, int ageRating)
+        {
+            var jsonData = System.IO.File.ReadAllText(filmPath);
+            var filmList = JsonConvert.DeserializeObject<List<Film>>(jsonData) ?? new List<Film>();
+
+            // Add a new Film
+            filmList.Add(new Film()
+            {
+                ID = GenerateID(filmPath),
+                Name = filmName,
+                Director = director,
+                Genres = genres,
+                AgeRating = ageRating
+            });
+
+            // Update json data string
+            jsonData = JsonConvert.SerializeObject(filmList, Formatting.Indented);
+            // serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(filmPath, jsonData);
+        }
+
+        public void SuspendAccount(int UID)
+        { /// Suspends the Account of given 
+            List<Object> AccountList = retrieveJson(accountPath);
+
+            foreach(Account Account in AccountList)
+            {
+                if(UID == Account.UID)
+                {
+                    //Account.Active == 0;
+                    break;
+                }
+            }
+
+        }
+    }
+
+    public class Orders : Utility
+    {
         // Get Current Seats - Methods
         public int[] GetSeatCoords(int movieID)
         {
@@ -387,6 +494,7 @@ namespace ConsoleApp1
             return VipSeatCoords;
         }
 
+        // overload 1, takes string type as param, (for use in Productmenu.cs)
         public List<Product> GetProducts(string type)
         {
             /// Takes a string Type as Paramater and creates a list of all products of given Type:
@@ -401,6 +509,21 @@ namespace ConsoleApp1
                 {
                     myProducts.Add(product);
                 }
+            }
+            return myProducts;
+        }
+        // overload 2, has no params, (for use in Checkout.cs)
+        public static List<Product> GetProducts()
+        {
+            /// Takes no Paramaters and creates a list of all products registered in json (used in Checkout.cs):
+            var jsonData = System.IO.File.ReadAllText(productsPath);
+            var productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
+
+            List<Product> myProducts = new List<Product>();
+
+            foreach (Product product in productList)
+            {
+                myProducts.Add(product);
             }
             return myProducts;
         }

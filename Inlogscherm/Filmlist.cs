@@ -38,45 +38,21 @@ namespace ConsoleApp1
                     if (i == index)
                     {
                         Console.Write("");
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-                        Console.BackgroundColor = ConsoleColor.Gray;
-                        Console.ForegroundColor = ConsoleColor.Black;
->>>>>>> parent of 57aff22 (Voortgang Checkout)
-                        if (vandaag == "ja")
-                        {
-                            for (int j = 0; j < movielist.movies.Length; j++)
-                            {
-                                if (movielist.movies[j].moviename == items[i])
-                                {
-<<<<<<< HEAD
-                                    Console.Write("                                                ");
-                                    Console.BackgroundColor = ConsoleColor.Gray;  Console.ForegroundColor = ConsoleColor.Black;
-                                    Console.Write(items[i] + "\n");
-                                    Console.ResetColor();
-                                    Console.Write("                                                ");
-                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                                    Console.Write("Tijd: " + movielist.movies[j].starttime + " tot " + movielist.movies[j].endtime + "\n");
-                                    Console.ResetColor();
-                                    Console.Write("                                                ");
-                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                                    Console.WriteLine("Zaal: " + movielist.movies[j].roomid + "Type: " + movielist.movies[j].screentype + "\n");
-                                    
-=======
-                                    Console.WriteLine($"{items[i]}\nTijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\nZaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}");
->>>>>>> parent of 57aff22 (Voortgang Checkout)
-                                }
-                            }
-                        }
-                        else
-=======
                         Console.BackgroundColor = ConsoleColor.Gray;
                         Console.ForegroundColor = ConsoleColor.Black;
                         for (int j = 0; j < movieList.Count; j++)
->>>>>>> parent of 37e8c56 (Merge branch 'local' into Thijmen)
                         {
-                            Console.WriteLine($"Tijd: {movieList[i].StartTime} tot {movieList[i].EndTime}\nZaal: {movieList[i].RoomId} Type: {movieList[i].ScreenType}");
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray;  Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write(items[i] + "\n");
+                            Console.ResetColor();
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write("Tijd: " + movielist.movies[j].starttime + " tot " + movielist.movies[j].endtime + "\n");
+                            Console.ResetColor();
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                            Console.WriteLine("Zaal: " + movielist.movies[j].roomid + "Type: " + movielist.movies[j].screentype + "\n");
                         }
                     }
                     else
@@ -84,27 +60,8 @@ namespace ConsoleApp1
                         Console.Write("");
                         for (int j = 0; j < movieList.Count; j++)
                         {
-<<<<<<< HEAD
-                            for (int j = 0; j < movielist.movies.Length; j++)
-                            {
-                                if (movielist.movies[j].moviename == items[i])
-                                {
-<<<<<<< HEAD
-                                    Console.WriteLine($"                                                {items[i]}\n                                                Tijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\n                                                Zaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}\n");
-=======
-                                    Console.WriteLine($"{items[i]}\nTijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\nZaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}");
->>>>>>> parent of 57aff22 (Voortgang Checkout)
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine(items[i]);
-                        }    
-=======
-                            Console.WriteLine($"Tijd: {movieList[i].StartTime} tot {movieList[i].EndTime}\nZaal: {movieList[i].RoomId} Type: {movieList[i].ScreenType}");
+                             Console.WriteLine($"                                                {items[i]}\n                                                Tijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\n                                                Zaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}\n");
                         } 
->>>>>>> parent of 37e8c56 (Merge branch 'local' into Thijmen)
                     }
                     Console.ResetColor();
                 }

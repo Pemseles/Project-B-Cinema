@@ -42,8 +42,9 @@ namespace ConsoleApp1
                 // Login
                 if (selectedMenuItem == "[     Inloggen     ]")
                 {
+                    ConsoleApp1.Accounts activeAccount = new Accounts();
                     UID = ConsoleApp1.Login.loginFunc();
-                    Console.Write(UID);
+                    activeAccount.GetLevel(UID);
                     ConsoleApp1.MainMenu.Mainmenu();
 
                 }

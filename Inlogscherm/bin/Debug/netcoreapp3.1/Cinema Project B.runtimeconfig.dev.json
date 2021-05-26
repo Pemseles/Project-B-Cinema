@@ -1,19 +1,9 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "C:\\Users\\gadem\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\gadem\\.nuget\\packages"
-=======
-      "C:\\Users\\chris\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\chris\\.nuget\\packages"
->>>>>>> parent of 57aff22 (Voortgang Checkout)
-=======
-      "C:\\Users\\Gebruiker\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Gebruiker\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
->>>>>>> parent of 37e8c56 (Merge branch 'local' into Thijmen)
+      "C:\\Users\\Sergio Kik\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Sergio Kik\\.nuget\\packages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
 }
