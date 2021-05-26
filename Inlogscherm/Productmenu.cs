@@ -73,7 +73,7 @@ namespace ConsoleApp1
             return "";
         }
 
-        public static void ResetIndex()
+        public static void resetIndex()
         {
             index = 0;
         }
@@ -152,7 +152,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
                     {
-                        ResetIndex();
+                        resetIndex();
                         Console.Clear();
                         break;
                     }
@@ -212,7 +212,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
                     {
-                        ResetIndex();
+                        resetIndex();
                         Console.Clear();
                         break;
                     }
@@ -272,7 +272,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
                     {
-                        ResetIndex();
+                        resetIndex();
                         Console.Clear();
                         break;
                     }
@@ -331,7 +331,7 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
                     {
-                        ResetIndex();
+                        resetIndex();
                         Console.Clear();
                         break;
                     }
@@ -339,10 +339,9 @@ namespace ConsoleApp1
 
                 if (selectedMenuItem == "[       Terug      ]")
                 {
-                    ResetIndex();
+                    resetIndex();
                     Console.Clear();
                     productmenubool = false;
-                    MainMenu.Cart.UpdateProducts(addOrder);
                     MainMenu.Mainmenu();
                 }
             }  

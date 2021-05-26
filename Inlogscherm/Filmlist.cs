@@ -38,12 +38,18 @@ namespace ConsoleApp1
                     if (i == index)
                     {
                         Console.Write("");
+<<<<<<< HEAD
+=======
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Console.ForegroundColor = ConsoleColor.Black;
+>>>>>>> parent of 57aff22 (Voortgang Checkout)
                         if (vandaag == "ja")
                         {
                             for (int j = 0; j < movielist.movies.Length; j++)
                             {
                                 if (movielist.movies[j].moviename == items[i])
                                 {
+<<<<<<< HEAD
                                     Console.Write("                                                ");
                                     Console.BackgroundColor = ConsoleColor.Gray;  Console.ForegroundColor = ConsoleColor.Black;
                                     Console.Write(items[i] + "\n");
@@ -56,6 +62,9 @@ namespace ConsoleApp1
                                     Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
                                     Console.WriteLine("Zaal: " + movielist.movies[j].roomid + "Type: " + movielist.movies[j].screentype + "\n");
                                     
+=======
+                                    Console.WriteLine($"{items[i]}\nTijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\nZaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}");
+>>>>>>> parent of 57aff22 (Voortgang Checkout)
                                 }
                             }
                         }
@@ -73,7 +82,11 @@ namespace ConsoleApp1
                             {
                                 if (movielist.movies[j].moviename == items[i])
                                 {
+<<<<<<< HEAD
                                     Console.WriteLine($"                                                {items[i]}\n                                                Tijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\n                                                Zaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}\n");
+=======
+                                    Console.WriteLine($"{items[i]}\nTijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\nZaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}");
+>>>>>>> parent of 57aff22 (Voortgang Checkout)
                                 }
                             }
                         }

@@ -160,7 +160,10 @@ namespace ConsoleApp1
                     string[] todaylist = todaystring.Split("###");
                     var selectedmovie = filmmenu.Filmmenu(todaylist, "ja");
                     Registers.moviehall();
+<<<<<<< HEAD
                     
+=======
+>>>>>>> parent of 57aff22 (Voortgang Checkout)
 
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
