@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CXRtP1kWDzcO5+nMgF+KQyJOVebKzX/t7q+YVNZuzMNuqyMWp807TlXqfp1tCSVNk5rDVbGD1fDvVDBr15MvMw==",
+  "dgSpecHash": "SzNfg1bx7JX2x9ySD1CawgKjUB0lWOtH8qeS27Yypig9YgcwmPukDFeEvRyZvVJAyojbJb4wXVfqJNsduXZAfQ==",
   "success": true,
-  "projectFilePath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+  "projectFilePath": "C:\\Users\\Gebruiker\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Sergio Kik\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\Gebruiker\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,42 +1,41 @@
-{       
-    "name": "Movie List",
-    "movies": 
+{
+    "Movies": 
     [
         {
-            "id": "00001",
-            "moviename": "Titanic",
-            "director": "James Cameron",
-            "cast": ["Leonardo DiCaprio","Kate Winslet","John Doe"],
-            "date": "2021-03-30",
-            "starttime": "09:00",
-            "endtime": "10:30",
-            "roomid": 7, 
-            "screentype": "IMAX",
-            "genre": ["romantiek","drama","historisch"]
+            "Id": "00001",
+            "Moviename": "Titanic",
+            "Director": "James Cameron",
+            "Cast": ["Leonardo DiCaprio","Kate Winslet","John Doe"],
+            "Date": "2021-03-30",
+            "Starttime": "09:00",
+            "Endtime": "10:30",
+            "RoomId": 7, 
+            "Screentype": "IMAX",
+            "Genre": ["romantiek","drama","historisch"]
         },
         {
-            "id": "00002",
-            "moviename": "The Wolf of Wallstreet",
-            "director": "Martin Scorsese",
-            "cast": ["John Travolta","Samuel L. Jackson","Quentin Tarantino"],
-            "date": "2021-04-01",
-            "starttime": "17:15",
-            "endtime": "18:45",
-            "roomid": 4, 
-            "screentype": "3D",
-            "genre": ["komedy","misdaad","drama"]
+            "Id": "00002",
+            "Moviename": "The Wolf of Wallstreet",
+            "Director": "Martin Scorsese",
+            "Cast": ["John Travolta","Samuel L. Jackson","Quentin Tarantino"],
+            "Date": "2021-04-01",
+            "Starttime": "17:15",
+            "Endtime": "18:45",
+            "RoomId": 4, 
+            "Screentype": "3D",
+            "Genre": ["komedy","misdaad","drama"]
         },
         {
-            "id": "00003",
-            "moviename": "Pulp Fiction",
-            "director": "Quentin Tarantino",
-            "cast": ["John Travolta","Samuel L. Jackson","Quentin Tarantino"],
-            "date": "2021-04-01",
-            "starttime": "11:20",
-            "endtime": "12:50",
-            "roomid": 5, 
-            "screentype": "DOLBY",
-            "genre": ["komedy","misdaad","thriller"]
+            "Id": "00003",
+            "Moviename": "Pulp Fiction",
+            "Director": "Quentin Tarantino",
+            "Cast": ["John Travolta","Samuel L. Jackson","Quentin Tarantino"],
+            "Date": "2021-04-01",
+            "Starttime": "11:20",
+            "Endtime": "12:50",
+            "RoomId": 5, 
+            "Screentype": "DOLBY",
+            "Genre": ["komedy","misdaad","thriller"]
         }
     ]
 }

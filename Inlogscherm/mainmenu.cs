@@ -22,8 +22,8 @@ namespace ConsoleApp1
         public static FilmArr filmListAgain = JsonSerializer.Deserialize<FilmArr>(jsonStringFilmList);
         public static List<Movie> GetFilmList(bool todayDate)
         {
-            Movielist Rawlist = new Movielist() { };
-            Rawlist = JsonSerializer.Deserialize<Movielist>(MoviesJson);
+            Movielist UsableList = new Movielist() { };
+            UsableList = JsonSerializer.Deserialize<Movielist>(MoviesJson);
             List<Movie> filmList = new List<Movie> { };
             if (!todayDate) {
                 foreach (var filmItem in UsableList.Movies)
@@ -171,7 +171,10 @@ namespace ConsoleApp1
                     Cart.UpdateFilmList(GetFilmList(true));
                     Movie selectedMovie = filmListToday.Filmmenu(GetFilmList(true));
                     
-                    Registers.moviehall();
+                    if (selectedMovie != null)
+                    {
+                        Registers.moviehall();
+                    }
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {
