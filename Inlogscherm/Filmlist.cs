@@ -1,118 +1,94 @@
 ﻿using System;
 using System.Text.Json;
 using System.IO;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
     public class Movielist
     {
-        public string name { get; set; }
-        public Movie[] movies { get; set; }
+        public Movie[] Movies { get; set; }
     }
 
     public class Movie
     {
-        public string id { get; set; }
-        public string moviename { get; set; }
-        public string director { get; set; }
-        public string[] cast { get; set; }
-        public string date { get; set; }
-        public string starttime { get; set; }
-        public string endtime { get; set; }
-        public int roomid { get; set; }
-        public string screentype { get; set; }
-        public string[] genre { get; set; }
+        public string Id { get; set; }
+        public string Moviename { get; set; }
+        public string Director { get; set; }
+        public string[] Cast { get; set; }
+        public string Date { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+        public int RoomId { get; set; }
+        public string ScreenType { get; set; }
+        public string[] Genre { get; set; }
     }
 
-    public class filmmenu
+    public class FilmMenu
     {
-        public static Movie Filmmenu(string[] items, string vandaag = "nee", bool done = false, int index = 0)
+        public FilmMenu() { }
+        public Movie Filmmenu(List<Movie> movieList, int index = 0)
         {
-            string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
-            var movielist = JsonSerializer.Deserialize<Movielist>(moviesjson);
-            string filmname = "";
+
+            bool done = false;
             while (!done)
             {
-                for (int i = 0; i < items.Length; i++)
+                for (int i = 0; i < movieList.Count; i++)
                 {
                     if (i == index)
                     {
                         Console.Write("");
-                        if (vandaag == "ja")
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        for (int j = 0; j < movieList.Count; j++)
                         {
-                            for (int j = 0; j < movielist.movies.Length; j++)
-                            {
-                                if (movielist.movies[j].moviename == items[i])
-                                {
-                                    Console.Write("                                                ");
-                                    Console.BackgroundColor = ConsoleColor.Gray;  Console.ForegroundColor = ConsoleColor.Black;
-                                    Console.Write(items[i] + "\n");
-                                    Console.ResetColor();
-                                    Console.Write("                                                ");
-                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                                    Console.Write("Tijd: " + movielist.movies[j].starttime + " tot " + movielist.movies[j].endtime + "\n");
-                                    Console.ResetColor();
-                                    Console.Write("                                                ");
-                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                                    Console.WriteLine("Zaal: " + movielist.movies[j].roomid + "Type: " + movielist.movies[j].screentype + "\n");
-                                    
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine(items[i]);
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray;  Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write(items[i] + "\n");
+                            Console.ResetColor();
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write("Tijd: " + movielist.movies[j].starttime + " tot " + movielist.movies[j].endtime + "\n");
+                            Console.ResetColor();
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                            Console.WriteLine("Zaal: " + movielist.movies[j].roomid + "Type: " + movielist.movies[j].screentype + "\n");
                         }
                     }
                     else
                     {
                         Console.Write("");
-                        if (vandaag == "ja")
+                        for (int j = 0; j < movieList.Count; j++)
                         {
-                            for (int j = 0; j < movielist.movies.Length; j++)
-                            {
-                                if (movielist.movies[j].moviename == items[i])
-                                {
-                                    Console.WriteLine($"                                                {items[i]}\n                                                Tijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\n                                                Zaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}\n");
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine(items[i]);
-                        }    
+                             Console.WriteLine($"                                                {items[i]}\n                                                Tijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\n                                                Zaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}\n");
+                        } 
                     }
-
-                    
                     Console.ResetColor();
                 }
 
                 ConsoleKeyInfo ckey = Console.ReadKey();
                 if (ckey.Key == ConsoleKey.DownArrow)
                 {
-                    if (index == items.Length - 1)
+                    if (index < movieList.Count - 1)
                     {
-                        index = 0;
+                        index++;
                     }
-                    else { index++; }
                 }
                 else if (ckey.Key == ConsoleKey.UpArrow)
                 {
-                    if (index <= 0)
+                    if (index > 0)
                     {
-                        index = items.Length - 1;
+                        index--;
                     }
-                    else { index--; }
                 }
                 else if (ckey.Key == ConsoleKey.Enter)
                 {
                     Console.Clear();
-                    Console.WriteLine($"Wilt u {items[index]} selecteren? (j/n)");
+                    Console.WriteLine($"Wilt u {movieList[index].Moviename} selecteren? (j/n)");
                     var input = Console.ReadLine();
-                    if (input == "j" || input == "J")
+                    if (input.ToLower() == "j")
                     {
                         Console.Clear();
-                        filmname = items[index];
                         done = true;
                     }
                     else
@@ -120,19 +96,10 @@ namespace ConsoleApp1
                         Console.Clear();
                     }
                 }
-
                 Console.Clear();
-            }  
-            for (int i = 0;i<movielist.movies.Length;i++)
-            {
-                if (movielist.movies[i].moviename==filmname)
-                {
-                    return movielist.movies[i];
-                }
             }
-            return movielist.movies[index]; 
+            MainMenu.Cart.UpdateFilmIndex(index);
+            return movieList[index]; 
         }
-        
     }
-
 }
