@@ -1,0 +1,144 @@
+{
+	"FilmArray" :[
+        {
+            "ID" : 0,
+            "Name" : "Lord of the Rings : Fellowship of the Ring",
+            "Director" : "Peter Jackson",
+            "Genres" : ["Fantasy" , "Heroisch" , "Avontuur"],
+            "AgeRating": 12 
+        }, 
+        {
+            "ID" : 1,
+            "Name" : "Lord of the Rings : The Two Towers",
+            "Director" : "Peter Jackson",
+            "Genres" : ["Fantasy" , "Heroisch" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 2,
+            "Name" : "Lord of the Rings : Return of the King",
+            "Director" : "Peter Jackson",
+            "Genres" : ["Fantasy" , "Heroisch" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 3,
+            "Name" : "The Hobbit : An Unexpected Journey",
+            "Director" : "Peter Jackson",
+            "Genres" : ["Fantasy" , "Heroisch" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 4,
+            "Name" : "The Hobbit : The Desolation of Smaug",
+            "Director" : "Peter Jackson",
+            "Genres" :   ["Fantasy" , "Heroisch" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 5,
+            "Name" :  "The Hobbit :  Battle of the Five Armies",
+            "Director" : "Peter Jackson",
+            "Genres" :   ["Fantasy" , "Heroisch" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 6,
+            "Name" :  "The Avengers",
+            "Director" : "Anthony & Joe Russo",
+            "Genres" : ["Heroisch" , "Actie" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 7,
+            "Name" :  "Avengers : Age of Ultron", 
+            "Director" :  "Anthony & Joe Russo",
+            "Genres" : ["Heroisch" , "Actie" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 8,
+            "Name" :  "Avengers : Infinity War",
+            "Director" : "Anthony & Joe Russo",
+            "Genres" : ["Heroisch" , "Actie" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 9,
+            "Name" :  "Avengers : Endgame",
+            "Director" : "Anthony & Joe Russo",
+            "Genres" : ["Heroisch" , "Actie" , "Avontuur"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 10,
+            "Name" : "Titanic",
+            "Director" :  "James Cameron",
+            "Genres" : ["Romantiek" , "Drama"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 11,
+            "Name" :  "Avatar",
+            "Director" :  "James Cameron",
+            "Genres" : ["Scifi" , "Avontuur" , "Actie"],
+            "AgeRating": 12 
+        },
+        {
+            "ID" : 12,
+            "Name" :  "John Wick",
+            "Director" : "Chad Stahelski",
+            "Genres" : ["Actie" , "Thriller" , "Misdaad"],
+            "AgeRating": 16
+        },
+        {
+            "ID" : 13,
+            "Name" : "John Carter" ,
+            "Director" : "Andrew Stanton",
+            "Genres" : ["Actie" , "Scifi"],
+            "AgeRating": 9
+        },
+        {
+            "ID" : 14,
+            "Name" : "The Notebook",
+            "Director" : "Nick Cassavetes",
+            "Genres" : ["Romantiek" , "Drama"],
+            "AgeRating": 12
+        },
+        {
+            "ID" : 15,
+            "Name" : "Brother Bear",
+            "Director" : "Aaron Blaise",
+            "Genres" : ["Komedie" , "Animatie" , "Kinderen"],
+            "AgeRating": 6
+        },
+        {
+            "ID" : 16,
+            "Name" : "Spirit : Stallion of the Cimarron",
+            "Director" : "Kelly Asbury",
+            "Genres" :  ["Western" , "Animatie" , "Avontuur"],
+            "AgeRating": 6
+        },
+        {
+            "ID" : 17,
+            "Name" : "Frozen",
+            "Director" :  "Jennifer Lee",
+            "Genres" : ["Musicalcomedy" , "Avontuur" , "Tekenfilm"],
+            "AgeRating": 6
+        },
+        {
+            "ID" : 18,
+            "Name" : "Treasure Planet",
+            "Director" :  "Ron Clements",
+            "Genres" :   ["Animatie" , "Actie" , "Avontuur"],
+            "AgeRating":  6
+        },
+        {
+            "ID" : 19,
+            "Name" : "Atlantis : The Lost Empire",
+            "Director" :  "Gary Trousdale",
+            "Genres" :  ["Avontuur" , "Actie" , "Animatie"],
+            "AgeRating": 0
+        }
+	]
+}

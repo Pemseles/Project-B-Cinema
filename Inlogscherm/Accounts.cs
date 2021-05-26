@@ -332,14 +332,94 @@ namespace ConsoleApp1
     }
 
 
-    public class Orders
+    public class Utility
     {
         // Database Paths:
         public string orderPath = Path.GetFullPath(@"Orders.json");
         public string accountPath = Path.GetFullPath(@"Accounts.json");
         public string productsPath = Path.GetFullPath(@"ProductList.json");
         public string theatherhallPath = Path.GetFullPath(@"Theaterhalls.json");
+        public string filmPath = Path.GetFullPath(@"Films.json");
 
+       public List<Object> retrieveJson(string jsonPath)
+        {
+            /// Returns an Int Array of taken seatnumbers
+            var jsonData = System.IO.File.ReadAllText(jsonPath);
+            var objectList = JsonConvert.DeserializeObject<List<Object>>(jsonData);
+
+            return objectList;
+        }
+
+        public void InsertJson(List<Object> objectList, string jsonPath)
+        {
+            // Update json data string
+            var jsonData = JsonConvert.SerializeObject(objectList, Formatting.Indented);
+            // serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(accountPath, jsonData);
+        }
+
+        public int GenerateID(string JsonPath)
+        {
+            /// Checks Accounts.json and creates a new ID based on previous ID's from the Json.
+            int newID = 0;
+            try
+            {
+                var objectList = retrieveJson(JsonPath);
+
+                foreach (Product element in objectList) { newID = element.ID; };
+                return newID + 1;
+            }
+            catch (Exception) // Execute if there are no entries in the JSON
+            {
+                return 0;
+            }
+        }
+    }
+
+    public class Admin : Utility
+    {
+        private int AdminID;
+        public Admin(int UID) { this.AdminID = UID; }
+
+        public void AddNewFilm(string filmName, string director, string[] genres, int ageRating)
+        {
+            var jsonData = System.IO.File.ReadAllText(filmPath);
+            var filmList = JsonConvert.DeserializeObject<List<Film>>(jsonData) ?? new List<Film>();
+
+            // Add a new Film
+            filmList.Add(new Film()
+            {
+                ID = GenerateID(filmPath),
+                Name = filmName,
+                Director = director,
+                Genres = genres,
+                AgeRating = ageRating
+            });
+
+            // Update json data string
+            jsonData = JsonConvert.SerializeObject(filmList, Formatting.Indented);
+            // serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(filmPath, jsonData);
+        }
+
+        public void SuspendAccount(int UID)
+        { /// Suspends the Account of given 
+            List<Object> AccountList = retrieveJson(accountPath);
+
+            foreach(Account Account in AccountList)
+            {
+                if(UID == Account.UID)
+                {
+                    //Account.Active == 0;
+                    break;
+                }
+            }
+
+        }
+    }
+
+    public class Orders : Utility
+    {
         // Get Current Seats - Methods
         public int[] GetSeatCoords(int movieID)
         {

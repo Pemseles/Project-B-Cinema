@@ -347,5 +347,35 @@
       "Romantiek",
       "Drama"
     ]
+  },
+  {
+    "UID": 30,
+    "Level": 1,
+    "Email": "user30@mail.com",
+    "Pwd": "NfC362yqkz1racXyYRI4PkU2mHgfF+KR7AnZCOnb337r00gK",
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 31,
+    "Level": 1,
+    "Email": "user31@mail.com",
+    "Pwd": "dBbxiUnZkQUGfUHlgmU3j5FLzhgTqLEbmNxiMY0DEsevHGZ9",
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
   }
 ]
