@@ -237,7 +237,7 @@ namespace ConsoleApp1
                     int digit = 0, letter = 0;
                     Console.Clear();
                     Console.WriteLine(pw_strenght);
-                    Console.Write("Voer een wachtwoord in dat minimaal 1 hoofdletter en 1 cijfer er in heeft zitten: ");
+                    Console.Write("Voer een wachtwoord in dat minimaal 1 hoofdletter en cijfer er in heeft zitten en minimaal 8 tekens bevat: ");
                     password = string.Empty;
                     ConsoleKey key;
                     do
