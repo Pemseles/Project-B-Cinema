@@ -129,7 +129,7 @@ namespace ConsoleApp1
                 Console.SetWindowSize(100, 50);
             }
             char[] Alphabet = Enumerable.Range('A', 'Z' - 'A' + 1).Select(i => (Char)i).ToArray();
-
+            ;
             List<string> movie = new List<string>(people);
 
             for (int i = 0, j = 1, y = 0; i < people; i++, j++)
@@ -169,7 +169,7 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        Console.Clear();
+                        Console.Clear();                        
                         ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
@@ -187,9 +187,11 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
+                        Console.SetWindowSize(120, 30);
                         ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
+                        Console.SetWindowSize(120, 30);
                         // reset de seats
                         break;
                 }

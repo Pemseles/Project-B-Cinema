@@ -48,19 +48,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\chris\\.nuget\\packages\\": {}
+    "C:\\Users\\gadem\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+      "projectUniqueName": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
       "projectName": "Cinema Project B",
-      "projectPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
-      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chris\\OneDrive\\Documenten\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
+      "projectPath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+      "packagesPath": "C:\\Users\\gadem\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gadem\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -106,7 +106,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }

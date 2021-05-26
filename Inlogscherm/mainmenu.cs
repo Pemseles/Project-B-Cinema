@@ -160,6 +160,7 @@ namespace ConsoleApp1
                     string[] todaylist = todaystring.Split("###");
                     var selectedmovie = filmmenu.Filmmenu(todaylist, "ja");
                     Registers.moviehall();
+                    
 
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")

@@ -38,15 +38,24 @@ namespace ConsoleApp1
                     if (i == index)
                     {
                         Console.Write("");
-                        Console.BackgroundColor = ConsoleColor.Gray;
-                        Console.ForegroundColor = ConsoleColor.Black;
                         if (vandaag == "ja")
                         {
                             for (int j = 0; j < movielist.movies.Length; j++)
                             {
                                 if (movielist.movies[j].moviename == items[i])
                                 {
-                                    Console.WriteLine($"{items[i]}\nTijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\nZaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}");
+                                    Console.Write("                                                ");
+                                    Console.BackgroundColor = ConsoleColor.Gray;  Console.ForegroundColor = ConsoleColor.Black;
+                                    Console.Write(items[i] + "\n");
+                                    Console.ResetColor();
+                                    Console.Write("                                                ");
+                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                                    Console.Write("Tijd: " + movielist.movies[j].starttime + " tot " + movielist.movies[j].endtime + "\n");
+                                    Console.ResetColor();
+                                    Console.Write("                                                ");
+                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                                    Console.WriteLine("Zaal: " + movielist.movies[j].roomid + "Type: " + movielist.movies[j].screentype + "\n");
+                                    
                                 }
                             }
                         }
@@ -64,7 +73,7 @@ namespace ConsoleApp1
                             {
                                 if (movielist.movies[j].moviename == items[i])
                                 {
-                                    Console.WriteLine($"{items[i]}\nTijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\nZaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}");
+                                    Console.WriteLine($"                                                {items[i]}\n                                                Tijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\n                                                Zaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}\n");
                                 }
                             }
                         }
