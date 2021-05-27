@@ -122,7 +122,6 @@ namespace ConsoleApp1
         private void DrawCart()
         {
             string tempCartStr = "";
-            int cartLength = 72;
             string cartString = "                    [                     Dit is uw huidige winkelwagen                      ]\n";
             cartString = cartString + "                    [                                                                        ]\n";
             if (this.FilmIndex < 0 || this.FilmList == null)
@@ -132,16 +131,7 @@ namespace ConsoleApp1
             else
             {
                 // print de naam en tijden van de film
-                tempCartStr = $"Filmnaam: {this.FilmList[FilmIndex].Moviename} | Tijden: {this.FilmList[FilmIndex].StartTime}-{this.FilmList[FilmIndex].EndTime}";
-                while (tempCartStr.Length < cartLength)
-                {
-                    tempCartStr = tempCartStr + " ";
-                    if (tempCartStr.Length < cartLength)
-                    {
-                        tempCartStr = " " + tempCartStr;
-                    }
-                }
-                tempCartStr = "                    [" + tempCartStr + "]\n";
+                tempCartStr = BuildCartIndent("Film", -1);
             }
             cartString = cartString + tempCartStr;
             tempCartStr = "";
@@ -166,20 +156,9 @@ namespace ConsoleApp1
                     }
                     if (allProducts[i].ID == currentID)
                     {
-                        //cartString = cartString + $"                    [      Test voor productenlijst. len = {this.Products.Count}      ]\n";
-                        tempCartStr = $"Product: {allProducts[i].Name} | Prijs: {allProducts[i].Price}";
-                        while (tempCartStr.Length < cartLength)
-                        {
-                            tempCartStr = tempCartStr + " ";
-                            if (tempCartStr.Length < cartLength)
-                            {
-                                tempCartStr = " " + tempCartStr;
-                            }
-                        }
-                        tempCartStr = "                    [" + tempCartStr + "]\n";
+                        cartString = cartString + BuildCartIndent("Product", currentID);
                     }
-                    cartString = cartString + tempCartStr;
-                    tempCartStr = "";
+
                 }
             }
             cartString = cartString + "                    [                                                                        ]\n";
@@ -189,9 +168,10 @@ namespace ConsoleApp1
             }
             else
             {
-                foreach (var reservedSeat in this.Seats)
+                cartString = cartString + "                    [                U heeft de volgende stoelen gereserveerd                ]\n";
+                for (int i = 0; i < this.Seats.Count; i++)
                 {
-                    // vul in wanneer dit kan
+                    cartString = cartString + BuildCartIndent("Seats", i);
                 }
             }
             Console.WriteLine(cartString);
@@ -274,6 +254,44 @@ namespace ConsoleApp1
                     ResetChoices();
                 }
             }
+        }
+        private string BuildCartIndent(string itemType, int index)
+        {
+            string itemInCart = "";
+            int cartLength = 72;
+
+            if (itemType == "Film")
+            {
+                // print de naam en tijden van de film
+                itemInCart = $"Filmnaam: {this.FilmList[FilmIndex].MovieName} | Tijden: {this.FilmList[FilmIndex].StartTime}-{this.FilmList[FilmIndex].EndTime}";
+            }
+            else if (itemType == "Product")
+            {
+                List<Product> allProducts = Orders.GetProducts();
+                itemInCart = $"Product: {allProducts[index].Name} | Prijs: {allProducts[index].Price}";
+            }
+            else if (itemType == "Seats")
+            {
+                if (this.Seats[index] < 10)
+                {
+                    itemInCart = $"Stoelnummer: {this.Seats[index]} ";
+                }
+                else
+                {
+                    itemInCart = $"Stoelnummer: {this.Seats[index]}";
+                }
+            }
+
+            while (itemInCart.Length < cartLength)
+            {
+                itemInCart = itemInCart + " ";
+                if (itemInCart.Length < cartLength)
+                {
+                    itemInCart = " " + itemInCart;
+                }
+            }
+            itemInCart = "                    [" + itemInCart + "]\n";
+            return itemInCart;
         }
     }
 }

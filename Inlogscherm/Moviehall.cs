@@ -100,7 +100,7 @@ namespace ConsoleApp1
         private static int index = 0;
         private static List<int> seats = new List<int>();
         private static ConsoleApp1.Orders newOrder = new Orders();
-        public static void moviehall()
+        public static void Moviehall()
         {
             
             // functie in orders int array in for-lopen , functie Add toevoegen6
@@ -169,7 +169,8 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        ConsoleApp1.MainMenu.Mainmenu();
+                        MainMenu.Cart.UpdateSeats(x);
+                        MainMenu.Mainmenu();
                         break;
                     case "Nee":
                         // reset de seats
@@ -185,6 +186,7 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
+                        MainMenu.Cart.UpdateSeats(x);
                         ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":

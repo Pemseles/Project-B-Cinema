@@ -13,7 +13,7 @@ namespace ConsoleApp1
     public class Movie
     {
         public string Id { get; set; }
-        public string Moviename { get; set; }
+        public string MovieName { get; set; }
         public string Director { get; set; }
         public string[] Cast { get; set; }
         public string Date { get; set; }
@@ -40,7 +40,7 @@ namespace ConsoleApp1
                         {
                             Console.Write("                                                ");
                             Console.BackgroundColor = ConsoleColor.Gray;  Console.ForegroundColor = ConsoleColor.Black;
-                            Console.Write(movieList[i].Moviename + "\n");
+                            Console.Write(movieList[i].MovieName + "\n");
                             Console.ResetColor();
                             Console.Write("                                                ");
                             Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
@@ -53,7 +53,7 @@ namespace ConsoleApp1
                         else
                         {
                             Console.Write("");
-                            Console.WriteLine($"                                                {movieList[i].Moviename}\n                                                Tijd: {movieList[i].StartTime} tot {movieList[i].EndTime}\n                                                Zaal: {movieList[i].RoomId} Type: {movieList[i].ScreenType}\n");
+                            Console.WriteLine($"                                                {movieList[i].MovieName}\n                                                Tijd: {movieList[i].StartTime} tot {movieList[i].EndTime}\n                                                Zaal: {movieList[i].RoomId} Type: {movieList[i].ScreenType}\n");
                         }
                         Console.ResetColor();
                     }
@@ -76,7 +76,7 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         Console.Clear();
-                        Console.WriteLine($"Wilt u {movieList[index].Moviename} selecteren? (j/n)");
+                        Console.WriteLine($"Wilt u {movieList[index].MovieName} selecteren? (j/n)");
                         var input = Console.ReadLine();
                         if (input.ToLower() == "j")
                         {

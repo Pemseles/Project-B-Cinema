@@ -3,38 +3,38 @@
     [
         {
             "Id": "00001",
-            "Moviename": "Titanic",
+            "MovieName": "Titanic",
             "Director": "James Cameron",
             "Cast": ["Leonardo DiCaprio","Kate Winslet","John Doe"],
             "Date": "2021-03-30",
-            "Starttime": "09:00",
-            "Endtime": "10:30",
+            "StartTime": "09:00",
+            "EndTime": "10:30",
             "RoomId": 7, 
-            "Screentype": "IMAX",
+            "ScreenType": "IMAX",
             "Genre": ["romantiek","drama","historisch"]
         },
         {
             "Id": "00002",
-            "Moviename": "The Wolf of Wallstreet",
+            "MovieName": "The Wolf of Wallstreet",
             "Director": "Martin Scorsese",
             "Cast": ["John Travolta","Samuel L. Jackson","Quentin Tarantino"],
             "Date": "2021-04-01",
-            "Starttime": "17:15",
-            "Endtime": "18:45",
+            "StartTime": "17:15",
+            "EndTime": "18:45",
             "RoomId": 4, 
-            "Screentype": "3D",
+            "ScreenType": "3D",
             "Genre": ["komedy","misdaad","drama"]
         },
         {
             "Id": "00003",
-            "Moviename": "Pulp Fiction",
+            "MovieName": "Pulp Fiction",
             "Director": "Quentin Tarantino",
             "Cast": ["John Travolta","Samuel L. Jackson","Quentin Tarantino"],
             "Date": "2021-04-01",
-            "Starttime": "11:20",
-            "Endtime": "12:50",
+            "StartTime": "11:20",
+            "EndTime": "12:50",
             "RoomId": 5, 
-            "Screentype": "DOLBY",
+            "ScreenType": "DOLBY",
             "Genre": ["komedy","misdaad","thriller"]
         }
     ]

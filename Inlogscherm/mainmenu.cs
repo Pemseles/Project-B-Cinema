@@ -34,7 +34,8 @@ namespace ConsoleApp1
             else
             {
                 // haalt de datum op voor vandaag
-                var today = DateTime.Now.ToString("yyyy-MM-dd");
+                //var today = DateTime.Now.ToString("yyyy-MM-dd");
+                var today = "2021-04-01";
                 foreach (var filmItem in UsableList.Movies)
                 {
                     for (int i = 0; i < UsableList.Movies.Length; i++)
@@ -52,9 +53,9 @@ namespace ConsoleApp1
         {
             for (int i = 0; i < items.Count; i++)
             {
+                Console.Write("                                                ");
                 if (i == index)
                 {
-                    Console.Write("                                                ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
 
@@ -62,17 +63,12 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    Console.Write("                                                ");
                     Console.WriteLine(items[i]);
                 }
                 Console.ResetColor();
             }
 
             ConsoleKeyInfo ckey = Console.ReadKey();
-            if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
-            {
-                
-            }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
                 if (index < 9)
@@ -159,8 +155,6 @@ namespace ConsoleApp1
                     FilmMenu filmListMenu = new FilmMenu();
                     Cart.UpdateFilmList(GetFilmList(false));
                     Movie selectedMovie1 = filmListMenu.Filmmenu(GetFilmList(false));
-                    Console.WriteLine(selectedMovie1.Id + selectedMovie1.Moviename + selectedMovie1.Date);
-                    Console.ReadLine();
                 }
                 else if (selectedMenuItem == "[      Vandaag     ]")
                 {
@@ -173,7 +167,7 @@ namespace ConsoleApp1
                     
                     if (selectedMovie != null)
                     {
-                        Registers.moviehall();
+                        Registers.Moviehall();
                     }
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
@@ -214,7 +208,7 @@ namespace ConsoleApp1
                 {
                     ResetIndex();
                     Console.Clear();
-                    Registers.moviehall();
+                    Registers.Moviehall();
                     back();
                     Console.SetWindowSize(120, 30);
                     
