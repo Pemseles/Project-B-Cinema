@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using static System.Console;
 using System.IO;
 
+// toegevoegd aan winkelmandje writeline werkend krijgen
 
 namespace ConsoleApp1
 {
@@ -147,7 +148,8 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Snacks[index].ID);
-                        
+                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan");
+                        Console.ReadKey();
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
@@ -208,6 +210,8 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Drinks[index].ID);
+                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan");
+                        Console.ReadKey();
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
@@ -216,7 +220,7 @@ namespace ConsoleApp1
                         Console.Clear();
                         break;
                     }
-
+                    
                 }
                 while (selectedMenuItem == "[      Alcohol     ]")
                 {
@@ -268,6 +272,8 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Alcohols[index].ID);
+                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan");
+                        Console.ReadKey();
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
@@ -327,6 +333,8 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Deals[index].ID);
+                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan");
+                        Console.ReadKey();
                         // add the ID to an order JSON
                     }
                     else if (ckey.Key == ConsoleKey.Backspace)
