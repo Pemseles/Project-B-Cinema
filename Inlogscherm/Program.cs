@@ -18,6 +18,7 @@ namespace ConsoleApp1
     {
         private static int index = 0;
         public static int UID;
+        public static int Level;
         private static void Main(string[] args)
         {
             /* Debug & Testing ************************************/
@@ -44,8 +45,13 @@ namespace ConsoleApp1
                 {
                     ConsoleApp1.Accounts activeAccount = new Accounts();
                     UID = ConsoleApp1.Login.loginFunc();
-                    activeAccount.GetLevel(UID);
-                    ConsoleApp1.MainMenu.Mainmenu();
+                    Level = activeAccount.GetLevel(UID);
+                    
+                    if(Level == 3) {
+                        Console.WriteLine("[ADMIN MENU]");
+                    } else {
+                        ConsoleApp1.MainMenu.Mainmenu();
+                    }
 
                 }
                 else if (selectedMenuItem == "[  Verder als gast ]")

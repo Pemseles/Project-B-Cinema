@@ -208,7 +208,7 @@ namespace ConsoleApp1
 
                             // :: ///////////////////////////////////////////
                         } else {
-                            Console.WriteLine("Je bent al VIP.");
+                            Console.WriteLine("Je bent al VIP.\n");
                         }
 
                         CurrentUser.UpgradeToVip(UID);

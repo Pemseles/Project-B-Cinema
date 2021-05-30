@@ -56,6 +56,7 @@ namespace ConsoleApp1
         public int Level { get; set; }
         public string Email { get; set; }
         public string Pwd { get; set; }
+        public bool Active { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Age { get; set; }
@@ -69,6 +70,7 @@ namespace ConsoleApp1
         public string Age;
         public string Email;
         public string Pwd;
+        public bool Active;
         public string Firstname;
         public string Lastname;
         public string Address;
@@ -82,6 +84,14 @@ namespace ConsoleApp1
             var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
 
             return accountsList;
+        }
+
+        public void InsertAccountData(List<Account>AccountData)
+        { /// Takes a list of AccountLists
+            // Update json data string
+            var jsonData = JsonConvert.SerializeObject(AccountData, Formatting.Indented);
+            // serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(accountPath, jsonData);
         }
 
         // Generate new UID - Method
@@ -137,6 +147,7 @@ namespace ConsoleApp1
                 Level = 1,
                 Email = email,
                 Pwd = hashedPwd,
+                Active = true,
                 Firstname = firstname,
                 Lastname = lastname,
                 Age = age,
@@ -410,7 +421,7 @@ namespace ConsoleApp1
             {
                 if(UID == Account.UID)
                 {
-                    //Account.Active == 0;
+                    Account.Active = false;
                     break;
                 }
             }

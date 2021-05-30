@@ -4,6 +4,7 @@
     "Level": 3,
     "Email": "admin@cinescoop.com",
     "Pwd": "cTsCKt+JMLBdXZPPVKRXWQvIZR4S97XtZcCMUTeB0rgO36Ft",
+    "Active": true,
     "Firstname": "Admin",
     "Lastname": "Admin",
     "Age": "1970-01-01",
@@ -19,6 +20,7 @@
     "Level": 2,
     "Email": "user1@mail.com",
     "Pwd": "WwnDqqXYLloXJhm8+3ok66KwFLLb3+nsOA3PICnqfm5mORLk",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -34,6 +36,7 @@
     "Level": 1,
     "Email": "user2@mail.com",
     "Pwd": "kWKf3QYzGBqrBkUS1SDpFY4fz90S3Icx2oYbx9RNfBvnb3Ok",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -49,6 +52,7 @@
     "Level": 2,
     "Email": "user3@hotmail.com",
     "Pwd": "7FMJG/kd2D7fAgmAR4q7zjETgqzwIjU2zuYHdBe+paDCYhVk",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -61,9 +65,10 @@
   },
   {
     "UID": 4,
-    "Level": 2,
+    "Level": 1,
     "Email": "user4@mail.com",
-    "Pwd": "tLUHK82hm2dUZziYGbge2X4eLhfvbPLdisVgalu0OQoovzYp",
+    "Pwd": "6g8RBb+z3NlTu9SlsqfpqDMJqUlpVSm2CugMWwfK7Sq89w62",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -78,7 +83,8 @@
     "UID": 5,
     "Level": 1,
     "Email": "user5@mail.com",
-    "Pwd": "MiDOP231o3ho8HEqYag8NHcz8yHydFxJoc1l8Z7725TfdkzV",
+    "Pwd": "/mcbF+CpbVH40L0oEiMjIBbLbqBg1Q4iKWwpj1f5XisDNi9h",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -92,8 +98,9 @@
   {
     "UID": 6,
     "Level": 1,
-    "Email": "user6@mail.net",
-    "Pwd": "Xs3xasz04lsBaZuwo9B19dl1+r6Wed+197c1jkT8sCMfTb5i",
+    "Email": "user6@mail.com",
+    "Pwd": "kAxxiQdzEMZJeIB4sy7qmdjZeA8LGfOQafB+c/3Q31UD9/Ms",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -108,7 +115,8 @@
     "UID": 7,
     "Level": 1,
     "Email": "user7@mail.com",
-    "Pwd": "fSbUJQVSGLqPgCbLyjTChIgYZvfDDZeXwQhk5AKgftvGNhc0",
+    "Pwd": "uzkNHEA85ZJc4W8pis1z8GbuM/eHWdqGrGeGuk/eByh2PpKE",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -122,23 +130,24 @@
   {
     "UID": 8,
     "Level": 1,
-    "Email": "user8@mail.com",
-    "Pwd": "xZCWjyYndZS1n5DiqLoXmBOAzGVQ5z3xY2dORn4AduPdb224",
-    "Firstname": "Pietje",
-    "Lastname": "Precies",
-    "Age": "2000-01-01",
-    "Address": "New York WallStreet 12 2247 dc",
+    "Email": "janssen@gmail.com",
+    "Pwd": "Y8zM4N5Swgund9TapPK0aZfo2I2WQ+W7Y7hmkBukpq1kRE2V",
+    "Active": true,
+    "Firstname": "Jacq",
+    "Lastname": "Janssen",
+    "Age": "5/4/1920",
+    "Address": "Kempenaar302992KEbARENDRECHT",
     "Interests": [
-      "Actie",
-      "Romantiek",
-      "Drama"
+      "KOmedie",
+      "science"
     ]
   },
   {
     "UID": 9,
     "Level": 1,
     "Email": "user9@mail.com",
-    "Pwd": "kIDEYn1iu/+q56uZlzacDDfZtJHHgiEsos57pfnfuhrtQmgS",
+    "Pwd": "jHCQCfBipWDxYxN23KdeYeel27X57VRuTc0EQvopqnqlXwwx",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -152,134 +161,9 @@
   {
     "UID": 10,
     "Level": 1,
-    "Email": "peter@yahoomail.com",
-    "Pwd": "dpAiwD0jst7YSHUEBUfSn43WZlKxnW9ake3QqoTvjwijIrpf",
-    "Firstname": "Jan",
-    "Lastname": "Peter",
-    "Age": "2/3/2004",
-    "Address": "peterstraat121234ABPeterDorp",
-    "Interests": [
-      "Actie",
-      "Actie",
-      "actie"
-    ]
-  },
-  {
-    "UID": 16,
-    "Level": 1,
-    "Email": "test@test.nl",
-    "Pwd": "Testing8",
-    "Firstname": "jhon",
-    "Lastname": "tester",
-    "Age": "10/11/2020",
-    "Address": "teststraat111332AAtestwijk",
-    "Interests": [
-      "testing"
-    ]
-  },
-  {
-    "UID": 17,
-    "Level": 1,
-    "Email": "",
-    "Pwd": "",
-    "Firstname": "",
-    "Lastname": "",
-    "Age": "",
-    "Address": "",
-    "Interests": []
-  },
-  {
-    "UID": 18,
-    "Level": 1,
-    "Email": "",
-    "Pwd": "",
-    "Firstname": "",
-    "Lastname": "",
-    "Age": "",
-    "Address": "",
-    "Interests": []
-  },
-  {
-    "UID": 19,
-    "Level": 1,
-    "Email": "",
-    "Pwd": "",
-    "Firstname": "",
-    "Lastname": "",
-    "Age": "",
-    "Address": "",
-    "Interests": []
-  },
-  {
-    "UID": 20,
-    "Level": 1,
-    "Email": "Test@test.info",
-    "Pwd": "Testing66",
-    "Firstname": "test",
-    "Lastname": "tester",
-    "Age": "10/11/1920",
-    "Address": "teststraat102233AAtestburg",
-    "Interests": [
-      "testen"
-    ]
-  },
-  {
-    "UID": 21,
-    "Level": 1,
-    "Email": "test@test.info",
-    "Pwd": "LGIkIvssXYr859/Oet30lCtDjvFV8bRrQwYLLubmdPSU3QXp",
-    "Firstname": "sergio",
-    "Lastname": "tester",
-    "Age": "1/1/1990",
-    "Address": "test13333AAtestburg",
-    "Interests": [
-      "testing"
-    ]
-  },
-  {
-    "UID": 22,
-    "Level": 1,
-    "Email": "test@test.info",
-    "Pwd": "zVEDEMhAjLSVr42QVJ6MfQEHf4Ql61fEASaf4pSIL7A0OSL/",
-    "Firstname": "test",
-    "Lastname": "test",
-    "Age": "1/1/1990",
-    "Address": "test102222AAtestburg",
-    "Interests": [
-      "testing"
-    ]
-  },
-  {
-    "UID": 23,
-    "Level": 1,
-    "Email": "test@test.info",
-    "Pwd": "yej9eex7h4nwfWv18vmYTDCqYAJYRv42hRiNsYSfrrZ/1mmq",
-    "Firstname": "test",
-    "Lastname": "test",
-    "Age": "1/1/1990",
-    "Address": "test102222AAtestinmg",
-    "Interests": [
-      "testing"
-    ]
-  },
-  {
-    "UID": 24,
-    "Level": 1,
-    "Email": "test@test.info",
-    "Pwd": "ME21ZKD2TGxLyAdDrVf2VJpp9A0SyeC7FUY+m0OPXmh/lJpd",
-    "Firstname": "test",
-    "Lastname": "test",
-    "Age": "1/1/1990",
-    "Address": "test102222AAtest",
-    "Interests": [
-      "testing"
-    ]
-  },
-  {
-    "UID": 25,
-    "Level": 1,
-    "Email": "user25@mail.com",
-    "Pwd": "AYsG1W7thNhba04CKiIxYwt5JOn41gju0tmlI3xY5G5f3ac2",
+    "Email": "user10@mail.com",
+    "Pwd": "3lheQmz+orx96fVJ9LevLDgal2iHjSRVqoBLndhZA85RbVOy",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -291,10 +175,11 @@
     ]
   },
   {
-    "UID": 26,
+    "UID": 11,
     "Level": 1,
-    "Email": "user26@mail.com",
-    "Pwd": "+FSjjPdhRNf2DFMavHO9KAXco5HyL+ZXd1LzTJUxccYuJtxs",
+    "Email": "user11@mail.com",
+    "Pwd": "7CdqYr2dFQSuw4LKl4GPxsz6Pa2PlkFos8manMHzQuuJVLEJ",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -306,68 +191,11 @@
     ]
   },
   {
-    "UID": 27,
+    "UID": 12,
     "Level": 1,
-    "Email": "user27@mail.com",
-    "Pwd": "8zRqsj87K8S8KjcEEut6GsjujaioaixCN8unHaDCFAVWkI6c",
-    "Firstname": "Pietje",
-    "Lastname": "Precies",
-    "Age": "2000-01-01",
-    "Address": "New York WallStreet 12 2247 dc",
-    "Interests": [
-      "Actie",
-      "Romantiek",
-      "Drama"
-    ]
-  },
-  {
-    "UID": 28,
-    "Level": 1,
-    "Email": "testemail@test.test",
-    "Pwd": "0llMMVT94k1yGV+L5hTvvcXREHeSVazHUO+Vv/kemPA1UIBx",
-    "Firstname": "test",
-    "Lastname": "test",
-    "Age": "1/1/1990",
-    "Address": "test111111AAtestburg",
-    "Interests": [
-      "test"
-    ]
-  },
-  {
-    "UID": 29,
-    "Level": 1,
-    "Email": "user29@mail.com",
-    "Pwd": "SK8dZvXekl0NoACs/qhYoTb2Akjr6kqf8hXehdwThwj5R4O0",
-    "Firstname": "Pietje",
-    "Lastname": "Precies",
-    "Age": "2000-01-01",
-    "Address": "New York WallStreet 12 2247 dc",
-    "Interests": [
-      "Actie",
-      "Romantiek",
-      "Drama"
-    ]
-  },
-  {
-    "UID": 30,
-    "Level": 1,
-    "Email": "user30@mail.com",
-    "Pwd": "NfC362yqkz1racXyYRI4PkU2mHgfF+KR7AnZCOnb337r00gK",
-    "Firstname": "Pietje",
-    "Lastname": "Precies",
-    "Age": "2000-01-01",
-    "Address": "New York WallStreet 12 2247 dc",
-    "Interests": [
-      "Actie",
-      "Romantiek",
-      "Drama"
-    ]
-  },
-  {
-    "UID": 31,
-    "Level": 1,
-    "Email": "user31@mail.com",
-    "Pwd": "dBbxiUnZkQUGfUHlgmU3j5FLzhgTqLEbmNxiMY0DEsevHGZ9",
+    "Email": "user12@mail.com",
+    "Pwd": "3IwMFx6LzpPhIBMFcXCEoR0x/AcpziZGCiI9jm4mmGhHWGzq",
+    "Active": true,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
