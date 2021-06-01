@@ -93,7 +93,7 @@ namespace ConsoleApp1
             while (mainmenubool == true)
             {
                 List<string> Mainscreen = new List<string>() {
-                "[    Zoek films    ]" ,
+                "[       Films      ]" ,
                 "[     Filmlijst    ]" ,
                 "[      Vandaag     ]" ,
                 "[Hapjes en drankjes]" ,
@@ -129,15 +129,15 @@ namespace ConsoleApp1
                     resetIndex();
                     Console.Clear();
 
-                    string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
-                    var movielist = JsonSerializer.Deserialize<Movielist>(moviesjson);
-                    string[] FilmList = new string[movielist.movies.Length];
-                    for (int i = 0; i < movielist.movies.Length; i++)
+                    string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
+                    var movielist = JsonSerializer.Deserialize<Rootobject>(moviesjson);
+                    string[] FilmList = new string[movielist.FilmArray.Length];
+                    for (int i = 0; i < movielist.FilmArray.Length; i++)
                     {
-                        FilmList[i] = movielist.movies[i].moviename;
+                        FilmList[i] = movielist.FilmArray[i].Name;
                     }
-                    var selectedmovie = filmmenu.Filmmenu(FilmList);
-                    Console.WriteLine(selectedmovie.id + selectedmovie.moviename + selectedmovie.date);
+                    var selectedmovie = Filmlist.FilmMenu(FilmList);
+                    Console.WriteLine($"                                                U heeft {selectedmovie.Name} geselecteerd.");
                     Console.ReadLine();
                 }
                 else if (selectedMenuItem == "[      Vandaag     ]")
@@ -145,20 +145,31 @@ namespace ConsoleApp1
                     resetIndex();
                     Console.Clear();
 
-                    string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
-                    var movielist = JsonSerializer.Deserialize<Movielist>(moviesjson);
-                    //var today = DateTime.Now.ToString("yyyy-MM-dd");
-                    var today = "2021-04-01";
+                    string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
+                    var movielist = JsonSerializer.Deserialize<Rootobject>(moviesjson);
+                    string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.json"));
+                    var movieinstancelist = JsonSerializer.Deserialize<Rootobject2>(movieinstancesjson);
+                    //var today = DateTime.Now.ToString("dd/MM/yyyy");
+                    Console.WriteLine("                                                Welke dag? (dd/mm/jjjj) doe 05/29/2021");
+                    Console.Write("                                                ");
+                    var today = Console.ReadLine();
                     var todaystring = "";
-                    for (int i = 0;i<movielist.movies.Length;i++)
+                    for (int i = 0;i< movieinstancelist.FilmInstances.Length;i++)
                     {
-                        if (movielist.movies[i].date == today)
+                        if (movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[0] == today)
                         {
-                            todaystring += movielist.movies[i].moviename+"###";
+                            for (int j = 0;j<movielist.FilmArray.Length;j++)
+                            {
+                                if (movieinstancelist.FilmInstances[i].MovieID== movielist.FilmArray[j].ID)
+                                {
+                                    todaystring += movielist.FilmArray[j].Name + "###";
+                                }    
+                            }
                         }
                     }
                     string[] todaylist = todaystring.Split("###");
-                    var selectedmovie = filmmenu.Filmmenu(todaylist, "ja");
+                    Console.Clear();
+                    var selectedmovie = Filmlist.FilmMenu(todaylist, "ja");
                     Registers.moviehall();
                     
 

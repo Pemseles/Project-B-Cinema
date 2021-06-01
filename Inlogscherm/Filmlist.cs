@@ -4,32 +4,50 @@ using System.IO;
 
 namespace ConsoleApp1
 {
-    public class Movielist
+    public class Rootobject
     {
-        public string name { get; set; }
-        public Movie[] movies { get; set; }
+        public FilmArray[] FilmArray { get; set; }
+
+
     }
 
-    public class Movie
+    public class FilmArray
     {
-        public string id { get; set; }
-        public string moviename { get; set; }
-        public string director { get; set; }
-        public string[] cast { get; set; }
-        public string date { get; set; }
-        public string starttime { get; set; }
-        public string endtime { get; set; }
-        public int roomid { get; set; }
-        public string screentype { get; set; }
-        public string[] genre { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Director { get; set; }
+        public string[] Genres { get; set; }
+        public int AgeRating { get; set; }
     }
 
-    public class filmmenu
+
+    public class Rootobject2
     {
-        public static Movie Filmmenu(string[] items, string vandaag = "nee", bool done = false, int index = 0)
+        public Filminstance[] FilmInstances { get; set; }
+    }
+
+    public class Filminstance
+    {
+        public int ID { get; set; }
+        public int MovieID { get; set; }
+        public int TheaterhallID { get; set; }
+        public string StartDateTime { get; set; }
+        public string EndDateTime { get; set; }
+        public string Type { get; set; }
+        public float Price { get; set; }
+        public int Active { get; set; }
+    }
+
+
+
+    public class Filmlist
+    {
+        public static FilmArray FilmMenu(string[] items, string vandaag = "nee", bool done = false, int index = 0)
         {
-            string moviesjson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
-            var movielist = JsonSerializer.Deserialize<Movielist>(moviesjson);
+            string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
+            var movielist = JsonSerializer.Deserialize<Rootobject>(moviesjson);
+            string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.json"));
+            var movieinstancelist = JsonSerializer.Deserialize<Rootobject2>(movieinstancesjson);
             string filmname = "";
             while (!done)
             {
@@ -40,50 +58,51 @@ namespace ConsoleApp1
                         Console.Write("");
                         if (vandaag == "ja")
                         {
-                            for (int j = 0; j < movielist.movies.Length; j++)
+                            for (int j = 0; j < movielist.FilmArray.Length; j++)
                             {
-                                if (movielist.movies[j].moviename == items[i])
+                                if (movielist.FilmArray[j].Name == items[i])
                                 {
                                     Console.Write("                                                ");
-                                    Console.BackgroundColor = ConsoleColor.Gray;  Console.ForegroundColor = ConsoleColor.Black;
+                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
                                     Console.Write(items[i] + "\n");
                                     Console.ResetColor();
                                     Console.Write("                                                ");
                                     Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                                    Console.Write("Tijd: " + movielist.movies[j].starttime + " tot " + movielist.movies[j].endtime + "\n");
+                                    Console.Write("Tijd: " + movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[1] + " tot " + movieinstancelist.FilmInstances[i].EndDateTime.Split(" ")[1] + "\n");
                                     Console.ResetColor();
                                     Console.Write("                                                ");
                                     Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                                    Console.WriteLine("Zaal: " + movielist.movies[j].roomid + "Type: " + movielist.movies[j].screentype + "\n");
-                                    
+                                    Console.WriteLine("Zaal: " + movieinstancelist.FilmInstances[i].TheaterhallID + " Type: " + movieinstancelist.FilmInstances[i].Type + "\n");
+
                                 }
                             }
                         }
                         else
                         {
-                            Console.WriteLine(items[i]);
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write(items[i] + "\n");
                         }
                     }
                     else
                     {
-                        Console.Write("");
                         if (vandaag == "ja")
                         {
-                            for (int j = 0; j < movielist.movies.Length; j++)
+                            for (int j = 0; j < movielist.FilmArray.Length; j++)
                             {
-                                if (movielist.movies[j].moviename == items[i])
+                                if (movielist.FilmArray[j].Name == items[i])
                                 {
-                                    Console.WriteLine($"                                                {items[i]}\n                                                Tijd: {movielist.movies[j].starttime} tot {movielist.movies[j].endtime}\n                                                Zaal: {movielist.movies[j].roomid} Type: {movielist.movies[j].screentype}\n");
+                                    Console.WriteLine($"                                                {items[i]}\n                                                Tijd: {movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[1]} tot {movieinstancelist.FilmInstances[i].EndDateTime.Split(" ")[1]}\n                                                Zaal: {movieinstancelist.FilmInstances[i].TheaterhallID} Type: {movieinstancelist.FilmInstances[i].Type}\n");
                                 }
                             }
                         }
                         else
                         {
-                            Console.WriteLine(items[i]);
-                        }    
+                            Console.WriteLine($"                                                {items[i]}");
+                        }
                     }
 
-                    
+
                     Console.ResetColor();
                 }
 
@@ -107,7 +126,9 @@ namespace ConsoleApp1
                 else if (ckey.Key == ConsoleKey.Enter)
                 {
                     Console.Clear();
+                    Console.Write("                                                ");
                     Console.WriteLine($"Wilt u {items[index]} selecteren? (j/n)");
+                    Console.Write("                                                ");
                     var input = Console.ReadLine();
                     if (input == "j" || input == "J")
                     {
@@ -122,17 +143,17 @@ namespace ConsoleApp1
                 }
 
                 Console.Clear();
-            }  
-            for (int i = 0;i<movielist.movies.Length;i++)
+            }
+            for (int i = 0; i < movielist.FilmArray.Length; i++)
             {
-                if (movielist.movies[i].moviename==filmname)
+                if (movielist.FilmArray[i].Name == filmname)
                 {
-                    return movielist.movies[i];
+                    return movielist.FilmArray[i];
                 }
             }
-            return movielist.movies[index]; 
+            return movielist.FilmArray[index];
         }
-        
+
     }
 
 }
