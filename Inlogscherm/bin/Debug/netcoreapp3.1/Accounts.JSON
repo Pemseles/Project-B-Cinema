@@ -621,5 +621,21 @@
       "Romantiek",
       "Drama"
     ]
+  },
+  {
+    "UID": 58,
+    "Level": 1,
+    "Email": "user58@mail.com",
+    "Pwd": "WC+3marWOA+pjQCXilI9Yf8r4JNMCP/rUv6VzxDqy31h3mDU",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
   }
 ]

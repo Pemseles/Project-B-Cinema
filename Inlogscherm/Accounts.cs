@@ -374,7 +374,7 @@ namespace ConsoleApp1
         public bool Active { get; set; }
     }
 
-    public class Utility
+    public abstract class  Utility
     {
         // Database Paths:
         public string orderPath = Path.GetFullPath(@"Orders.json");
