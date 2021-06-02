@@ -12,12 +12,14 @@ namespace ConsoleApp1
         public int FilmIndex;
         public List<int> Products;
         public List<int> Seats;
+        public List<Movie> FilmList;
 
         public Checkout()
         {
             this.FilmIndex = -1;
             this.Products = new List<int>();
             this.Seats = new List<int>();
+            this.FilmList = new List<Movie>();
         }
 
         public void UpdateFilmIndex(int index)
@@ -31,6 +33,10 @@ namespace ConsoleApp1
         public void UpdateSeats(List<int> seats)
         {
             this.Seats = seats;
+        }
+        public void UpdateFilmList(List<Movie> newlist)
+        {
+            this.FilmList = newlist;
         }
 
         public void PaymentScreen()
@@ -115,39 +121,57 @@ namespace ConsoleApp1
 
         private void DrawCart()
         {
-            string cartString = "                                 [        Dit is uw huidige winkelwagen         ]\n";
-            cartString = cartString + "                                 [                                              ]\n";
-            if (this.FilmIndex < 0)
+            string tempCartStr = "";
+            string cartString = "                    [                     Dit is uw huidige winkelwagen                      ]\n";
+            cartString = cartString + "                    [                                                                        ]\n";
+            if (this.FilmIndex < 0 || this.FilmList == null)
             {
-                cartString = cartString + "                                 [       U heeft nog geen film uitgekozen       ]\n";
+                cartString = cartString + "                    [                    U heeft nog geen film uitgekozen                    ]\n";
             }
             else
             {
-                cartString = cartString + $"                                [ {MainMenu.filmList.FilmArray[this.FilmIndex].Name} ]\n";
-                //cartString = cartString + $"[ {} ]"; voeg hier prijs toe van de film;
+                // print de naam en tijden van de film
+                tempCartStr = BuildCartIndent("Film", -1);
             }
-            cartString = cartString + "                                 [                                              ]\n";
+            cartString = cartString + tempCartStr;
+            tempCartStr = "";
+            cartString = cartString + "                    [                                                                        ]\n";
             if (this.Products.Count < 1)
             {
-                cartString = cartString + "                                 [       U heeft geen producten uitgekozen      ]\n";
+                cartString = cartString + "                    [                    U heeft geen producten uitgekozen                   ]\n";
             }
             else
             {
-                foreach (var productItem in this.Products)
+                // print de volle lijst van producten
+                List<Product> allProducts = Orders.GetProducts();
+                for (int i = 0; i < allProducts.Count; i++)
                 {
-                    // vul in wanneer productenlijst bestaat
+                    int currentID = -1;
+                    foreach (int productId in this.Products)
+                    {
+                        if (allProducts[i].ID == productId)
+                        {
+                            currentID = productId;
+                        }
+                    }
+                    if (allProducts[i].ID == currentID)
+                    {
+                        cartString = cartString + BuildCartIndent("Product", currentID);
+                    }
+
                 }
             }
-            cartString = cartString + "                                 [                                              ]\n";
+            cartString = cartString + "                    [                                                                        ]\n";
             if (this.Seats.Count < 1)
             {
-                cartString = cartString + "                                 [       U heeft geen stoelen gereserveerd      ]\n";
+                cartString = cartString + "                    [                    U heeft geen stoelen gereserveerd                   ]\n";
             }
             else
             {
-                foreach (var reservedSeat in this.Seats)
+                cartString = cartString + "                    [                U heeft de volgende stoelen gereserveerd                ]\n";
+                for (int i = 0; i < this.Seats.Count; i++)
                 {
-                    // vul in wanneer dit kan
+                    cartString = cartString + BuildCartIndent("Seats", i);
                 }
             }
             Console.WriteLine(cartString);
@@ -204,8 +228,8 @@ namespace ConsoleApp1
             {
                 if (this.FilmIndex < 0)
                 {
-                    Console.WriteLine("\n                                 [       U heeft nog geen film uitgekozen       ]");
-                    Console.WriteLine("                                 [          U kunt nog niet afrekenen           ]\n");
+                    Console.WriteLine("\n                              [          U heeft nog geen film uitgekozen         ]");
+                    Console.WriteLine("                              [             U kunt nog niet afrekenen             ]\n");
                 }
                 else
                 {
@@ -215,7 +239,7 @@ namespace ConsoleApp1
                     }
                     else
                     {
-                        Console.WriteLine("                                 [  Transactie gelukt, bedankt voor uw aankoop  ]\n");
+                        Console.WriteLine("\n                              [     Transactie gelukt, bedankt voor uw aankoop    ]\n");
                     }
                 }
             }
@@ -223,13 +247,51 @@ namespace ConsoleApp1
             {
                 if (this.FilmIndex < 0 && this.Products.Count < 1 && this.Seats.Count < 1)
                 {
-                    Console.WriteLine("\n                                 [            Uw winkelwagen is leeg            ]\n");
+                    Console.WriteLine("\n                              [               Uw winkelwagen is leeg              ]\n");
                 }
                 else
                 {
                     ResetChoices();
                 }
             }
+        }
+        private string BuildCartIndent(string itemType, int index)
+        {
+            string itemInCart = "";
+            int cartLength = 72;
+
+            if (itemType == "Film")
+            {
+                // print de naam en tijden van de film
+                itemInCart = $"Filmnaam: {this.FilmList[FilmIndex].MovieName} | Tijden: {this.FilmList[FilmIndex].StartTime}-{this.FilmList[FilmIndex].EndTime}";
+            }
+            else if (itemType == "Product")
+            {
+                List<Product> allProducts = Orders.GetProducts();
+                itemInCart = $"Product: {allProducts[index].Name} | Prijs: {allProducts[index].Price}";
+            }
+            else if (itemType == "Seats")
+            {
+                if (this.Seats[index] < 10)
+                {
+                    itemInCart = $"Stoelnummer: {this.Seats[index]} ";
+                }
+                else
+                {
+                    itemInCart = $"Stoelnummer: {this.Seats[index]}";
+                }
+            }
+
+            while (itemInCart.Length < cartLength)
+            {
+                itemInCart = itemInCart + " ";
+                if (itemInCart.Length < cartLength)
+                {
+                    itemInCart = " " + itemInCart;
+                }
+            }
+            itemInCart = "                    [" + itemInCart + "]\n";
+            return itemInCart;
         }
     }
 }

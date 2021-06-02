@@ -62,7 +62,7 @@ namespace ConsoleApp1
                  };
                 for (int i = 0; i < items.Count; i++)
                 {
-                    if (i == index)
+                    for (int i = 0; i < movieList.Count; i++)
                     {
                         Console.Write("                                                ");
                         Console.BackgroundColor = ConsoleColor.Gray;
@@ -284,8 +284,6 @@ namespace ConsoleApp1
                         //Console.Write("                                                ");
                         //Console.WriteLine("Zaal: " + movieinstancelist.FilmInstances[i].TheaterhallID + " Type: " + movieinstancelist.FilmInstances[i].Type + "\n");
                     }
-                    Console.ResetColor();
-                }
 
                 ConsoleKeyInfo ckey = Console.ReadKey();
                 if (ckey.Key == ConsoleKey.DownArrow)
@@ -317,9 +315,22 @@ namespace ConsoleApp1
                         filmname = todaylist[index];
                         done = true;
                     }
-                    else
+                    Console.Clear();
+                }
+                MainMenu.Cart.UpdateFilmIndex(index);
+                return movieList[index]; 
+            }
+            else
+            {
+                Console.WriteLine($"                              Geen films gevonden vandaag, probeer alstublieft later opnieuw.\n");
+                Console.WriteLine($"                                    Druk op Enter om terug te gaan naar het hoofdmenu.\n");
+                ConsoleKeyInfo ckey = Console.ReadKey();
+                while (ckey.Key != ConsoleKey.Enter)
+                {
+                    if (ckey.Key == ConsoleKey.Enter)
                     {
                         Console.Clear();
+                        return null;
                     }
                 }
             }
