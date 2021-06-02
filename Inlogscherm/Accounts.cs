@@ -125,7 +125,7 @@ namespace ConsoleApp1
         }
 
         // INSERT Acount to JSON - Method
-        public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests)
+        public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests, int level=1)
         {
             /// Requires All and only Correct Parameters to Insert to the JSON File.
             // Convert Array to List
@@ -144,7 +144,7 @@ namespace ConsoleApp1
             accountsList.Add(new Account()
             {
                 UID = GenerateID(),
-                Level = 1,
+                Level = level, // Default 1
                 Email = email,
                 Pwd = hashedPwd,
                 Active = true,
@@ -204,11 +204,31 @@ namespace ConsoleApp1
                     break;
                 }
             }
-            Console.WriteLine(level);
             return level;
 
         }
-         public bool CheckUniqueEmail(string email)
+
+        public bool GetActiveStatus(int uid)
+        {
+            /// Takes UID as Parameter, Returns User Clearance Level
+            bool active = false;
+            if (uid < 0) return active;
+            var accountsList = RetrieveAccountData();
+           
+            foreach (Account user in accountsList)
+            {
+                if (uid == user.UID)
+                {
+                    // Set bool to false and break loop
+                    active = user.Active;
+                    break;
+                }
+            }
+            return active;
+
+        }
+
+        public bool CheckUniqueEmail(string email)
         {
             /// Takes string email as Parameter, Returns Boolean, whether Email is Unique or not.
             var jsonData = System.IO.File.ReadAllText(accountPath);
@@ -330,7 +350,7 @@ namespace ConsoleApp1
         public string Name { get; set; }
         public int NumberOfSeats { get; set; }
         public List<int> VipSeatCoords { get; set; }
-        public int Active { get; set; }
+        public bool Active { get; set; }
     }
 
     public class Product
@@ -342,6 +362,17 @@ namespace ConsoleApp1
         public bool Active { get; set; }
     }
 
+    public class FilmInstance
+    {
+        public int ID { get; set; }
+        public int MovieID { get; set; }
+        public int TheaterhallID { get; set; }
+        public string StartDateTime { get; set; }
+        public string EndDateTime { get; set; }
+        public string Type { get; set; }
+        public decimal Price { get; set; }
+        public bool Active { get; set; }
+    }
 
     public class Utility
     {
@@ -351,10 +382,11 @@ namespace ConsoleApp1
         public static string productsPath = Path.GetFullPath(@"ProductList.json");
         public string theatherhallPath = Path.GetFullPath(@"Theaterhalls.json");
         public string filmPath = Path.GetFullPath(@"Films.json");
+        public string filmInstancesPath = Path.GetFullPath(@"FilmInstances.json");
 
-       public List<Object> retrieveJson(string jsonPath)
+        public List<Object> retrieveJson(string jsonPath)
         {
-            /// Returns an Int Array of taken seatnumbers
+            /// Retrieves a Json Data and converts it to an Object List
             var jsonData = System.IO.File.ReadAllText(jsonPath);
             var objectList = JsonConvert.DeserializeObject<List<Object>>(jsonData);
 
@@ -366,7 +398,7 @@ namespace ConsoleApp1
             // Update json data string
             var jsonData = JsonConvert.SerializeObject(objectList, Formatting.Indented);
             // serialize JSON to a string and then write string to a file
-            System.IO.File.WriteAllText(accountPath, jsonData);
+            System.IO.File.WriteAllText(jsonPath, jsonData);
         }
 
         public int GenerateID(string JsonPath)
@@ -409,12 +441,107 @@ namespace ConsoleApp1
 
             // Update json data string
             jsonData = JsonConvert.SerializeObject(filmList, Formatting.Indented);
-            // serialize JSON to a string and then write string to a file
+            // Serialize JSON to a string and then write string to a file
             System.IO.File.WriteAllText(filmPath, jsonData);
         }
 
+        public void AddFilmInstance(int movieID, int theaterhallID, string startDateTime, string endDateTime, string type, decimal price)
+        {
+            var jsonData = System.IO.File.ReadAllText(filmPath);
+            var filmInstances = JsonConvert.DeserializeObject<List<FilmInstance>>(jsonData) ?? new List<FilmInstance>();
+
+            // Add a new Film
+            filmInstances.Add(new FilmInstance()
+            {
+                ID = GenerateID(filmInstancesPath),
+                MovieID = movieID,
+                TheaterhallID = theaterhallID,
+                StartDateTime = startDateTime,
+                EndDateTime = endDateTime,
+                Type = type,
+                Price = price,
+                Active = true
+            });
+
+            // Update json data string
+            jsonData = JsonConvert.SerializeObject(filmInstances, Formatting.Indented);
+            // Serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(filmPath, jsonData);
+        }
+
+        public void RemoveFilmInstance(int id)
+        {
+            /// Takes Int ID as Parameter to locate & Remove Entry with Matching ID
+            var FilmInstances = retrieveJson(filmInstancesPath);
+            int index = 0;
+            foreach(FilmInstance filmInstance in FilmInstances)
+            {
+                if(id == filmInstance.ID)
+                    break;
+                index++;
+            }
+
+            // Remove entry and update file
+            FilmInstances.RemoveAt(index);
+            InsertJson(FilmInstances, filmInstancesPath);
+        }
+
+        public void RemoveFilm(int id)
+        {
+            /// Takes Int ID as Parameter to locate & Remove Parent + Child Entry with Matching ID.
+            var FilmList = retrieveJson(filmPath);
+            var FilmInstances = retrieveJson(filmInstancesPath);
+
+            int index = 0;
+            // Locate and Remove all Child Entries
+            foreach(FilmInstance filmInstance in FilmList)
+            {
+                if (id == filmInstance.MovieID) {
+                    FilmInstances.RemoveAt(index);
+                } else {
+                    index++;
+                }
+            }
+
+            index = 0;
+            foreach (Film film in FilmList)
+            {
+                if (id == film.ID)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            // Remove entry and update files
+            FilmList.RemoveAt(index);
+            InsertJson(FilmList, filmPath);
+            InsertJson(FilmInstances, filmInstancesPath);
+        }
+
+        public void AddTheatherhall(string hallName, int numberOfSeats, List<int> vipSeatCoords, bool active=true)
+        {
+            var jsonData = System.IO.File.ReadAllText(filmPath);
+            var theatherhallList = JsonConvert.DeserializeObject<List<Theaterhall>>(jsonData) ?? new List<Theaterhall>();
+
+            // Add a new Film
+            theatherhallList.Add(new Theaterhall()
+            {
+                ID = GenerateID(theatherhallPath),
+                Name = hallName,
+                NumberOfSeats = numberOfSeats,
+                VipSeatCoords = vipSeatCoords,
+                Active = active
+            });
+
+            // Update json data string
+            jsonData = JsonConvert.SerializeObject(theatherhallList, Formatting.Indented);
+            // Serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(theatherhallPath, jsonData);
+        }
+
         public void SuspendAccount(int UID)
-        { /// Suspends the Account of given 
+        { /// Suspends the Account where ID matches with given int Parameter
             List<Object> AccountList = retrieveJson(accountPath);
 
             foreach(Account Account in AccountList)
@@ -425,7 +552,6 @@ namespace ConsoleApp1
                     break;
                 }
             }
-
         }
     }
 
