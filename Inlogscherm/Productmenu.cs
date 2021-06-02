@@ -349,6 +349,7 @@ namespace ConsoleApp1
                 {
                     resetIndex();
                     Console.Clear();
+                    MainMenu.Cart.UpdateProducts(addOrder);
                     productmenubool = false;
                     MainMenu.Mainmenu();
                 }

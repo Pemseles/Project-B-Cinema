@@ -14,15 +14,48 @@ namespace ConsoleApp1
     public class MainMenu
     {
         private static int index = 0;
-        public static FilmArr filmList;
-
+        public static Checkout Cart = new Checkout();
+        public static string MoviesJson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
+        public static string filmJSONPath = Path.GetFullPath(@"FilmList.json");
+        public static string jsonStringFilmList = File.ReadAllText(filmJSONPath);
+        public static FilmArr filmList = new FilmArr();
+        public static FilmArr filmListAgain = JsonSerializer.Deserialize<FilmArr>(jsonStringFilmList);
+        public static List<Movie> GetFilmList(bool todayDate)
+        {
+            Movielist UsableList = new Movielist() { };
+            UsableList = JsonSerializer.Deserialize<Movielist>(MoviesJson);
+            List<Movie> filmList = new List<Movie> { };
+            if (!todayDate) {
+                foreach (var filmItem in UsableList.Movies)
+                {
+                    filmList.Add(filmItem);
+                }
+            }
+            else
+            {
+                // haalt de datum op voor vandaag
+                //var today = DateTime.Now.ToString("yyyy-MM-dd");
+                var today = "2021-04-01";
+                foreach (var filmItem in UsableList.Movies)
+                {
+                    for (int i = 0; i < UsableList.Movies.Length; i++)
+                    {
+                        if (UsableList.Movies[i].Date == today)
+                        {
+                            filmList.Add(filmItem);
+                        }
+                    }
+                }
+            }
+            return filmList;
+        }
         public static string MainScreen(List<string> items)
         {
             for (int i = 0; i < items.Count; i++)
             {
+                Console.Write("                                                ");
                 if (i == index)
                 {
-                    Console.Write("                                                ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
 
@@ -30,17 +63,12 @@ namespace ConsoleApp1
                 }
                 else
                 {
-                    Console.Write("                                                ");
                     Console.WriteLine(items[i]);
                 }
                 Console.ResetColor();
             }
 
             ConsoleKeyInfo ckey = Console.ReadKey();
-            if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
-            {
-                
-            }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
                 if (index < items.Count-1)
@@ -107,7 +135,23 @@ namespace ConsoleApp1
                 if (selectedMenuItem == "[       Films      ]")
                 {
                     Console.Clear();
-                    Filmlist.Filmmenu();
+                    FilmMenu filmListMenu = new FilmMenu();
+                    Cart.UpdateFilmList(GetFilmList(false));
+                    Movie selectedMovie1 = filmListMenu.Filmmenu(GetFilmList(false));
+                }
+                else if (selectedMenuItem == "[      Vandaag     ]")
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    //var today = DateTime.Now.ToString("yyyy-MM-dd");
+                    FilmMenu filmListToday = new FilmMenu();
+                    Cart.UpdateFilmList(GetFilmList(true));
+                    Movie selectedMovie = filmListToday.Filmmenu(GetFilmList(true));
+                    
+                    if (selectedMovie != null)
+                    {
+                        Registers.Moviehall();
+                    }
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {
@@ -147,7 +191,7 @@ namespace ConsoleApp1
                 {
                     resetIndex();
                     Console.Clear();
-                    Registers.moviehall();
+                    Registers.Moviehall();
                     back();
                     Console.SetWindowSize(120, 30);
                     
