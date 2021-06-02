@@ -1,23 +1,12 @@
-{
-	"FilmInstances" : [
-    	{
-        	"ID": 0,
-        	"MovieID": 7,
-        	"TheaterhallID": 5,
-        	"StartDateTime": "05/29/2021 05:50",
-        	"EndDateTime": "05/29/2021 07:50",
-        	"Type": "3D",
-        	"Price": 14.99,
-        	"Active": 1
-    	},
-	{
-        	"ID": 1,
-        	"MovieID": 8,
-        	"TheaterhallID": 2,
-        	"StartDateTime": "05/29/2021 09:20",
-        	"EndDateTime": "05/29/2021 11:00",
-        	"Type": "2D",
-        	"Price": 10.99,
-        	"Active": 1
-    	}]
-}
+[
+    {
+        "ID": 0,
+        "MovieID": 2,
+        "TheaterhallID": 5,
+        "StartDateTime": "05/29/2021 05:50",
+        "EndDateTime": "05/29/2021 07:50",
+        "Type": "3D",
+        "Price": 14.99,
+        "Active": true
+    }
+]
