@@ -24,10 +24,10 @@ namespace ConsoleApp1
 
     public class Rootobject2
     {
-        public Filminstance[] FilmInstances { get; set; }
+        public FilmInstance[] FilmInstances { get; set; }
     }
 
-    public class Filminstance
+    public class FilmInstance
     {
         public int ID { get; set; }
         public int MovieID { get; set; }
@@ -35,11 +35,9 @@ namespace ConsoleApp1
         public string StartDateTime { get; set; }
         public string EndDateTime { get; set; }
         public string Type { get; set; }
-        public float Price { get; set; }
-        public int Active { get; set; }
+        public decimal Price { get; set; }
+        public bool Active { get; set; }
     }
-
-
 
     public class Filmlist
     {

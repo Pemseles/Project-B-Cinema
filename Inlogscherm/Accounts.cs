@@ -363,18 +363,6 @@ namespace ConsoleApp1
         public bool Active { get; set; }
     }
 
-    public class FilmInstance
-    {
-        public int ID { get; set; }
-        public int MovieID { get; set; }
-        public int TheaterhallID { get; set; }
-        public string StartDateTime { get; set; }
-        public string EndDateTime { get; set; }
-        public string Type { get; set; }
-        public decimal Price { get; set; }
-        public bool Active { get; set; }
-    }
-
     public abstract class  Utility
     {
         // Database Paths:
