@@ -1,0 +1,641 @@
+[
+  {
+    "UID": 0,
+    "Level": 3,
+    "Email": "admin@cinescoop.com",
+    "Pwd": "cTsCKt+JMLBdXZPPVKRXWQvIZR4S97XtZcCMUTeB0rgO36Ft",
+    "Active": true,
+    "Firstname": "Admin",
+    "Lastname": "Admin",
+    "Age": "1970-01-01",
+    "Address": "Silicon Valley Bakerstreet 12 1234 ab",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
+    ]
+  },
+  {
+    "UID": 1,
+    "Level": 2,
+    "Email": "user1@mail.com",
+    "Pwd": "WwnDqqXYLloXJhm8+3ok66KwFLLb3+nsOA3PICnqfm5mORLk",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 2,
+    "Level": 1,
+    "Email": "user2@mail.com",
+    "Pwd": "kWKf3QYzGBqrBkUS1SDpFY4fz90S3Icx2oYbx9RNfBvnb3Ok",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 3,
+    "Level": 2,
+    "Email": "user3@hotmail.com",
+    "Pwd": "7FMJG/kd2D7fAgmAR4q7zjETgqzwIjU2zuYHdBe+paDCYhVk",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "Dorpe Dorp Bakerstreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 4,
+    "Level": 1,
+    "Email": "user4@mail.com",
+    "Pwd": "6g8RBb+z3NlTu9SlsqfpqDMJqUlpVSm2CugMWwfK7Sq89w62",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 5,
+    "Level": 1,
+    "Email": "user5@mail.com",
+    "Pwd": "/mcbF+CpbVH40L0oEiMjIBbLbqBg1Q4iKWwpj1f5XisDNi9h",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 6,
+    "Level": 1,
+    "Email": "user6@mail.com",
+    "Pwd": "kAxxiQdzEMZJeIB4sy7qmdjZeA8LGfOQafB+c/3Q31UD9/Ms",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 7,
+    "Level": 1,
+    "Email": "user7@mail.com",
+    "Pwd": "uzkNHEA85ZJc4W8pis1z8GbuM/eHWdqGrGeGuk/eByh2PpKE",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 8,
+    "Level": 1,
+    "Email": "janssen@gmail.com",
+    "Pwd": "Y8zM4N5Swgund9TapPK0aZfo2I2WQ+W7Y7hmkBukpq1kRE2V",
+    "Active": true,
+    "Firstname": "Jacq",
+    "Lastname": "Janssen",
+    "Age": "5/4/1920",
+    "Address": "Kempenaar302992KEbARENDRECHT",
+    "Interests": [
+      "KOmedie",
+      "science"
+    ]
+  },
+  {
+    "UID": 9,
+    "Level": 1,
+    "Email": "user9@mail.com",
+    "Pwd": "jHCQCfBipWDxYxN23KdeYeel27X57VRuTc0EQvopqnqlXwwx",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 10,
+    "Level": 1,
+    "Email": "user10@mail.com",
+    "Pwd": "3lheQmz+orx96fVJ9LevLDgal2iHjSRVqoBLndhZA85RbVOy",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 11,
+    "Level": 1,
+    "Email": "user11@mail.com",
+    "Pwd": "7CdqYr2dFQSuw4LKl4GPxsz6Pa2PlkFos8manMHzQuuJVLEJ",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 12,
+    "Level": 1,
+    "Email": "user12@mail.com",
+    "Pwd": "3IwMFx6LzpPhIBMFcXCEoR0x/AcpziZGCiI9jm4mmGhHWGzq",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 32,
+    "Level": 1,
+    "Email": "user32@mail.com",
+    "Pwd": "Ft12SA8iDYtwZeAQqsD85wryQNHFlFIDhQ/+SAACNuaYvL7G",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 33,
+    "Level": 1,
+    "Email": "user33@mail.com",
+    "Pwd": "jG0Wry0DghoqS3y33BYAqsOR/+dadCiYCtrnk63/4xSZBCGT",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 34,
+    "Level": 1,
+    "Email": "user34@mail.com",
+    "Pwd": "s0zLk/TwKOXH1r6ARYincM/iofc6kIF//Vcbj13AE8EsCQ8b",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 35,
+    "Level": 1,
+    "Email": "user35@mail.com",
+    "Pwd": "82VGLaLQhELYSaQAkP0U8i3f2S0ft8qfNt/81JMUsdtMRsHA",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 36,
+    "Level": 1,
+    "Email": "user36@mail.com",
+    "Pwd": "SzgzKhXtV8WZ2LJzyzbAvXOxc2EboE75pn5TgOgREpzIylWY",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 37,
+    "Level": 1,
+    "Email": "user37@mail.com",
+    "Pwd": "0bGrq2Xb/6AvxeYDy/7+hHZinFIaD1XA84kxkCA3ydOUJvR0",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 38,
+    "Level": 1,
+    "Email": "user38@mail.com",
+    "Pwd": "HSrzqcWNYhTxeWJPuerKl1c66yCMeQKnOLIX0k1oGisbceHa",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 39,
+    "Level": 1,
+    "Email": "user39@mail.com",
+    "Pwd": "f2zxVozqLWV6Ec+ys1cS09ScHWhuX8c/LHAkt9g83O79vfZ/",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 40,
+    "Level": 1,
+    "Email": "user40@mail.com",
+    "Pwd": "22+av9NLk6+iqTltrEP37zFcOJ+kX0kEVUYQ9KlPPdOljj1G",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 41,
+    "Level": 1,
+    "Email": "user41@mail.com",
+    "Pwd": "ns7RlXbLTXnLaFVr+xGxK4BPOVYG4LA40GT2GA5PQngHvUKq",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 42,
+    "Level": 1,
+    "Email": "user42@mail.com",
+    "Pwd": "y5J0VYJDdyQdNy5W6w1nyfAtsCjqIqkghP/o33aoAmXWNuAc",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 43,
+    "Level": 1,
+    "Email": "user43@mail.com",
+    "Pwd": "q5kjs0HplUetw3+TTvHb4f9/Z5c0yGN8B8b45YsAEeivbFHo",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 44,
+    "Level": 1,
+    "Email": "user44@mail.com",
+    "Pwd": "3leVe2dOnRjLVO2ezYqFFD+6O3GVrOEPcTfoMHzi2BdYV5vI",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 45,
+    "Level": 1,
+    "Email": "user45@mail.com",
+    "Pwd": "KEay739MnnB1uFGz3iE1dJkegSIFLowwkUpWU8qpizO+8plZ",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 46,
+    "Level": 1,
+    "Email": "user46@mail.com",
+    "Pwd": "ai/xlRM51Qw+CVIOj2o5gkFfh5YEpOup/sDw1AWFmzoIJXH3",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 47,
+    "Level": 1,
+    "Email": "user47@mail.com",
+    "Pwd": "ZzKPbsPr2l/XCM5pDe8sVKSRxx2NxCKQ0hLwIeoG3ALvh6Yq",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 48,
+    "Level": 1,
+    "Email": "user48@mail.com",
+    "Pwd": "nmaeia6FR/ycKY0N3zPc3qxGYmiWvppcHWf4RV8zdfOJDa7I",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 49,
+    "Level": 1,
+    "Email": "user49@mail.com",
+    "Pwd": "UqnLurR0qtVPYy2Mv825j8PNvqSDV0rdwdkffKie19e59c2G",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 50,
+    "Level": 1,
+    "Email": "user50@mail.com",
+    "Pwd": "9GVLlvGbizEDKxNlLBbs0/7pxTkOy+n+YJo1SdaRVXrzdX5Y",
+    "Active": false,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 51,
+    "Level": 1,
+    "Email": "user51@mail.com",
+    "Pwd": "yLvNni+yPNs9N8gNN45AFWb5Ioo+jdh+p8eC6aoDDTGUSmV4",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 52,
+    "Level": 1,
+    "Email": "user52@mail.com",
+    "Pwd": "Ur9XKN0zIhx1P7HTOJiKN5OYC8XBpi1unyUySJV4XqPaoF1g",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 53,
+    "Level": 1,
+    "Email": "user53@mail.com",
+    "Pwd": "ATwW0GATZjhM6wMm/kkeMgMPqdrwRN9KC8MCLPg/j4eO1jxT",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 54,
+    "Level": 1,
+    "Email": "user54@mail.com",
+    "Pwd": "44ygOuypk2s+oVll6QiSPGnxExcEZWDJ6VlMRwVNteeF+OTM",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 55,
+    "Level": 1,
+    "Email": "user55@mail.com",
+    "Pwd": "bKzc64ZAgpfPp6RNcKwHNZd9v4E/DnzCl1kLYr9QvufCCOwW",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 56,
+    "Level": 1,
+    "Email": "user56@mail.com",
+    "Pwd": "9tPtXFM48tZzRbhgoPV1Zr2dJmDvy9mrkVD040OGw+l6dg7t",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 57,
+    "Level": 1,
+    "Email": "user57@mail.com",
+    "Pwd": "ul11IN6fICxrFO62FTv5lx/ycsRYlCzha6ofxhW/M7C5gPKH",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 58,
+    "Level": 1,
+    "Email": "user58@mail.com",
+    "Pwd": "WC+3marWOA+pjQCXilI9Yf8r4JNMCP/rUv6VzxDqy31h3mDU",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  }
+]

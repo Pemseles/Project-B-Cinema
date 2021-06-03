@@ -1,15 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cVGnwq6r2wZ7I0KYtYVXQTgetJ6Eo+MFvochNpCoK0/W7wSGKobQvx8IUdnApIZey7Icf1EGkkp1m9vuLmqbGg==",
+  "dgSpecHash": "CXRtP1kWDzcO5+nMgF+KQyJOVebKzX/t7q+YVNZuzMNuqyMWp807TlXqfp1tCSVNk5rDVbGD1fDvVDBr15MvMw==",
   "success": true,
-  "projectFilePath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\ConsoleApp1.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "projectFilePath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sergio Kik\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
 }

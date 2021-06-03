@@ -1,0 +1,75 @@
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.exe
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.deps.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.dev.json
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csprojAssemblyReference.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfoInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfo.cs
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CoreCompileInputs.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Gebruiker\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.exe
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.deps.json
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.json
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.dev.json
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csprojAssemblyReference.cache
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfoInputs.cache
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfo.cs
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CoreCompileInputs.cache
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\gadem\Documents\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csprojAssemblyReference.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfoInputs.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfo.cs
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CoreCompileInputs.cache
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.exe
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.deps.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.dev.json
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.dll
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.pdb
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
+G:\Documenten\Projects\HSR\Project\bioscoop\project\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.exe
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.deps.json
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.json
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.dev.json
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csprojAssemblyReference.cache
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfoInputs.cache
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfo.cs
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CoreCompileInputs.cache
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\avien\OneDrive\Documenten\IMPORTANT KEEP\school\First Year HR\Project 2\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.exe
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.deps.json
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.json
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.runtimeconfig.dev.json
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csprojAssemblyReference.cache
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfoInputs.cache
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.AssemblyInfo.cs
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CoreCompileInputs.cache
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.csproj.CopyComplete
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.dll
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.pdb
+C:\Users\chris\OneDrive\Documenten\GitHub\Project-B-Cinema\Inlogscherm\obj\Debug\netcoreapp3.1\Cinema Project B.genruntimeconfig.cache

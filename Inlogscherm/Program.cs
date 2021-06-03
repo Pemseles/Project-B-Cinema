@@ -1,82 +1,184 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using static System.Console;
+using System.IO;
+// using consoleapp1.mapnaam.filenaam;
+using static ConsoleApp1.MainMenu;
+using static ConsoleApp1.Film;
+using static ConsoleApp1.Accounts;
 
-namespace cinema
+
+namespace ConsoleApp1
 {
     class Program
     {
-        public static void Main()
+        private static int index = 0;
+        public static int UID;
+        public static int Level;
+        private static void Main(string[] args)
         {
-            bool pw = true;
-            string pw_strenght = "[Missing]                     ";
-            while (pw == true)
+            /* Debug & Testing ************************************/
+            
+            ConsoleApp1.Accounts newAccount = new Accounts();
+            string[] interests = new string[] { "Actie", "Romantiek", "Drama" };
+            newAccount.AddAccount($"user{newAccount.GenerateID()}@mail.com", $"#{newAccount.GenerateID()}Geheim", "Pietje", "Precies", "2000-01-01", "New York WallStreet 12 2247 dc", interests);
+           
+            /* ./ Debug & Testing *********************************/
+
+            List<string> LoginScreen = new List<string>() {
+                "[     Inloggen     ]",
+                "[    Registreren   ]",
+                "[  Verder als gast ]"
+            };
+
+            Console.CursorVisible = false;
+            bool LoginStartScreen = true;
+            while (LoginStartScreen)
             {
-                // let's you put in a password and checks if it has an digit and a uppercase letter in it.
-                Console.Write(pw_strenght);
-                int digit = 0, letter = 0;
-                Console.Write("Give an 8 or longer password with a uppercase letter and a Number: ");
-                string password = Console.ReadLine();
-                for (int c = 0; c < password.Length; c++)
+                string selectedMenuItem = MainScreen(LoginScreen);
+                // Login
+                if (selectedMenuItem == "[     Inloggen     ]")
                 {
-                    // check uppercase letter
-                    if (char.IsUpper(password, c))
-                    {
-                        letter = 1;
-                        pw_strenght = "[Missing a Digit]               ";
+                    ConsoleApp1.Accounts activeAccount = new Accounts();
+                    UID = ConsoleApp1.Login.loginFunc();
+                    Level = activeAccount.GetLevel(UID);
+                    
+                    if (Level == 3) {
+                        Console.WriteLine("[ADMIN MENU]");
+                    } else {
+                        if (activeAccount.GetActiveStatus(UID) == true)
+                        {
+                            // Correct Login Requirements load Main Menu
+                            ConsoleApp1.MainMenu.Mainmenu();
+                        } else {
+                            // Inform user about suspended account and deny further acces
+                            Console.WriteLine("  Je account is (tijdelijk) opgeschort.");
+                            Console.Write("  ");
+                            Console.BackgroundColor = ConsoleColor.Gray;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.WriteLine("Terug");
+                            ConsoleKeyInfo ckey = Console.ReadKey();
+                            if (ckey.Key == ConsoleKey.Backspace)
+                            {
+                                index = 0;
+                            }
+                        }
                     }
-                    // check digit 
-                    if (char.IsDigit(password, c))
-                    {
-                        digit = 1;
-                        pw_strenght = "[Missing a Uppercase Letter]  ";
-                    }
-                }
-                // checks if the password is 8 or longer
-                if (password.Length < 8)
-                {
-                    pw = true;
-                    pw_strenght = "[your password is to short]    ";
 
                 }
-                // check if you are sure you want to use this as your password 
-                if (password.Length >= 8 && (digit == 1 && letter == 1))
+                else if (selectedMenuItem == "[  Verder als gast ]")
                 {
-                    Console.WriteLine("The Password is strong.");
-                    Console.Write("Are you sure you want to use this password?     (y) or (n): ");
-                    string check = Console.ReadLine();
-                    if (check == "y")
-                    {
-                        pw = false;
-                    }
-                    else
-                    {
-                        pw = true;
-                        pw_strenght = "[Missing Digit and Uppercase] ";
+                    Console.Clear();
+                    UID = -1;
+                    ConsoleApp1.MainMenu.Mainmenu();   
+                }
 
-                    }
+                // Register
+                else if (selectedMenuItem == "[    Registreren   ]")
+                {
+                    Console.Clear();
+                    ConsoleApp1.Register.register();
                 }
             }
-            // Give an account a role, later on we can put varriables which are only true for a specific account role
-            int Account_Number = 0;
-            string Account_Role = "";
-            switch (Account_Number)
+        }
+
+        /* Frontend */
+        private static string MainScreen(List<string> items)
+        {
+
+            Console.Write("                         ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
+            Console.ResetColor();
+            Console.Write("                        ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝");
+            Console.ResetColor();
+            Console.Write("                        ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗");
+            Console.ResetColor();
+            Console.Write("                        ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝");
+            Console.ResetColor();
+            Console.Write("                        ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗");
+            Console.ResetColor();
+            Console.Write("                         ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝");
+            Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            /*string logo = @"        
+                         ██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
+                        ██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
+                        ██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗  
+                        ██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝  
+                        ╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗
+                         ╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝
+
+           
+             ";
+             */
+
+            for (int i = 0; i < items.Count; i++)
             {
-                case 1:
-                    Account_Role = "Guest";
-                    break;
+                if (i == index)
+                {
+                    Console.Write("                                                ");
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
 
-                case 2:
-                    Account_Role = "User";
-                    break;
-
-                case 3:
-                    Account_Role = "Employe";
-                    break;
-
-                case 4:
-                    Account_Role = "Moderator";
-                    break;
+                    Console.WriteLine(items[i]);
+                }
+                else
+                {
+                    Console.Write("                                                ");
+                    Console.WriteLine(items[i]);
+                }
+                Console.ResetColor();
             }
 
+            ConsoleKeyInfo ckey = Console.ReadKey();
+            // vragen aan PO over f11 key(fullscreen) of het disabled moet worden, zo ja vragen aan peercoach.
+            if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
+            {
+                Console.Clear();
+            }
+            if (ckey.Key == ConsoleKey.DownArrow)
+            {
+                if (index == 2)
+                {
+                    index = 2;
+                }
+                else { index++; }
+            }
+            else if (ckey.Key == ConsoleKey.UpArrow)
+            {
+                if (index <= 0)
+                {
+                    index = 0;
+                }
+                else { index--; }
+            }
+            else if (ckey.Key == ConsoleKey.Enter)
+            {
+                return items[index];
+            }
+            else
+            {
+                return "";
+            }
+
+            Console.Clear();
+            return "";
         }
     }
 }
