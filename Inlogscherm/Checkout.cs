@@ -9,23 +9,23 @@ namespace ConsoleApp1
     {
         private static int index = 0;
 
-        public int FilmIndex;
         public List<int> Products;
         public List<int> Seats;
-        public List<Movie> FilmList;
+        public Filminstance FilmPrice;
+        public string FilmName;
+        public string FilmStartTime;
+        public string FilmEndTime;
 
         public Checkout()
         {
-            this.FilmIndex = -1;
             this.Products = new List<int>();
             this.Seats = new List<int>();
-            this.FilmList = new List<Movie>();
+            this.FilmPrice = null;
+            this.FilmName = "";
+            this.FilmStartTime = "";
+            this.FilmEndTime = "";
         }
 
-        public void UpdateFilmIndex(int index)
-        {
-            this.FilmIndex = index;
-        }
         public void UpdateProducts(List<int> products)
         {
             this.Products = products;
@@ -34,9 +34,19 @@ namespace ConsoleApp1
         {
             this.Seats = seats;
         }
-        public void UpdateFilmList(List<Movie> newlist)
+        public void UpdateFilmPrice(Filminstance newSelection)
         {
-            this.FilmList = newlist;
+            this.FilmPrice = newSelection;
+        }
+        public void UpdateFilmName(string newName)
+        {
+            this.FilmName = newName;
+        }
+
+        public void UpdateFilmStartnEnd(string start, string end)
+        {
+            this.FilmStartTime = start;
+            this.FilmEndTime = end;
         }
 
         public void PaymentScreen()
@@ -122,9 +132,10 @@ namespace ConsoleApp1
         private void DrawCart()
         {
             string tempCartStr = "";
+            string secondtempCartStr = "";
             string cartString = "                    [                     Dit is uw huidige winkelwagen                      ]\n";
             cartString = cartString + "                    [                                                                        ]\n";
-            if (this.FilmIndex < 0 || this.FilmList == null)
+            if (this.FilmPrice == null)
             {
                 cartString = cartString + "                    [                    U heeft nog geen film uitgekozen                    ]\n";
             }
@@ -132,9 +143,10 @@ namespace ConsoleApp1
             {
                 // print de naam en tijden van de film
                 tempCartStr = BuildCartIndent("Film", -1);
+                secondtempCartStr = BuildCartIndent("Film2", -1);
             }
             cartString = cartString + tempCartStr;
-            tempCartStr = "";
+            cartString = cartString + secondtempCartStr;
             cartString = cartString + "                    [                                                                        ]\n";
             if (this.Products.Count < 1)
             {
@@ -179,10 +191,6 @@ namespace ConsoleApp1
 
         private void ResetChoices()
         {
-            if (this.FilmIndex >= 0)
-            {
-                UpdateFilmIndex(-1);
-            }
             if (this.Products.Count > 0)
             {
                 UpdateProducts(new List<int>());
@@ -190,6 +198,12 @@ namespace ConsoleApp1
             if (this.Seats.Count > 0)
             {
                 UpdateSeats(new List<int>());
+            }
+            if (this.FilmPrice != null)
+            {
+                UpdateFilmPrice(null);
+                UpdateFilmName("");
+                UpdateFilmStartnEnd("", "");
             }
         }
 
@@ -226,7 +240,7 @@ namespace ConsoleApp1
         {
             if (selectedOption == "[     Contant     ]" || selectedOption == "[      iDeal      ]" || selectedOption == "[   Credit card   ]")
             {
-                if (this.FilmIndex < 0)
+                if (this.FilmPrice != null)
                 {
                     Console.WriteLine("\n                              [          U heeft nog geen film uitgekozen         ]");
                     Console.WriteLine("                              [             U kunt nog niet afrekenen             ]\n");
@@ -245,7 +259,7 @@ namespace ConsoleApp1
             }
             else if (selectedOption == "[ Keuze resetten  ]")
             {
-                if (this.FilmIndex < 0 && this.Products.Count < 1 && this.Seats.Count < 1)
+                if (this.Products.Count < 1 && this.Seats.Count < 1 && this.FilmPrice == null)
                 {
                     Console.WriteLine("\n                              [               Uw winkelwagen is leeg              ]\n");
                 }
@@ -263,7 +277,12 @@ namespace ConsoleApp1
             if (itemType == "Film")
             {
                 // print de naam en tijden van de film
-                itemInCart = $"Filmnaam: {this.FilmList[FilmIndex].MovieName} | Tijden: {this.FilmList[FilmIndex].StartTime}-{this.FilmList[FilmIndex].EndTime}";
+                itemInCart = $"Filmnaam: {this.FilmName}";
+                
+            }
+            else if (itemType == "Film2")
+            {
+                itemInCart = $"Tijden: {this.FilmStartTime}-{this.FilmEndTime} | Ticketprijs: {this.FilmPrice.Price}";
             }
             else if (itemType == "Product")
             {

@@ -35,8 +35,7 @@ namespace ConsoleApp1
 
     public class Filmlist
     {
-
-        public static FilmArr filmList;
+        public FilmArr FilmList = new FilmArr();
         public Filminstance Filmmenu()
         {
             Filminstance selectedinstance = new Filminstance();
@@ -46,21 +45,21 @@ namespace ConsoleApp1
             {
                 string filmJSONPath = Path.GetFullPath(@"FilmList.json");
                 string jsonStringFilmList = File.ReadAllText(filmJSONPath);
-                filmList = new FilmArr();
-                filmList = JsonSerializer.Deserialize<FilmArr>(jsonStringFilmList);
+                FilmList = new FilmArr();
+                FilmList = JsonSerializer.Deserialize<FilmArr>(jsonStringFilmList);
                 Filmlist films = new Filmlist();
                 int index2 = 0;
                 bool done2 = false;
 
-                 Console.Clear();
+                Console.Clear();
                 List<string> items = new List<string>() {
                 "[    Alle films    ]" ,
                 "[    Zoek films    ]" ,
                 "[   Datum kiezen   ]" ,
-                 };
+                };
                 for (int i = 0; i < items.Count; i++)
                 {
-                    for (int i = 0; i < movieList.Count; i++)
+                    if (i == index)
                     {
                         Console.Write("                                                ");
                         Console.BackgroundColor = ConsoleColor.Gray;
@@ -117,7 +116,7 @@ namespace ConsoleApp1
                         Console.Write("Geef hier op wat u zoekt :");
                         string searchClassInput = Console.ReadLine();
                         SearchClass search1 = new SearchClass(searchClassInput);
-                        List<Film> searchList = search1.FilmSearch(filmList);
+                        List<Film> searchList = search1.FilmSearch(FilmList);
                         string searchListString = search1.FilmLengthCheck(searchList);
                         Console.Clear();
                         Console.WriteLine(searchListString);
@@ -127,16 +126,16 @@ namespace ConsoleApp1
                     {
                         Console.Clear();
                         done = true;
-                        var today = DateTime.Now.ToString("dd/MM/yyyy");
-                        var tomorrow = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
-                        var dayaftertomorrow = DateTime.Now.AddDays(2).ToString("dd/MM/yyyy");
+                        var today = DateTime.Now.ToString("MM/dd/yyyy");
+                        var tomorrow = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
+                        var dayaftertomorrow = DateTime.Now.AddDays(2).ToString("MM/dd/yyyy");
                         while (!done2)
                         {
                             List<string> items2 = new List<string>() {
-                        "[      Vandaag     ]" ,
-                        "[      Morgen      ]" ,
-                        "[     Overmorgen   ]" ,
-                        "[  Datum invoeren  ]" ,
+                            "[      Vandaag     ]" ,
+                            "[      Morgen      ]" ,
+                            "[     Overmorgen   ]" ,
+                            "[  Datum invoeren  ]" ,
                         };
                         for (int j = 0; j < items2.Count; j++)
                         {
@@ -193,7 +192,7 @@ namespace ConsoleApp1
                                 else if (items2[index2] == "[  Datum invoeren  ]")
                                 {
                                     Console.Clear();
-                                    Console.WriteLine("                                                Welke dag? (dd/mm/jjjj) doe 05/29/2021 of 05/30/2021");
+                                    Console.WriteLine("                                                Welke dag? (MM/dd/jjjj) doe 05/29/2021 of 05/30/2021");
                                     Console.Write("                                                ");
                                     var other = Console.ReadLine();
                                     Console.Clear();
@@ -297,12 +296,12 @@ namespace ConsoleApp1
             bool done = false;
             int index = 0;
 
-            string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
+            string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.JSON"));
             Filmsuperclass movielist = JsonSerializer.Deserialize<Filmsuperclass>(moviesjson);
-            string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.json"));
+            string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.JSON"));
             Filmsuperclass movieinstancelist = JsonSerializer.Deserialize<Filmsuperclass>(movieinstancesjson);
             int selectedmovieid = -1;
-            var selectedmovieinstance = new Filminstance();
+            Filminstance selectedmovieinstance = null;
 
             string todaystringlist = "";
             string todaystartdatetime = "";
@@ -313,14 +312,14 @@ namespace ConsoleApp1
 
             for (int i = 0; i < movieinstancelist.FilmInstances.Length; i++)
             {
-                if (movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[0]== selectedday)
+                if (movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[0]== selectedday)   //05/29/2021 of 05/30/2021
                 {
                     for (int j = 0; j < movielist.FilmArray.Length; j++)
                     {
                         if (movieinstancelist.FilmInstances[i].MovieID == movielist.FilmArray[j].ID)
                         {
                             todaystringlist += movielist.FilmArray[j].Name +"&&&&";
-                            todaystartdatetime += movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[1] + "&&&&";
+                            todaystartdatetime += movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[1] + "&&&&"; //05:50 of 09:20
                             todayenddatetime += movieinstancelist.FilmInstances[i].EndDateTime.Split(" ")[1] + "&&&&";
                             movietypestring += movieinstancelist.FilmInstances[i].Type + "&&&&";
                             hallidstring += movieinstancelist.FilmInstances[i].TheaterhallID + "&&&&";
@@ -416,14 +415,14 @@ namespace ConsoleApp1
                 }
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("                                                Geen films gevonden.");
                     Console.ReadLine();
                     done = true;
                     Console.Clear();
                 }
             }
-            
-            return selectedmovieinstance;
+            return selectedmovieinstance;   
         }
     }
 

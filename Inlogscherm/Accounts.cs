@@ -437,10 +437,10 @@ namespace ConsoleApp1
         public void AddFilmInstance(int movieID, int theaterhallID, string startDateTime, string endDateTime, string type, decimal price)
         {
             var jsonData = System.IO.File.ReadAllText(filmPath);
-            var filmInstances = JsonConvert.DeserializeObject<List<FilmInstance>>(jsonData) ?? new List<FilmInstance>();
+            var filmInstances = JsonConvert.DeserializeObject<List<Filminstance>>(jsonData) ?? new List<Filminstance>();
 
             // Add a new Film
-            filmInstances.Add(new FilmInstance()
+            filmInstances.Add(new Filminstance()
             {
                 ID = GenerateID(filmInstancesPath),
                 MovieID = movieID,
@@ -463,7 +463,7 @@ namespace ConsoleApp1
             /// Takes Int ID as Parameter to locate & Remove Entry with Matching ID
             var FilmInstances = retrieveJson(filmInstancesPath);
             int index = 0;
-            foreach(FilmInstance filmInstance in FilmInstances)
+            foreach(Filminstance filmInstance in FilmInstances)
             {
                 if(id == filmInstance.ID)
                     break;
@@ -483,7 +483,7 @@ namespace ConsoleApp1
 
             int index = 0;
             // Locate and Remove all Child Entries
-            foreach(FilmInstance filmInstance in FilmList)
+            foreach(Filminstance filmInstance in FilmList)
             {
                 if (id == filmInstance.MovieID) {
                     FilmInstances.RemoveAt(index);
