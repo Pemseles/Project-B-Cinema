@@ -5,10 +5,10 @@ using System.IO;
 
 namespace ConsoleApp1
 {
-    public class Rootobject
+    public class Filmsuperclass
     {
         public FilmArray[] FilmArray { get; set; }
-
+        public Filminstance[] FilmInstances { get; set; }
 
     }
 
@@ -21,12 +21,6 @@ namespace ConsoleApp1
         public int AgeRating { get; set; }
     }
 
-
-    public class Rootobject2
-    {
-        public Filminstance[] FilmInstances { get; set; }
-    }
-
     public class Filminstance
     {
         public int ID { get; set; }
@@ -35,8 +29,8 @@ namespace ConsoleApp1
         public string StartDateTime { get; set; }
         public string EndDateTime { get; set; }
         public string Type { get; set; }
-        public float Price { get; set; }
-        public int Active { get; set; }
+        public double Price { get; set; }
+        public bool Active { get; set; }
     }
 
 
@@ -45,20 +39,26 @@ namespace ConsoleApp1
     {
 
         public static FilmArr filmList;
-        public static void Filmmenu(int index = 0, bool done = false)
+        public Filminstance Filmmenu()
         {
+            Filminstance selectedinstance = new Filminstance();
+            bool done = false;
+            int index = 0;
             while (!done)
             {
                 string filmJSONPath = Path.GetFullPath(@"FilmList.json");
                 string jsonStringFilmList = File.ReadAllText(filmJSONPath);
                 filmList = new FilmArr();
                 filmList = JsonSerializer.Deserialize<FilmArr>(jsonStringFilmList);
+                Filmlist films = new Filmlist();
+                int index2 = 0;
+                bool done2 = false;
 
-                Console.Clear();
+                 Console.Clear();
                 List<string> items = new List<string>() {
                 "[    Alle films    ]" ,
                 "[    Zoek films    ]" ,
-                "[  Datum invoeren  ]" ,
+                "[   Datum kiezen   ]" ,
                  };
                 for (int i = 0; i < items.Count; i++)
                 {
@@ -102,13 +102,13 @@ namespace ConsoleApp1
                         Console.Clear();
                         done = true;
                         string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
-                        var movielist = JsonSerializer.Deserialize<Rootobject>(moviesjson);
+                        var movielist = JsonSerializer.Deserialize<Filmsuperclass>(moviesjson);
                         string[] FilmList = new string[movielist.FilmArray.Length];
                         for (int i = 0; i < movielist.FilmArray.Length; i++)
                         {
                             FilmList[i] = movielist.FilmArray[i].Name;
                         }
-                        var selectedmovie = Filmlist.Filmlijst(FilmList);
+                        var selectedmovie = films.Filmlijst(FilmList);
                         Console.WriteLine($"                                                U heeft {selectedmovie.Name} geselecteerd.");
                         Console.ReadLine();
                     }
@@ -125,35 +125,104 @@ namespace ConsoleApp1
                         Console.WriteLine(searchListString);
                         Console.ReadLine();
                     }
-                    else if (items[index] == "[  Datum invoeren  ]")
+                    else if (items[index] == "[   Datum kiezen   ]")
                     {
                         Console.Clear();
                         done = true;
-                        string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
-                        var movielist = JsonSerializer.Deserialize<Rootobject>(moviesjson);
-                        string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.json"));
-                        var movieinstancelist = JsonSerializer.Deserialize<Rootobject2>(movieinstancesjson);
-                        //var today = DateTime.Now.ToString("dd/MM/yyyy");
-                        Console.WriteLine("                                                Welke dag? (dd/mm/jjjj) doe 05/29/2021");
-                        Console.Write("                                                ");
-                        var today = Console.ReadLine();
-                        var selectedmovie = Filmlist.OpDatum(today);
-                        Registers.moviehall();
+                        var today = DateTime.Now.ToString("dd/MM/yyyy");
+                        var tomorrow = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+                        var dayaftertomorrow = DateTime.Now.AddDays(2).ToString("dd/MM/yyyy");
+                        while (!done2)
+                        {
+                            List<string> items2 = new List<string>() {
+                        "[      Vandaag     ]" ,
+                        "[      Morgen      ]" ,
+                        "[     Overmorgen   ]" ,
+                        "[  Datum invoeren  ]" ,
+                        };
+                        for (int j = 0; j < items2.Count; j++)
+                        {
+                            if (j == index2)
+                            {
+                                Console.Write("                                                ");
+                                Console.BackgroundColor = ConsoleColor.Gray;
+                                Console.ForegroundColor = ConsoleColor.Black;
 
+                                Console.WriteLine(items2[j]);
+                            }
+                            else
+                            {
+                                Console.Write("                                                ");
+                                Console.WriteLine(items2[j]);
+                            }
+                            Console.ResetColor();
+                        }
+
+                        ConsoleKeyInfo ckey2 = Console.ReadKey();
+                            if (ckey2.Key == ConsoleKey.DownArrow)
+                            {
+                                if (index2 == items2.Count - 1)
+                                {
+                                    index2 = 0;
+                                }
+                                else { index2++; }
+                            }
+                            else if (ckey2.Key == ConsoleKey.UpArrow)
+                            {
+                                if (index2 <= 0)
+                                {
+                                    index2 = items2.Count - 1;
+                                }
+                                else { index2--; }
+                            }
+                            else if (ckey2.Key == ConsoleKey.Enter)
+                            {
+                                if (items2[index2] == "[      Vandaag     ]")
+                                {
+                                    done2 = true;
+                                    selectedinstance = films.OpDatum(today);
+                                }
+                                else if (items2[index2] == "[      Morgen      ]")
+                                {
+                                    done2 = true;
+                                    selectedinstance = films.OpDatum(tomorrow);
+                                }
+                                else if (items2[index2] == "[     Overmorgen   ]")
+                                {
+                                    done2 = true;
+                                    selectedinstance = films.OpDatum(dayaftertomorrow);
+                                }
+                                else if (items2[index2] == "[  Datum invoeren  ]")
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("                                                Welke dag? (dd/mm/jjjj) doe 05/29/2021 of 05/30/2021");
+                                    Console.Write("                                                ");
+                                    var other = Console.ReadLine();
+                                    Console.Clear();
+                                    done2 = true;
+                                    selectedinstance = films.OpDatum(other);
+                                }
+                            }
+                            Console.Clear();
+
+                        }
                     }
                 }
             }
+            return selectedinstance;
         }
 
 
 
 
 
-        public static FilmArray Filmlijst(string[] items, bool done = false, int index = 0)
+        public FilmArray Filmlijst(string[] items)
         {
             string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
-            var movielist = JsonSerializer.Deserialize<Rootobject>(moviesjson);
+            var movielist = JsonSerializer.Deserialize<Filmsuperclass>(moviesjson);
             string filmname = "";
+            bool done = false;
+            int index = 0;
             while (!done)
             {
                 for (int i = 0; i < items.Length; i++)
@@ -225,112 +294,138 @@ namespace ConsoleApp1
         
 
 
-        public static FilmArray OpDatum(string today, bool done = false, int index = 0)
+        public Filminstance OpDatum(string selectedday)
         {
-            Console.Clear();
+            bool done = false;
+            int index = 0;
+
             string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
-            var movielist = JsonSerializer.Deserialize<Rootobject>(moviesjson);
+            Filmsuperclass movielist = JsonSerializer.Deserialize<Filmsuperclass>(moviesjson);
             string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.json"));
-            var movieinstancelist = JsonSerializer.Deserialize<Rootobject2>(movieinstancesjson);
-            string filmname = "";
+            Filmsuperclass movieinstancelist = JsonSerializer.Deserialize<Filmsuperclass>(movieinstancesjson);
+            int selectedmovieid = -1;
+            var selectedmovieinstance = new Filminstance();
 
             string todaystringlist = "";
+            string todaystartdatetime = "";
+            string todayenddatetime = "";
+            string movietypestring = "";
+            string hallidstring = "";
+            string instanceid = "";
+
             for (int i = 0; i < movieinstancelist.FilmInstances.Length; i++)
             {
-                if (movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[0]==today)
+                if (movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[0]== selectedday)
                 {
                     for (int j = 0; j < movielist.FilmArray.Length; j++)
                     {
                         if (movieinstancelist.FilmInstances[i].MovieID == movielist.FilmArray[j].ID)
                         {
                             todaystringlist += movielist.FilmArray[j].Name +"&&&&";
+                            todaystartdatetime += movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[1] + "&&&&";
+                            todayenddatetime += movieinstancelist.FilmInstances[i].EndDateTime.Split(" ")[1] + "&&&&";
+                            movietypestring += movieinstancelist.FilmInstances[i].Type + "&&&&";
+                            hallidstring += movieinstancelist.FilmInstances[i].TheaterhallID + "&&&&";
+                            instanceid += movieinstancelist.FilmInstances[i].ID + "&&&&";
                         }
                     }
                 }
             }
-
-
-            string[] todaylist = todaystringlist.Split("&&&&");
-
+            string[] todayarray = todaystringlist.Split(new string[] { "&&&&" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] todaystarttime = todaystartdatetime.Split(new string[] { "&&&&" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] todayendtime = todayenddatetime.Split(new string[] { "&&&&" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] type = movietypestring.Split(new string[] { "&&&&" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] hallid = hallidstring.Split(new string[] { "&&&&" }, StringSplitOptions.RemoveEmptyEntries);
+            string[] id = instanceid.Split(new string[] { "&&&&" }, StringSplitOptions.RemoveEmptyEntries);
 
             while (!done)
             {
-                Console.Clear();
-                for (int i = 0; i < todaylist.Length; i++)
+                if (todayarray.Length != 0)
                 {
-
-                    if (i == index)
+                    for (int i = 0; i < todayarray.Length; i++)
                     {
-                        Console.Write("                                                ");
-                        Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                        Console.Write(todaylist[i] + "\n");
+                        if (i == index)
+                        {
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write(todayarray[i] + "\n");
+                            Console.ResetColor();
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write("Tijd: " + todaystarttime[i] + " tot " + todayendtime[i] + "\n");
+                            Console.ResetColor();
+                            Console.Write("                                                ");
+                            Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                            Console.WriteLine("Zaal: " + hallid[i] + " Type: " + type[i] + "\n");
+                        }
+                        else
+                        {
+                            Console.Write("                                                ");
+                            Console.Write(todayarray[i] + "\n");
+                            Console.ResetColor();
+                            Console.Write("                                                ");
+                            Console.Write("Tijd: " + todaystarttime[i] + " tot " + todayendtime[i] + "\n");
+                            Console.ResetColor();
+                            Console.Write("                                                ");
+                            Console.WriteLine("Zaal: " + hallid[i] + " Type: " + type[i] + "\n");
+                        }
                         Console.ResetColor();
-                        //Console.Write("                                                ");
-                        //Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                        //Console.Write("Tijd: " + movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[1] + " tot " + movieinstancelist.FilmInstances[i].EndDateTime.Split(" ")[1] + "\n");
-                        //Console.ResetColor();
-                        //Console.Write("                                                ");
-                        //Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                        //Console.WriteLine("Zaal: " + movieinstancelist.FilmInstances[i].TheaterhallID + " Type: " + movieinstancelist.FilmInstances[i].Type + "\n");
                     }
-                    else
-                     {
-                        Console.Write("                                                ");
-                        Console.Write(todaylist[i] + "\n");
-                        Console.ResetColor();
-                        //Console.Write("                                                ");
-                        //Console.Write("Tijd: " + movieinstancelist.FilmInstances[i].StartDateTime.Split(" ")[1] + " tot " + movieinstancelist.FilmInstances[i].EndDateTime.Split(" ")[1] + "\n");
-                        //Console.ResetColor();
-                        //Console.Write("                                                ");
-                        //Console.WriteLine("Zaal: " + movieinstancelist.FilmInstances[i].TheaterhallID + " Type: " + movieinstancelist.FilmInstances[i].Type + "\n");
-                    }
-                    Console.ResetColor();
-                }
 
-                ConsoleKeyInfo ckey = Console.ReadKey();
-                if (ckey.Key == ConsoleKey.DownArrow)
-                {
-                    if (index == todaylist.Length - 1)
+                    ConsoleKeyInfo ckey = Console.ReadKey();
+                    if (ckey.Key == ConsoleKey.DownArrow)
                     {
-                        index = 0;
+                        if (index == todayarray.Length - 1)
+                        {
+                            index = 0;
+                        }
+                        else { index++; }
                     }
-                    else { index++; }
-                }
-                else if (ckey.Key == ConsoleKey.UpArrow)
-                {
-                    if (index <= 0)
+                    else if (ckey.Key == ConsoleKey.UpArrow)
                     {
-                        index = todaylist.Length - 1;
+                        if (index <= 0)
+                        {
+                            index = todayarray.Length - 1;
+                        }
+                        else { index--; }
                     }
-                    else { index--; }
-                }
-                else if (ckey.Key == ConsoleKey.Enter)
-                {
+                    else if (ckey.Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        Console.Write("                                                ");
+                        Console.WriteLine($"Wilt u {todayarray[index]} selecteren? (j/n)");
+                        Console.Write("                                                ");
+                        var input = Console.ReadLine();
+                        if (input == "j" || input == "J")
+                        {
+                            Console.Clear();
+                            done = true;
+                            selectedmovieid = int.Parse(id[index]);
+                        }
+                        else
+                        {
+                            Console.Clear();
+                        }
+                    }
+                    for (int i = 0; i < movieinstancelist.FilmInstances.Length; i++)
+                    {
+                        if (movieinstancelist.FilmInstances[i].ID == selectedmovieid)
+                        {
+                            selectedmovieinstance = movieinstancelist.FilmInstances[i];
+                        }
+                    }
                     Console.Clear();
-                    Console.Write("                                                ");
-                    Console.WriteLine($"Wilt u {todaylist[index]} selecteren? (j/n)");
-                    Console.Write("                                                ");
-                    var input = Console.ReadLine();
-                    if (input == "j" || input == "J")
-                    {
-                        Console.Clear();
-                        filmname = todaylist[index];
-                        done = true;
-                    }
-                    else
-                    {
-                        Console.Clear();
-                    }
                 }
-            }
-            for (int i = 0; i < movielist.FilmArray.Length; i++)
-            {
-                if (movielist.FilmArray[i].Name == filmname)
+                else
                 {
-                    return movielist.FilmArray[i];
+                    Console.WriteLine("                                                Geen films gevonden.");
+                    Console.ReadLine();
+                    done = true;
+                    Console.Clear();
                 }
             }
-            return movielist.FilmArray[index];
+            
+            return selectedmovieinstance;
         }
     }
 

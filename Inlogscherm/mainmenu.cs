@@ -89,6 +89,8 @@ namespace ConsoleApp1
             filmList = new ConsoleApp1.FilmArr();
             filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
             Checkout Cart = new Checkout();
+            Filmlist films = new Filmlist();
+            Filminstance selectedinstance = new Filminstance();
             bool mainmenubool = true;
             while (mainmenubool == true)
             {
@@ -107,7 +109,9 @@ namespace ConsoleApp1
                 if (selectedMenuItem == "[       Films      ]")
                 {
                     Console.Clear();
-                    Filmlist.Filmmenu();
+                    selectedinstance = films.Filmmenu();
+                    Console.WriteLine(selectedinstance.ID +" "+ selectedinstance.MovieID);
+                    Console.Read();
                 }
                 else if (selectedMenuItem == "[Hapjes en drankjes]")
                 {
