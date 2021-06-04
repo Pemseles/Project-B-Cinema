@@ -29,11 +29,9 @@ namespace ConsoleApp1
         public string StartDateTime { get; set; }
         public string EndDateTime { get; set; }
         public string Type { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public bool Active { get; set; }
     }
-
-
 
     public class Filmlist
     {
@@ -62,7 +60,7 @@ namespace ConsoleApp1
                  };
                 for (int i = 0; i < items.Count; i++)
                 {
-                    if (i == index)
+                    for (int i = 0; i < movieList.Count; i++)
                     {
                         Console.Write("                                                ");
                         Console.BackgroundColor = ConsoleColor.Gray;

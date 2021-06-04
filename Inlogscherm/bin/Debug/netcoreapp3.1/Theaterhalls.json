@@ -4,13 +4,13 @@
         "Name": "Zaal E5",
         "NumberOfSeats": 140,
         "VipSeatCoords": [70,71,72,73,74,75,76,77,78,79], 
-        "Active": 1
+        "Active": true
     },
     {
         "ID": 1,
         "Name": "Zaal B7",
         "NumberOfSeats": 120,
         "VipSeatCoords": [50,51,52,53,54,55,56,57,58,59],
-        "Active": 1
+        "Active": true
     }
 ]

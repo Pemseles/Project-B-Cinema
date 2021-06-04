@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
@@ -100,7 +100,7 @@ namespace ConsoleApp1
         private static int index = 0;
         private static List<int> seats = new List<int>();
         private static ConsoleApp1.Orders newOrder = new Orders();
-        public static void moviehall()
+        public static void Moviehall()
         {
             
             // functie in orders int array in for-lopen , functie Add toevoegen6
@@ -169,7 +169,8 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        Console.Clear();                        
+                        Console.Clear();
+                        MainMenu.Cart.UpdateSeats(x);                      
                         ConsoleApp1.MainMenu.Mainmenu();
                         break;
                     case "Nee":
@@ -187,6 +188,7 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
+                        MainMenu.Cart.UpdateSeats(x);
                         Console.SetWindowSize(120, 30);
                         ConsoleApp1.MainMenu.Mainmenu();
                         break;

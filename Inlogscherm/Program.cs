@@ -13,7 +13,6 @@ using static ConsoleApp1.Accounts;
 
 namespace ConsoleApp1
 {
-
     class Program
     {
         private static int index = 0;
@@ -47,10 +46,26 @@ namespace ConsoleApp1
                     UID = ConsoleApp1.Login.loginFunc();
                     Level = activeAccount.GetLevel(UID);
                     
-                    if(Level == 3) {
+                    if (Level == 3) {
                         Console.WriteLine("[ADMIN MENU]");
                     } else {
-                        ConsoleApp1.MainMenu.Mainmenu();
+                        if (activeAccount.GetActiveStatus(UID) == true)
+                        {
+                            // Correct Login Requirements load Main Menu
+                            ConsoleApp1.MainMenu.Mainmenu();
+                        } else {
+                            // Inform user about suspended account and deny further acces
+                            Console.WriteLine("  Je account is (tijdelijk) opgeschort.");
+                            Console.Write("  ");
+                            Console.BackgroundColor = ConsoleColor.Gray;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.WriteLine("Terug");
+                            ConsoleKeyInfo ckey = Console.ReadKey();
+                            if (ckey.Key == ConsoleKey.Backspace)
+                            {
+                                index = 0;
+                            }
+                        }
                     }
 
                 }
