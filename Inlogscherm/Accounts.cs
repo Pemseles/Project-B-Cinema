@@ -10,47 +10,6 @@ using System.Security.Cryptography;
 
 namespace ConsoleApp1
 {
-   
-    public sealed class PasswordHash // *Sealed Means that his Class cannot be inherited by other Classes
-    {
-        // Delcaring Sizes
-        const int SaltSize = 16, HashSize = 20, HashIter = 10000;
-        readonly byte[] _salt, _hash;
-        /* Salt is used to add extra hash to a hashed password to make it less sensitve to both Dictionary & BruteForce Attacks */
-        public PasswordHash(string password)
-        {
-            new RNGCryptoServiceProvider().GetBytes(_salt = new byte[SaltSize]);
-            _hash = new Rfc2898DeriveBytes(password, _salt, HashIter).GetBytes(HashSize);
-        }
-        public PasswordHash(byte[] hashBytes)
-        {
-            Array.Copy(hashBytes, 0, _salt = new byte[SaltSize], 0, SaltSize);
-            Array.Copy(hashBytes, SaltSize, _hash = new byte[HashSize], 0, HashSize);
-        }
-        public PasswordHash(byte[] salt, byte[] hash)
-        {
-            Array.Copy(salt, 0, _salt = new byte[SaltSize], 0, SaltSize);
-            Array.Copy(hash, 0, _hash = new byte[HashSize], 0, HashSize);
-        }
-        public byte[] ToArray()
-        {
-            byte[] hashBytes = new byte[SaltSize + HashSize];
-            Array.Copy(_salt, 0, hashBytes, 0, SaltSize);
-            Array.Copy(_hash, 0, hashBytes, SaltSize, HashSize);
-            return hashBytes;
-        }
-        public byte[] Salt { get { return (byte[])_salt.Clone(); } }
-        public byte[] Hash { get { return (byte[])_hash.Clone(); } }
-        public bool Verify(string password)
-        {
-            byte[] test = new Rfc2898DeriveBytes(password, _salt, HashIter).GetBytes(HashSize);
-            for (int i = 0; i < HashSize; i++)
-                if (test[i] != _hash[i])
-                    return false;
-            return true;
-        }
-    }
-
     public class Account
     {
         public int UID { get; set; }
@@ -76,10 +35,10 @@ namespace ConsoleApp1
         public string Lastname;
         public string Address;
         public List<string> Interests;
-        public string accountPath = Path.GetFullPath(@"Accounts.json");
+        public static string accountPath = Path.GetFullPath(@"Accounts.json");
 
         // Retrieve Accountdata
-        public List<Account> RetrieveAccountData()
+        public static List<Account> RetrieveAccountData()
         {
             var jsonData = System.IO.File.ReadAllText(accountPath);
             var accountsList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
@@ -87,7 +46,7 @@ namespace ConsoleApp1
             return accountsList;
         }
 
-        public void InsertAccountData(List<Account>AccountData)
+        public static void InsertAccountData(List<Account>AccountData)
         { /// Takes a list of AccountLists
             // Update json data string
             var jsonData = JsonConvert.SerializeObject(AccountData, Formatting.Indented);
@@ -206,7 +165,27 @@ namespace ConsoleApp1
                 }
             }
             return level;
+        }
 
+        public static Tuple<string,string> GetFullname(int uid)
+        {
+            /// Takes UID as Parameter, Returns User's First & Lastname
+            if (uid < 0) return Tuple.Create("Null", "Null");
+            var accountsList = RetrieveAccountData();
+            string firstname = "";
+            string lastname = "";
+
+            foreach (Account user in accountsList)
+            {
+                if (uid == user.UID)
+                {
+                    // Set bool to false and break loop
+                    firstname = user.Firstname;
+                    lastname  = user.Lastname;
+                    break;
+                }
+            }
+            return Tuple.Create(firstname, lastname);
         }
 
         public bool GetActiveStatus(int uid)
@@ -372,7 +351,7 @@ namespace ConsoleApp1
         public string filmPath = Path.GetFullPath(@"Films.json");
         public string filmInstancesPath = Path.GetFullPath(@"FilmInstances.json");
 
-        public List<Object> retrieveJson(string jsonPath)
+        public static List<Object> retrieveJson(string jsonPath)
         {
             /// Retrieves a Json Data and converts it to an Object List
             var jsonData = System.IO.File.ReadAllText(jsonPath);
@@ -381,7 +360,7 @@ namespace ConsoleApp1
             return objectList;
         }
 
-        public void InsertJson(List<Object> objectList, string jsonPath)
+        public static void InsertJson(List<Object> objectList, string jsonPath)
         {
             // Update json data string
             var jsonData = JsonConvert.SerializeObject(objectList, Formatting.Indented);
@@ -521,7 +500,6 @@ namespace ConsoleApp1
                 VipSeatCoords = vipSeatCoords,
                 Active = active
             });
-
             // Update json data string
             jsonData = JsonConvert.SerializeObject(theatherhallList, Formatting.Indented);
             // Serialize JSON to a string and then write string to a file
@@ -540,6 +518,20 @@ namespace ConsoleApp1
                     break;
                 }
             }
+        }
+
+        public List<Account> GetAllSuspendedAccounts()
+        { /// Lists all Suspended Acdcounts
+            List<Account> AccountList = Accounts.RetrieveAccountData();
+            List<Account> SuspendedAccounts = new List<Account>();
+            foreach(Account account in AccountList)
+            {
+                if (account.Active == false)
+                {
+                    SuspendedAccounts.Add(account);
+                }
+            }
+            return SuspendedAccounts;
         }
     }
 
@@ -651,6 +643,51 @@ namespace ConsoleApp1
                 myProducts.Add(product);
             }
             return myProducts;
+        }
+    }
+
+    public sealed class PasswordHash // *Sealed Means that his Class cannot be inherited by other Classes
+    {
+        // Delcaring Sizes
+        const int SaltSize = 16, HashSize = 20, HashIter = 10000; // Const Makes the variable immutable and fixed. 
+        readonly byte[] _salt, _hash;
+        /* Salt is used to add an extra string of hashed characters to a hashed password to make it less sensitve to both Dictionary & BruteForce Attacks */
+        public PasswordHash(string password)
+        {
+            // Converts the Password to bytes using various build-in crypto classes
+            new RNGCryptoServiceProvider().GetBytes(_salt = new byte[SaltSize]);
+            _hash = new Rfc2898DeriveBytes(password, _salt, HashIter).GetBytes(HashSize);
+        }
+        public PasswordHash(byte[] hashBytes)
+        {
+            // Generates salt and adds to array
+            Array.Copy(hashBytes, 0, _salt = new byte[SaltSize], 0, SaltSize);
+            Array.Copy(hashBytes, SaltSize, _hash = new byte[HashSize], 0, HashSize);
+        }
+        public PasswordHash(byte[] salt, byte[] hash)
+        {
+            // Hard Copy
+            Array.Copy(salt, 0, _salt = new byte[SaltSize], 0, SaltSize);
+            Array.Copy(hash, 0, _hash = new byte[HashSize], 0, HashSize);
+        }
+        public byte[] ToArray()
+        {
+            // Combines the hash and salt and converts it to a byte array
+            byte[] hashBytes = new byte[SaltSize + HashSize];
+            Array.Copy(_salt, 0, hashBytes, 0, SaltSize);
+            Array.Copy(_hash, 0, hashBytes, SaltSize, HashSize);
+            return hashBytes;
+        }
+        public byte[] Salt { get { return (byte[])_salt.Clone(); } }
+        public byte[] Hash { get { return (byte[])_hash.Clone(); } }
+        public bool Verify(string password)
+        {
+            // Checks if given password is valid by comparing it to a hashed password
+            byte[] test = new Rfc2898DeriveBytes(password, _salt, HashIter).GetBytes(HashSize);
+            for (int i = 0; i < HashSize; i++)
+                if (test[i] != _hash[i])
+                    return false;
+            return true;
         }
     }
 }

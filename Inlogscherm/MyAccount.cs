@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using static ConsoleApp1.MainMenu;
 namespace ConsoleApp1
 {
-    class MyAccount
+    class MyAccount : MenuController
     {
         public int UID;
         public Accounts CurrentUser;
         public List<string> AccountMenu;
-        public int index;
+        //public int index;
         public MyAccount(int uid)
         {
             this.UID = uid;
@@ -19,11 +19,6 @@ namespace ConsoleApp1
                 "[  Account Upgraden   ]",
                 "[       Terug         ]"
                  };
-        }
-
-        public void resetIndex()
-        {
-            index = 0;
         }
 
         static string Email()
@@ -146,6 +141,7 @@ namespace ConsoleApp1
             bool menuIsRunning = true;
             while (menuIsRunning)
             {
+                Logo.Print();
                 string selectedMenuItem = MainMenu.MainScreen(AccountMenu);
 
                 if (selectedMenuItem == AccountMenu[0]) // Change Email
@@ -164,7 +160,12 @@ namespace ConsoleApp1
                         string email = Email();
                         CurrentUser.UpdateEmail(this.UID, email);
                     }
-                    OpenMenu();
+                    if(ckey.Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        OpenMenu();
+                    }
+                   
                 }
                 else if (selectedMenuItem == AccountMenu[1])  // Change Password
                 {
@@ -183,8 +184,13 @@ namespace ConsoleApp1
                         {
                             Console.WriteLine("Nieuw Wachtwoord:\n");
                             CurrentUser.UpdatePwd(this.UID, Password());
-                        } 
-                        OpenMenu();
+                        }
+                        // User can now press Enter to go back to the mennu
+                        if (ckey.Key == ConsoleKey.Enter)
+                        {
+                            Console.Clear();
+                            OpenMenu();
+                        }
                     }
                 }
                 else if (selectedMenuItem == AccountMenu[2]) // Upgrade to VIP
@@ -213,8 +219,12 @@ namespace ConsoleApp1
 
                         CurrentUser.UpgradeToVip(UID);
                     }
-
-                    MainMenu.back();
+                    // User can now press Enter to go back to the mennu
+                    if (ckey.Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        OpenMenu();
+                    }
 
                 }
                 else if (selectedMenuItem == AccountMenu[AccountMenu.Count - 1]) // Back

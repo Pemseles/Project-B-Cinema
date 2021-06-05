@@ -10,6 +10,14 @@ using static ConsoleApp1.MainMenu;
 
 namespace ConsoleApp1
 {
+    public class Review
+    {
+        public string Movie { get; set; }
+        public string Username { get; set; }
+        public string Description { get; set; }
+        public int Stars { get; set; }
+    }
+    /*
     public class Movie_rev
     {
         public string Movie { get; set; }
@@ -37,8 +45,8 @@ namespace ConsoleApp1
         public Zaal_rev[] zaal_rev { get; set; }
         public Cinescope_rev[] cinescope_rev { get; set; }
     }
-
-    class Review
+    */
+    class Reviews : MenuController
     {
         string RevPath = Path.GetFullPath(@"Review.JSON");
         static int index3 = 0;
