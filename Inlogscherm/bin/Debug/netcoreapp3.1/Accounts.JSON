@@ -4709,5 +4709,37 @@
       "Romantiek",
       "Drama"
     ]
+  },
+  {
+    "UID": 314,
+    "Level": 1,
+    "Email": "user314@mail.com",
+    "Pwd": "lG1SmPLUq5p2/qMmnATbW0WyJNspIyQ4IFnliwMFGAYRfATR",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
+  },
+  {
+    "UID": 315,
+    "Level": 1,
+    "Email": "user315@mail.com",
+    "Pwd": "bXjzX1USi2AruVZxBJomIj8QEjy/3BfmCUUW84pX3jx2GXj4",
+    "Active": true,
+    "Firstname": "Pietje",
+    "Lastname": "Precies",
+    "Age": "2000-01-01",
+    "Address": "New York WallStreet 12 2247 dc",
+    "Interests": [
+      "Actie",
+      "Romantiek",
+      "Drama"
+    ]
   }
 ]

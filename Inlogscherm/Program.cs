@@ -20,13 +20,7 @@ namespace ConsoleApp1
         public static int Level;
         private static void Main(string[] args)
         {
-            /* Debug & Testing ************************************/
-            
-            ConsoleApp1.Accounts newAccount = new Accounts();
-            string[] interests = new string[] { "Actie", "Romantiek", "Drama" };
-            newAccount.AddAccount($"user{newAccount.GenerateID()}@mail.com", $"#{newAccount.GenerateID()}Geheim", "Pietje", "Precies", "2000-01-01", "New York WallStreet 12 2247 dc", interests);
-           
-            /* ./ Debug & Testing *********************************/
+            Debug.Run();
 
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen     ]",
@@ -45,11 +39,10 @@ namespace ConsoleApp1
                     ConsoleApp1.Accounts activeAccount = new Accounts();
                     UID = ConsoleApp1.Login.loginFunc();
                     Level = activeAccount.GetLevel(UID);
-                
-                    if (activeAccount.GetActiveStatus(UID))
-                    {
+
+                    if (activeAccount.GetActiveStatus(UID)) {
                         // Account is Active
-                        if(Level == 3)
+                        if (Level == 3)
                         {
                             // Account is Admin Account
                             ConsoleApp1.AdminMenu.Mainmenu();
@@ -64,7 +57,7 @@ namespace ConsoleApp1
                         Console.Write("  ");
                         Console.BackgroundColor = ConsoleColor.Gray;
                         Console.ForegroundColor = ConsoleColor.Black;
-                        Console.WriteLine("Terug");
+                        Console.WriteLine("[   Terug   ]");
                         ConsoleKeyInfo ckey = Console.ReadKey();
                         if (ckey.Key == ConsoleKey.Enter)
                         {
@@ -77,7 +70,7 @@ namespace ConsoleApp1
                 {
                     Console.Clear();
                     UID = -1;
-                    ConsoleApp1.MainMenu.Mainmenu();   
+                    ConsoleApp1.MainMenu.Mainmenu();
                 }
 
                 // Register
@@ -88,49 +81,10 @@ namespace ConsoleApp1
                 }
             }
         }
-
-        /* Frontend */
+        
         private static string MainScreen(List<string> items)
         {
-
-            Console.Write("                         ");
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
-            Console.ResetColor();
-            Console.Write("                        ");
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝");
-            Console.ResetColor();
-            Console.Write("                        ");
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗");
-            Console.ResetColor();
-            Console.Write("                        ");
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝");
-            Console.ResetColor();
-            Console.Write("                        ");
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗");
-            Console.ResetColor();
-            Console.Write("                         ");
-            Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine("╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝");
-            Console.ResetColor();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            /*string logo = @"        
-                         ██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
-                        ██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
-                        ██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗  
-                        ██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝  
-                        ╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗
-                         ╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝
-
-           
-             ";
-             */
+            Logo.Print();
 
             for (int i = 0; i < items.Count; i++)
             {
@@ -183,6 +137,64 @@ namespace ConsoleApp1
 
             Console.Clear();
             return "";
+        }
+    }
+
+    class Logo
+    {
+        public static void Print()
+        {
+            Console.Write("                         ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
+            Console.ResetColor();
+            Console.Write("                        ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝");
+            Console.ResetColor();
+            Console.Write("                        ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗");
+            Console.ResetColor();
+            Console.Write("                        ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝");
+            Console.ResetColor();
+            Console.Write("                        ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗");
+            Console.ResetColor();
+            Console.Write("                         ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝");
+            Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+
+            /*string logo = @"        
+                         ██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
+                        ██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝
+                        ██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗  
+                        ██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝  
+                        ╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗
+                         ╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝
+
+           
+             ";
+             */
+        }
+    }
+
+    class Debug // TIJDELIJK 
+    {
+        public static void Run()
+        {
+            // :::::::: PUT YOUR DEBUG CODE IN HERE :::::::: \\
+
+            ConsoleApp1.Accounts newAccount = new Accounts();
+            string[] interests = new string[] { "Actie", "Romantiek", "Drama" };
+            newAccount.AddAccount($"user{newAccount.GenerateID()}@mail.com", $"#{newAccount.GenerateID()}Geheim", "Pietje", "Precies", "2000-01-01", "New York WallStreet 12 2247 dc", interests);
         }
     }
 }
