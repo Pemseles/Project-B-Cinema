@@ -28,7 +28,6 @@ namespace ConsoleApp1
                 "[  Verder als gast ]"
             };
 
-            
             bool LoginStartScreen = true;
             while (LoginStartScreen)
             { 

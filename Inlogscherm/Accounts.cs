@@ -150,8 +150,7 @@ namespace ConsoleApp1
 
         // Get Level - Method
         public int GetLevel(int uid)
-        {
-            /// Takes UID as Parameter, Returns User Clearance Level
+        { /// Takes UID as Parameter, Returns User Clearance Level
             if (uid < 0) return 1; 
             var accountsList = RetrieveAccountData();
             int level = 0;
@@ -169,11 +168,11 @@ namespace ConsoleApp1
 
         public static Tuple<string,string> GetFullname(int uid)
         {
-            /// Takes UID as Parameter, Returns User's First & Lastname
+            /// Takes UID as Parameter, Returns a Tuple with First and Lastname
             if (uid < 0) return Tuple.Create("Null", "Null");
             var accountsList = RetrieveAccountData();
             string firstname = "";
-            string lastname = "";
+            string lastname  = "";
 
             foreach (Account user in accountsList)
             {
@@ -651,7 +650,8 @@ namespace ConsoleApp1
         // Delcaring Sizes
         const int SaltSize = 16, HashSize = 20, HashIter = 10000; // Const Makes the variable immutable and fixed. 
         readonly byte[] _salt, _hash;
-        /* Salt is used to add an extra string of hashed characters to a hashed password to make it less sensitve to both Dictionary & BruteForce Attacks */
+        /* Salt is used to add an extra string of hashed characters to a hashed password
+             * to make it less sensitve to both Dictionary & BruteForce Attacks */
         public PasswordHash(string password)
         {
             // Converts the Password to bytes using various build-in crypto classes
