@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using static System.Console;
+using System.Linq;
 
 namespace ConsoleApp1
 {
     public class Checkout
     {
         private static int index = 0;
+        public decimal FinalPrice = 0.0M;
 
         public List<int> Products;
         public List<int> Seats;
@@ -60,7 +62,6 @@ namespace ConsoleApp1
                 {
                     "[ Keuze resetten  ]" ,
                     "[    Afrekenen    ]" ,
-                    "[   VIP Upgrade   ]" ,
                     "[      Terug      ]"
                 };
 
@@ -70,10 +71,6 @@ namespace ConsoleApp1
                     Console.Clear();
                     CheckoutScreen();
 
-                }
-                else if (SelectedOption == "[   VIP Upgrade   ]")
-                {
-                    // doe hier VIP upgraden
                 }
                 else if (SelectedOption == "[      Terug      ]")
                 {
@@ -86,6 +83,7 @@ namespace ConsoleApp1
 
         private string PaymentScreenSelect(List<string> items, string SelectedItem)
         {
+            GetTotalPrice();
             Console.Clear();
             DrawCart();
             for (int i = 0; i < items.Count; i++)
@@ -109,7 +107,7 @@ namespace ConsoleApp1
             ConsoleKeyInfo ckey = Console.ReadKey();
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index < 3)
+                if (index < 2)
                 {
                     index++;
                 }
@@ -185,6 +183,11 @@ namespace ConsoleApp1
                 {
                     cartString = cartString + BuildCartIndent("Seats", i);
                 }
+            }
+            if (this.FinalPrice > 0.0M)
+            {
+                cartString = cartString + "                    [   ------------------------------------------------------------------   ]\n";
+                cartString = cartString + BuildCartIndent("Price", -1);
             }
             Console.WriteLine(cartString);
         }
@@ -291,14 +294,21 @@ namespace ConsoleApp1
             }
             else if (itemType == "Seats")
             {
-                if (this.Seats[index] < 10)
+                char[] Alphabet = Enumerable.Range('A', 'Z' - 'A' + 1).Select(i => (Char)i).ToArray();
+                string seatStr = "";
+                seatStr = $"{Alphabet[this.Seats[index] / 10]}{this.Seats[index] % 10 + 1}";
+                if (seatStr.Length <= 2)
                 {
-                    itemInCart = $"Stoelnummer: {this.Seats[index]} ";
+                    itemInCart = $"Stoelnummer: {seatStr} ";
                 }
                 else
                 {
-                    itemInCart = $"Stoelnummer: {this.Seats[index]}";
+                    itemInCart = $"Stoelnummer: {seatStr}";
                 }
+            }
+            else if (itemType == "Price")
+            {
+                itemInCart = $"Totaalprijs: {this.FinalPrice}";
             }
 
             while (itemInCart.Length < cartLength)
@@ -311,6 +321,28 @@ namespace ConsoleApp1
             }
             itemInCart = "                    [" + itemInCart + "]\n";
             return itemInCart;
+        }
+
+        private void GetTotalPrice()
+        {
+            decimal newPrice = 0.0M;
+            List<Product> allProducts = Orders.GetProducts();
+
+            for (int i = 0; i < allProducts.Count; i++)
+            {
+                foreach (var productId in this.Products)
+                {
+                    if (allProducts[i].ID == productId)
+                    {
+                        newPrice = newPrice + allProducts[i].Price;
+                    }
+                }
+            }
+            if (this.FilmPrice != null)
+            {
+                newPrice = newPrice + this.FilmPrice.Price;
+            }
+            this.FinalPrice = newPrice;
         }
     }
 }
