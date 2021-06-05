@@ -121,7 +121,6 @@ namespace ConsoleApp1
             string jsonStringFilmList = File.ReadAllText(filmJSONPath);
             filmList = new ConsoleApp1.FilmArr();
             filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
-            Checkout Cart = new Checkout();
             Filmlist films = new Filmlist();
             Filminstance selectedinstance = new Filminstance();
             bool mainmenubool = true;

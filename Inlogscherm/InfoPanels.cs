@@ -34,7 +34,7 @@ namespace ConsoleApp1
             this.PanelVIP = @"
             [   Bij het creëren van uw account heeft u de mogelijkheid te registreren als           ]
             [   VIP gebruiker.                                                                      ]
-            [   U kunt ook uw standaardaccount upgraden tot VIP in het betalings menu.              ]
+            [   U kunt ook uw standaardaccount upgraden tot VIP in het betalingsmenu.               ]
             [   Als VIP gebruiker heeft u toegang tot exclusieve privileges en aanbiedingen,        ]
             [   waaronder tot maarliefst wel 50% korting op filmtickets en producten, het mogen     ]
             [   bijwonen van exclusieve filmpremières en toegang tot de meest comfortabele          ]
@@ -49,12 +49,12 @@ namespace ConsoleApp1
             [   binnen 1-3 werkdagen antwoord ontvangen van onze klantenservicemedewerkers.         ]
             " + "\n";
             this.PanelReviews = @"
-            [   Vanaf het hoofdmenu bevindt zich het review menu. Hier kunt u reviews achterlaten   ]
+            [   Vanaf het hoofdmenu bevindt zich het reviewmenu. Hier kunt u reviews achterlaten    ]
             [   over verscheidene onderwerpen, als specifieke films, onze klantenservice, ons       ]
             [   aanbod of over onze locaties. Daarnaast kunt u de reviews van andere gebruikers     ]
             [   lezen. Wij waarderen uw feedback zeer. Hierom vragen wij u graag een review in te   ]
             [   dienen om ons bedrijf te verbeteren.                                                ]
-            [   Als u meer informatie wilt over ons review menu, bel +31 632 92 66.                 ]
+            [   Als u meer informatie wilt over ons reviewmenu, bel +31 632 92 66.                  ]
             " + "\n";
             this.PanelSearchbar = @"
             [   Vanaf het hoofdmenu bevindt zich het zoekmenu. Het selecteren van deze optie        ]
@@ -66,10 +66,10 @@ namespace ConsoleApp1
             [   gestuurd. Vanuit deze lijst met films kunt u een film selecteren om deze film       ]
             [   toe te voegen aan uw persoonlijke winkelwagen. Dit is nodig om een transactie te    ]
             [   kunnen voltooien, aangezien uw gekozen film wordt behandeld als een filmticket.     ]
-            [   Als u meer informatie wilt over onze zoekmenu, bel +31 632 92 66.                   ]
+            [   Als u meer informatie wilt over ons zoekmenu, bel +31 632 92 66.                    ]
             " + "\n";
             this.PanelPayment = @"
-            [   Vanaf het hoofdmenu bevindt zich het betalings menu. Hier ziet u uw winkelwagen.    ]
+            [   Vanaf het hoofdmenu bevindt zich het betalingsmenu. Hier ziet u uw winkelwagen.     ]
             [   Deze kunt u vullen door in onze zoekfunctie een film te selecteren die u zou        ]
             [   willen zien. Daarnaast zijn er twee optionele keuzes mogelijk. U kunt in de         ]
             [   productenlijst de producten kiezen die u tijdens de film kunt eten en drinken. Ook  ]
@@ -83,7 +83,7 @@ namespace ConsoleApp1
             " + "\n";
             this.FAQs = @"
             [   Dit segment is toegewijd aan de meest gestelde vragen die wij hebben ontvangen,     ]
-            [   en de antwoorden op deze vragen.                                                    ]
+            [   en onze antwoorden op deze vragen.                                                  ]
             [                                                                                       ]
             [   Q.  Wat zijn de voordelen van een VIP account?                                      ]
             [   A.  Er zijn meerdere voordelen inbegrepen met een VIP lidmaatschap account.         ]
@@ -92,7 +92,7 @@ namespace ConsoleApp1
             [                                                                                       ]
             [   Q.  Hoe neem ik contact op met de klantenservice van Cinescope?                     ]
             [   A.  U kunt ons bereiken door te bellen naar +31 632 92 66, een e-mail te sturen     ]
-            [       naar info@cinscope.nl of door een review achter te laten in ons review menu. U  ]
+            [       naar info@cinscope.nl of door een review achter te laten in ons reviewmenu. U   ]
             [       zult binnen 1-3 werkdagen antwoord ontvangen van onze klantenservicemedewerkers.]
             [                                                                                       ]
             [   Q.  Hoe gaat Cinescope om met kijkwijzer 16+ en 18+?                                ]   
