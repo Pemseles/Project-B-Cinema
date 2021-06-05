@@ -217,10 +217,14 @@ namespace ConsoleApp1
                     MainMenu.back();
 
                 }
-                else if (selectedMenuItem == AccountMenu[3])
+                else if (selectedMenuItem == AccountMenu[AccountMenu.Count - 1]) // Back
                 {
                     Console.Clear();
-                    MainMenu.Mainmenu();
+                    if(CurrentUser.GetLevel(this.UID) >= 3) { 
+                        AdminMenu.Mainmenu();
+                    } else {
+                        MainMenu.Mainmenu();
+                    }
                 }
 
             }

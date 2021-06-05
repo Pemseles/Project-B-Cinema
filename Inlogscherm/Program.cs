@@ -45,29 +45,33 @@ namespace ConsoleApp1
                     ConsoleApp1.Accounts activeAccount = new Accounts();
                     UID = ConsoleApp1.Login.loginFunc();
                     Level = activeAccount.GetLevel(UID);
-                    
-                    if (Level == 3) {
-                        Console.WriteLine("[ADMIN MENU]");
-                    } else {
-                        if (activeAccount.GetActiveStatus(UID) == true)
+                
+                    if (activeAccount.GetActiveStatus(UID))
+                    {
+                        // Account is Active
+                        if(Level == 3)
                         {
-                            // Correct Login Requirements load Main Menu
-                            ConsoleApp1.MainMenu.Mainmenu();
+                            // Account is Admin Account
+                            ConsoleApp1.AdminMenu.Mainmenu();
                         } else {
-                            // Inform user about suspended account and deny further acces
-                            Console.WriteLine("  Je account is (tijdelijk) opgeschort.");
-                            Console.Write("  ");
-                            Console.BackgroundColor = ConsoleColor.Gray;
-                            Console.ForegroundColor = ConsoleColor.Black;
-                            Console.WriteLine("Terug");
-                            ConsoleKeyInfo ckey = Console.ReadKey();
-                            if (ckey.Key == ConsoleKey.Backspace)
-                            {
-                                index = 0;
-                            }
+                            // Default Account
+                            ConsoleApp1.MainMenu.Mainmenu();
+                        }
+                    } else {
+                        // Account is Inactive
+                        // Inform user about suspended account and deny further access
+                        Console.WriteLine("  Je account is (tijdelijk) opgeschort.");
+                        Console.Write("  ");
+                        Console.BackgroundColor = ConsoleColor.Gray;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                        Console.WriteLine("Terug");
+                        ConsoleKeyInfo ckey = Console.ReadKey();
+                        if (ckey.Key == ConsoleKey.Enter)
+                        {
+                            index = 0;
+                            Console.Clear();
                         }
                     }
-
                 }
                 else if (selectedMenuItem == "[  Verder als gast ]")
                 {

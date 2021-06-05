@@ -216,19 +216,111 @@ namespace ConsoleApp1
                 }
                 else if (selectedMenuItem == "[     Uitloggen    ]")
                 {
-                    Console.Clear();
                     ResetIndex();
+                    Console.Clear();
+                    // Reset User ID
+                    Program.UID = -1;
                     mainmenubool = false;
-                    /*
-                    System.Diagnostics.Process.Start(Application.ExecutablePath);
-
-                    // Closes the current process
-                    Environment.Exit(0);
-                    */ 
                 }
                 Console.Clear();
             }
             
+        }
+    } // ./ Main Menu
+
+    public class AdminMenu : MainMenu {
+        new public static void Mainmenu() {
+            bool mainmenubool = true;
+            while (mainmenubool == true)
+            {
+                List<string> Mainscreen = new List<string>() {
+                "[      Films Toevoegen     ]" , // 0
+                "[      Films Inplannen     ]" , // 1
+                "[      Zalen Toevoegen     ]" , // 2
+                "[    Producten Toevoegen   ]" , // 3
+                "[      Reviews Beheren     ]" , // 4
+                "[     Gebruikers Beheren   ]" , // 5
+                "[        Mijn Account      ]" , // 6
+                "[         Uitloggen        ]" , // 7
+                 };
+                // kijkt bij welke index de user zich bevind
+                string selectedMenuItem = MainScreen(Mainscreen);
+     
+                if (selectedMenuItem == Mainscreen[0]) // Films Toevoegen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[1]) // Films Inplannen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[2]) // Zalen Toevoegen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[3]) // Producten Toevoegen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[4]) // Reviews Beheren
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[5]) // Gebruikers Beheren
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[6]) // Mijn Account
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+                    // Open Account Settings
+                    MyAccount User = new MyAccount(Program.UID);
+                    User.OpenMenu();
+                    // ./ Contents
+                    back();    
+                }
+                else if (selectedMenuItem == Mainscreen[Mainscreen.Count-1]) // Logout
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Reset User ID
+                    Program.UID = -1;
+                    mainmenubool = false;
+                }
+                Console.Clear();
+            }
         }
     }
 }

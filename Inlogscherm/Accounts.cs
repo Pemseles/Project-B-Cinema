@@ -226,7 +226,6 @@ namespace ConsoleApp1
                 }
             }
             return active;
-
         }
 
         public bool CheckUniqueEmail(string email)
