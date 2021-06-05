@@ -10,50 +10,10 @@ using static ConsoleApp1.Registers;
 using static ConsoleApp1.Infopanels;
 // restricties opzetten voor gebruik van alleen backspace en enter anders redrawd ie m 
 namespace ConsoleApp1
-{
-    public class MainMenu
+{   
+    public abstract class MenuController
     {
         private static int index = 0;
-        public static Checkout Cart = new Checkout();
-        public static string MoviesJson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
-        public static string filmJSONPath = Path.GetFullPath(@"FilmList.json");
-        public static string jsonStringFilmList = File.ReadAllText(filmJSONPath);
-        public static FilmArr filmList = new FilmArr();
-        public static FilmArr filmListAgain = JsonSerializer.Deserialize<FilmArr>(jsonStringFilmList);
-        public static string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
-        public static Filmsuperclass movielist = JsonSerializer.Deserialize<Filmsuperclass>(moviesjson);
-        public static string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.json"));
-        public static Filmsuperclass movieinstancelist = JsonSerializer.Deserialize<Filmsuperclass>(movieinstancesjson);
-
-        public static List<FilmArray> GetFilmList(bool todayDate)
-        {
-            Filmsuperclass UsableList = new Filmsuperclass() { };
-            UsableList = JsonSerializer.Deserialize<Filmsuperclass>(MoviesJson);
-            List<FilmArray> filmList = new List<FilmArray> { };
-            if (!todayDate) {
-                foreach (var filmItem in UsableList.FilmArray)
-                {
-                    filmList.Add(filmItem);
-                }
-            }
-            else
-            {
-                // haalt de datum op voor vandaag
-                //var today = DateTime.Now.ToString("yyyy-MM-dd");
-                var today = DateTime.Now.ToString("05/30/2021");
-                foreach (var filmItem in UsableList.FilmArray)
-                {
-                    for (int i = 0; i < UsableList.FilmArray.Length; i++)
-                    {
-                        if (UsableList.FilmInstances[i].StartDateTime == today)
-                        {
-                            filmList.Add(filmItem);
-                        }
-                    }
-                }
-            }
-            return filmList;
-        }
         public static string MainScreen(List<string> items)
         {
             for (int i = 0; i < items.Count; i++)
@@ -76,7 +36,7 @@ namespace ConsoleApp1
             ConsoleKeyInfo ckey = Console.ReadKey();
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index < items.Count-1)
+                if (index < items.Count - 1)
                 {
                     index++;
                 }
@@ -90,10 +50,12 @@ namespace ConsoleApp1
             }
             else if (ckey.Key == ConsoleKey.Enter)
             {
+                Console.Clear();
                 return items[index];
             }
             else
             {
+                Console.Clear();
                 return "";
             }
             Console.Clear();
@@ -106,7 +68,7 @@ namespace ConsoleApp1
             {
                 Console.Clear();
                 Mainmenu();
-            } 
+            }
         }
 
 
@@ -114,6 +76,19 @@ namespace ConsoleApp1
         {
             index = 0;
         }
+    }
+    public class MainMenu : MenuController
+    {
+        public static Checkout Cart = new Checkout();
+        public static string MoviesJson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
+        public static string filmJSONPath = Path.GetFullPath(@"FilmList.json");
+        public static string jsonStringFilmList = File.ReadAllText(filmJSONPath);
+        public static FilmArr filmList = new FilmArr();
+        public static FilmArr filmListAgain = JsonSerializer.Deserialize<FilmArr>(jsonStringFilmList);
+        public static string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
+        public static Filmsuperclass movielist = JsonSerializer.Deserialize<Filmsuperclass>(moviesjson);
+        public static string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.json"));
+        public static Filmsuperclass movieinstancelist = JsonSerializer.Deserialize<Filmsuperclass>(movieinstancesjson);
 
         public static void Mainmenu()
         {
@@ -127,6 +102,8 @@ namespace ConsoleApp1
             bool mainmenubool = true;
             while (mainmenubool == true)
             {
+                Logo.Print();
+
                 List<string> Mainscreen = new List<string>() {
                 "[       Films      ]" ,
                 "[Hapjes en drankjes]" ,
@@ -135,7 +112,7 @@ namespace ConsoleApp1
                 "[   Winkelmandje   ]" ,
                 "[       Zalen      ]" ,
                 "[   Mijn Account   ]" ,
-                "[     Uitloggen    ]",
+                "[     Uitloggen    ]"
                  };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
@@ -228,24 +205,27 @@ namespace ConsoleApp1
         }
     } // ./ Main Menu
 
-    public class AdminMenu : MainMenu {
-        new public static void Mainmenu() {
+    public class AdminMenu : MenuController {
+        // Admin Menu
+        public static void Mainmenu() {
+            // Start the Menu
             bool mainmenubool = true;
             while (mainmenubool == true)
             {
+                Logo.Print();
                 List<string> Mainscreen = new List<string>() {
-                "[      Films Toevoegen     ]" , // 0
+                "[      Films Toevoegen     ]" , // 0 
                 "[      Films Inplannen     ]" , // 1
                 "[      Zalen Toevoegen     ]" , // 2
                 "[    Producten Toevoegen   ]" , // 3
                 "[      Reviews Beheren     ]" , // 4
                 "[     Gebruikers Beheren   ]" , // 5
                 "[        Mijn Account      ]" , // 6
-                "[         Uitloggen        ]" , // 7
+                "[         Uitloggen        ]"   // 7
                  };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
-     
+       
                 if (selectedMenuItem == Mainscreen[0]) // Films Toevoegen
                 {
                     ResetIndex();
@@ -310,8 +290,126 @@ namespace ConsoleApp1
                     User.OpenMenu();
                     // ./ Contents
                     back();    
+                } // Mainscreen.Count -1 to always get the last element of the list, as Logout is always last. 
+                else if (selectedMenuItem == Mainscreen[Mainscreen.Count - 1]) // Logout
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Reset User ID
+                    Program.UID = -1;
+                    mainmenubool = false;
                 }
-                else if (selectedMenuItem == Mainscreen[Mainscreen.Count-1]) // Logout
+                Console.Clear();
+            }
+        }   
+    }
+    public class Guest : MainMenu
+    {
+        // Admin Menu
+        new public static void Mainmenu()
+        {
+            string filmJSONPath = Path.GetFullPath(@"FilmList.json");
+            string jsonStringFilmList = File.ReadAllText(filmJSONPath);
+            filmList = new ConsoleApp1.FilmArr();
+            filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
+            Checkout Cart = new Checkout();
+            Filmlist films = new Filmlist();
+            Filminstance selectedinstance = new Filminstance();
+
+            bool mainmenubool = true;
+            while (mainmenubool == true)
+            {
+                Logo.Print();
+                List<string> Mainscreen = new List<string>() {
+                "[       Films      ]" , // 0
+                "[Hapjes en drankjes]" , // 1
+                "[  Informatiemenu  ]" , // 2
+                "[    Review menu   ]" , // 3
+                "[   Winkelmandje   ]" , // 4
+                "[       Zalen      ]" , // 5
+                "[     Afsluiten    ]"   // 6
+                 };
+                // kijkt bij welke index de user zich bevind
+                string selectedMenuItem = MainScreen(Mainscreen);
+
+                if (selectedMenuItem == Mainscreen[0]) // Films Toevoegen
+                {
+                    // Contents
+                    ResetIndex();
+                    Console.Clear();
+                    selectedinstance = films.Filmmenu();
+                    Cart.UpdateFilmPrice(selectedinstance);
+
+                    string selectedmoviename = "";
+                    string selectedmoviestarttime = "";
+                    string selectedmovieendtime = "";
+                    string selectedmovieprice = "";
+                    for (int i = 0; i < movielist.FilmArray.Length; i++)
+                    {
+                        if (selectedinstance != null && selectedinstance.StartDateTime != null && selectedinstance.MovieID == movielist.FilmArray[i].ID)
+                        {
+                            selectedmoviename = movielist.FilmArray[i].Name;
+                            selectedmoviestarttime = selectedinstance.StartDateTime.Split(" ")[1];
+                            selectedmovieendtime = selectedinstance.EndDateTime.Split(" ")[1];
+                            selectedmovieprice = selectedinstance.Price + "";
+                        }
+                    }
+                    Cart.UpdateFilmName(selectedmoviename);
+                    Cart.UpdateFilmStartnEnd(selectedmoviestarttime, selectedmovieendtime);
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[1]) // Hapjes & Drankjes
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+                    ConsoleApp1.Products.Productmenu();
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[2]) // Info Paneel
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+                    Infopanels panelObj = new Infopanels();
+                    panelObj.InfoScreen();
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[3]) // Reviews
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[4]) // Winkelmandje
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents    
+                    // open de seats json + snackselected json
+                    // if email == seats.email && email == snacksselected.email
+                    // zo misschien info ophalen per account
+                    Cart.PaymentScreen();
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[5]) // Zalen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+                    Registers.Moviehall();
+                    // ./ Contents
+                    back();
+                    Console.SetWindowSize(120, 30);
+                } // Mainscreen.Count -1 to always get the last element of the list, as Logout (or Exit) is always last. 
+                else if (selectedMenuItem == Mainscreen[Mainscreen.Count - 1]) // Exit
                 {
                     ResetIndex();
                     Console.Clear();

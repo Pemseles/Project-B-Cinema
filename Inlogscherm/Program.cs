@@ -13,14 +13,14 @@ using static ConsoleApp1.Accounts;
 
 namespace ConsoleApp1
 {
-    class Program
+    class Program : MenuController
     {
         private static int index = 0;
         public static int UID;
         public static int Level;
         private static void Main(string[] args)
         {
-            Debug.Run();
+            //Debug.Run();
 
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen     ]",
@@ -31,26 +31,33 @@ namespace ConsoleApp1
             Console.CursorVisible = false;
             bool LoginStartScreen = true;
             while (LoginStartScreen)
-            {
+            { 
+                Logo.Print();
                 string selectedMenuItem = MainScreen(LoginScreen);
                 // Login
                 if (selectedMenuItem == "[     Inloggen     ]")
                 {
+                    ResetIndex();
                     ConsoleApp1.Accounts activeAccount = new Accounts();
                     UID = ConsoleApp1.Login.loginFunc();
                     Level = activeAccount.GetLevel(UID);
 
-                    if (activeAccount.GetActiveStatus(UID)) {
+                    if (activeAccount.GetActiveStatus(UID))
+                    {
                         // Account is Active
                         if (Level == 3)
                         {
                             // Account is Admin Account
                             ConsoleApp1.AdminMenu.Mainmenu();
-                        } else {
+                        }
+                        else
+                        {
                             // Default Account
                             ConsoleApp1.MainMenu.Mainmenu();
                         }
-                    } else {
+                    }
+                    else
+                    {
                         // Account is Inactive
                         // Inform user about suspended account and deny further access
                         Console.WriteLine("  Je account is (tijdelijk) opgeschort.");
@@ -68,75 +75,20 @@ namespace ConsoleApp1
                 }
                 else if (selectedMenuItem == "[  Verder als gast ]")
                 {
+                    ResetIndex();
                     Console.Clear();
                     UID = -1;
-                    ConsoleApp1.MainMenu.Mainmenu();
+                    ConsoleApp1.Guest.Mainmenu();
                 }
 
                 // Register
                 else if (selectedMenuItem == "[    Registreren   ]")
                 {
+                    ResetIndex();
                     Console.Clear();
                     ConsoleApp1.Register.register();
                 }
             }
-        }
-        
-        private static string MainScreen(List<string> items)
-        {
-            Logo.Print();
-
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (i == index)
-                {
-                    Console.Write("                                                ");
-                    Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    Console.WriteLine(items[i]);
-                }
-                else
-                {
-                    Console.Write("                                                ");
-                    Console.WriteLine(items[i]);
-                }
-                Console.ResetColor();
-            }
-
-            ConsoleKeyInfo ckey = Console.ReadKey();
-            // vragen aan PO over f11 key(fullscreen) of het disabled moet worden, zo ja vragen aan peercoach.
-            if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
-            {
-                Console.Clear();
-            }
-            if (ckey.Key == ConsoleKey.DownArrow)
-            {
-                if (index == 2)
-                {
-                    index = 2;
-                }
-                else { index++; }
-            }
-            else if (ckey.Key == ConsoleKey.UpArrow)
-            {
-                if (index <= 0)
-                {
-                    index = 0;
-                }
-                else { index--; }
-            }
-            else if (ckey.Key == ConsoleKey.Enter)
-            {
-                return items[index];
-            }
-            else
-            {
-                return "";
-            }
-
-            Console.Clear();
-            return "";
         }
     }
 
@@ -168,9 +120,8 @@ namespace ConsoleApp1
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝");
             Console.ResetColor();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine("\n\n");
+           
 
             /*string logo = @"        
                          ██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗
@@ -180,9 +131,11 @@ namespace ConsoleApp1
                         ╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗
                          ╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝
 
-           
+                       
              ";
-             */
+                                 Credits: Avienda, Christ, Jaring, Sergio & Thijmen.
+            */
+            
         }
     }
 

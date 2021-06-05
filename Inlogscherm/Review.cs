@@ -38,7 +38,7 @@ namespace ConsoleApp1
         public Cinescope_rev[] cinescope_rev { get; set; }
     }
     
-    class Review
+    class Review : MenuController
     {
         string RevPath = Path.GetFullPath(@"Review.JSON");
         static int index3 = 0;

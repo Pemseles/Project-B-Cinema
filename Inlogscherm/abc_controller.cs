@@ -12,9 +12,9 @@ using static ConsoleApp1.Accounts;
 
 namespace ConsoleApp1
 {
-    class MenuController
+    class abc_MenuController
     {
-        public MenuController()
+        public abc_MenuController()
         {
             
         }
