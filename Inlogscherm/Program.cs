@@ -15,7 +15,6 @@ namespace ConsoleApp1
 {
     class Program : MenuController
     {
-        private static int index = 0;
         public static int UID;
         public static int Level;
         private static void Main(string[] args)
@@ -64,11 +63,11 @@ namespace ConsoleApp1
                         Console.Write("  ");
                         Console.BackgroundColor = ConsoleColor.Gray;
                         Console.ForegroundColor = ConsoleColor.Black;
-                        Console.WriteLine("[   Terug   ]");
+                        Console.WriteLine("[     Terug     ]");
                         ConsoleKeyInfo ckey = Console.ReadKey();
                         if (ckey.Key == ConsoleKey.Enter)
                         {
-                            index = 0;
+                            ResetIndex();
                             Console.Clear();
                         }
                     }

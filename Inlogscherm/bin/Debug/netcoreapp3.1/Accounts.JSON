@@ -81,7 +81,7 @@
   },
   {
     "UID": 5,
-    "Level": 1,
+    "Level": 2,
     "Email": "user5@mail.com",
     "Pwd": "/mcbF+CpbVH40L0oEiMjIBbLbqBg1Q4iKWwpj1f5XisDNi9h",
     "Active": true,
@@ -4741,5 +4741,17 @@
       "Romantiek",
       "Drama"
     ]
+  },
+  {
+    "UID": 316,
+    "Level": 1,
+    "Email": "",
+    "Pwd": "GT+00aZJPjooV89YELblvIJYMUS/ZQzJZgroAAGIEaLSOaDS",
+    "Active": true,
+    "Firstname": "",
+    "Lastname": "",
+    "Age": "",
+    "Address": "",
+    "Interests": []
   }
 ]

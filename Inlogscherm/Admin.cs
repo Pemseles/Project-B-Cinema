@@ -12,11 +12,9 @@ using static ConsoleApp1.Accounts;
 
 namespace ConsoleApp1
 {
-    class abc_MenuController
+    class AdminUI
     {
-        public abc_MenuController()
-        {
-            
-        }
+        private int UID { get; set; }
+ 
     }
 }
