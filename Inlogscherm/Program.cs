@@ -20,14 +20,15 @@ namespace ConsoleApp1
         private static void Main(string[] args)
         {
             //Debug.Run();
-
+            Console.SetWindowSize(120, 30);
+            Console.CursorVisible = false;
             List<string> LoginScreen = new List<string>() {
                 "[     Inloggen     ]",
                 "[    Registreren   ]",
                 "[  Verder als gast ]"
             };
 
-            Console.CursorVisible = false;
+            
             bool LoginStartScreen = true;
             while (LoginStartScreen)
             { 

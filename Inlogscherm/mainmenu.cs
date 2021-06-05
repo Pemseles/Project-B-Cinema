@@ -16,6 +16,7 @@ namespace ConsoleApp1
         private static int index = 0;
         public static string MainScreen(List<string> items)
         {
+            Console.CursorVisible = false;
             for (int i = 0; i < items.Count; i++)
             {
                 Console.Write("                                                ");
@@ -158,9 +159,10 @@ namespace ConsoleApp1
                 else if (selectedMenuItem == "[    Review menu   ]")
                 {
                     Console.Clear();
-                    Review.Revmenu();
-                    back();
                     // open de review list of json
+                    Reviews.Revmenu();
+                    back();
+                   
                 }
                 else if (selectedMenuItem == "[   Winkelmandje   ]")
                 {
@@ -382,7 +384,8 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    // open de review list of json
+                    Reviews.Revmenu();
                     // ./ Contents
                     back();
                 }

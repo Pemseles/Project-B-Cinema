@@ -10,6 +10,14 @@ using static ConsoleApp1.MainMenu;
 
 namespace ConsoleApp1
 {
+    public class Review
+    {
+        public string Movie { get; set; }
+        public string Username { get; set; }
+        public string Description { get; set; }
+        public int Stars { get; set; }
+    }
+    /*
     public class Movie_rev
     {
         public string Movie { get; set; }
@@ -37,18 +45,20 @@ namespace ConsoleApp1
         public Zaal_rev[] zaal_rev { get; set; }
         public Cinescope_rev[] cinescope_rev { get; set; }
     }
-    
-    class Review : MenuController
+    */
+    class Reviews : MenuController
     {
         string RevPath = Path.GetFullPath(@"Review.JSON");
         static int index3 = 0;
         static int index2 = 0;
         static int index = 0;
         static string star = "";
+        public static List<string[]> reviews = new List<string[]>();
         public static string stars()
         {
             while (true)
             {
+                star = "";
                 int j = 0;
                 Console.Write("hoeveel sterren wilt u geven:");
                 for (int i = 0; i < 5; i++)
@@ -121,7 +131,7 @@ namespace ConsoleApp1
                 if (rev[i] == '.' || rev[i] == '?' || rev[i] == ',')
                 {
                     s += "\n                                  ";
-                    
+
                     if (i + 1 < rev.Length)
                     {
                         if (rev[i + 1] == ' ')
@@ -134,9 +144,58 @@ namespace ConsoleApp1
             Console.Clear();
             return s;
         }
+        public static string privacy()
+        {
+            int J = 0;
+            string name = "";
+            while (true)
+            {
+                Console.WriteLine("wilt u uw review anoniem plaatsen?");
+                if (J == 0)
+                {
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("[ja ]");
+                    Console.ResetColor();
+                    Console.WriteLine("[nee]");
+                }
+                if (J == 1)
+                {
+                    Console.ResetColor();
+                    Console.WriteLine("[ja ]");
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("[nee]");
+                    Console.ResetColor();
+                }
+                ConsoleKeyInfo ckey = Console.ReadKey();
+                if (ckey.Key == ConsoleKey.UpArrow)
+                {
+                    J = 0;
+                }
+                else if (ckey.Key == ConsoleKey.DownArrow)
+                {
+                    J = 1;
+                }
+                else if (ckey.Key == ConsoleKey.Enter)
+                {
+                    if (J == 0)
+                    {
+                        name = "Anoniem";
+                    }
+                    else
+                    {
+                        name = "test";
+                    }
+                    break;
+                }
+                Console.Clear();
+            }
+            return name;
+        }
         public static string review_menu()
         {
-            
+
             List<string> movies = new List<string>();
             string filmJSONPath = Path.GetFullPath(@"FilmList.json");
             string jsonStringFilmList = File.ReadAllText(filmJSONPath);
@@ -149,27 +208,27 @@ namespace ConsoleApp1
             int len = 0;
             for (int i = 0; i < movies.Count; i++)
             {
-                if(movies[i].Length > len)
+                if (movies[i].Length > len)
                 {
                     len = movies[i].Length;
                 }
             }
             for (int i = 0; i < movies.Count; i++)
             {
-                if(len > movies[i].Length)
+                if (len > movies[i].Length)
                 {
-                    if((len - movies[i].Length) % 2 == 0)
+                    if ((len - movies[i].Length) % 2 == 0)
                     {
                         string front = "";
-                        string back =  "";
+                        string back = "";
                         int leng = len - movies[i].Length;
-                        for (int j = 0; j < leng/2; j++)
+                        for (int j = 0; j < leng / 2; j++)
                         {
                             front += " ";
                             back += " ";
                         }
                         movies[i] = front + movies[i] + back;
-                        
+
                     }
                     else
                     {
@@ -186,7 +245,7 @@ namespace ConsoleApp1
 
                 }
             }
-           
+
             while (true)
             {
                 for (int i = 0; i < movies.Count; i++)
@@ -205,7 +264,7 @@ namespace ConsoleApp1
                     }
                     Console.ResetColor();
                 }
-                
+
                 ConsoleKeyInfo ckey = Console.ReadKey();
                 if (ckey.Key != ConsoleKey.DownArrow || ckey.Key != ConsoleKey.UpArrow || ckey.Key != ConsoleKey.Enter)
                 {
@@ -240,23 +299,86 @@ namespace ConsoleApp1
         }
         public static void review()
         {
+
+            string[] rev_arr = new string[4];
+            string username = "";
             string movie = ""; string rev = ""; string star = "";
-            movie = review_menu();
-            rev = review_text(Console.ReadLine());
-            star = stars();
-            Console.Write("                                  Gebruikersnaam: Cinescope" + "                "); Console.WriteLine("waardering: " + star);
-            Console.WriteLine();
-            Console.WriteLine("                                       [ " + movie + " ]"); 
-            Console.WriteLine();
-            Console.Write("                                  ");  Console.Write(rev);
-            Console.WriteLine();
-            Console.Write("                                                 <Vorige>   <1/14>   <Volgende>");
-            Console.ReadKey();
-            Console.Clear();
+            int revs = 0;
+            int place = 0;
+            int total_revs = reviews.Count;
+            rev_arr[0] = privacy();
+            rev_arr[1] = review_menu();
+            rev_arr[2] = review_text(Console.ReadLine());
+            rev_arr[3] = stars();
+            reviews.Add(rev_arr);
+
+            while (true)
+            {
+                Console.Write("                                  Gebruikersnaam: " + reviews[revs][0] + "                "); Console.WriteLine("waardering: " + reviews[revs][3]);
+                Console.WriteLine();
+                Console.WriteLine("                                       [ " + reviews[revs][1] + " ]");
+                Console.WriteLine();
+                Console.Write("                                  "); Console.Write(reviews[revs][2]);
+                Console.WriteLine();
+
+                if (place == 0)
+                {
+                    Console.Write("                                                 ");
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("< Vorige >");
+                    Console.ResetColor();
+                    Console.Write($"< {revs + 1} / {total_revs + 1} >");
+                    Console.Write("< Volgende >");
+                }
+                if (place == 1)
+                {
+                    Console.Write("                                                 ");
+                    Console.Write("< Vorige >");
+                    Console.Write($"< {revs + 1} / {total_revs + 1} >");
+                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("< Volgende >");
+                    Console.ResetColor();
+
+                }
+                ConsoleKeyInfo ckey = Console.ReadKey();
+                if (ckey.Key != ConsoleKey.LeftArrow || ckey.Key != ConsoleKey.RightArrow || ckey.Key != ConsoleKey.Enter || ckey.Key != ConsoleKey.Backspace)
+                {
+
+                }
+                if (ckey.Key == ConsoleKey.RightArrow)
+                {
+                    place = 1;
+                }
+                else if (ckey.Key == ConsoleKey.LeftArrow)
+                {
+                    place = 0;
+                }
+                else if (ckey.Key == ConsoleKey.Enter)
+                {
+                    Console.Clear();
+                    if (place == 0)
+                    {
+                        if (revs > 0)
+                            revs -= 1;
+                    }
+                    if (place == 1)
+                    {
+                        if (revs < total_revs)
+                            revs += 1;
+                    }
+                }
+                else if (ckey.Key == ConsoleKey.Backspace)
+                {
+                    Console.Clear();
+                    break;
+                }
+                Console.Clear();
+
+            }
         }
         public static string rev_menu(List<string> items)
         {
-            
+
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)
@@ -310,7 +432,7 @@ namespace ConsoleApp1
 
         public static void Revmenu()
         {
-            
+
             bool reviewscreenbool = true;
             while (reviewscreenbool == true)
             {

@@ -1,26 +1,12 @@
 {
-	"movie_rev" :[
-        {
-            "Movie" : "Lord of the Rings : Fellowship of the Ring",
-            "Username" : "John_Doe",
-            "Review" : "dit is een test review om te laten zien hoe de indent is, ook is deze tekst bedoeld om te checken of die bij elke . en bij elke , een enter doet. dit is het einde van de test zin.",
-            "Stars": 4 
-        }
-	],
-    "zaal_rev" :[
-        {
-            "Zaal" : 1,
-            "Username" : "John_Doe",
-            "Review" : "dit is een test review om te laten zien hoe de indent is, ook is deze tekst bedoeld om te checken of die bij elke . en bij elke , een enter doet. dit is het einde van de test zin.",
-            "Stars": 2 
-        }
-    ],
-    "cinescope_rev" :[
-        {
-            "About" : "personeel",
-            "Username" : "John_Doe",
-            "Review" : "dit is een test review om te laten zien hoe de indent is, ook is deze tekst bedoeld om te checken of die bij elke . en bij elke , een enter doet. dit is het einde van de test zin.",
-            "Stars": 2 
-        }
+    "ID": 0,
+    "TagID": 0,
+    "RevID": 5,
+    "Active": true,
+    "Address": "Silicon Valley Bakerstreet 12 1234 ab",
+    "Interests": [
+      "Actie",
+      "Drama",
+      "Komedie"
     ]
-}
+  },

@@ -94,7 +94,6 @@ namespace ConsoleApp1
     class Registers
     {
         private static int people = 100;
-        private static int ticket = 5;
         private static List<int> keys = new List<int>();
         private static List<int> res = new List<int>();
         private static int index = 0;
@@ -105,7 +104,8 @@ namespace ConsoleApp1
             
             // functie in orders int array in for-lopen , functie Add toevoegen6
             CursorVisible = false;
-
+            Console.Write("hoeveel stoelen wilt u reserveren: ");
+            int ticket = Int16.Parse(Console.ReadLine());
             foreach (int seat in newOrder.GetSeatCoords(5))
             {
                 res.Add(seat);

@@ -165,7 +165,27 @@ namespace ConsoleApp1
                 }
             }
             return level;
+        }
 
+        public static Tuple<string,string> GetFullame(int uid)
+        {
+            /// Takes UID as Parameter, Returns User's First & Lastname
+            if (uid < 0) return Tuple.Create("Null", "Null");
+            var accountsList = RetrieveAccountData();
+            string firstname = "";
+            string lastname = "";
+
+            foreach (Account user in accountsList)
+            {
+                if (uid == user.UID)
+                {
+                    // Set bool to false and break loop
+                    firstname = user.Firstname;
+                    lastname  = user.Lastname;
+                    break;
+                }
+            }
+            return Tuple.Create(firstname, lastname);
         }
 
         public bool GetActiveStatus(int uid)
