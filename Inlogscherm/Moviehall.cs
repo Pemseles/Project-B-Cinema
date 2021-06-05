@@ -28,14 +28,12 @@ public class MyDate
     public int month { get; set; }
     public int day { get; set; }
 }
-
 public class Lad
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public MyDate DateOfBirth { get; set; }
 }
-
 class Program
 {
     static void Main()
@@ -56,9 +54,7 @@ class Program
     }
 }
  */
-
 /*
- 
  {
 	"SeatArr" :[
         {
@@ -70,10 +66,6 @@ class Program
         }, 
 	]
 }
-
-
-
-
 string path = Path.GetFullPath(@"Seats.Json")
 */
 
@@ -94,7 +86,6 @@ namespace ConsoleApp1
     class Registers
     {
         private static int people = 100;
-        private static int ticket = 5;
         private static List<int> keys = new List<int>();
         private static List<int> res = new List<int>();
         private static int index = 0;
@@ -105,8 +96,9 @@ namespace ConsoleApp1
             
             // functie in orders int array in for-lopen , functie Add toevoegen6
             CursorVisible = false;
-
-            foreach (int seat in newOrder.GetSeatCoords(5))
+            Console.Write("hoeveel stoelen wilt u reserveren: ");
+            int ticket = Int16.Parse(Console.ReadLine());
+            foreach (int seat in newOrder.GetSeatCoords(ticket))
             {
                 res.Add(seat);
             }
@@ -162,24 +154,6 @@ namespace ConsoleApp1
             }
             if (x.Count > 1)
             {
-                Console.WriteLine($"Je hebt deze stoelen geselecteerd : {s} \n KLopt dit?");
-                Console.Write("Maak uw keuze : \n");
-                Console.WriteLine("Ja");
-                Console.WriteLine("Nee");
-                switch (Console.ReadLine())
-                {
-                    case "Ja":
-                        Console.Clear();
-                        MainMenu.Cart.UpdateSeats(x);                      
-                        ConsoleApp1.MainMenu.Mainmenu();
-                        break;
-                    case "Nee":
-                        // reset de seats
-                        break;
-                }
-            }
-            else
-            {
                 
                 Console.WriteLine($"Je hebt deze stoel geselecteerd : {s} \n Klopt dit?");
                 Console.Write("Maak uw keuze : \n");
@@ -188,6 +162,8 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
+                        Console.WriteLine(x);
+                        Console.ReadLine();
                         MainMenu.Cart.UpdateSeats(x);
                         Console.SetWindowSize(120, 30);
                         ConsoleApp1.MainMenu.Mainmenu();
@@ -314,8 +290,6 @@ namespace ConsoleApp1
 
 
                     }
-
-
                 }
                 Console.Clear();                
                 MainScreen(items, people, keys, res, seats, ticket);
