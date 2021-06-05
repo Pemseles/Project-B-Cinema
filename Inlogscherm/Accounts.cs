@@ -167,7 +167,7 @@ namespace ConsoleApp1
             return level;
         }
 
-        public static Tuple<string,string> GetFullame(int uid)
+        public static Tuple<string,string> GetFullname(int uid)
         {
             /// Takes UID as Parameter, Returns User's First & Lastname
             if (uid < 0) return Tuple.Create("Null", "Null");
