@@ -272,7 +272,7 @@ namespace ConsoleApp1
                 else if (SelectedOption == "[      iDeal      ]" || SelectedOption == "[   Credit card   ]" || SelectedOption == "[     Contant     ]")
                 {
                     CurrentUser.UpgradeToVip(UID);
-                    Console.WriteLine("                                      [   Bedankt voor uw aankopen.   ]");
+                    Console.WriteLine("                                   [      Bedankt voor uw aankopen.      ]");
                     Console.WriteLine("                                   [   Druk op Enter om verder te gaan   ]");
                     checkoutBool = false;
                 }
