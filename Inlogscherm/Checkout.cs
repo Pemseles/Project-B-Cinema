@@ -70,7 +70,6 @@ namespace ConsoleApp1
                 {
                     Console.Clear();
                     CheckoutScreen();
-
                 }
                 else if (SelectedOption == "[      Terug      ]")
                 {
@@ -118,7 +117,7 @@ namespace ConsoleApp1
             ConsoleKeyInfo ckey = Console.ReadKey();
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index < 2)
+                if (index < items.Count - 1)
                 {
                     index++;
                 }
@@ -167,19 +166,13 @@ namespace ConsoleApp1
                 List<Product> allProducts = Orders.GetProducts();
                 for (int i = 0; i < allProducts.Count; i++)
                 {
-                    int currentID = -1;
                     foreach (int productId in this.Products)
                     {
                         if (allProducts[i].ID == productId)
                         {
-                            currentID = productId;
+                            cartString = cartString + BuildCartIndent("Product", i);
                         }
                     }
-                    if (allProducts[i].ID == currentID)
-                    {
-                        cartString = cartString + BuildCartIndent("Product", currentID);
-                    }
-
                 }
             }
             cartString = cartString + "                    [                                                                        ]\n";
@@ -254,21 +247,14 @@ namespace ConsoleApp1
         {
             if (selectedOption == "[     Contant     ]" || selectedOption == "[      iDeal      ]" || selectedOption == "[   Credit card   ]")
             {
-                if (this.FilmPrice != null)
+                if (this.FilmPrice == null)
                 {
                     Console.WriteLine("\n                              [          U heeft nog geen film uitgekozen         ]");
                     Console.WriteLine("                              [             U kunt nog niet afrekenen             ]\n");
                 }
                 else
                 {
-                    if (selectedOption == "[     Contant     ]")
-                    {
-                        // tel de prijs op als contant geselecteerd is
-                    }
-                    else
-                    {
-                        Console.WriteLine("\n                              [     Transactie gelukt, bedankt voor uw aankoop    ]\n");
-                    }
+                    Console.WriteLine("\n                              [     Transactie gelukt, bedankt voor uw aankoop    ]\n");
                 }
             }
             else if (selectedOption == "[ Keuze resetten  ]")
@@ -352,6 +338,10 @@ namespace ConsoleApp1
             if (this.FilmPrice != null)
             {
                 newPrice = newPrice + this.FilmPrice.Price;
+            }
+            for (int i = 0; i < this.Seats.Count; i++)
+            {
+                newPrice = newPrice + 14.99M;
             }
             this.FinalPrice = newPrice;
         }

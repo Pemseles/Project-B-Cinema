@@ -38,8 +38,9 @@ namespace ConsoleApp1
 
         public List<Film> FilmSearch(FilmArr filmList)
         {
+            Logo.Print();
             List<Film> returnList = new List<Film>();
-            // om hier iets aan toe te voegen returnList.Add("wat er aan de ijst toegeveogd moet worden")
+            // om hier iets aan toe te voegen returnList.Add("wat er aan de lijst toegevoegd moet worden")
             int inputAge = -513892;
             string[] numbersInputArray = { "0" , "6" , "9" , "12" , "14" , "16" , "18"};
             // string array met mogelijke kwalififacties leeftijd voor vergelijking met input

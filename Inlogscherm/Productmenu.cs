@@ -22,6 +22,7 @@ namespace ConsoleApp1
         private static string MainScreen(List<string> items)
 
         {
+            Logo.Print();
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)
@@ -102,6 +103,7 @@ namespace ConsoleApp1
                 {
                     // haalt lijst met productid snack op
                     Console.Clear();
+                    Logo.Print();
                     var Snacks = newOrder.GetProducts("Snack");
                     int i = 0;
                     foreach (var Snack in Snacks)
@@ -164,6 +166,7 @@ namespace ConsoleApp1
                 {
                     // haalt lijst met productid drink op
                     Console.Clear();
+                    Logo.Print();
                     var Drinks = newOrder.GetProducts("Drink");
                     int i = 0;
                     foreach (var Drink in Drinks)
@@ -226,6 +229,7 @@ namespace ConsoleApp1
                 {
                     // haalt lijst met productid alcohol op
                     Console.Clear();
+                    Logo.Print();
                     var Alcohols = newOrder.GetProducts("Alcohol");
                     int i = 0;
                     foreach (var Alcohol in Alcohols)
@@ -288,6 +292,7 @@ namespace ConsoleApp1
                 {
                     // haalt lijst met productid deal op
                     Console.Clear();
+                    Logo.Print();
                     var Deals = newOrder.GetProducts("Combi");
                     int i = 0;
                     foreach (var Deal in Deals)
