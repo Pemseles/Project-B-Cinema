@@ -140,6 +140,7 @@ namespace ConsoleApp1
                         Console.Clear();
                         Logo.Print();
                         Console.WriteLine(searchListString);
+                        Console.ReadLine();
                     }
                     else if (items[index] == "[   Datum kiezen   ]")
                     {
