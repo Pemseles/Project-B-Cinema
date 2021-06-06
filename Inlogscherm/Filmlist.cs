@@ -92,6 +92,11 @@ namespace ConsoleApp1
                     }
                     else { index--; }
                 }
+                else if (ckey.Key == ConsoleKey.Backspace)
+                {
+                    Console.Clear();
+                    MainMenu.Mainmenu();
+                }
                 else if (ckey.Key == ConsoleKey.Enter)
                 {
                     if ( items[index]== "[    Alle films    ]")
@@ -114,13 +119,13 @@ namespace ConsoleApp1
                         Console.Clear();
                         done = true;
                         Console.Write("Geef hier op wat u zoekt :");
+
                         string searchClassInput = Console.ReadLine();
                         SearchClass search1 = new SearchClass(searchClassInput);
                         List<Film> searchList = search1.FilmSearch(FilmList);
                         string searchListString = search1.FilmLengthCheck(searchList);
                         Console.Clear();
                         Console.WriteLine(searchListString);
-                        Console.ReadLine();
                     }
                     else if (items[index] == "[   Datum kiezen   ]")
                     {
@@ -171,6 +176,11 @@ namespace ConsoleApp1
                                     index2 = items2.Count - 1;
                                 }
                                 else { index2--; }
+                            }
+                            else if (ckey2.Key == ConsoleKey.Backspace)
+                            {
+                                Console.Clear();
+                                Filmmenu();
                             }
                             else if (ckey2.Key == ConsoleKey.Enter)
                             {
@@ -256,6 +266,11 @@ namespace ConsoleApp1
                         index = items.Length - 1;
                     }
                     else { index--; }
+                }
+                else if (ckey.Key == ConsoleKey.Backspace)
+                {
+                    Console.Clear();
+                    Filmmenu();
                 }
                 else if (ckey.Key == ConsoleKey.Enter)
                 {
@@ -385,6 +400,11 @@ namespace ConsoleApp1
                             index = todayarray.Length - 1;
                         }
                         else { index--; }
+                    }
+                    else if (ckey.Key == ConsoleKey.Backspace)
+                    {
+                        Console.Clear();
+                        Filmmenu();
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
