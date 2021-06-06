@@ -413,8 +413,6 @@ namespace ConsoleApp1
                 {
                     ResetIndex();
                     Console.Clear();
-                    // Reset User ID
-                    Program.UID = -1;
                     mainmenubool = false;
                 }
                 Console.Clear();

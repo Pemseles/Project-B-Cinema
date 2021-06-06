@@ -24,7 +24,6 @@ namespace ConsoleApp1
         public List<string> Interests { get; set; }
     }
 
-
     public class Accounts
     {
         public string Age;
@@ -429,7 +428,6 @@ namespace ConsoleApp1
                 Price = price,
                 Active = true
             });
-
             // Update json data string
             jsonData = JsonConvert.SerializeObject(filmInstances, Formatting.Indented);
             // Serialize JSON to a string and then write string to a file
@@ -447,7 +445,6 @@ namespace ConsoleApp1
                     break;
                 index++;
             }
-
             // Remove entry and update file
             FilmInstances.RemoveAt(index);
             InsertJson(FilmInstances, filmInstancesPath);
@@ -469,17 +466,13 @@ namespace ConsoleApp1
                     index++;
                 }
             }
-
             index = 0;
+            // Then Locate Parent
             foreach (Film film in FilmList)
             {
-                if (id == film.ID)
-                {
-                    break;
-                }
+                if (id == film.ID){ break; }
                 index++;
             }
-
             // Remove entry and update files
             FilmList.RemoveAt(index);
             InsertJson(FilmList, filmPath);
@@ -509,7 +502,6 @@ namespace ConsoleApp1
         public void SuspendAccount(int UID)
         { /// Suspends the Account where ID matches with given int Parameter
             List<Object> AccountList = retrieveJson(accountPath);
-
             foreach(Account Account in AccountList)
             {
                 if(UID == Account.UID)
@@ -521,7 +513,7 @@ namespace ConsoleApp1
         }
 
         public List<Account> GetAllSuspendedAccounts()
-        { /// Lists all Suspended Acdcounts
+        { /// Lists all Suspended Adcounts
             List<Account> AccountList = Accounts.RetrieveAccountData();
             List<Account> SuspendedAccounts = new List<Account>();
             foreach(Account account in AccountList)
@@ -731,7 +723,7 @@ namespace ConsoleApp1
         }
     }
 
-    public sealed class PasswordHash // *Sealed Means that his Class cannot be inherited by other Classes
+    public sealed class PasswordHash // *Sealed Means that this Class cannot be inherited by other Classes
     {
         // Delcaring Sizes
         // Private Fields Encapsulation

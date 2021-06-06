@@ -165,7 +165,7 @@ namespace ConsoleApp1
 
             while (infoPanelBool)
             {
-                List<string> infoScreenLayout = new List<string>() { 
+                List<string> infoScreenLayout = new List<string>() {
                 "[     Locatie     ]" ,
                 "[       VIP       ]" ,
                 "[     Contact     ]" ,
@@ -175,7 +175,7 @@ namespace ConsoleApp1
                 "[       FAQ       ]" ,
                 "[      Terug      ]"
                 };
-                
+
                 SelectedPanel = InfoScreenSelect(infoScreenLayout, SelectedPanel);
 
                 if (SelectedPanel == "[      Terug      ]")
@@ -184,7 +184,15 @@ namespace ConsoleApp1
                 }
             }
             Console.Clear();
-            MainMenu.Mainmenu();
+     
+            // Go back to Main Menu - Depending on ID and Clearance Level
+            if (Program.Level >= 3)  {
+                AdminMenu.Mainmenu();
+            } else if(Program.UID == -1) {
+                Guest.Mainmenu();
+            } else {
+                MainMenu.Mainmenu();
+            }
         }
 
         private void DrawInfo(string currentPanel)
