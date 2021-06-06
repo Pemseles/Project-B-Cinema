@@ -19,7 +19,7 @@ namespace ConsoleApp1
         public static int Level;
         private static void Main(string[] args)
         {
-            Debug.Run2();
+            //Debug.Run2();
             Console.SetWindowSize(120, 30);
             Console.CursorVisible = false;
             List<string> LoginScreen = new List<string>() {

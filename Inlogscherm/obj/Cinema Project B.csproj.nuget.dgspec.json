@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {}
+    "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {}
   },
   "projects": {
-    "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {
+    "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+        "projectUniqueName": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
         "projectName": "Cinema Project B",
-        "projectPath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
-        "packagesPath": "C:\\Users\\Sergio Kik\\.nuget\\packages\\",
-        "outputPath": "G:\\Documenten\\Projects\\HSR\\Project\\bioscoop\\project\\Project-B-Cinema\\Inlogscherm\\obj\\",
+        "projectPath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\Cinema Project B.csproj",
+        "packagesPath": "C:\\Users\\gadem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gadem\\Documents\\GitHub\\Project-B-Cinema\\Inlogscherm\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Sergio Kik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gadem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

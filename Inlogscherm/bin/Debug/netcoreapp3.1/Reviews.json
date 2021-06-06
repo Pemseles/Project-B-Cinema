@@ -26,19 +26,7 @@
   {
     "ID": 2,
     "UID": 2,
-    "TagID": 0,
-    "RevID": 3,
-    "Author": "John Doe",
-    "Title": "The Titanic",
-    "Description": "Mooie film, wel lang",
-    "Stars": 3,
-    "UploadDate": "2021-06-04-17:25",
-    "Active": true
-  },
-  {
-    "ID": 3,
-    "UID": 2,
-    "TagID": 0,
+    "TagID": 1,
     "RevID": 3,
     "Author": "John Doe",
     "Title": "The Titanic",

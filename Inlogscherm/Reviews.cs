@@ -322,11 +322,10 @@ namespace ConsoleApp1
             {
                 rev_arr[1] = review_menu();
             }
-            else if (kind == 1)
+            else if(kind == 1)
             {
                 Console.Write("waar gaat uw review over");
-                rev_arr[1] = Console.ReadLine();
-                rev_arr[1] = topic(rev_arr[1], max_len(), kind);
+                rev_arr[1] = Topic(kind);
             }
             else if (kind == 2)
             {
@@ -336,38 +335,50 @@ namespace ConsoleApp1
             rev_arr[2] = review_text(Console.ReadLine());
             rev_arr[3] = stars();
             reviews.Add(rev_arr);
+
+            ReviewCreation.AddReview(Program.UID, kind,index3 ,rev_arr[0], rev_arr[1],rev_arr[2],rev_arr[3].Length, $"{DateTime.Today}");
         }
         public static void review_list()
         {
+            var rev_list = ReviewCreation.GetAllReviews();
+            rev_list.Reverse();
             int place = 0;
             int revs = 0;
-            int total_revs = reviews.Count;
-            if (total_revs > 0)
-            {
+
+            //ReviewCreation.FilterReviews();
+            int total_revs = rev_list.Count;
+            if(total_revs > 0) {
                 while (true)
                 {
-                    Console.Write("                                  Gebruikersnaam: " + reviews[revs][0] + "                "); Console.WriteLine("waardering: " + reviews[revs][3]);
+                    Console.Write("                                  Gebruikersnaam: " + rev_list[revs].Author + "                "); Console.WriteLine("waardering: " + rev_list[revs].Stars);
                     Console.WriteLine();
-                    Console.WriteLine("                                       [ " + reviews[revs][1] + " ]");
+                    Console.WriteLine("                                       [ " + rev_list[revs].Title + " ]");
                     Console.WriteLine();
-                    Console.Write("                                  "); Console.Write(reviews[revs][2]);
+                    Console.Write("                                  "); Console.Write(rev_list[revs].Description);
                     Console.WriteLine();
 
                     if (place == 0)
                     {
+                        Console.WriteLine();
                         Console.Write("                                                 ");
                         Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
                         Console.Write("< Vorige >");
                         Console.ResetColor();
+                        Console.Write(" ");
                         Console.Write($"< {revs + 1} / {total_revs} >");
+                        Console.Write(" ");
                         Console.Write("< Volgende >");
+
                     }
                     if (place == 1)
                     {
+                        Console.WriteLine();
                         Console.Write("                                                 ");
                         Console.Write("< Vorige >");
+                        Console.Write(" ");
                         Console.Write($"< {revs + 1} / {total_revs} >");
                         Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write(" ");
                         Console.Write("< Volgende >");
                         Console.ResetColor();
 
@@ -395,7 +406,7 @@ namespace ConsoleApp1
                         }
                         if (place == 1)
                         {
-                            if (revs < total_revs - 1)
+                            if (revs < total_revs-1)
                                 revs += 1;
                         }
                     }
@@ -436,9 +447,9 @@ namespace ConsoleApp1
             }
             if (ckey.Key == ConsoleKey.DownArrow)
             {
-                if (index == 3)
+                if (index == 4)
                 {
-                    index = 3;
+                    index = 4;
                 }
                 else { index++; }
             }
@@ -483,16 +494,24 @@ namespace ConsoleApp1
             }
             return len;
         }
-        public static string topic(string topic, int len, int kind)
+        public static string Topic(int kind)
         {
-            if (topic.Length > len)
+            string topic = "";
+            int len = max_len();
+            topic = Console.ReadLine();
+            if(topic.Length > len)
             {
-                Console.WriteLine("je onderwerp is te lang");
-                Console.ReadLine();
-                make_review(kind);
-
+                while (true)
+                {
+                    Console.WriteLine("Je onderwerp is te lang");
+                    topic = Console.ReadLine();
+                    if (topic.Length < len)
+                    {
+                        break;
+                    }
+                }
             }
-            if ((len - topic.Length) % 2 == 0)
+            else if ((len - topic.Length) % 2 == 0)
             {
                 string front = "";
                 string back = "";
@@ -505,7 +524,7 @@ namespace ConsoleApp1
                 topic = front + topic + back;
 
             }
-            else
+            else 
             {
                 string front = "";
                 string back = " ";
@@ -527,55 +546,152 @@ namespace ConsoleApp1
             while (reviewscreenbool == true)
             {
                 List<string> reviewscreen = new List<string>() {
-                "[   Film reviews   ]" ,
-                "[ Bioscoop reviews ]" ,
-                "[   Zaal reviews   ]" ,
-                "[     Reviews      ]" ,
-                "[     terugkeren   ]"
+                "[   Recensie maken   ]",
+                "[ Recensie weergeven ]",
+                "[     Terugkeren     ]",
                  };
                 string selectedMenuItem = rev_menu(reviewscreen);
-                if (selectedMenuItem == "[   Film reviews   ]")
+                if (selectedMenuItem == reviewscreen[0])
                 {
                     Console.Clear();
                     make_review(0);
                     back();
                 }
-                else if (selectedMenuItem == "[ Bioscoop reviews ]")
+                else if (selectedMenuItem == reviewscreen[1])
                 {
+                    ResetIndex();
                     Console.Clear();
-                    make_review(1);
+                    // Contents
+
+                    // ./ Contents
                     back();
                 }
-                else if (selectedMenuItem == "[   Zaal reviews   ]")
-                {
-                    Console.Clear();
-                    make_review(2);
-                    back();
-                }
-                else if (selectedMenuItem == "[     Reviews      ]")
-                {
-                    Console.Clear();
-                    review_list();
-                    back();
-                }
-                else if (selectedMenuItem == "[    terugkeren    ]")
+                else if (selectedMenuItem == reviewscreen[reviewscreen.Count - 1]) // Back
                 {
                     Console.Clear();
                     reviewscreenbool = false;
-                    if (Program.Level >= 3)
-                    {
-                        AdminMenu.Mainmenu();
-                    }
-                    else if (Program.UID == -1)
-                    {
-                        Guest.Mainmenu();
-                    }
-                    else
-                    {
-                        MainMenu.Mainmenu();
-                    }
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
                 }
             }
         }
     }
+
+    public class AddReviewMenu : MenuController  
+    {  // Inherits from Abstract Class
+        public static void ReadReviewMenu()
+        {
+            // Start the Menu
+            bool mainmenubool = true;
+            while (mainmenubool == true)
+            {
+                Logo.Print();
+                List<string> Mainscreen = new List<string>() {
+            "[       Film recensies      ]" , // 0 
+            "[      bioscoop recensies   ]" , // 1
+            "[       Zaal recensies      ]" , // 2
+            "[         Terugkeren        ]"   // 3
+                };
+                // kijkt bij welke index de user zich bevind
+                string selectedMenuItem = MainScreen(Mainscreen);
+
+                if (selectedMenuItem == Mainscreen[0]) // Films Toevoegen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[1]) // Films Inplannen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[2]) // Zalen Toevoegen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                } // Mainscreen.Count -1 to always get the last element of the list, as Logout is always last. 
+                else if (selectedMenuItem == Mainscreen[Mainscreen.Count - 1]) // Logout
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Reset User ID
+                    Program.UID = -1;
+                    mainmenubool = false;
+                }
+                Console.Clear();
+            }
+        }
+
+        public static void WriteReviewMenu()
+        {
+            // Start the Menu
+            bool mainmenubool = true;
+            while (mainmenubool == true)
+            {
+                Logo.Print();
+                List<string> Mainscreen = new List<string>() {
+            "[       Film recensie      ]" , // 0 
+            "[      bioscoop recensie   ]" , // 1
+            "[       Zaal recensie      ]" , // 2
+            "[         Terugkeren       ]"   // 3
+                };
+                // kijkt bij welke index de user zich bevind
+                string selectedMenuItem = MainScreen(Mainscreen);
+
+                if (selectedMenuItem == Mainscreen[0]) // Films Toevoegen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[1]) // Films Inplannen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                }
+                else if (selectedMenuItem == Mainscreen[2]) // Zalen Toevoegen
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Contents
+
+                    // ./ Contents
+                    back();
+                } // Mainscreen.Count -1 to always get the last element of the list, as Logout is always last. 
+                else if (selectedMenuItem == Mainscreen[Mainscreen.Count - 1]) // Logout
+                {
+                    ResetIndex();
+                    Console.Clear();
+                    // Reset User ID
+                    Program.UID = -1;
+                    mainmenubool = false;
+                }
+                Console.Clear();
+            }
+        }
+    }
 }
+
