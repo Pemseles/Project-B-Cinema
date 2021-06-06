@@ -546,18 +546,18 @@ namespace ConsoleApp1
             while (reviewscreenbool == true)
             {
                 List<string> reviewscreen = new List<string>() {
-                "[   Recensie maken   ]",
-                "[ Recensie weergeven ]",
-                "[     Terugkeren     ]",
+                "[    Recensie maken    ]",
+                "[  Recensies bekijken  ]",
+                "[      Terugkeren      ]",
                  };
-                string selectedMenuItem = rev_menu(reviewscreen);
+                string selectedMenuItem = rev_menu(reviewscreen); // Read write a Review
                 if (selectedMenuItem == reviewscreen[0])
                 {
                     Console.Clear();
                     make_review(0);
                     back();
                 }
-                else if (selectedMenuItem == reviewscreen[1])
+                else if (selectedMenuItem == reviewscreen[1]) // Read Reviews
                 {
                     ResetIndex();
                     Console.Clear();
@@ -592,14 +592,14 @@ namespace ConsoleApp1
                 Logo.Print();
                 List<string> Mainscreen = new List<string>() {
             "[       Film recensies      ]" , // 0 
-            "[      bioscoop recensies   ]" , // 1
+            "[      bioscoop recensies   ]" , // 1 
             "[       Zaal recensies      ]" , // 2
             "[         Terugkeren        ]"   // 3
                 };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
 
-                if (selectedMenuItem == Mainscreen[0]) // Films Toevoegen
+                if (selectedMenuItem == Mainscreen[0]) // Read Film Reviews
                 {
                     ResetIndex();
                     Console.Clear();
@@ -608,7 +608,7 @@ namespace ConsoleApp1
                     // ./ Contents
                     back();
                 }
-                else if (selectedMenuItem == Mainscreen[1]) // Films Inplannen
+                else if (selectedMenuItem == Mainscreen[1]) // Read Reviews about CineScope
                 {
                     ResetIndex();
                     Console.Clear();
@@ -617,7 +617,7 @@ namespace ConsoleApp1
                     // ./ Contents
                     back();
                 }
-                else if (selectedMenuItem == Mainscreen[2]) // Zalen Toevoegen
+                else if (selectedMenuItem == Mainscreen[2]) // Read Reviews about Theatherhalls
                 {
                     ResetIndex();
                     Console.Clear();
@@ -647,14 +647,14 @@ namespace ConsoleApp1
                 Logo.Print();
                 List<string> Mainscreen = new List<string>() {
             "[       Film recensie      ]" , // 0 
-            "[      bioscoop recensie   ]" , // 1
+            "[     bioscoop recensie    ]" , // 1
             "[       Zaal recensie      ]" , // 2
             "[         Terugkeren       ]"   // 3
                 };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
 
-                if (selectedMenuItem == Mainscreen[0]) // Films Toevoegen
+                if (selectedMenuItem == Mainscreen[0]) // Film Review
                 {
                     ResetIndex();
                     Console.Clear();
@@ -663,16 +663,16 @@ namespace ConsoleApp1
                     // ./ Contents
                     back();
                 }
-                else if (selectedMenuItem == Mainscreen[1]) // Films Inplannen
+                else if (selectedMenuItem == Mainscreen[1]) // CineScope Review
                 {
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    
                     // ./ Contents
                     back();
                 }
-                else if (selectedMenuItem == Mainscreen[2]) // Zalen Toevoegen
+                else if (selectedMenuItem == Mainscreen[2]) // Theather Review
                 {
                     ResetIndex();
                     Console.Clear();
