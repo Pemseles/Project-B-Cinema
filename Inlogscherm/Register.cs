@@ -443,7 +443,7 @@ namespace ConsoleApp1
                 "[    Huisnummer    ]" + housenum,
                 "[     Postcode     ]" + postalcode,
                 "[    Woonplaats    ]" + city,
-                "[      Email       ]" + email,
+                "[      E-mail      ]" + email,
                 "[    Wachtwoord    ]" + pass,
                 "[    Interessen    ]" + intreststring,
                 "[ Account aanmaken ]" + error,
@@ -479,7 +479,7 @@ namespace ConsoleApp1
                 {
                     city = Address(4);
                 }
-                if (selectedMenuItem == "[      Email       ]" + email)
+                if (selectedMenuItem == "[      E-mail      ]" + email)
                 {
                     email = Email();
                 }

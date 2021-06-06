@@ -51,7 +51,7 @@ namespace ConsoleApp1
                 }
                 if(userLogin.Login(email, pass) == -1)
                 {
-                    Console.WriteLine("Email or Wachtwoord is onjuist\nProbeer het nog een keer");
+                    Console.WriteLine("E-mail of Wachtwoord is onjuist\nProbeer het nog een keer");
                     loginFunc();
 
                 }
