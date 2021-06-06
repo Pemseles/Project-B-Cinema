@@ -101,7 +101,6 @@ namespace ConsoleApp1
                         if (ConsoleApp1.Restrictions.SW(3, Day, 0) == false)
                         {
                             index = 0;
-
                         }
                         else
                         {
@@ -415,10 +414,7 @@ namespace ConsoleApp1
                         address = Address(4);
                         break;
                 }
-                
-
-                return address;
-                
+                return address;      
             }
             bool registerbool = true;
             string Firstname = "";

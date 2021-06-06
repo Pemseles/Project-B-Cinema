@@ -19,7 +19,7 @@ namespace ConsoleApp1
         public static int Level;
         private static void Main(string[] args)
         {
-            //Debug.Run();
+            Debug.Run2();
             Console.SetWindowSize(120, 30);
             Console.CursorVisible = false;
             List<string> LoginScreen = new List<string>() {
@@ -147,6 +147,13 @@ namespace ConsoleApp1
             ConsoleApp1.Accounts newAccount = new Accounts();
             string[] interests = new string[] { "Actie", "Romantiek", "Drama" };
             newAccount.AddAccount($"user{newAccount.GenerateID()}@mail.com", $"#{newAccount.GenerateID()}Geheim", "Pietje", "Precies", "2000-01-01", "New York WallStreet 12 2247 dc", interests);
+        }
+        public static void Run2()
+        {
+            // :::::::: PUT YOUR DEBUG CODE IN HERE :::::::: \\
+
+            ConsoleApp1.ReviewCreation review = new ReviewCreation();
+            ReviewCreation.AddReview(2, 1, 3, "John Doe", "The Titanic", "Mooie film, wel lang", 3, "2021-06-04-17:25");
         }
     }
 }

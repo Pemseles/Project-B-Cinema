@@ -531,6 +531,7 @@ namespace ConsoleApp1
     {
         public static string ReviewPath = Path.GetFullPath(@"Reviews.json");
 
+        // Add Method
         public static void AddReview(int uid, int tagID, int revID, string author, string title, string description, int stars, string uploadDate)
         {
             /// Requires All and only Correct Parameters to Insert to the JSON File.
@@ -560,37 +561,7 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(ReviewPath, jsonData);
         }
 
-        // Param Overload 1 - On both TagID and ID of given Subject
-        public static List<Review> FilterReviews(int tagID, int revID)
-        { /// Filters all reviews with given parameters
-            var jsonData = System.IO.File.ReadAllText(ReviewPath);
-            var AllReviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
-            // Create new list with only filtered Reviews
-            List<Review> FilteredReviews = new List<Review>();
-            foreach(Review review in AllReviews){
-                if(tagID == review.TagID && revID == review.RevID) {
-                    FilteredReviews.Add(review);
-                }
-            }
-            return FilteredReviews;
-        }
-        // // Param Overload 2 - Only Filter on tagID
-        public static List<Review> FilterReviews(int tagID)
-        { /// Filters all reviews with given parameters
-            var jsonData = System.IO.File.ReadAllText(ReviewPath);
-            var AllReviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
-            // Create new list with only filtered Reviews
-            List<Review> FilteredReviews = new List<Review>();
-            foreach (Review review in AllReviews)
-            {
-                if (tagID == review.TagID)
-                {
-                    FilteredReviews.Add(review);
-                }
-            }
-            return FilteredReviews;
-        }
-
+        // Delete Method
         public static void DeleteReview(int id)
         {
             /// Deletes a Review, with given ID.
@@ -609,6 +580,59 @@ namespace ConsoleApp1
             jsonData = JsonConvert.SerializeObject(reviews, Formatting.Indented);
             // Serialize JSON to a string and then write string to a file
             System.IO.File.WriteAllText(ReviewPath, jsonData);
+        }
+
+        /* Filtering
+         * The following methods are for filtering:
+         * - Filter on reviews for certain movies.
+         * - Filter on users, or just on tags.
+         */
+
+        // Param Overload 1 - On both TagID and ID of given Subject
+        public static List<Review> FilterReviews(int tagID, int revID)
+        { /// Filters all reviews with given parameters
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var AllReviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+            // Create new list with only filtered Reviews
+            List<Review> FilteredReviews = new List<Review>();
+            foreach(Review review in AllReviews){
+                if(tagID == review.TagID && revID == review.RevID) {
+                    FilteredReviews.Add(review);
+                }
+            }
+            return FilteredReviews;
+        }
+        // Param Overload 2 - Only Filter on tagID
+        public static List<Review> FilterReviews(int tagID)
+        { /// Filters all reviews with given parameters
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var AllReviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+            // Create new list with only filtered Reviews
+            List<Review> FilteredReviews = new List<Review>();
+            foreach (Review review in AllReviews)
+            {
+                if (tagID == review.TagID)
+                {
+                    FilteredReviews.Add(review);
+                }
+            }
+            return FilteredReviews;
+        }
+        // Filter all Reviews of a user.
+        public static List<Review> GetUserReviews(int uid)
+        { /// Filters all reviews with given parameters
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var AllReviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+            // Create new list with only filtered Reviews
+            List<Review> FilteredReviews = new List<Review>();
+            foreach (Review review in AllReviews)
+            {
+                if (uid == review.UID)
+                {
+                    FilteredReviews.Add(review);
+                }
+            }
+            return FilteredReviews;
         }
     }
 

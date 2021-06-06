@@ -11,7 +11,7 @@ using static ConsoleApp1.Infopanels;
 // restricties opzetten voor gebruik van alleen backspace en enter anders redrawd ie m 
 namespace ConsoleApp1
 {   
-    public abstract class MenuController  // Abstract Class
+    public abstract class MenuController // Abstract Class
     {
         private static int index = 0;
         public static string MainScreen(List<string> items)
