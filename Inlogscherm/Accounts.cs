@@ -679,7 +679,7 @@ namespace ConsoleApp1
             }
             int[] SeatCoords = new int[index];
             index = 0;
-            // Loop through Orders again and locate all seach coords.
+            // Loop through Orders again and locate all seat coords.
             foreach (Order order in orderList)
             {
                 if (movieID == order.MovieID)
@@ -758,13 +758,7 @@ namespace ConsoleApp1
             var jsonData = System.IO.File.ReadAllText(productsPath);
             var productList = JsonConvert.DeserializeObject<List<Product>>(jsonData);
 
-            List<Product> myProducts = new List<Product>();
-
-            foreach (Product product in productList)
-            {
-                myProducts.Add(product);
-            }
-            return myProducts;
+            return productList;
         }
     }
 

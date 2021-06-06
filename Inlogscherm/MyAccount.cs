@@ -230,11 +230,9 @@ namespace ConsoleApp1
                         if (CurrentUser.CheckValidUprade(UID))
                         {
                             Console.Clear();
-                            // : INSERT PAYWALL HERE //////////////
+                           // Open Paywall
                             VIPUpgradeMenu();
-                            //<end if>
                             next();
-                            // :: ///////////////////////////////////////////
                         } else {
                             Console.WriteLine("Je bent al VIP.\n");
                             next();

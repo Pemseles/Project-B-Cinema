@@ -67,6 +67,7 @@ namespace ConsoleApp1
                         ConsoleKeyInfo ckey = Console.ReadKey();
                         if (ckey.Key == ConsoleKey.Enter)
                         {
+                            Console.ResetColor();
                             ResetIndex();
                             Console.Clear();
                         }
