@@ -5,6 +5,7 @@ namespace ConsoleApp1
 {
     class MyAccount : MenuController
     {
+        public int index;
         public int UID;
         public Accounts CurrentUser;
         public List<string> AccountMenu;
@@ -146,6 +147,16 @@ namespace ConsoleApp1
             }
         }
 
+        public void next()
+        {
+            ConsoleKeyInfo ckey = Console.ReadKey();
+            if (ckey.Key == ConsoleKey.Enter)
+            {
+                Console.Clear();
+                OpenMenu();
+            }
+        }
+
         public void OpenMenu()
         {
             bool menuIsRunning = true;
@@ -220,16 +231,13 @@ namespace ConsoleApp1
                         {
                             Console.Clear();
                             // : INSERT PAYWALL HERE //////////////
-                            Console.WriteLine("<< Paywall >>");
-                            //<If Checkout = True>
-                            CurrentUser.UpgradeToVip(UID);
+                            VIPUpgradeMenu();
                             //<end if>
-                            back();
+                            next();
                             // :: ///////////////////////////////////////////
                         } else {
                             Console.WriteLine("Je bent al VIP.\n");
-                            Console.Clear();
-                            back();
+                            next();
                         }
                     }
                 }
@@ -244,7 +252,77 @@ namespace ConsoleApp1
                 }
 
             }
+        }
+        public void VIPUpgradeMenu()
+        {
+            bool checkoutBool = true;
+            string SelectedOption = "";
+            while (checkoutBool)
+            {
+                List<string> checkoutScreenLayout = new List<string>()
+                {
+                    "[      iDeal      ]" ,
+                    "[   Credit card   ]" ,
+                    "[      Terug      ]"
+                };
+                SelectedOption = VIPScreenSelection(checkoutScreenLayout);
 
+                if (SelectedOption == "[      Terug      ]")
+                {
+                    checkoutBool = false;
+                }
+                else if (SelectedOption == "[      iDeal      ]" || SelectedOption == "[   Credit card   ]" || SelectedOption == "[     Contant     ]")
+                {
+                    CurrentUser.UpgradeToVip(UID);
+                    Console.WriteLine("                                      [   Bedankt voor uw aankopen.   ]");
+                    Console.WriteLine("                                   [   Druk op Enter om verder te gaan   ]");
+                    checkoutBool = false;
+                }
+            }
+        }
+        private string VIPScreenSelection(List<string> items)
+        {
+            Console.Clear();
+            Console.WriteLine("                                      [   Upgrade nu naar VIP Voor 14,99!   ]");
+            Console.WriteLine("");
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (i == index)
+                {
+                    Console.Write("                                                ");
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    Console.WriteLine(items[i]);
+                }
+                else
+                {
+                    Console.Write("                                                ");
+                    Console.WriteLine(items[i]);
+                }
+                Console.ResetColor();
+            }
+            ConsoleKeyInfo ckey = Console.ReadKey();
+            if (ckey.Key == ConsoleKey.DownArrow)
+            {
+                if (index < 2)
+                {
+                    index++;
+                }
+            }
+            else if (ckey.Key == ConsoleKey.UpArrow)
+            {
+                if (index > 0)
+                {
+                    index--;
+                }
+            }
+            else if (ckey.Key == ConsoleKey.Enter)
+            {
+                Console.Clear();
+                return items[index];
+            }
+            return "";
         }
     }
 }
