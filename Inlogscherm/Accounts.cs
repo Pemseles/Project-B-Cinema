@@ -166,6 +166,7 @@ namespace ConsoleApp1
             return level;
         }
 
+        // Tuple - Method
         public static Tuple<string,string> GetFullname(int uid)
         {
             /// Takes UID as Parameter, Returns a Tuple with First and Lastname
@@ -340,7 +341,7 @@ namespace ConsoleApp1
         public bool Active { get; set; }
     }
 
-    public abstract class  Utility
+    public abstract class  Utility // Abstract Class
     {
         // Database Paths:
         public string orderPath = Path.GetFullPath(@"Orders.json");
@@ -367,7 +368,7 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(jsonPath, jsonData);
         }
 
-        public int GenerateID(string JsonPath)
+        public static int GenerateID(string JsonPath)
         {
             /// Checks Accounts.json and creates a new ID based on previous ID's from the Json.
             int newID = 0;
@@ -385,7 +386,7 @@ namespace ConsoleApp1
         }
     }
 
-    public class Admin : Utility
+    public class Admin : Utility // Inherits from Abstract Class
     {
         private int AdminID;
         public Admin(int UID) { this.AdminID = UID; }
@@ -534,7 +535,92 @@ namespace ConsoleApp1
         }
     }
 
-    public class Orders : Utility
+    public class ReviewCreation : Utility  // Inherits from Abstract Class
+    {
+        public static string ReviewPath = Path.GetFullPath(@"Reviews.json");
+
+        public static void AddReview(int uid, int tagID, int revID, string author, string title, string description, int stars, string uploadDate)
+        {
+            /// Requires All and only Correct Parameters to Insert to the JSON File.
+            // Read existing json data
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            // De-serialize to object or create new list
+            var reviews = JsonConvert.DeserializeObject<List<Review>>(jsonData)
+                                  ?? new List<Review>();
+            // Adds a new Review
+            reviews.Add(new Review()
+            {
+                ID = GenerateID(ReviewPath),
+                UID = uid, // Default 1
+                TagID = tagID,
+                RevID = revID,
+                Author = author,
+                Title = title,
+                Description = description,
+                Stars = stars,
+                UploadDate = uploadDate,
+                Active = true,
+            });
+
+            // Update json data string
+            jsonData = JsonConvert.SerializeObject(reviews, Formatting.Indented);
+            // serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(ReviewPath, jsonData);
+        }
+
+        // Param Overload 1 - On both TagID and ID of given Subject
+        public static List<Review> FilterReviews(int tagID, int revID)
+        { /// Filters all reviews with given parameters
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var AllReviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+            // Create new list with only filtered Reviews
+            List<Review> FilteredReviews = new List<Review>();
+            foreach(Review review in AllReviews){
+                if(tagID == review.TagID && revID == review.RevID) {
+                    FilteredReviews.Add(review);
+                }
+            }
+            return FilteredReviews;
+        }
+        // // Param Overload 2 - Only Filter on tagID
+        public static List<Review> FilterReviews(int tagID)
+        { /// Filters all reviews with given parameters
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var AllReviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+            // Create new list with only filtered Reviews
+            List<Review> FilteredReviews = new List<Review>();
+            foreach (Review review in AllReviews)
+            {
+                if (tagID == review.TagID)
+                {
+                    FilteredReviews.Add(review);
+                }
+            }
+            return FilteredReviews;
+        }
+
+        public static void DeleteReview(int id)
+        {
+            /// Deletes a Review, with given ID.
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var reviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+            List<Review> FilteredReviews = new List<Review>();
+            foreach (Review review in reviews)
+            {
+                if (id == review.ID)
+                {
+                    FilteredReviews.Remove(review);
+                }
+            }
+
+            // Update json data string
+            jsonData = JsonConvert.SerializeObject(reviews, Formatting.Indented);
+            // Serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(ReviewPath, jsonData);
+        }
+    }
+
+    public class Orders : Utility  // Inherits from Abstract Class
     {
         // Get Current Seats - Methods
         public int[] GetSeatCoords(int movieID)
@@ -555,9 +641,9 @@ namespace ConsoleApp1
                     }
                 }
             }
-
             int[] SeatCoords = new int[index];
             index = 0;
+            // Loop through Orders again and locate all seach coords.
             foreach (Order order in orderList)
             {
                 if (movieID == order.MovieID)
@@ -610,7 +696,7 @@ namespace ConsoleApp1
             return VipSeatCoords;
         }
 
-        // overload 1, takes string type as param, (for use in Productmenu.cs)
+        // Overload 1, takes string type as param, (for use in Productmenu.cs)
         public List<Product> GetProducts(string type)
         {
             /// Takes a string Type as Paramater and creates a list of all products of given Type:
@@ -628,7 +714,7 @@ namespace ConsoleApp1
             }
             return myProducts;
         }
-        // overload 2, has no params, (for use in Checkout.cs)
+        // Overload 2, has no params, (for use in Checkout.cs)
         public static List<Product> GetProducts()
         {
             /// Takes no Paramaters and creates a list of all products registered in json (used in Checkout.cs):
@@ -648,10 +734,12 @@ namespace ConsoleApp1
     public sealed class PasswordHash // *Sealed Means that his Class cannot be inherited by other Classes
     {
         // Delcaring Sizes
+        // Private Fields Encapsulation
         const int SaltSize = 16, HashSize = 20, HashIter = 10000; // Const Makes the variable immutable and fixed. 
         readonly byte[] _salt, _hash;
-        /* Salt is used to add an extra string of hashed characters to a hashed password
-             * to make it less sensitve to both Dictionary & BruteForce Attacks */
+
+        /* Salt is used to add an extra string of hashed characters to a hashed --
+         * password to make it less sensitve to both Dictionary & BruteForce Attacks */
         public PasswordHash(string password)
         {
             // Converts the Password to bytes using various build-in crypto classes
@@ -677,7 +765,7 @@ namespace ConsoleApp1
             Array.Copy(_salt, 0, hashBytes, 0, SaltSize);
             Array.Copy(_hash, 0, hashBytes, SaltSize, HashSize);
             return hashBytes;
-        }
+        }   
         public byte[] Salt { get { return (byte[])_salt.Clone(); } }
         public byte[] Hash { get { return (byte[])_hash.Clone(); } }
         public bool Verify(string password)

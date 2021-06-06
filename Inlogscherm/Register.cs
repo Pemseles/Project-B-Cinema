@@ -122,7 +122,6 @@ namespace ConsoleApp1
                         if (ConsoleApp1.Restrictions.SW(3, Month, 0) == false)
                         {
                             index = 1;
-
                         }
                         else
                         {

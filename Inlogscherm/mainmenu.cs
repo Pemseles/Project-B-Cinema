@@ -11,7 +11,7 @@ using static ConsoleApp1.Infopanels;
 // restricties opzetten voor gebruik van alleen backspace en enter anders redrawd ie m 
 namespace ConsoleApp1
 {   
-    public abstract class MenuController
+    public abstract class MenuController  // Abstract Class
     {
         private static int index = 0;
         public static string MainScreen(List<string> items)
@@ -72,13 +72,12 @@ namespace ConsoleApp1
             }
         }
 
-
         public static void ResetIndex()
         {
             index = 0;
         }
     }
-    public class MainMenu : MenuController
+    public class MainMenu : MenuController  // Inherits from Abstract Class
     {
         public static Checkout Cart = new Checkout();
         public static string MoviesJson = File.ReadAllText(Path.GetFullPath(@"movies.json"));
@@ -180,8 +179,7 @@ namespace ConsoleApp1
                     Console.Clear();
                     Registers.Moviehall();
                     back();
-                    Console.SetWindowSize(120, 30);
-                    
+                    Console.SetWindowSize(120, 30);      
                 }
                 else if (selectedMenuItem == "[   Mijn Account   ]")
                 {
@@ -206,7 +204,7 @@ namespace ConsoleApp1
         }
     } // ./ Main Menu
 
-    public class AdminMenu : MenuController {
+    public class AdminMenu : MenuController {  // Inherits from Abstract Class
         // Admin Menu
         public static void Mainmenu() {
             // Start the Menu
@@ -304,7 +302,7 @@ namespace ConsoleApp1
             }
         }   
     }
-    public class Guest : MainMenu
+    public class Guest : MainMenu  // Inherits from Abstract Class
     {
         // Admin Menu
         new public static void Mainmenu()

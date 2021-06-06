@@ -12,11 +12,18 @@ namespace ConsoleApp1
 {
     public class Review
     {
-        public string Movie { get; set; }
-        public string Username { get; set; }
+        public int ID { get; set;  }
+        public int UID { get; set; }
+        public int TagID { get; set; }
+        public int RevID { get; set; }
+        public string Author { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public int Stars { get; set; }
+        public string UploadDate { get; set; }
+        public bool Active { get; set; }
     }
+
     /*
     public class Movie_rev
     {
@@ -54,6 +61,11 @@ namespace ConsoleApp1
         static int index = 0;
         static string star = "";
         public static List<string[]> reviews = new List<string[]>();
+        private ConsoleApp1.Accounts activeAccount = new Accounts();
+        public List<string> AccountMenu;
+
+        //public int index;
+    
         public static string stars()
         {
             while (true)
@@ -185,7 +197,8 @@ namespace ConsoleApp1
                     }
                     else
                     {
-                        name = "test";
+                        Tuple<string, string> Fullname = Accounts.GetFullname(Program.UID);
+                        name = $"{Fullname.Item1} {Fullname.Item2}";
                     }
                     break;
                 }
@@ -297,83 +310,102 @@ namespace ConsoleApp1
             review_menu();
             return "";
         }
-        public static void review()
+        public static void make_review(int kind)
         {
 
             string[] rev_arr = new string[4];
-            string username = "";
-            string movie = ""; string rev = ""; string star = "";
             int revs = 0;
             int place = 0;
             int total_revs = reviews.Count;
             rev_arr[0] = privacy();
-            rev_arr[1] = review_menu();
+            if (kind == 0)
+            {
+                rev_arr[1] = review_menu();
+            }
+            else if (kind == 1)
+            {
+                Console.Write("waar gaat uw review over");
+                rev_arr[1] = Console.ReadLine();
+                rev_arr[1] = topic(rev_arr[1], max_len(), kind);
+            }
+            else if (kind == 2)
+            {
+                Console.Write("waar gaat uw review over");
+                rev_arr[1] = Console.ReadLine();
+            }
             rev_arr[2] = review_text(Console.ReadLine());
             rev_arr[3] = stars();
             reviews.Add(rev_arr);
-
-            while (true)
+        }
+        public static void review_list()
+        {
+            int place = 0;
+            int revs = 0;
+            int total_revs = reviews.Count;
+            if (total_revs > 0)
             {
-                Console.Write("                                  Gebruikersnaam: " + reviews[revs][0] + "                "); Console.WriteLine("waardering: " + reviews[revs][3]);
-                Console.WriteLine();
-                Console.WriteLine("                                       [ " + reviews[revs][1] + " ]");
-                Console.WriteLine();
-                Console.Write("                                  "); Console.Write(reviews[revs][2]);
-                Console.WriteLine();
+                while (true)
+                {
+                    Console.Write("                                  Gebruikersnaam: " + reviews[revs][0] + "                "); Console.WriteLine("waardering: " + reviews[revs][3]);
+                    Console.WriteLine();
+                    Console.WriteLine("                                       [ " + reviews[revs][1] + " ]");
+                    Console.WriteLine();
+                    Console.Write("                                  "); Console.Write(reviews[revs][2]);
+                    Console.WriteLine();
 
-                if (place == 0)
-                {
-                    Console.Write("                                                 ");
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                    Console.Write("< Vorige >");
-                    Console.ResetColor();
-                    Console.Write($"< {revs + 1} / {total_revs + 1} >");
-                    Console.Write("< Volgende >");
-                }
-                if (place == 1)
-                {
-                    Console.Write("                                                 ");
-                    Console.Write("< Vorige >");
-                    Console.Write($"< {revs + 1} / {total_revs + 1} >");
-                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
-                    Console.Write("< Volgende >");
-                    Console.ResetColor();
-
-                }
-                ConsoleKeyInfo ckey = Console.ReadKey();
-                if (ckey.Key != ConsoleKey.LeftArrow || ckey.Key != ConsoleKey.RightArrow || ckey.Key != ConsoleKey.Enter || ckey.Key != ConsoleKey.Backspace)
-                {
-
-                }
-                if (ckey.Key == ConsoleKey.RightArrow)
-                {
-                    place = 1;
-                }
-                else if (ckey.Key == ConsoleKey.LeftArrow)
-                {
-                    place = 0;
-                }
-                else if (ckey.Key == ConsoleKey.Enter)
-                {
-                    Console.Clear();
                     if (place == 0)
                     {
-                        if (revs > 0)
-                            revs -= 1;
+                        Console.Write("                                                 ");
+                        Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write("< Vorige >");
+                        Console.ResetColor();
+                        Console.Write($"< {revs + 1} / {total_revs} >");
+                        Console.Write("< Volgende >");
                     }
                     if (place == 1)
                     {
-                        if (revs < total_revs)
-                            revs += 1;
-                    }
-                }
-                else if (ckey.Key == ConsoleKey.Backspace)
-                {
-                    Console.Clear();
-                    break;
-                }
-                Console.Clear();
+                        Console.Write("                                                 ");
+                        Console.Write("< Vorige >");
+                        Console.Write($"< {revs + 1} / {total_revs} >");
+                        Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                        Console.Write("< Volgende >");
+                        Console.ResetColor();
 
+                    }
+                    ConsoleKeyInfo ckey = Console.ReadKey();
+                    if (ckey.Key != ConsoleKey.LeftArrow || ckey.Key != ConsoleKey.RightArrow || ckey.Key != ConsoleKey.Enter || ckey.Key != ConsoleKey.Backspace)
+                    {
+
+                    }
+                    if (ckey.Key == ConsoleKey.RightArrow)
+                    {
+                        place = 1;
+                    }
+                    else if (ckey.Key == ConsoleKey.LeftArrow)
+                    {
+                        place = 0;
+                    }
+                    else if (ckey.Key == ConsoleKey.Enter)
+                    {
+                        Console.Clear();
+                        if (place == 0)
+                        {
+                            if (revs > 0)
+                                revs -= 1;
+                        }
+                        if (place == 1)
+                        {
+                            if (revs < total_revs - 1)
+                                revs += 1;
+                        }
+                    }
+                    else if (ckey.Key == ConsoleKey.Backspace)
+                    {
+                        Console.Clear();
+                        break;
+                    }
+                    Console.Clear();
+                }
             }
         }
         public static string rev_menu(List<string> items)
@@ -429,6 +461,64 @@ namespace ConsoleApp1
             Console.Clear();
             return "";
         }
+        public static int max_len()
+        {
+
+            List<string> movies = new List<string>();
+            string filmJSONPath = Path.GetFullPath(@"FilmList.json");
+            string jsonStringFilmList = File.ReadAllText(filmJSONPath);
+            ConsoleApp1.FilmArr filmList = new ConsoleApp1.FilmArr();
+            filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
+            for (int i = 0; i < filmList.FilmArray.Length; i++)
+            {
+                movies.Add(filmList.FilmArray[i].Name);
+            }
+            int len = 0;
+            for (int i = 0; i < movies.Count; i++)
+            {
+                if (movies[i].Length > len)
+                {
+                    len = movies[i].Length;
+                }
+            }
+            return len;
+        }
+        public static string topic(string topic, int len, int kind)
+        {
+            if (topic.Length > len)
+            {
+                Console.WriteLine("je onderwerp is te lang");
+                Console.ReadLine();
+                make_review(kind);
+
+            }
+            if ((len - topic.Length) % 2 == 0)
+            {
+                string front = "";
+                string back = "";
+                int leng = len - topic.Length;
+                for (int j = 0; j < leng / 2; j++)
+                {
+                    front += " ";
+                    back += " ";
+                }
+                topic = front + topic + back;
+
+            }
+            else
+            {
+                string front = "";
+                string back = " ";
+                int leng = len - topic.Length;
+                for (int j = 0; j < leng / 2; j++)
+                {
+                    front += " ";
+                    back += " ";
+                }
+                topic = front + topic + back;
+            }
+            return topic;
+        }
 
         public static void Revmenu()
         {
@@ -440,28 +530,35 @@ namespace ConsoleApp1
                 "[   Film reviews   ]" ,
                 "[ Bioscoop reviews ]" ,
                 "[   Zaal reviews   ]" ,
+                "[     Reviews      ]" ,
                 "[     terugkeren   ]"
                  };
                 string selectedMenuItem = rev_menu(reviewscreen);
                 if (selectedMenuItem == "[   Film reviews   ]")
                 {
                     Console.Clear();
-                    review();
+                    make_review(0);
                     back();
                 }
                 else if (selectedMenuItem == "[ Bioscoop reviews ]")
                 {
                     Console.Clear();
-                    review();
+                    make_review(1);
                     back();
                 }
                 else if (selectedMenuItem == "[   Zaal reviews   ]")
                 {
                     Console.Clear();
-                    review();
+                    make_review(2);
                     back();
                 }
-                else if (selectedMenuItem == "[     terugkeren   ]")
+                else if (selectedMenuItem == "[     Reviews      ]")
+                {
+                    Console.Clear();
+                    review_list();
+                    back();
+                }
+                else if (selectedMenuItem == "[    terugkeren    ]")
                 {
                     Console.Clear();
                     reviewscreenbool = false;
@@ -471,4 +568,3 @@ namespace ConsoleApp1
         }
     }
 }
-/* dit is een test review om te laten zien hoe de indent is, ook is deze tekst bedoeld om te checken of die bij elke . en bij elke , een enter doet. dit is het einde van de test zin.*/
