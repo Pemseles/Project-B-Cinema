@@ -658,6 +658,24 @@ namespace ConsoleApp1
 
     public class Orders : Utility  // Inherits from Abstract Class
     {
+        public int GetSeats(int hallID)
+        {
+            /// Get Amount of seats of given Hall ID
+            var jsonData = System.IO.File.ReadAllText(theatherhallPath);
+            var theaterhalls = JsonConvert.DeserializeObject<List<Theaterhall>>(jsonData);
+
+            int amountOfSeats = 0;
+            foreach(Theaterhall theaterhall in theaterhalls)
+            {
+                if(hallID == theaterhall.ID)
+                {
+                    amountOfSeats = theaterhall.NumberOfSeats;
+                    break;
+                }
+            }
+            return amountOfSeats;
+        }
+
         // Get Current Seats - Methods
         public int[] GetSeatCoords(int movieID)
         {
