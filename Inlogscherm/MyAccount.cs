@@ -136,6 +136,16 @@ namespace ConsoleApp1
             return password;
         }
 
+        new public void back()
+        {
+            ConsoleKeyInfo ckey = Console.ReadKey();
+            if (ckey.Key == ConsoleKey.Backspace)
+            {
+                Console.Clear();
+                OpenMenu();
+            }
+        }
+
         public void OpenMenu()
         {
             bool menuIsRunning = true;
@@ -197,35 +207,31 @@ namespace ConsoleApp1
                 {
                     Console.Clear();
                     Console.Write("Upgrade nu naar VIP!\nDruk op ENTER om verder te gaan.\nBACKSPACE om dit te annuleren.");
-                    ConsoleKeyInfo ckey = Console.ReadKey();
-                    if (ckey.Key == ConsoleKey.Backspace)
+                    ConsoleKeyInfo PressedKey = Console.ReadKey();
+                    if (PressedKey.Key == ConsoleKey.Backspace)
                     {
                         Console.Clear();
                         OpenMenu();
                     }
-                    else if (ckey.Key == ConsoleKey.Enter)
+                    else if (PressedKey.Key == ConsoleKey.Enter)
                     {
+                        Console.Clear();
                         if (CurrentUser.CheckValidUprade(UID))
                         {
                             Console.Clear();
-                            // :: INSERT PAYWALL HERE //////////////
-
+                            // : INSERT PAYWALL HERE //////////////
                             Console.WriteLine("<< Paywall >>");
-
+                            //<If Checkout = True>
+                            CurrentUser.UpgradeToVip(UID);
+                            //<end if>
+                            back();
                             // :: ///////////////////////////////////////////
                         } else {
                             Console.WriteLine("Je bent al VIP.\n");
+                            Console.Clear();
+                            back();
                         }
-
-                        CurrentUser.UpgradeToVip(UID);
                     }
-                    // User can now press Enter to go back to the mennu
-                    if (ckey.Key == ConsoleKey.Enter)
-                    {
-                        Console.Clear();
-                        OpenMenu();
-                    }
-
                 }
                 else if (selectedMenuItem == AccountMenu[AccountMenu.Count - 1]) // Back
                 {
