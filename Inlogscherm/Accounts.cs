@@ -169,7 +169,7 @@ namespace ConsoleApp1
         public static Tuple<string,string> GetFullname(int uid)
         {
             /// Takes UID as Parameter, Returns a Tuple with First and Lastname
-            if (uid < 0) return Tuple.Create("Null", "Null");
+            if (uid < 0) return Tuple.Create("Anoniem", "");
             var accountsList = RetrieveAccountData();
             string firstname = "";
             string lastname  = "";
@@ -578,6 +578,14 @@ namespace ConsoleApp1
             jsonData = JsonConvert.SerializeObject(reviews, Formatting.Indented);
             // serialize JSON to a string and then write string to a file
             System.IO.File.WriteAllText(ReviewPath, jsonData);
+        }
+
+        public static List<Review> GetAllReviews()
+        {
+            /// Deletes a Review, with given ID.
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var reviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+            return reviews;
         }
 
         // Delete Method
