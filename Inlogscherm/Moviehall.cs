@@ -166,7 +166,18 @@ namespace ConsoleApp1
                         Console.ReadLine();
                         MainMenu.Cart.UpdateSeats(x);
                         Console.SetWindowSize(120, 30);
-                        ConsoleApp1.MainMenu.Mainmenu();
+                        if (Program.Level >= 3)
+                        {
+                            AdminMenu.Mainmenu();
+                        }
+                        else if (Program.UID == -1)
+                        {
+                            Guest.Mainmenu();
+                        }
+                        else
+                        {
+                            MainMenu.Mainmenu();
+                        }
                         break;
                     case "Nee":
                         Console.SetWindowSize(120, 30);

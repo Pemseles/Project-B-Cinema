@@ -95,7 +95,18 @@ namespace ConsoleApp1
                 else if (ckey.Key == ConsoleKey.Backspace)
                 {
                     Console.Clear();
-                    MainMenu.Mainmenu();
+                    if (Program.Level >= 3)
+                    {
+                        AdminMenu.Mainmenu();
+                    }
+                    else if (Program.UID == -1)
+                    {
+                        Guest.Mainmenu();
+                    }
+                    else
+                    {
+                        MainMenu.Mainmenu();
+                    }
                 }
                 else if (ckey.Key == ConsoleKey.Enter)
                 {

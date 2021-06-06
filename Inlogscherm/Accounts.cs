@@ -530,6 +530,25 @@ namespace ConsoleApp1
     public class ReviewCreation : Utility  // Inherits from Abstract Class
     {
         public static string ReviewPath = Path.GetFullPath(@"Reviews.json");
+       
+        public static int GenerateID()
+        {
+            /// Checks opens the json file given as parameter and creates a new ID based on previous ID's from the Json.
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var reviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+
+            int newID = 0;
+            try
+            {
+                foreach (Review element in reviews) { newID = element.ID; };
+                return newID + 1;
+            }
+            catch (Exception) // Execute if there are no entries in the JSON
+            {
+                return 0;
+            }
+        }
+
 
         // Add Method
         public static void AddReview(int uid, int tagID, int revID, string author, string title, string description, int stars, string uploadDate)
@@ -543,7 +562,7 @@ namespace ConsoleApp1
             // Adds a new Review
             reviews.Add(new Review()
             {
-                ID = GenerateID(ReviewPath),
+                ID = GenerateID(),
                 UID = uid, // Default 1
                 TagID = tagID,
                 RevID = revID,
@@ -618,6 +637,7 @@ namespace ConsoleApp1
             }
             return FilteredReviews;
         }
+
         // Filter all Reviews of a user.
         public static List<Review> GetUserReviews(int uid)
         { /// Filters all reviews with given parameters
@@ -709,6 +729,7 @@ namespace ConsoleApp1
                     }
                 }
             }
+     
             return VipSeatCoords;
         }
 

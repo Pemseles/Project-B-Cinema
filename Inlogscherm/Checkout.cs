@@ -78,7 +78,18 @@ namespace ConsoleApp1
                 }
             }
             Console.Clear();
-            MainMenu.Mainmenu();
+            if (Program.Level >= 3)
+            {
+                AdminMenu.Mainmenu();
+            }
+            else if (Program.UID == -1)
+            {
+                Guest.Mainmenu();
+            }
+            else
+            {
+                MainMenu.Mainmenu();
+            }
         }
 
         private string PaymentScreenSelect(List<string> items, string SelectedItem)
