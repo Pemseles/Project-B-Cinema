@@ -15,7 +15,7 @@ namespace ConsoleApp1
         private static int index = 0;
         private static string RegisterScreen(List<string> items)
         {
-            
+            Logo.Print();
 
             for (int i = 0; i < items.Count; i++)
             {

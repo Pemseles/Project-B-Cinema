@@ -188,19 +188,7 @@ namespace ConsoleApp1
             // homescreen()
             static int MainScreen(List<string> items, int people, List<int> keys, List<int> res, List<int> seats, int ticket)
             {
-                Console.Write("                   ");Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
-                Console.ResetColor(); Console.Write("                  "); Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝");
-                Console.ResetColor(); Console.Write("                  "); Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗");
-                Console.ResetColor();Console.Write("                  "); Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝");
-                Console.ResetColor();Console.Write("                  "); Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗");
-                Console.ResetColor();Console.Write("                   ");Console.BackgroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝");
-                Console.ResetColor();Console.WriteLine();Console.WriteLine();Console.WriteLine();
+                Logo.Print();
                 for (int i = 0, j=0; i < items.Count; i++)
                 {
                     if(i % 10 == 0)

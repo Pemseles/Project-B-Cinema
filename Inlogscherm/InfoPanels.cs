@@ -107,6 +107,7 @@ namespace ConsoleApp1
         private string InfoScreenSelect(List<string> items, string SelectedPanel)
         {
             // wordt gecalled in Infoscreen() om ingedrukte toets te bepalen
+            Logo.Print();
             for (int i = 0; i < items.Count; i++)
             {
                 if (i == index)

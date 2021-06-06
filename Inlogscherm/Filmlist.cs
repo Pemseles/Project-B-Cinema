@@ -57,6 +57,7 @@ namespace ConsoleApp1
                 "[    Zoek films    ]" ,
                 "[   Datum kiezen   ]" ,
                 };
+                Logo.Print();
                 for (int i = 0; i < items.Count; i++)
                 {
                     if (i == index)
@@ -128,6 +129,7 @@ namespace ConsoleApp1
                     else if (items[index] == "[    Zoek films    ]")
                     {
                         Console.Clear();
+                        Logo.Print();
                         done = true;
                         Console.Write("Geef hier op wat u zoekt :");
 
@@ -136,6 +138,7 @@ namespace ConsoleApp1
                         List<Film> searchList = search1.FilmSearch(FilmList);
                         string searchListString = search1.FilmLengthCheck(searchList);
                         Console.Clear();
+                        Logo.Print();
                         Console.WriteLine(searchListString);
                     }
                     else if (items[index] == "[   Datum kiezen   ]")
@@ -153,7 +156,8 @@ namespace ConsoleApp1
                             "[     Overmorgen   ]" ,
                             "[  Datum invoeren  ]" ,
                         };
-                        for (int j = 0; j < items2.Count; j++)
+                            Logo.Print();
+                            for (int j = 0; j < items2.Count; j++)
                         {
                             if (j == index2)
                             {
@@ -243,6 +247,7 @@ namespace ConsoleApp1
             int index = 0;
             while (!done)
             {
+                Logo.Print();
                 for (int i = 0; i < items.Length; i++)
                 {
                     if (i == index)
