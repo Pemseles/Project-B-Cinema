@@ -304,13 +304,14 @@ namespace ConsoleApp1
     }
     public class Guest : MainMenu  // Inherits from Abstract Class
     {
-        // Admin Menu
+        // Guest Menu
         new public static void Mainmenu()
         {
             string filmJSONPath = Path.GetFullPath(@"FilmList.json");
             string jsonStringFilmList = File.ReadAllText(filmJSONPath);
             filmList = new ConsoleApp1.FilmArr();
             filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
+            Checkout Cart = new Checkout();
             Filmlist films = new Filmlist();
             Filminstance selectedinstance = new Filminstance();
 
