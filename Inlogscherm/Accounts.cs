@@ -567,6 +567,13 @@ namespace ConsoleApp1
             InsertJson(FilmInstances, filmInstancesPath);
         }
 
+        /// <summary>
+        /// Adds a new theatherhall
+        /// </summary>
+        /// <param name="hallName">Name of the hall eg. Zaal 1</param>
+        /// <param name="numberOfSeats">The number of seats this Hall has, even number adviced</param>
+        /// <param name="vipSeatCoords">The Coordinates of the VIP Seats, a list of ints</param>
+        /// <param name="active">a bool wether this hall is active (recognised by the system. Default=true</param>
         public void AddTheatherhall(string hallName, int numberOfSeats, List<int> vipSeatCoords, bool active=true)
         {
             var jsonData = System.IO.File.ReadAllText(filmPath);
@@ -587,6 +594,11 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(theatherhallPath, jsonData);
         }
 
+        /// <summary>
+        /// Suspends a users account
+        /// Eg. When the user disobeys the TOS
+        /// </summary>
+        /// <param name="UID">The Users ID (int)</param>
         public void SuspendAccount(int UID)
         { /// Suspends the Account where ID matches with given int Parameter
             List<Object> AccountList = retrieveJson(accountPath);
@@ -600,6 +612,10 @@ namespace ConsoleApp1
             }
         }
 
+        /// <summary>
+        /// Lists all the Suspended Accounts.
+        /// </summary>
+        /// <returns>A List with all the Suspended Accounts</returns>
         public List<Account> GetAllSuspendedAccounts()
         { /// Lists all Suspended Adcounts
             List<Account> AccountList = Accounts.RetrieveAccountData();
@@ -618,7 +634,10 @@ namespace ConsoleApp1
     public class ReviewCreation : Utility  // Inherits from Abstract Class
     {
         public static string ReviewPath = Path.GetFullPath(@"Reviews.json");
-       
+       /// <summary>
+       /// Generates a mew ID based on the Review Entries in Reviews.json
+       /// </summary>
+       /// <returns>A newly generated ID (int)</returns>
         public static int GenerateID()
         {
             /// Checks opens the json file given as parameter and creates a new ID based on previous ID's from the Json.
@@ -638,7 +657,17 @@ namespace ConsoleApp1
         }
 
 
-        // Add Method
+        /// <summary>
+        /// Adds a new Review
+        /// </summary>
+        /// <param name="uid">The User's ID (int)</param>
+        /// <param name="tagID">Tag ID(int) - 0: Movie Review, 1: Theatherhall Review, 2: CineScoop Review</param>
+        /// <param name="revID">The ID(int) for the Movie or Theatherhall depending on tagID</param>
+        /// <param name="author">"The (display) name of the user</param>
+        /// <param name="title">(string) Title of the review</param>
+        /// <param name="description">(string) Review Description</param>
+        /// <param name="stars">The amount of stars given as an integer</param>
+        /// <param name="uploadDate">A DateTime (string)</param>
         public static void AddReview(int uid, int tagID, int revID, string author, string title, string description, int stars, string uploadDate)
         {
             /// Requires All and only Correct Parameters to Insert to the JSON File.
@@ -668,6 +697,10 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(ReviewPath, jsonData);
         }
 
+        /// <summary>
+        /// Lists all Reviews Deserialized from Reviews.json
+        /// </summary>
+        /// <returns>List with all Review objects</returns>
         public static List<Review> GetAllReviews()
         {
             /// Deletes a Review, with given ID.
@@ -676,7 +709,11 @@ namespace ConsoleApp1
             return reviews;
         }
 
-        // Delete Method
+        /// <summary>
+        /// Delete Method
+        /// Takes a review id as parameter and deletes the review with the matching id.
+        /// </summary>
+        /// <param name="id">The ID of the Review that needs to be deleted</param>
         public static void DeleteReview(int id)
         {
             /// Deletes a Review, with given ID.
@@ -703,7 +740,12 @@ namespace ConsoleApp1
          * - Filter on users, or just on tags.
          */
 
-        // Param Overload 1 - On both TagID and ID of given Subject
+        /// <summary>
+        /// Param Overload 1 - On both TagID and ID of given Subject
+        /// </summary>
+        /// <param name="tagID">Tag ID(int) - 0: Movie Review, 1: Theatherhall Review</param>
+        /// <param name="revID">The ID(int) for the Movie or Theatherhall depending on tagID</param>
+        /// <returns>A Filtered version of the Review List</returns>
         public static List<Review> FilterReviews(int tagID, int revID)
         { /// Filters all reviews with given parameters
             var jsonData = System.IO.File.ReadAllText(ReviewPath);
@@ -717,7 +759,11 @@ namespace ConsoleApp1
             }
             return FilteredReviews;
         }
-        // Param Overload 2 - Only Filter on tagID
+        /// <summary>
+        /// Param Overload 2 - Only Filter on tagID
+        /// </summary>
+        /// <param name="tagID">Tag ID(int) - 0: Movie Review, 1: Theatherhall Review, 2: CineScoop Review</param>
+        /// <returns>A Filtered version of the Review List</returns>
         public static List<Review> FilterReviews(int tagID)
         { /// Filters all reviews with given parameters
             var jsonData = System.IO.File.ReadAllText(ReviewPath);
@@ -734,7 +780,11 @@ namespace ConsoleApp1
             return FilteredReviews;
         }
 
-        // Filter all Reviews of a user.
+        /// <summary>
+        /// Filter all Reviews of a user.
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
         public static List<Review> GetUserReviews(int uid)
         { /// Filters all reviews with given parameters
             var jsonData = System.IO.File.ReadAllText(ReviewPath);
@@ -754,6 +804,11 @@ namespace ConsoleApp1
 
     public class Orders : Utility  // Inherits from Abstract Class
     {
+        /// <summary>
+        /// Retrieves the amount of seats from a given Hallid
+        /// </summary>
+        /// <param name="hallID">The ID(int) of the Theaterhall</param>
+        /// <returns>The Amount of seats as integer</returns>
         public int GetSeats(int hallID)
         {
             /// Get Amount of seats of given Hall ID
@@ -772,7 +827,12 @@ namespace ConsoleApp1
             return amountOfSeats;
         }
 
-        // Get Current Seats - Methods
+        /// <summary>
+        /// Get Current Seats - Methods
+        /// Searches through all the orders that are connected to the selected movie id and collects them in an int array.
+        /// </summary>
+        /// <param name="movieID">The ID of the movie instance</param>
+        /// <returns>An Integer Array with all the coordinates of all the reserved seats.</returns>
         public int[] GetSeatCoords(int movieID)
         {
             /// Returns an Int Array of taken seatnumbers
@@ -808,7 +868,12 @@ namespace ConsoleApp1
             return SeatCoords;
         }
 
-        // Get VIP Seats
+        /// <summary>
+        /// Get VIP Seats
+        /// Takes the HallID as Parameter and gets all VIP seats
+        /// </summary>
+        /// <param name="TheatherHallID">The ID(int) of the Theatherhall</param>
+        /// <returns></returns>
         public int[] GetVipSeatCoords(int TheatherHallID)
         {
             /// Returns an Int Array of taken seatnumbers
@@ -827,7 +892,6 @@ namespace ConsoleApp1
                     }
                 }
             }
-
             // Create an int array
             int[] VipSeatCoords = new int[index];
             index = 0;
@@ -848,6 +912,12 @@ namespace ConsoleApp1
         }
 
         // Overload 1, takes string type as param, (for use in Productmenu.cs)
+        /// <summary>
+        /// Overload 1, takes string type as param, (for use in Productmenu.cs)
+        /// Lists all product that match given type
+        /// </summary>
+        /// <param name="type">Product type (string)</param>
+        /// <returns>A list with the Filtered Products</returns>
         public List<Product> GetProducts(string type)
         {
             /// Takes a string Type as Paramater and creates a list of all products of given Type:
@@ -866,6 +936,11 @@ namespace ConsoleApp1
             return myProducts;
         }
         // Overload 2, has no params, (for use in Checkout.cs)
+        /// <summary>
+        /// Overload 2, has no params, (for use in Checkout.cs)
+        /// Lists all Products
+        /// </summary>
+        /// <returns>A list with all Products</returns>
         public static List<Product> GetProducts()
         {
             /// Takes no Paramaters and creates a list of all products registered in json (used in Checkout.cs):
