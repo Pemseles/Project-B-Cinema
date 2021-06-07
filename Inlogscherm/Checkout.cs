@@ -141,8 +141,17 @@ namespace ConsoleApp1
         private void DrawCart()
         {
             string tempCartStr = "";
+            string cartString = "";
             string secondtempCartStr = "";
-            string cartString = "                    [                     Dit is uw huidige winkelwagen                      ]\n";
+            if (this.CurrentUser.GetLevel(Program.UID) == 2)
+            {
+                cartString = "                    [      Dit is uw huidige winkelwagen : VIP Abbonoment (15% korting)      ]\n";
+            }
+            else
+            {
+                cartString = "                    [                     Dit is uw huidige winkelwagen                      ]\n";
+            }
+            
             cartString = cartString + "                    [                                                                        ]\n";
             if (this.FilmPrice == null)
             {
@@ -275,6 +284,8 @@ namespace ConsoleApp1
             string itemInCart = "";
             int cartLength = 72;
             decimal discountModifier = 1.0M;
+            decimal tempPrice = 0.0M;
+
             if (this.CurrentUser.GetLevel(Program.UID) == 2)
             {
                 discountModifier = 0.85M;
@@ -288,12 +299,14 @@ namespace ConsoleApp1
             }
             else if (itemType == "Film2")
             {
-                itemInCart = $"Tijden: {this.FilmStartTime}-{this.FilmEndTime} | Ticketprijs: {this.FilmPrice.Price * discountModifier}";
+                tempPrice = this.FilmPrice.Price * discountModifier;
+                itemInCart = $"Tijden: {this.FilmStartTime}-{this.FilmEndTime} | Ticketprijs: {Math.Round(tempPrice, 2)}";
             }
             else if (itemType == "Product")
             {
                 List<Product> allProducts = Orders.GetProducts();
-                itemInCart = $"Product: {allProducts[index].Name} | Prijs: {allProducts[index].Price * discountModifier}";
+                tempPrice = allProducts[index].Price * discountModifier;
+                itemInCart = $"Product: {allProducts[index].Name} | Prijs: {Math.Round(tempPrice, 2)}";
             }
             else if (itemType == "Seats")
             {
@@ -353,7 +366,7 @@ namespace ConsoleApp1
             {
                 newPrice = newPrice * 0.85M;
             }
-            this.FinalPrice = newPrice;
+            this.FinalPrice = Math.Round(newPrice, 2);
         }
     }
 }
