@@ -61,7 +61,6 @@ namespace ConsoleApp1
             try
             {
                 var accountsList = RetrieveAccountData();
-
                 foreach (Account element in accountsList) { uid = element.UID; };
                 return uid + 1;
             }
@@ -71,7 +70,12 @@ namespace ConsoleApp1
             }
         }
 
-        // Encrypt String - Method
+
+        /// <summary>
+        /// Encrypt String - Method
+        /// </summary>
+        /// <param name="pwd">the password</param>
+        /// <returns>hashed password</returns>
         public string Encrypt(string pwd)
         {
             /// Hashes new Password and Convert to String (for JSON);
@@ -83,7 +87,18 @@ namespace ConsoleApp1
             return hashString;
         }
 
-        // INSERT AcCount to JSON - Method
+
+        /// <summary>
+        /// INSERT AcCount to JSON - Method 
+        /// </summary>
+        /// <param name="email">the email</param>
+        /// <param name="pwd">the password</param>
+        /// <param name="firstname">the firstname of the client</param>
+        /// <param name="lastname">the last name of the client</param>
+        /// <param name="age">the age of the client</param>
+        /// <param name="address">the address of the client</param>
+        /// <param name="interests">the interest of the client</param>
+        /// <param name="level">the level of the clients account(default level 1)</param>
         public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests, int level=1)
         {
             /// Requires All and only Correct Parameters to Insert to the JSON File.

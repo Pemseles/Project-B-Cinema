@@ -5,12 +5,12 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using static System.Console;
 using System.IO;
-
+using ConsoleApp1;
 namespace ConsoleApp1
 {
     class Register
     {
-        ConsoleApp1.Restrictions check = new ConsoleApp1.Restrictions();
+        Restrictions check = new Restrictions();
         
         private static int index = 0;
         private static string RegisterScreen(List<string> items)
