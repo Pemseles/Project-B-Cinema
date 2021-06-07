@@ -10,6 +10,7 @@ namespace ConsoleApp1
     {
         private static int index = 0;
         public decimal FinalPrice = 0.0M;
+        private Accounts CurrentUser = new Accounts();
 
         public List<int> Products;
         public List<int> Seats;
@@ -273,6 +274,11 @@ namespace ConsoleApp1
         {
             string itemInCart = "";
             int cartLength = 72;
+            decimal discountModifier = 1.0M;
+            if (this.CurrentUser.GetLevel(Program.UID) == 2)
+            {
+                discountModifier = 0.85M;
+            }
 
             if (itemType == "Film")
             {
@@ -282,12 +288,12 @@ namespace ConsoleApp1
             }
             else if (itemType == "Film2")
             {
-                itemInCart = $"Tijden: {this.FilmStartTime}-{this.FilmEndTime} | Ticketprijs: {this.FilmPrice.Price}";
+                itemInCart = $"Tijden: {this.FilmStartTime}-{this.FilmEndTime} | Ticketprijs: {this.FilmPrice.Price * discountModifier}";
             }
             else if (itemType == "Product")
             {
                 List<Product> allProducts = Orders.GetProducts();
-                itemInCart = $"Product: {allProducts[index].Name} | Prijs: {allProducts[index].Price}";
+                itemInCart = $"Product: {allProducts[index].Name} | Prijs: {allProducts[index].Price * discountModifier}";
             }
             else if (itemType == "Seats")
             {
@@ -342,6 +348,10 @@ namespace ConsoleApp1
             for (int i = 0; i < this.Seats.Count; i++)
             {
                 newPrice = newPrice + 14.99M;
+            }
+            if (this.CurrentUser.GetLevel(Program.UID) == 2)
+            {
+                newPrice = newPrice * 0.85M;
             }
             this.FinalPrice = newPrice;
         }
