@@ -354,13 +354,9 @@ namespace ConsoleApp1
                     }
                 }
             }
-            if (this.FilmPrice != null)
-            {
-                newPrice = newPrice + this.FilmPrice.Price;
-            }
             for (int i = 0; i < this.Seats.Count; i++)
             {
-                newPrice = newPrice + 14.99M;
+                newPrice = newPrice + this.FilmPrice.Price;
             }
             if (this.CurrentUser.GetLevel(Program.UID) == 2)
             {
