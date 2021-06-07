@@ -1,6 +1,4 @@
 {
-
-
 	"FilmInstances":[{
 			"ID": 0,
 			"MovieID": 7,
@@ -32,5 +30,4 @@
 			"Active": true
 		}
 	]
-	
 }

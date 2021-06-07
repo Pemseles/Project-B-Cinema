@@ -6,14 +6,13 @@ namespace ConsoleApp1
     class MyAccount : MenuController
     {
         public int index;
-        public int UID;
-        public Accounts CurrentUser;
+        private int UID;
+        protected static Accounts CurrentUser = new Accounts();
         public List<string> AccountMenu;
         //public int index;
         public MyAccount(int uid)
         {
             this.UID = uid;
-            this.CurrentUser = new Accounts();
             this.AccountMenu = new List<string>() {
                 "[   Email Wijzigen    ]" ,
                 "[ Wachtwoord Wijzigen ]",
@@ -22,21 +21,36 @@ namespace ConsoleApp1
                  };
         }
 
-        static string Email()
+        /// <summary>
+        /// Email Update Method.
+        /// Allows the user to update Email
+        /// </summary>
+        /// <param name="dupe">In case of an Existing Email, the function will call itself with the dupe set to true, in order to alert to user (Default: False).</param>
+        /// <returns>Returns Email from User input</returns>
+        static string Email(bool dupe=false)
         {
             Console.Clear();
-            Console.Write("voer uw e-mailadres in: ");
+            Console.Write("Voer een nieuw Emailadres in.\nEmail: ");
             string email = Console.ReadLine();
-            for (int i = 0; i < email.Length; i++)
-            {
-                if (email.Contains('@') && email.Contains('.') && email.Length > 10)
+            if (dupe) { Console.WriteLine("Deze Email is al in gebruik.\n"); }
+            Console.WriteLine("Email: ");
+            // Check if the Email is Unique
+            if (!(CurrentUser.CheckUniqueEmail(email)))
+            { // If it's not Unique
+                Console.Clear();
+                dupe = true;
+            } else { // Else Proceed to Format Validation:
+                for (int i = 0; i < email.Length; i++)
                 {
-                    Console.Clear();
-                    return email;
+                    // Else Proceed
+                    if (email.Contains('@') && email.Contains('.') && email.Length > 10)
+                    {
+                        Console.Clear(); 
+                        return email;
+                    }
                 }
             }
-            Email();
-            return "";
+            return Email(dupe);
         }
 
         static string Password()
@@ -132,7 +146,6 @@ namespace ConsoleApp1
                         pw = true;
                     }
                 }
-
             }
             return password;
         }
@@ -180,6 +193,7 @@ namespace ConsoleApp1
                     {
                         string email = Email();
                         CurrentUser.UpdateEmail(this.UID, email);
+                        next();
                     }
                     if(ckey.Key == ConsoleKey.Enter)
                     {
