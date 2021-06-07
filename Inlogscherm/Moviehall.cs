@@ -85,13 +85,12 @@ namespace ConsoleApp1
 
     class Registers
     {
-        private static int people = 100;
         private static List<int> keys = new List<int>();
         private static List<int> res = new List<int>();
         private static int index = 0;
         private static List<int> seats = new List<int>();
         private static ConsoleApp1.Orders newOrder = new Orders();
-        public static void Moviehall()
+        public static void Moviehall(int people)
         {
             
             // functie in orders int array in for-lopen , functie Add toevoegen6
@@ -110,31 +109,53 @@ namespace ConsoleApp1
             //int people = Int16.Parse(ans);
             if (people > 0 && people <= 150)
             {
-                Console.SetWindowSize(100, 30);
+                Console.SetWindowSize(100, 40);
             }
             else if (people > 150 && people <= 250)
             {
-                Console.SetWindowSize(100, 40);
+                Console.SetWindowSize(110, 60);
             }
             else if (people > 250 && people <= 602)
             {
-                Console.SetWindowSize(100, 50);
+                Console.SetWindowSize(240, 70);
             }
             char[] Alphabet = Enumerable.Range('A', 'Z' - 'A' + 1).Select(i => (Char)i).ToArray();
             ;
             List<string> movie = new List<string>(people);
-
-            for (int i = 0, j = 1, y = 0; i < people; i++, j++)
+            if (people == 100 || people == 250)
             {
-                if (j % 10 == 0 && i != 0)
+                for (int i = 0, j = 1, y = 0; i < people; i++, j++)
                 {
-                    movie.Add($" [ {Alphabet[y]}{j} ] \n");
-                    j = 0;
-                    y++;
+                    if (j % 10 == 0 && i != 0)
+                    {
+                        movie.Add($" [ {Alphabet[y]}{j} ] \n");
+                        j = 0;
+                        y++;
+                    }
+                    else
+                    {
+                        movie.Add($" [ {Alphabet[y]}{j} ] ");
+                    }
                 }
-                else
+            }
+            else
+            {
+                for (int i = 0, j = 1, y = 0; i < people; i++, j++)
                 {
-                    movie.Add($" [ {Alphabet[y]}{j} ] ");
+                   if(i == 600 || i == 601)
+                    {
+                        movie.Add($" [ {Alphabet[y]}{j}  ] ");
+                    }
+                   else if (j % 24 == 0 && i != 0)
+                    {
+                        movie.Add($" [ {Alphabet[y]}{j} ] \n");
+                        j = 0;
+                        y++;
+                    }
+                    else
+                    {
+                        movie.Add($" [ {Alphabet[y]}{j} ] ");
+                    }
                 }
             }
 
@@ -188,106 +209,236 @@ namespace ConsoleApp1
             // homescreen()
             static int MainScreen(List<string> items, int people, List<int> keys, List<int> res, List<int> seats, int ticket)
             {
-                Logo.Print();
-                for (int i = 0, j=0; i < items.Count; i++)
+                if(people == 602)
                 {
-                    if(i % 10 == 0)
-                    {
-                        Console.Write("            ");
-                        j++;
-                    }
-                    if (res.Contains(i))
-                    {
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.Write(items[i]);
-                    }
-
-                    else if (keys.Contains(i))
-                    {
-                        Console.BackgroundColor = ConsoleColor.Green;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.Write(items[i]);
-                    }
-                    else if (i == index)
-                    {
-                        Console.BackgroundColor = ConsoleColor.Gray;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.Write(items[i]);
-                    }
-                    else if (newOrder.GetVipSeatCoords(1).Contains(i))
-                    {
-                        Console.BackgroundColor = ConsoleColor.Yellow;
-                        Console.ForegroundColor = ConsoleColor.Black;
-
-                        Console.Write(items[i]);
-                    }
-                    else
-                    {
-
-                        Console.Write(items[i]);
-                    }
-                    Console.ResetColor();
+                    Logo.Print_602();
                 }
-                Console.WriteLine();
-                Console.WriteLine("Legenda");
-                Console.WriteLine();
-                Console.Write("Gereserveerd: ");
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.Write("  "); Console.ResetColor(); Console.WriteLine();
-                Console.Write("Vip stoelen : ");
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.Write("  "); Console.ResetColor(); Console.WriteLine();
-                Console.Write("Geselecteerd: ");
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.ForegroundColor = ConsoleColor.Black;
-                Console.Write("  "); Console.ResetColor(); Console.WriteLine(); Console.WriteLine();
-                ConsoleKeyInfo ckey = Console.ReadKey();
-
-                if (ckey.Key == ConsoleKey.RightArrow)
+                else
                 {
-                    if (index == people)
+                    Logo.Print_100();
+                }
+                
+                if (people == 100 || people == 250)
+                {
+                    for (int i = 0, j = 0; i < items.Count; i++)
                     {
-                        index = 0;
+                        if (i % 10 == 0)
+                        {
+                            Console.Write("            ");
+                            j++;
+                        }
+                        if (res.Contains(i))
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write(items[i]);
+                        }
+
+                        else if (keys.Contains(i))
+                        {
+                            Console.BackgroundColor = ConsoleColor.Green;
+                            Console.ForegroundColor = ConsoleColor.Black;
+
+                            Console.Write(items[i]);
+                        }
+                        else if (i == index)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Gray;
+                            Console.ForegroundColor = ConsoleColor.Black;
+
+                            Console.Write(items[i]);
+                        }
+                        else if (newOrder.GetVipSeatCoords(1).Contains(i))
+                        {
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.ForegroundColor = ConsoleColor.Black;
+
+                            Console.Write(items[i]);
+                        }
+                        else
+                        {
+
+                            Console.Write(items[i]);
+                        }
+                        Console.ResetColor();
                     }
-                    else { index++; }
-                }
-                else if (ckey.Key == ConsoleKey.UpArrow)
-                {
-                    if (index < 0)
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("              _____________________________________________________________________________ ");
+                    Console.WriteLine("             |___________________________________Filmdoek__________________________________|");             
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Legenda");
+                    Console.WriteLine();
+                    Console.Write("Gereserveerd: ");
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("  "); Console.ResetColor(); Console.WriteLine();
+                    Console.Write("Vip stoelen : ");
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("  "); Console.ResetColor(); Console.WriteLine();
+                    Console.Write("Geselecteerd: ");
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("  "); Console.ResetColor(); Console.WriteLine(); Console.WriteLine();
+                    ConsoleKeyInfo ckey = Console.ReadKey();
+
+                    if (ckey.Key == ConsoleKey.RightArrow)
                     {
-                        index = people - 10;
+                        if (index == people)
+                        {
+                            index = 0;
+                        }
+                        else { index++; }
                     }
-                    else { index -= 10; }
-                }
-                else if (ckey.Key == ConsoleKey.DownArrow)
-                {
-
-                    index += 10; 
-                }
-                else if (ckey.Key == ConsoleKey.LeftArrow)
-                {
-
-                    index--;
-                }
-                else if (ckey.Key == ConsoleKey.Enter)
-                {
-                    if (!keys.Contains(index) && !res.Contains(index))
+                    else if (ckey.Key == ConsoleKey.UpArrow)
                     {
-                        keys.Add(index);
-                        return index;
+                        if (index < 0)
+                        {
+                            index = people - 10;
+                        }
+                        else { index -= 10; }
                     }
-                    else
+                    else if (ckey.Key == ConsoleKey.DownArrow)
                     {
 
-                        Console.WriteLine("Deze stoel is al gereserveerd, klik op enter om verder te gaan");
-                        Console.ReadKey(true);
+                        index += 10;
+                    }
+                    else if (ckey.Key == ConsoleKey.LeftArrow)
+                    {
+
+                        index--;
+                    }
+                    else if (ckey.Key == ConsoleKey.Enter)
+                    {
+                        if (!keys.Contains(index) && !res.Contains(index))
+                        {
+                            keys.Add(index);
+                            return index;
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("Deze stoel is al gereserveerd, klik op enter om verder te gaan");
+                            Console.ReadKey(true);
 
 
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0, j = 0; i < items.Count; i++)
+                    {
+                        if (i == 600)
+                        {
+                            Console.Write("                                                                                                   ");
+                        }
+                        if (i % 24 == 0)
+                        {
+                            Console.Write("            ");
+                            j++;
+                        }
+                        if (res.Contains(i))
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.Write(items[i]);
+                        }
+
+                        else if (keys.Contains(i))
+                        {
+                            Console.BackgroundColor = ConsoleColor.Green;
+                            Console.ForegroundColor = ConsoleColor.Black;
+
+                            Console.Write(items[i]);
+                        }
+                        else if (i == index)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Gray;
+                            Console.ForegroundColor = ConsoleColor.Black;
+
+                            Console.Write(items[i]);
+                        }
+                        else if (newOrder.GetVipSeatCoords(1).Contains(i))
+                        {
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.ForegroundColor = ConsoleColor.Black;
+
+                            Console.Write(items[i]);
+                        }
+                        else
+                        {
+
+                            Console.Write(items[i]);
+                        }
+                        Console.ResetColor();
+                    }
+                    
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("              ___________________________________________________________________________________________________________________________________________________________________________________________________________ ");
+                    Console.WriteLine("             |______________________________________________________________________________________________________Filmdoek_____________________________________________________________________________________________|");
+                    Console.WriteLine();
+                    Console.WriteLine();
+                    Console.WriteLine("Legenda");
+                    Console.WriteLine();
+                    Console.Write("Gereserveerd: ");
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("  "); Console.ResetColor(); Console.WriteLine();
+                    Console.Write("Vip stoelen : ");
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("  "); Console.ResetColor(); Console.WriteLine();
+                    Console.Write("Geselecteerd: ");
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.Write("  "); Console.ResetColor(); Console.WriteLine(); Console.WriteLine();
+                    ConsoleKeyInfo ckey = Console.ReadKey();
+
+                    if (ckey.Key == ConsoleKey.RightArrow)
+                    {
+                        if (index == people)
+                        {
+                            index = 0;
+                        }
+                        else { index++; }
+                    }
+                    else if (ckey.Key == ConsoleKey.UpArrow)
+                    {
+                        if (index < 0)
+                        {
+                            index = people - 24;
+                        }
+                        else { index -= 24; }
+                    }
+                    else if (ckey.Key == ConsoleKey.DownArrow)
+                    {
+
+                        index += 24;
+                    }
+                    else if (ckey.Key == ConsoleKey.LeftArrow)
+                    {
+
+                        index--;
+                    }
+                    else if (ckey.Key == ConsoleKey.Enter)
+                    {
+                        if (!keys.Contains(index) && !res.Contains(index))
+                        {
+                            keys.Add(index);
+                            return index;
+                        }
+                        else
+                        {
+
+                            Console.WriteLine("Deze stoel is al gereserveerd, klik op enter om verder te gaan");
+                            Console.ReadKey(true);
+
+
+                        }
                     }
                 }
                 Console.Clear();                

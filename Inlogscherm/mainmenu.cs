@@ -177,7 +177,7 @@ namespace ConsoleApp1
                 {
                     ResetIndex();
                     Console.Clear();
-                    Registers.Moviehall();
+                    Registers.Moviehall(250);
                     back();
                     Console.SetWindowSize(120, 30);      
                 }
@@ -336,7 +336,7 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     selectedinstance = films.Filmmenu();
-                    Cart.UpdateFilmPrice(selectedinstance);
+
 
                     string selectedmoviename = "";
                     string selectedmoviestarttime = "";
@@ -403,10 +403,11 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     // Contents
-                    Registers.Moviehall();
+                    Registers.Moviehall(250);
                     // ./ Contents
                     back();
                     Console.SetWindowSize(120, 30);
+                    Console.Clear();
                 } // Mainscreen.Count -1 to always get the last element of the list, as Logout (or Exit) is always last. 
                 else if (selectedMenuItem == Mainscreen[Mainscreen.Count - 1]) // Exit
                 {
