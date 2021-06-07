@@ -1,7 +1,7 @@
 {
 
 
-		{
+	"FilmInstances":[{
 			"ID": 0,
 			"MovieID": 7,
 			"TheaterhallID": 5,
@@ -31,5 +31,6 @@
 			"Price": 10.99,
 			"Active": true
 		}
+	]
 	
 }

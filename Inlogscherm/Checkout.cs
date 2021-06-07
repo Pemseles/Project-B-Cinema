@@ -60,9 +60,9 @@ namespace ConsoleApp1
             while (PaymentScreenBool)
             {
                 List<string> paymentScreenLayout = new List<string>()
-                {
-                    "[ Keuze resetten  ]" ,
+                {                   
                     "[    Afrekenen    ]" ,
+                    "[ Keuze resetten  ]" ,
                     "[      Terug      ]"
                 };
 
