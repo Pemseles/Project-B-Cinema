@@ -137,6 +137,62 @@ namespace ConsoleApp1
             */
             
         }
+        public static void Print_100()
+        {
+            Console.Write("                   ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
+            Console.ResetColor();
+            Console.Write("                  ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝");
+            Console.ResetColor();
+            Console.Write("                  ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗");
+            Console.ResetColor();
+            Console.Write("                  ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝");
+            Console.ResetColor();
+            Console.Write("                  ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗");
+            Console.ResetColor();
+            Console.Write("                   ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝");
+            Console.ResetColor();
+            Console.WriteLine("\n\n");
+        }
+        public static void Print_602()
+        {
+            Console.Write("                                                                                    ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██████╗██╗███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ██████╗ ███████╗");
+            Console.ResetColor();
+            Console.Write("                                                                                   ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██╔════╝██║████╗  ██║██╔════╝██╔════╝██╔════╝██╔═══██╗██╔══██╗██╔════╝");
+            Console.ResetColor();
+            Console.Write("                                                                                   ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██║     ██║██╔██╗ ██║█████╗  ███████╗██║     ██║   ██║██████╔╝█████╗");
+            Console.ResetColor();
+            Console.Write("                                                                                   ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("██║     ██║██║╚██╗██║██╔══╝  ╚════██║██║     ██║   ██║██╔═══╝ ██╔══╝");
+            Console.ResetColor();
+            Console.Write("                                                                                   ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╚██████╗██║██║ ╚████║███████╗███████║╚██████╗╚██████╔╝██║     ███████╗");
+            Console.ResetColor();
+            Console.Write("                                                                                    ");
+            Console.BackgroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("╚═════╝╚═╝╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚══════╝");
+            Console.ResetColor();
+            Console.WriteLine("\n\n");
+        }
     }
 
     class Debug // TIJDELIJK 
