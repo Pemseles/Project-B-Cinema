@@ -98,7 +98,7 @@ namespace ConsoleApp1
             CursorVisible = false;
             Console.Write("hoeveel stoelen wilt u reserveren: ");
             int ticket = Int16.Parse(Console.ReadLine());
-            foreach (int seat in newOrder.GetSeatCoords(ticket))
+            foreach (int seat in newOrder.GetSeatCoords(5))
             {
                 res.Add(seat);
             }

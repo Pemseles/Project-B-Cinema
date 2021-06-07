@@ -309,7 +309,7 @@ namespace ConsoleApp1
         {
             string filmJSONPath = Path.GetFullPath(@"FilmList.json");
             string jsonStringFilmList = File.ReadAllText(filmJSONPath);
-            filmList = new ConsoleApp1.FilmArr();
+            var filmList = new ConsoleApp1.FilmArr();
             filmList = JsonSerializer.Deserialize<ConsoleApp1.FilmArr>(jsonStringFilmList);
             Checkout Cart = new Checkout();
             Filmlist films = new Filmlist();

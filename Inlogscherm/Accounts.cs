@@ -83,7 +83,7 @@ namespace ConsoleApp1
             return hashString;
         }
 
-        // INSERT Acount to JSON - Method
+        // INSERT AcCount to JSON - Method
         public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests, int level=1)
         {
             /// Requires All and only Correct Parameters to Insert to the JSON File.
