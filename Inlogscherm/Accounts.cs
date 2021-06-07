@@ -37,6 +37,10 @@ namespace ConsoleApp1
         public static string accountPath = Path.GetFullPath(@"Accounts.json");
 
         // Retrieve Accountdata
+        /// <summary>
+        /// Retrieve Accountdata
+        /// </summary>
+        /// <returns>A List with all the Accounts (Object = Account)</returns>
         public static List<Account> RetrieveAccountData()
         {
             var jsonData = System.IO.File.ReadAllText(accountPath);
@@ -45,6 +49,11 @@ namespace ConsoleApp1
             return accountsList;
         }
 
+        /// <summary>
+        /// Inserts a List with the new Account Data.
+        /// (Serialized to the Accounts.json)
+        /// </summary>
+        /// <param name="AccountData">An Update List of the Accounts</param>
         public static void InsertAccountData(List<Account>AccountData)
         { /// Takes a list of AccountLists
             // Update json data string
@@ -53,7 +62,10 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(accountPath, jsonData);
         }
 
-        // Generate new UID - Method
+        /// <summary>
+        ///  Generate new UID - Method
+        /// </summary>
+        /// <returns>A new Generated ID (int) for a new account</returns>
         public int GenerateID()
         {
             /// Checks Accounts.json and creates a new ID based on previous ID's from the Json.
@@ -69,13 +81,12 @@ namespace ConsoleApp1
                 return 0;
             }
         }
-
-
         /// <summary>
         /// Encrypt String - Method
+        /// Encrypts the paramater(string) using hash.
         /// </summary>
-        /// <param name="pwd">the password</param>
-        /// <returns>hashed password</returns>
+        /// <param name="pwd"></param>
+        /// <returns>Hashed String</returns>
         public string Encrypt(string pwd)
         {
             /// Hashes new Password and Convert to String (for JSON);
@@ -87,18 +98,18 @@ namespace ConsoleApp1
             return hashString;
         }
 
-
         /// <summary>
-        /// INSERT AcCount to JSON - Method 
+        /// INSERT Account to JSON - Method
+        /// Insert to Accounts.json
         /// </summary>
-        /// <param name="email">the email</param>
-        /// <param name="pwd">the password</param>
-        /// <param name="firstname">the firstname of the client</param>
-        /// <param name="lastname">the last name of the client</param>
-        /// <param name="age">the age of the client</param>
-        /// <param name="address">the address of the client</param>
-        /// <param name="interests">the interest of the client</param>
-        /// <param name="level">the level of the clients account(default level 1)</param>
+        /// <param name="email">User's Email</param> 
+        /// <param name="pwd">Unhashed Version of the Password (Build-in Hash function)</param> 
+        /// <param name="firstname"> User's Firstname</param>
+        /// <param name="lastname">User's Lastname</param>
+        /// <param name="age">Birthdate(string)</param>
+        /// <param name="address">Address</param>
+        /// <param name="interests">String Array with the Interests</param>
+        /// <param name="level">Access Level - Default 1</param>
         public void AddAccount(string email, string pwd, string firstname, string lastname, string age, string address, string[] interests, int level=1)
         {
             /// Requires All and only Correct Parameters to Insert to the JSON File.
@@ -135,7 +146,13 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(accountPath, jsonData);
         }
 
-        // Login - Method
+        /// <summary>
+        /// Login - Method
+        /// Requires 2 strings Email & Password
+        /// </summary>
+        /// <param name="email">String Email</param>
+        /// <param name="pwd">String Password</param>
+        /// <returns>Returns the ID of the User, if incorrect Parameters given: return -1</returns>
         public int Login(string email, string pwd)
         {
             /// Returns the ID of the User, if incorrect Parameters given: return -1
@@ -162,7 +179,11 @@ namespace ConsoleApp1
             return uid;
         }
 
-        // Get Level - Method
+        /// <summary>
+        /// Get Level - Method
+        /// </summary>
+        /// <param name="uid">Takes User ID as Parameter</param>
+        /// <returns>Returns User Clearance Level</returns>
         public int GetLevel(int uid)
         { /// Takes UID as Parameter, Returns User Clearance Level
             if (uid < 0) return 1; 
@@ -180,7 +201,12 @@ namespace ConsoleApp1
             return level;
         }
 
-        // Tuple - Method
+        /// <summary>
+        /// Tuple - Method
+        /// A method to get User's Fullname
+        /// </summary>
+        /// <param name="uid">Takes UID as Parameter</param>
+        /// <returns>Returns a Tuple with First and Lastname</returns>
         public static Tuple<string,string> GetFullname(int uid)
         {
             /// Takes UID as Parameter, Returns a Tuple with First and Lastname
@@ -202,9 +228,15 @@ namespace ConsoleApp1
             return Tuple.Create(firstname, lastname);
         }
 
+        /// <summary>
+        /// Get the Active Status of an Account
+        /// Takes UID as Parameter, Returns a Bool whether the account is active or not
+        /// </summary>
+        /// <param name="uid">Takes the User ID as Parameter</param>
+        /// <returns>A Bool whether the account is active or not</returns>
         public bool GetActiveStatus(int uid)
         {
-            /// Takes UID as Parameter, Returns User Clearance Level
+            /// Takes UID as Parameter, Returns a Bool whether the account is active or not
             bool active = false;
             if (uid < 0) return active;
             var accountsList = RetrieveAccountData();
@@ -221,6 +253,12 @@ namespace ConsoleApp1
             return active;
         }
 
+        /// <summary>
+        /// Checks wether an email is Unique.
+        /// Takes string email as Parameter, Returns Boolean, whether Email is Unique or not.
+        /// </summary>
+        /// <param name="email">String of the user's Email</param>
+        /// <returns> A Boolean whether Email is Unique or not</returns>
         public bool CheckUniqueEmail(string email)
         {
             /// Takes string email as Parameter, Returns Boolean, whether Email is Unique or not.
@@ -242,6 +280,10 @@ namespace ConsoleApp1
            return UniqueEmail;
         }
 
+        /// <summary>
+        /// Takes the User's ID and a New Email as Parameters, and Replaces the old email with the new email.
+        /// </summary>
+        /// <param name="email">String of the user's Email</param>
         public void UpdateEmail(int uid, string newEmail)
         {
             var jsonData = System.IO.File.ReadAllText(accountPath);
@@ -259,6 +301,10 @@ namespace ConsoleApp1
             Console.WriteLine("Je Email Adres is Gewijzigd!");
         }
 
+        /// <summary>
+        /// Takes the User's ID and a New Email as Parameters, and Replaces the old email with the new email.
+        /// </summary>
+        /// <param name="email">String of the user's Email</param>
         public void UpdatePwd(int uid, string newPwd)
         {
             var jsonData = System.IO.File.ReadAllText(accountPath);
@@ -277,8 +323,15 @@ namespace ConsoleApp1
             Console.WriteLine("Je Wachtwoord is Gewijzigd!");
         }
 
-        // Check if VIP Upgrade is possible - Method
-        public bool CheckValidUprade(int uid, bool showErrors = false)
+        /// <summary>
+        /// Checks if a VIP Upgrade is possible - Method
+        /// To prevent a VIP Account from upgrading twice and
+        /// to Prevent an Admin from Downgrading to VIP.
+        /// </summary>
+        /// <param name="uid">The ID of the user's account</param>
+        /// <param name="showErrors">A Bool for showing errors to the Admin, Default False</param>
+        /// <returns>A bool wether the updrade is possible or not.</returns>
+        public bool CheckValidUprade(int uid, bool showErrors=false)
         {
             bool valid = false;
 
@@ -307,7 +360,12 @@ namespace ConsoleApp1
             return valid;
         }
 
-        // Upgrade to VIP - Method
+        /// <summary>
+        ///  Upgrade to VIP - Method
+        ///  After the check of a valid Vip Upgrade ( CheckValidUpgrade(); ) 
+        /// The Clearance level of the user's account will be set to VIP(2).
+        /// </summary>
+        /// <param name="uid">Takes the User's ID as parameter</param>
         public void UpgradeToVip(int uid)
         {
             if (CheckValidUprade(uid, true))
@@ -357,14 +415,19 @@ namespace ConsoleApp1
 
     public abstract class  Utility // Abstract Class
     {
-        // Database Paths:
-        public string orderPath = Path.GetFullPath(@"Orders.json");
-        public string accountPath = Path.GetFullPath(@"Accounts.json");
-        public static string productsPath = Path.GetFullPath(@"ProductList.json");
-        public string theatherhallPath = Path.GetFullPath(@"Theaterhalls.json");
-        public string filmPath = Path.GetFullPath(@"Films.json");
-        public string filmInstancesPath = Path.GetFullPath(@"FilmInstances.json");
+       // Database Paths:
+       protected string orderPath = Path.GetFullPath(@"Orders.json");
+       protected string accountPath = Path.GetFullPath(@"Accounts.json");
+       protected static string productsPath = Path.GetFullPath(@"ProductList.json");
+       protected string theatherhallPath = Path.GetFullPath(@"Theaterhalls.json");
+       protected string filmPath = Path.GetFullPath(@"Films.json");
+       protected string filmInstancesPath = Path.GetFullPath(@"FilmInstances.json");
 
+        /// <summary>
+        /// Retrieves a Json Data and converts it to an Object List
+        /// </summary>
+        /// <param name="jsonPath">the PAth & Filename(String)</param>
+        /// <returns>Object List of given Json File</returns>
         public static List<Object> retrieveJson(string jsonPath)
         {
             /// Retrieves a Json Data and converts it to an Object List
@@ -374,6 +437,11 @@ namespace ConsoleApp1
             return objectList;
         }
 
+        /// <summary>
+        /// Inserts an Object List to FilePath
+        /// </summary>
+        /// <param name="objectList">The objectlist that needs to be Inserted</param>
+        /// <param name="jsonPath">The Path & Filename(String)</param>
         public static void InsertJson(List<Object> objectList, string jsonPath)
         {
             // Update json data string
@@ -382,6 +450,11 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(jsonPath, jsonData);
         }
 
+        /// <summary>
+        /// Generates an new ID based on the previous entry in the given Json File
+        /// </summary>
+        /// <param name="JsonPath"></param>
+        /// <returns></returns>
         public static int GenerateID(string JsonPath)
         {
             /// Checks Accounts.json and creates a new ID based on previous ID's from the Json.
@@ -494,6 +567,13 @@ namespace ConsoleApp1
             InsertJson(FilmInstances, filmInstancesPath);
         }
 
+        /// <summary>
+        /// Adds a new theatherhall
+        /// </summary>
+        /// <param name="hallName">Name of the hall eg. Zaal 1</param>
+        /// <param name="numberOfSeats">The number of seats this Hall has, even number adviced</param>
+        /// <param name="vipSeatCoords">The Coordinates of the VIP Seats, a list of ints</param>
+        /// <param name="active">a bool wether this hall is active (recognised by the system. Default=true</param>
         public void AddTheatherhall(string hallName, int numberOfSeats, List<int> vipSeatCoords, bool active=true)
         {
             var jsonData = System.IO.File.ReadAllText(filmPath);
@@ -514,6 +594,11 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(theatherhallPath, jsonData);
         }
 
+        /// <summary>
+        /// Suspends a users account
+        /// Eg. When the user disobeys the TOS
+        /// </summary>
+        /// <param name="UID">The Users ID (int)</param>
         public void SuspendAccount(int UID)
         { /// Suspends the Account where ID matches with given int Parameter
             List<Object> AccountList = retrieveJson(accountPath);
@@ -527,6 +612,10 @@ namespace ConsoleApp1
             }
         }
 
+        /// <summary>
+        /// Lists all the Suspended Accounts.
+        /// </summary>
+        /// <returns>A List with all the Suspended Accounts</returns>
         public List<Account> GetAllSuspendedAccounts()
         { /// Lists all Suspended Adcounts
             List<Account> AccountList = Accounts.RetrieveAccountData();
@@ -545,7 +634,10 @@ namespace ConsoleApp1
     public class ReviewCreation : Utility  // Inherits from Abstract Class
     {
         public static string ReviewPath = Path.GetFullPath(@"Reviews.json");
-       
+       /// <summary>
+       /// Generates a mew ID based on the Review Entries in Reviews.json
+       /// </summary>
+       /// <returns>A newly generated ID (int)</returns>
         public static int GenerateID()
         {
             /// Checks opens the json file given as parameter and creates a new ID based on previous ID's from the Json.
@@ -565,7 +657,17 @@ namespace ConsoleApp1
         }
 
 
-        // Add Method
+        /// <summary>
+        /// Adds a new Review
+        /// </summary>
+        /// <param name="uid">The User's ID (int)</param>
+        /// <param name="tagID">Tag ID(int) - 0: Movie Review, 1: Theatherhall Review, 2: CineScoop Review</param>
+        /// <param name="revID">The ID(int) for the Movie or Theatherhall depending on tagID</param>
+        /// <param name="author">"The (display) name of the user</param>
+        /// <param name="title">(string) Title of the review</param>
+        /// <param name="description">(string) Review Description</param>
+        /// <param name="stars">The amount of stars given as an integer</param>
+        /// <param name="uploadDate">A DateTime (string)</param>
         public static void AddReview(int uid, int tagID, int revID, string author, string title, string description, int stars, string uploadDate)
         {
             /// Requires All and only Correct Parameters to Insert to the JSON File.
@@ -595,6 +697,10 @@ namespace ConsoleApp1
             System.IO.File.WriteAllText(ReviewPath, jsonData);
         }
 
+        /// <summary>
+        /// Lists all Reviews Deserialized from Reviews.json
+        /// </summary>
+        /// <returns>List with all Review objects</returns>
         public static List<Review> GetAllReviews()
         {
             /// Deletes a Review, with given ID.
@@ -603,7 +709,11 @@ namespace ConsoleApp1
             return reviews;
         }
 
-        // Delete Method
+        /// <summary>
+        /// Delete Method
+        /// Takes a review id as parameter and deletes the review with the matching id.
+        /// </summary>
+        /// <param name="id">The ID of the Review that needs to be deleted</param>
         public static void DeleteReview(int id)
         {
             /// Deletes a Review, with given ID.
@@ -630,7 +740,12 @@ namespace ConsoleApp1
          * - Filter on users, or just on tags.
          */
 
-        // Param Overload 1 - On both TagID and ID of given Subject
+        /// <summary>
+        /// Param Overload 1 - On both TagID and ID of given Subject
+        /// </summary>
+        /// <param name="tagID">Tag ID(int) - 0: Movie Review, 1: Theatherhall Review</param>
+        /// <param name="revID">The ID(int) for the Movie or Theatherhall depending on tagID</param>
+        /// <returns>A Filtered version of the Review List</returns>
         public static List<Review> FilterReviews(int tagID, int revID)
         { /// Filters all reviews with given parameters
             var jsonData = System.IO.File.ReadAllText(ReviewPath);
@@ -644,7 +759,11 @@ namespace ConsoleApp1
             }
             return FilteredReviews;
         }
-        // Param Overload 2 - Only Filter on tagID
+        /// <summary>
+        /// Param Overload 2 - Only Filter on tagID
+        /// </summary>
+        /// <param name="tagID">Tag ID(int) - 0: Movie Review, 1: Theatherhall Review, 2: CineScoop Review</param>
+        /// <returns>A Filtered version of the Review List</returns>
         public static List<Review> FilterReviews(int tagID)
         { /// Filters all reviews with given parameters
             var jsonData = System.IO.File.ReadAllText(ReviewPath);
@@ -661,7 +780,11 @@ namespace ConsoleApp1
             return FilteredReviews;
         }
 
-        // Filter all Reviews of a user.
+        /// <summary>
+        /// Filter all Reviews of a user.
+        /// </summary>
+        /// <param name="uid"></param>
+        /// <returns></returns>
         public static List<Review> GetUserReviews(int uid)
         { /// Filters all reviews with given parameters
             var jsonData = System.IO.File.ReadAllText(ReviewPath);
@@ -681,6 +804,11 @@ namespace ConsoleApp1
 
     public class Orders : Utility  // Inherits from Abstract Class
     {
+        /// <summary>
+        /// Retrieves the amount of seats from a given Hallid
+        /// </summary>
+        /// <param name="hallID">The ID(int) of the Theaterhall</param>
+        /// <returns>The Amount of seats as integer</returns>
         public int GetSeats(int hallID)
         {
             /// Get Amount of seats of given Hall ID
@@ -699,7 +827,12 @@ namespace ConsoleApp1
             return amountOfSeats;
         }
 
-        // Get Current Seats - Methods
+        /// <summary>
+        /// Get Current Seats - Methods
+        /// Searches through all the orders that are connected to the selected movie id and collects them in an int array.
+        /// </summary>
+        /// <param name="movieID">The ID of the movie instance</param>
+        /// <returns>An Integer Array with all the coordinates of all the reserved seats.</returns>
         public int[] GetSeatCoords(int movieID)
         {
             /// Returns an Int Array of taken seatnumbers
@@ -735,7 +868,12 @@ namespace ConsoleApp1
             return SeatCoords;
         }
 
-        // Get VIP Seats
+        /// <summary>
+        /// Get VIP Seats
+        /// Takes the HallID as Parameter and gets all VIP seats
+        /// </summary>
+        /// <param name="TheatherHallID">The ID(int) of the Theatherhall</param>
+        /// <returns></returns>
         public int[] GetVipSeatCoords(int TheatherHallID)
         {
             /// Returns an Int Array of taken seatnumbers
@@ -754,7 +892,6 @@ namespace ConsoleApp1
                     }
                 }
             }
-
             // Create an int array
             int[] VipSeatCoords = new int[index];
             index = 0;
@@ -775,6 +912,12 @@ namespace ConsoleApp1
         }
 
         // Overload 1, takes string type as param, (for use in Productmenu.cs)
+        /// <summary>
+        /// Overload 1, takes string type as param, (for use in Productmenu.cs)
+        /// Lists all product that match given type
+        /// </summary>
+        /// <param name="type">Product type (string)</param>
+        /// <returns>A list with the Filtered Products</returns>
         public List<Product> GetProducts(string type)
         {
             /// Takes a string Type as Paramater and creates a list of all products of given Type:
@@ -793,6 +936,11 @@ namespace ConsoleApp1
             return myProducts;
         }
         // Overload 2, has no params, (for use in Checkout.cs)
+        /// <summary>
+        /// Overload 2, has no params, (for use in Checkout.cs)
+        /// Lists all Products
+        /// </summary>
+        /// <returns>A list with all Products</returns>
         public static List<Product> GetProducts()
         {
             /// Takes no Paramaters and creates a list of all products registered in json (used in Checkout.cs):
