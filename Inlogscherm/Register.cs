@@ -5,7 +5,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using static System.Console;
 using System.IO;
-
+using ConsoleApp1;
 namespace ConsoleApp1
 {
     class Register {

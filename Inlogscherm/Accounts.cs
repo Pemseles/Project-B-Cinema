@@ -73,7 +73,6 @@ namespace ConsoleApp1
             try
             {
                 var accountsList = RetrieveAccountData();
-
                 foreach (Account element in accountsList) { uid = element.UID; };
                 return uid + 1;
             }
