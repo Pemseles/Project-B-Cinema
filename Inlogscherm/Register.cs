@@ -8,9 +8,9 @@ using System.IO;
 
 namespace ConsoleApp1
 {
-    class Register
-    {
-        ConsoleApp1.Restrictions check = new ConsoleApp1.Restrictions();
+    class Register {
+        protected static Accounts NewUser = new Accounts();
+        protected Restrictions check = new ConsoleApp1.Restrictions();
         
         private static int index = 0;
         private static string RegisterScreen(List<string> items)
@@ -189,9 +189,10 @@ namespace ConsoleApp1
                 return name;
             }
             // let's you enter a email that contains a '@' and a '.'
-            static string Email()
+            static string Email(bool clear=true)
             {
-                Console.Clear();
+                if(clear) {Console.Clear();}
+                    
                 Console.WriteLine("(het e-mailadres moet een @ en een . bevatten)");
                 Console.Write("voer uw e-mailadres in: ");
                 string email = Console.ReadLine();
@@ -205,20 +206,30 @@ namespace ConsoleApp1
                             if (c == '@') ats++;
                         foreach (char c in email.Split('@')[1])
                             if (c == '.') dotssecondpart++;
-                        if (email.Split('@').Length == 2 && ats == 1 && email.Split('@')[0].Length > 0 && email.Split('@')[1].Length > 2 && dotssecondpart == 1)
+                        if (!NewUser.CheckUniqueEmail(email))
                         {
-                            string firstpart = email.Split('@')[0];
-                            string secondpart = email.Split('@')[1].Split('.')[0];
-                            string thirdpart = email.Split('@')[1].Split('.')[1];
-                            if (firstpart.Length > 0 && secondpart.Length > 0 && thirdpart.Length > 0)
+                            Console.Clear();
+                            clear = false;
+                            break;
+                        } else { 
+                            if (email.Split('@').Length == 2 && ats == 1 && email.Split('@')[0].Length > 0 && email.Split('@')[1].Length > 2 && dotssecondpart == 1)
                             {
-                                Console.Clear();
-                                return email;
+                                string firstpart = email.Split('@')[0];
+                                string secondpart = email.Split('@')[1].Split('.')[0];
+                                string thirdpart = email.Split('@')[1].Split('.')[1];
+                                if (firstpart.Length > 0 && secondpart.Length > 0 && thirdpart.Length > 0)
+                                {
+                                    Console.Clear();
+                                    return email;
+                                }
                             }
                         }
                     }
                 }
-                Email();
+                if(!(NewUser.CheckUniqueEmail(email))) {
+                    Console.WriteLine("Deze Email is al in gebruik.");
+                }
+                Email(clear);
                 return "";
             }
             static string Password()
@@ -519,7 +530,6 @@ namespace ConsoleApp1
                 }
                 }
             string address = street + housenum + postalcode + city;
-            ConsoleApp1.Accounts NewUser = new Accounts();
             NewUser.AddAccount(email, password, Firstname, Lastname, age, address, intrest);
         }
     }
