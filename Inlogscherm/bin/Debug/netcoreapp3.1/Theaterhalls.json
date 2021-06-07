@@ -1,16 +1,23 @@
 [
     {
         "ID": 0,
-        "Name": "Zaal E5",
-        "NumberOfSeats": 140,
-        "VipSeatCoords": [70,71,72,73,74,75,76,77,78,79], 
+        "Name": "Zaal 1",
+        "NumberOfSeats": 100,
+        "VipSeatCoords": [50,51,52,53,54,55,56,57,58,59], 
         "Active": true
     },
     {
         "ID": 1,
-        "Name": "Zaal B7",
-        "NumberOfSeats": 120,
-        "VipSeatCoords": [50,51,52,53,54,55,56,57,58,59],
+        "Name": "Zaal 2",
+        "NumberOfSeats": 250,
+        "VipSeatCoords": [120,121,122,123,124,125,126,127,128,129],
+        "Active": true
+    },
+    {
+        "ID": 2,
+        "Name": "Zaal 3",
+        "NumberOfSeats": 602,
+        "VipSeatCoords": [288,289,290,291,292,293,294,295,296,297,298,299,300,301,302,303,304,305,306,307,308,309,310,311],
         "Active": true
     }
 ]

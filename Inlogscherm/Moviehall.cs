@@ -83,19 +83,34 @@ namespace ConsoleApp1
 
     }
 
-    class Registers
+    class Theatherhalls
     {
         private static List<int> keys = new List<int>();
         private static List<int> res = new List<int>();
         private static int index = 0;
         private static List<int> seats = new List<int>();
         private static ConsoleApp1.Orders newOrder = new Orders();
-        public static void Moviehall(int people)
+        public static void Moviehall(int zaal, int movieid)
         {
-            
+            int people = 0;
+            if(zaal == 1)
+            {
+                people = 100;
+                movieid = 0;
+            }   
+            else if(zaal == 2)
+            {
+                people = 250;
+                movieid = 1;
+            }
+            else
+            {
+                people = 602;
+                movieid = 2;
+            }
             // functie in orders int array in for-lopen , functie Add toevoegen6
             CursorVisible = false;
-            Console.Write("hoeveel stoelen wilt u reserveren: ");
+            Console.Write("hoeveel stoelen wilt u reserveren: ");         
             int ticket = Int16.Parse(Console.ReadLine());
             foreach (int seat in newOrder.GetSeatCoords(5))
             {
@@ -164,7 +179,7 @@ namespace ConsoleApp1
             {
                 // forloop maken
                 Console.Clear();
-                x.Add(MainScreen(movie, people, keys, res, seats, ticket));
+                x.Add(MainScreen(movie, people, keys, res, seats, ticket, movieid));
                 ticket--;
             }
             string s = "";
@@ -183,20 +198,23 @@ namespace ConsoleApp1
                 switch (Console.ReadLine())
                 {
                     case "Ja":
-                        Console.WriteLine(x);
-                        Console.ReadLine();
+
                         MainMenu.Cart.UpdateSeats(x);
                         Console.SetWindowSize(120, 30);
+                        Console.Clear();
                         if (Program.Level >= 3)
                         {
+                            Console.SetWindowSize(120, 30);
                             AdminMenu.Mainmenu();
                         }
                         else if (Program.UID == -1)
                         {
+                            Console.SetWindowSize(120, 30);
                             Guest.Mainmenu();
                         }
                         else
                         {
+                            Console.SetWindowSize(120, 30);
                             MainMenu.Mainmenu();
                         }
                         break;
@@ -207,8 +225,9 @@ namespace ConsoleApp1
                 }
             }
             // homescreen()
-            static int MainScreen(List<string> items, int people, List<int> keys, List<int> res, List<int> seats, int ticket)
+            static int MainScreen(List<string> items, int people, List<int> keys, List<int> res, List<int> seats, int ticket, int movieid)
             {
+                
                 if(people == 602)
                 {
                     Logo.Print_602();
@@ -248,7 +267,7 @@ namespace ConsoleApp1
 
                             Console.Write(items[i]);
                         }
-                        else if (newOrder.GetVipSeatCoords(1).Contains(i))
+                        else if (newOrder.GetVipSeatCoords(movieid).Contains(i))
                         {
                             Console.BackgroundColor = ConsoleColor.Yellow;
                             Console.ForegroundColor = ConsoleColor.Black;
@@ -361,7 +380,7 @@ namespace ConsoleApp1
 
                             Console.Write(items[i]);
                         }
-                        else if (newOrder.GetVipSeatCoords(1).Contains(i))
+                        else if (newOrder.GetVipSeatCoords(movieid).Contains(i))
                         {
                             Console.BackgroundColor = ConsoleColor.Yellow;
                             Console.ForegroundColor = ConsoleColor.Black;
@@ -442,7 +461,7 @@ namespace ConsoleApp1
                     }
                 }
                 Console.Clear();                
-                MainScreen(items, people, keys, res, seats, ticket);
+                MainScreen(items, people, keys, res, seats, ticket, movieid);
                 return index;
             }
         }

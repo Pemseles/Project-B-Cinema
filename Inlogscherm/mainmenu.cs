@@ -6,7 +6,7 @@ using System.Text.Json.Serialization;
 using static System.Console;
 using System.IO;
 using static ConsoleApp1.MainMenu;
-using static ConsoleApp1.Registers;
+using static ConsoleApp1.Theaterhall;
 using static ConsoleApp1.Infopanels;
 // restricties opzetten voor gebruik van alleen backspace en enter anders redrawd ie m 
 namespace ConsoleApp1
@@ -173,14 +173,6 @@ namespace ConsoleApp1
                     // if email == seats.email && email == snacksselected.email
                     // zo misschien info ophalen per account
                 }
-                else if (selectedMenuItem == "[       Zalen      ]")
-                {
-                    ResetIndex();
-                    Console.Clear();
-                    Registers.Moviehall(250);
-                    back();
-                    Console.SetWindowSize(120, 30);      
-                }
                 else if (selectedMenuItem == "[   Mijn Account   ]")
                 {
                     ResetIndex();
@@ -324,7 +316,6 @@ namespace ConsoleApp1
                 "[  Informatiemenu  ]" , // 2
                 "[    Review menu   ]" , // 3
                 "[   Winkelmandje   ]" , // 4
-                "[       Zalen      ]" , // 5
                 "[     Afsluiten    ]"   // 6
                  };
                 // kijkt bij welke index de user zich bevind
@@ -398,17 +389,6 @@ namespace ConsoleApp1
                     // ./ Contents
                     back();
                 }
-                else if (selectedMenuItem == Mainscreen[5]) // Zalen
-                {
-                    ResetIndex();
-                    Console.Clear();
-                    // Contents
-                    Registers.Moviehall(250);
-                    // ./ Contents
-                    back();
-                    Console.SetWindowSize(120, 30);
-                    Console.Clear();
-                } // Mainscreen.Count -1 to always get the last element of the list, as Logout (or Exit) is always last. 
                 else if (selectedMenuItem == Mainscreen[Mainscreen.Count - 1]) // Exit
                 {
                     ResetIndex();

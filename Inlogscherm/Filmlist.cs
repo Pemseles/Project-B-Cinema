@@ -146,9 +146,9 @@ namespace ConsoleApp1
                     {
                         Console.Clear();
                         done = true;
-                        var today = DateTime.Now.ToString("MM/dd/yyyy");
-                        var tomorrow = DateTime.Now.AddDays(1).ToString("MM/dd/yyyy");
-                        var dayaftertomorrow = DateTime.Now.AddDays(2).ToString("MM/dd/yyyy");
+                        var today = DateTime.Now.ToString("dd/MM/yyyy");
+                        var tomorrow = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
+                        var dayaftertomorrow = DateTime.Now.AddDays(2).ToString("dd/MM/yyyy");
                         while (!done2)
                         {
                             List<string> items2 = new List<string>() {
@@ -218,7 +218,7 @@ namespace ConsoleApp1
                                 else if (items2[index2] == "[  Datum invoeren  ]")
                                 {
                                     Console.Clear();
-                                    Console.WriteLine("                                                Welke dag? (MM/dd/jjjj) doe 05/29/2021 of 05/30/2021");
+                                    Console.WriteLine("                                                Welke dag? (MM/dd/jjjj) doe 29/05/2021 of 30/05/2021");
                                     Console.Write("                                                ");
                                     var other = Console.ReadLine();
                                     Console.Clear();
@@ -445,9 +445,18 @@ namespace ConsoleApp1
                     {
                         if (movieinstancelist.FilmInstances[i].ID == selectedmovieid)
                         {
-                            selectedmovieinstance = movieinstancelist.FilmInstances[i];
+                            MainMenu.Cart.UpdateFilmName(todayarray[index]);
+                            MainMenu.Cart.UpdateFilmStartnEnd(movieinstancelist.FilmInstances[i].StartDateTime, movieinstancelist.FilmInstances[i].EndDateTime);
+                            selectedmovieinstance = movieinstancelist.FilmInstances[i];                         
+                            MainMenu.Cart.UpdateFilmPrice(selectedmovieinstance);
+                            int zaal = movieinstancelist.FilmInstances[i].TheaterhallID;
+                            int movieid = movieinstancelist.FilmInstances[i].MovieID;
+                            Theatherhalls.Moviehall(zaal, movieid);
+                            Console.SetWindowSize(120, 30);
                         }
+                        
                     }
+                    
                     Console.Clear();
                 }
                 else
