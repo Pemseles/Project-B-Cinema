@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
@@ -13,7 +13,7 @@ namespace ConsoleApp1
         public bool fail = false;
         public static int loginFunc()
         {
-            ConsoleApp1.Accounts userLogin = new Accounts();
+            Accounts userLogin = new Accounts();
 
             bool login = false;
             while (login == false)
@@ -47,7 +47,7 @@ namespace ConsoleApp1
                 if(pass.Length == 0 || email.Length == 0)
                 {
                     Console.WriteLine("Voer alle velden in.");
-                    loginFunc();
+                    return loginFunc();
                 }
                 if(userLogin.Login(email, pass) == -1)
                 {
