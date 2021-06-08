@@ -141,7 +141,6 @@ namespace ConsoleApp1
                         Console.Write($" < {revs + 1} / {total_revs} > ");
                         Console.Write(" ");
                         Console.Write("< Volgende >");
-
                     }
                     if (place == 2)
                     {

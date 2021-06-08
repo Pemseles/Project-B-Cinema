@@ -133,7 +133,6 @@ namespace ConsoleApp1
                     FilteredReviews.Remove(review);
                 }
             }
-
             // Update json data string
             jsonData = JsonConvert.SerializeObject(reviews, Formatting.Indented);
             // Serialize JSON to a string and then write string to a file

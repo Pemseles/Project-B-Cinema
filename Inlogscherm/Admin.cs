@@ -16,6 +16,98 @@ namespace ConsoleApp1
         public Accounts TheUser = new Accounts();
         public Admin(int UID) { this.AdminID = UID; }
 
+        /// <summary>
+        /// Suspends a users account
+        /// Eg. When the user disobeys the TOS
+        /// </summary>
+        /// <param name="UID">The Users ID (int)</param>
+        public void SuspendAccount(int UID)
+        { /// Suspends the Account where ID matches with given int Parameter
+            var jsonData = System.IO.File.ReadAllText(accountPath);
+            var AccountList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+
+            foreach (Account Account in AccountList)
+            {
+                if (UID == Account.UID)
+                {
+                    Account.Active = false;
+                    break;
+                }
+            }
+            // Update json data string
+            jsonData = JsonConvert.SerializeObject(AccountList, Formatting.Indented);
+            // Serialize JSON to a string and then write string to a file
+            System.IO.File.WriteAllText(accountPath, jsonData);
+        }
+
+        /// <summary>
+        /// Activate Account Method
+        /// Re-Actviates the Account where ID matches with given int Parameter
+        /// </summary>
+        /// <param name="UID">(int) The User's Account ID that needs to reactivated</param>
+        public void ActivateAccount(int UID)
+        { /// Re-Actviates the Account where ID matches with given int Parameter
+            if (TheUser.GetLevel(AdminID) == 3)
+            {
+
+                var jsonData = System.IO.File.ReadAllText(accountPath);
+                var AccountList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
+                foreach (Account account in AccountList)
+                {
+                    if (UID == account.UID)
+                    {
+                        account.Active = true;
+                        break;
+                    }
+                }
+                // Update json data string
+                jsonData = JsonConvert.SerializeObject(AccountList, Formatting.Indented);
+                // Serialize JSON to a string and then write string to a file
+                System.IO.File.WriteAllText(accountPath, jsonData);
+            }
+            else
+            {
+                Console.WriteLine(AccessDenied);
+            }
+        }
+
+        /// <summary>
+        /// Lists all the Suspended Accounts.
+        /// </summary>
+        /// <returns>A List with all the Suspended Accounts</returns>
+        public List<Account> GetAllSuspendedAccounts()
+        { /// Lists all Suspended Adcounts
+            List<Account> AccountList = Accounts.RetrieveAccountData();
+            List<Account> SuspendedAccounts = new List<Account>();
+            foreach (Account account in AccountList)
+            {
+                if (account.Active == false)
+                {
+                    SuspendedAccounts.Add(account);
+                }
+            }
+            return SuspendedAccounts;
+        }
+
+        /// <summary>
+        /// Lists all Accounts based on active Status.
+        /// </summary>
+        /// <returns>A List with all the Active Accounts</returns>
+        public static List<Account> GetAllActiveAccounts(bool activeStatus=true)
+        { /// Lists all Suspended Adcounts
+            List<Account> AccountList = Accounts.RetrieveAccountData();
+            List<Account> ActiveAccounts = new List<Account>();
+            foreach (Account account in AccountList)
+            {
+                if (account.Active == activeStatus)
+                {
+                    ActiveAccounts.Add(account);
+                }
+            }
+            Console.WriteLine("oqw");
+            return ActiveAccounts;
+        }
+
         public void AddNewFilm(string filmName, string director, string[] genres, int ageRating)
         {
             var jsonData = System.IO.File.ReadAllText(filmPath);
@@ -133,95 +225,6 @@ namespace ConsoleApp1
             jsonData = JsonConvert.SerializeObject(theatherhallList, Formatting.Indented);
             // Serialize JSON to a string and then write string to a file
             System.IO.File.WriteAllText(theatherhallPath, jsonData);
-        }
-
-        /// <summary>
-        /// Suspends a users account
-        /// Eg. When the user disobeys the TOS
-        /// </summary>
-        /// <param name="UID">The Users ID (int)</param>
-        public void SuspendAccount(int UID)
-        { /// Suspends the Account where ID matches with given int Parameter
-            if (TheUser.GetLevel(AdminID) >= 3)
-            {
-
-                var jsonData = System.IO.File.ReadAllText(accountPath);
-                var AccountList = JsonConvert.DeserializeObject<List<Account>>(jsonData);
-
-                foreach (Account Account in AccountList)
-                {
-                    if (UID == Account.UID)
-                    {
-                        Account.Active = false;
-                        break;
-                    }
-                }
-            } else  {
-                Console.WriteLine(AccessDenied);
-            }
-        }
-
-        /// <summary>
-        /// Activate Account Method
-        /// Re-Actviates the Account where ID matches with given int Parameter
-        /// </summary>
-        /// <param name="UID">(int) The User's Account ID that needs to reactivated</param>
-        public void ActivateAccount(int UID)
-        { /// Re-Actviates the Account where ID matches with given int Parameter
-            if (TheUser.GetLevel(AdminID) == 3)
-            {
-
-                List<Object> AccountList = retrieveJson(accountPath);
-                foreach (Account account in AccountList)
-                {
-                    if (UID == account.UID)
-                    {
-                        account.Active = true;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                Console.WriteLine(AccessDenied);
-            }
-        }
-
-        /// <summary>
-        /// Lists all the Suspended Accounts.
-        /// </summary>
-        /// <returns>A List with all the Suspended Accounts</returns>
-        public List<Account> GetAllSuspendedAccounts()
-        { /// Lists all Suspended Adcounts
-            List<Account> AccountList = Accounts.RetrieveAccountData();
-            List<Account> SuspendedAccounts = new List<Account>();
-            foreach (Account account in AccountList)
-            {
-                if (account.Active == false)
-                {
-                    SuspendedAccounts.Add(account);
-                }
-            }
-            return SuspendedAccounts;
-        }
-
-        /// <summary>
-        /// Lists all Accounts based on active Status.
-        /// </summary>
-        /// <returns>A List with all the Active Accounts</returns>
-        public static List<Account> GetAllActiveAccounts(bool activeStatus=true)
-        { /// Lists all Suspended Adcounts
-            List<Account> AccountList = Accounts.RetrieveAccountData();
-            List<Account> ActiveAccounts = new List<Account>();
-            foreach (Account account in AccountList)
-            {
-                if (account.Active == activeStatus)
-                {
-                    ActiveAccounts.Add(account);
-                }
-            }
-            Console.WriteLine("oqw");
-            return ActiveAccounts;
         }
     }
 
