@@ -109,8 +109,23 @@ namespace ConsoleApp1
             }
             // functie in orders int array in for-lopen , functie Add toevoegen6
             CursorVisible = false;
-            Console.Write("hoeveel stoelen wilt u reserveren: ");         
-            int ticket = Int16.Parse(Console.ReadLine());
+            Logo.Print();
+            Console.Write("Hoeveel stoelen wilt u reserveren: ");
+            string ticketstring = Console.ReadLine();
+            if (ticketstring == "")
+            {
+                Console.Clear();
+                Logo.Print();
+                Console.Write("Geen invoer. Probeer het opnieuw: ");
+                while (ticketstring == "")
+                {
+                    Console.Clear();
+                    Logo.Print();
+                    Console.Write("Geen invoer. Probeer het opnieuw: ");
+                    ticketstring = Console.ReadLine();
+                }
+            }
+            int ticket = Int16.Parse(ticketstring);
             foreach (int seat in newOrder.GetSeatCoords(5))
             {
                 res.Add(seat);
@@ -127,11 +142,11 @@ namespace ConsoleApp1
             }
             else if (people > 150 && people <= 250)
             {
-                Console.SetWindowSize(110, 60);
+                Console.SetWindowSize(110, 50);
             }
             else if (people > 250 && people <= 602)
             {
-                Console.SetWindowSize(240, 70);
+                Console.SetWindowSize(240, 50);
             }
             char[] Alphabet = Enumerable.Range('A', 'Z' - 'A' + 1).Select(i => (Char)i).ToArray();
             ;
