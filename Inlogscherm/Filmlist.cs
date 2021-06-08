@@ -202,16 +202,22 @@ namespace ConsoleApp1
                             {
                                 if (items2[index2] == "[      Vandaag     ]")
                                 {
+                                    index2 = 0;
+                                    Console.Clear();
                                     done2 = true;
                                     selectedinstance = films.OpDatum(today);
                                 }
                                 else if (items2[index2] == "[      Morgen      ]")
                                 {
+                                    index2 = 0;
+                                    Console.Clear();
                                     done2 = true;
                                     selectedinstance = films.OpDatum(tomorrow);
                                 }
                                 else if (items2[index2] == "[     Overmorgen   ]")
                                 {
+                                    index2 = 0;
+                                    Console.Clear();
                                     done2 = true;
                                     selectedinstance = films.OpDatum(dayaftertomorrow);
                                 }

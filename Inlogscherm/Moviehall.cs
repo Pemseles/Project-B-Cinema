@@ -131,7 +131,7 @@ namespace ConsoleApp1
             }
             else if (people > 250 && people <= 602)
             {
-                Console.SetWindowSize(240, 70);
+                Console.SetWindowSize(240, 60);
             }
             char[] Alphabet = Enumerable.Range('A', 'Z' - 'A' + 1).Select(i => (Char)i).ToArray();
             ;
