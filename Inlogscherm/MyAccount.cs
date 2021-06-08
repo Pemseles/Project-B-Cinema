@@ -30,10 +30,10 @@ namespace ConsoleApp1
         static string Email(bool dupe=false)
         {
             Console.Clear();
-            Console.Write("Voer een nieuw Emailadres in.\nEmail: ");
+            Console.Write("Voer een nieuw e-mailadres in.\nE-mail: ");
             string email = Console.ReadLine();
-            if (dupe) { Console.WriteLine("Deze Email is al in gebruik.\n"); }
-            Console.WriteLine("Email: ");
+            if (dupe) { Console.WriteLine("Dit e-mailadres is al in gebruik.\n"); }
+            Console.WriteLine("E-mail: ");
             // Check if the Email is Unique
             if (!(CurrentUser.CheckUniqueEmail(email)))
             { // If it's not Unique
@@ -67,7 +67,7 @@ namespace ConsoleApp1
                 int digit = 0, letter = 0;
                 Console.Clear();
                 Console.WriteLine(pw_strenght);
-                Console.Write("Voer een wachtwoord in dat minimaal 1 hoofdletter en 1 cijfer er in heeft zitten: ");
+                Console.Write("Voer een wachtwoord in dat minimaal 1 hoofdletter en 1 cijfer bevat en langer is dan 7 karakters: ");
                 password = string.Empty;
                 ConsoleKey key;
                 do
@@ -93,32 +93,32 @@ namespace ConsoleApp1
                     if (char.IsUpper(password, c))
                     {
                         letter = 1;
-                        pw_strenght = "[Je wachtwoord mist een nummer.]               ";
+                        pw_strenght = "[Uw wachtwoord mist een cijfer.]               ";
                         Console.Write(pw_strenght);
                     }
                     // check digit 
                     if (char.IsDigit(password, c))
                     {
                         digit = 1;
-                        pw_strenght = "[Je wachtwoord mist een hoofdletter.]  ";
+                        pw_strenght = "[Uw wachtwoord mist een hoofdletter.]  ";
                     }
                     if (digit == 0 && letter == 0)
                     {
-                        pw_strenght = "[Je wachtwoord mist een hoofdletter en een cijfer.]  ";
+                        pw_strenght = "[Uw wachtwoord mist een hoofdletter en een cijfer.]  ";
                     }
                 }
                 // checks if the password is 8 or longer
                 if (password.Length < 8)
                 {
                     pw = true;
-                    pw_strenght = "[Je wachtwoord is niet lang genoeg.]    ";
+                    pw_strenght = "[Uw wachtwoord is niet lang genoeg.]    ";
 
                 }
                 // check if you are sure you want to use this as your password 
                 if (password.Length >= 8 && (digit == 1 && letter == 1))
                 {
                     Console.Clear();
-                    Console.Write("Voer het wachtwoord opnieuw in om het te bevestigen :");
+                    Console.Write("Voer het wachtwoord opnieuw in om het te bevestigen:");
                     check = string.Empty;
                     ConsoleKey key1;
                     do
@@ -182,7 +182,7 @@ namespace ConsoleApp1
                 {
                     MainMenu.ResetIndex();
                     Console.Clear();
-                    Console.Write("Weet je zeker dat je, je email wilt wijzigen?\nDruk op ENTER om verder te gaan.\nBACKSPACE om dit te annuleren.");
+                    Console.Write("Weet u zeker dat u uw e-mail wilt wijzigen?\nDruk op ENTER om verder te gaan.\nBACKSPACE om dit te annuleren.");
                     ConsoleKeyInfo ckey = Console.ReadKey();
                     if (ckey.Key == ConsoleKey.Backspace)
                     {
@@ -205,7 +205,7 @@ namespace ConsoleApp1
                 else if (selectedMenuItem == AccountMenu[1])  // Change Password
                 {
                     Console.Clear();
-                    Console.Write("Weet je zeker dat je, je wachtwoord wilt wijzigen?\nDruk op ENTER om verder te gaan.\nBACKSPACE om dit te annuleren.");
+                    Console.Write("Weet u zeker dat u uw wachtwoord wilt wijzigen?\nDruk op ENTER om verder te gaan.\nBACKSPACE om dit te annuleren.");
                     ConsoleKeyInfo ckey = Console.ReadKey();
                     if (ckey.Key == ConsoleKey.Backspace)
                     {
@@ -214,10 +214,10 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
-                        Console.WriteLine("Voer opnieuw je gegevens in om je indentiteit te bewijzen.");
+                        Console.WriteLine("Voer opnieuw uw gegevens in om uw indentiteit te bewijzen.");
                         if (ConsoleApp1.Login.loginFunc() == this.UID)
                         {
-                            Console.WriteLine("Nieuw Wachtwoord:\n");
+                            Console.WriteLine("Nieuw wachtwoord:\n");
                             CurrentUser.UpdatePwd(this.UID, Password());
                         }
                         // User can now press Enter to go back to the mennu
@@ -248,7 +248,7 @@ namespace ConsoleApp1
                             VIPUpgradeMenu();
                             next();
                         } else {
-                            Console.WriteLine("Je bent al VIP.\n");
+                            Console.WriteLine("U bent al VIP.\n");
                             next();
                         }
                     }

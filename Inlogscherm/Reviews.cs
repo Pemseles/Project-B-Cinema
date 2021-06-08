@@ -73,7 +73,7 @@ namespace ConsoleApp1
                 Logo.Print();
                 star = "";
                 int j = 0;
-                Console.Write("Hoeveel sterren wilt u geven:");
+                Console.Write("Hoeveel sterren wilt u geven: ");
                 for (int i = 0; i < 5; i++)
                 {
 
@@ -163,22 +163,22 @@ namespace ConsoleApp1
             string name = "";
             while (true)
             {
-                Console.WriteLine("wilt u uw review anoniem plaatsen?");
+                Console.WriteLine("Wilt u uw review anoniem plaatsen?");
                 if (J == 0)
                 {
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine("[ja ]");
+                    Console.WriteLine("[Ja ]");
                     Console.ResetColor();
-                    Console.WriteLine("[nee]");
+                    Console.WriteLine("[Nee]");
                 }
                 if (J == 1)
                 {
                     Console.ResetColor();
-                    Console.WriteLine("[ja ]");
+                    Console.WriteLine("[Ja ]");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.WriteLine("[nee]");
+                    Console.WriteLine("[Nee]");
                     Console.ResetColor();
                 }
                 ConsoleKeyInfo ckey = Console.ReadKey();
@@ -369,7 +369,7 @@ namespace ConsoleApp1
                         Console.Write("< Vorige >");
                         Console.ResetColor();
                         Console.Write(" ");
-                        Console.Write($"< {revs + 1} / {total_revs} >");
+                        Console.Write($" < {revs + 1} / {total_revs} > ");
                         Console.Write(" ");
                         Console.Write("< Volgende >");
 
@@ -380,7 +380,7 @@ namespace ConsoleApp1
                         Console.Write("                                                 ");
                         Console.Write("< Vorige >");
                         Console.Write(" ");
-                        Console.Write($"< {revs + 1} / {total_revs} >");
+                        Console.Write($" < {revs + 1} / {total_revs} > ");
                         Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
                         Console.Write(" ");
                         Console.Write("< Volgende >");
@@ -507,7 +507,7 @@ namespace ConsoleApp1
             {
                 while (true)
                 {
-                    Console.WriteLine("Uw onderwerp is te lang");
+                    Console.WriteLine("Uw onderwerp is te lang.");
                     topic = Console.ReadLine();
                     if (topic.Length < len)
                     {
@@ -598,9 +598,9 @@ namespace ConsoleApp1
             {
                 Logo.Print();
                 List<string> Mainscreen = new List<string>() {
-            "[       Film recensies      ]" , // 0 
-            "[      bioscoop recensies   ]" , // 1 
-            "[       Zaal recensies      ]" , // 2
+            "[       Filmrecensies       ]" , // 0 
+            "[      Bioscooprecensies    ]" , // 1 
+            "[        Zaalrecensies      ]" , // 2
             "[         Terugkeren        ]"   // 3
                 };
                 // kijkt bij welke index de user zich bevind
@@ -653,9 +653,9 @@ namespace ConsoleApp1
             {
                 Logo.Print();
                 List<string> Mainscreen = new List<string>() {
-            "[       Film recensie      ]" , // 0 
-            "[     bioscoop recensie    ]" , // 1
-            "[       Zaal recensie      ]" , // 2
+            "[        Filmrecensie      ]" , // 0 
+            "[      Bioscooprecensie    ]" , // 1
+            "[        Zaalrecensie      ]" , // 2
             "[         Terugkeren       ]"   // 3
                 };
                 // kijkt bij welke index de user zich bevind

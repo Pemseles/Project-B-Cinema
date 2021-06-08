@@ -107,7 +107,7 @@ namespace ConsoleApp1
                 "[       Films      ]" ,
                 "[Hapjes en drankjes]" ,
                 "[  Informatiemenu  ]" ,
-                "[    Review menu   ]" ,
+                "[    Reviewmenu    ]" ,
                 "[   Winkelmandje   ]" ,
                 "[       Zalen      ]" ,
                 "[   Mijn Account   ]" ,
@@ -155,7 +155,7 @@ namespace ConsoleApp1
                     back();
                     // open de info panels
                 }
-                else if (selectedMenuItem == "[    Review menu   ]")
+                else if (selectedMenuItem == "[    Reviewmenu    ]")
                 {
                     Console.Clear();
                     // open de review list of json
@@ -314,7 +314,7 @@ namespace ConsoleApp1
                 "[       Films      ]" , // 0
                 "[Hapjes en drankjes]" , // 1
                 "[  Informatiemenu  ]" , // 2
-                "[    Review menu   ]" , // 3
+                "[    Reviewmenu    ]" , // 3
                 "[   Winkelmandje   ]" , // 4
                 "[     Afsluiten    ]"   // 6
                  };
