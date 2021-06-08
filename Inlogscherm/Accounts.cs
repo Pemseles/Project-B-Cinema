@@ -254,6 +254,27 @@ namespace ConsoleApp1
         }
 
         /// <summary>
+        /// Get a list of account based on boolean
+        /// </summary>
+        /// <param name="status">True returns all active accounts AND False all inactive accounts</param>
+        /// <returns></returns>
+        public List<Account> AccountActivityFilter(bool status)
+        {
+            /// Takes UID as Parameter, Returns a Bool whether the account is active or not
+            var accountsList = RetrieveAccountData();
+            List<Account> onlyActiveAccounts = new List<Account>();
+
+            foreach (Account user in accountsList)
+            {
+                if (user.Active == status)
+                {
+                    onlyActiveAccounts.Add(user);
+                }
+            }
+            return onlyActiveAccounts;
+        }
+
+        /// <summary>
         /// Checks wether an email is Unique.
         /// Takes string email as Parameter, Returns Boolean, whether Email is Unique or not.
         /// </summary>

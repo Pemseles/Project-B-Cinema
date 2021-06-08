@@ -68,7 +68,11 @@ namespace ConsoleApp1
             if (ckey.Key == ConsoleKey.Backspace)
             {
                 Console.Clear();
-                Mainmenu();
+                if (Program.Level >= 3) { 
+                    AdminMenu.Mainmenu();
+                } else {
+                    Mainmenu();
+                }
             }
         }
 
@@ -192,7 +196,15 @@ namespace ConsoleApp1
                 }
                 Console.Clear();
             }
-            
+        }
+        new public static void back()
+        {
+            ConsoleKeyInfo ckey = Console.ReadKey();
+            if (ckey.Key == ConsoleKey.Backspace)
+            {
+                Console.Clear();
+                Mainmenu();
+            }
         }
     } // ./ Main Menu
 
@@ -205,73 +217,35 @@ namespace ConsoleApp1
             {
                 Logo.Print();
                 List<string> Mainscreen = new List<string>() {
-                "[      Films Toevoegen     ]" , // 0 
-                "[      Films Inplannen     ]" , // 1
-                "[      Zalen Toevoegen     ]" , // 2
-                "[    Producten Toevoegen   ]" , // 3
-                "[      Reviews Beheren     ]" , // 4
-                "[     Gebruikers Beheren   ]" , // 5
-                "[        Mijn Account      ]" , // 6
-                "[         Uitloggen        ]"   // 7
+                "[      Reviews Beheren     ]" , // 0
+                "[     Gebruikers Beheren   ]" , // 1
+                "[        Mijn Account      ]" , // 2
+                "[         Uitloggen        ]"   // 3
                  };
                 // kijkt bij welke index de user zich bevind
                 string selectedMenuItem = MainScreen(Mainscreen);
        
-                if (selectedMenuItem == Mainscreen[0]) // Films Toevoegen
+              if (selectedMenuItem == Mainscreen[0]) // Reviews Beheren
                 {
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    ShowReviewsAdmin reviewAdmin = new ShowReviewsAdmin();
+                    reviewAdmin.review_list();
                     // ./ Contents
                     back();
                 }
-                else if (selectedMenuItem == Mainscreen[1]) // Films Inplannen
+                else if (selectedMenuItem == Mainscreen[1]) // Gebruikers Beheren
                 {
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    ShowUserAccounts usersAdmin = new ShowUserAccounts();
+                    ShowUserAccounts.mainMenu();
                     // ./ Contents
                     back();
                 }
-                else if (selectedMenuItem == Mainscreen[2]) // Zalen Toevoegen
-                {
-                    ResetIndex();
-                    Console.Clear();
-                    // Contents
-
-                    // ./ Contents
-                    back();
-                }
-                else if (selectedMenuItem == Mainscreen[3]) // Producten Toevoegen
-                {
-                    ResetIndex();
-                    Console.Clear();
-                    // Contents
-
-                    // ./ Contents
-                    back();
-                }
-                else if (selectedMenuItem == Mainscreen[4]) // Reviews Beheren
-                {
-                    ResetIndex();
-                    Console.Clear();
-                    // Contents
-
-                    // ./ Contents
-                    back();
-                }
-                else if (selectedMenuItem == Mainscreen[5]) // Gebruikers Beheren
-                {
-                    ResetIndex();
-                    Console.Clear();
-                    // Contents
-
-                    // ./ Contents
-                    back();
-                }
-                else if (selectedMenuItem == Mainscreen[6]) // Mijn Account
+                else if (selectedMenuItem == Mainscreen[2]) // Mijn Account
                 {
                     ResetIndex();
                     Console.Clear();
@@ -292,7 +266,16 @@ namespace ConsoleApp1
                 }
                 Console.Clear();
             }
-        }   
+        }
+        new public static void back()
+        {
+            ConsoleKeyInfo ckey = Console.ReadKey();
+            if (ckey.Key == ConsoleKey.Backspace)
+            {
+                Console.Clear();
+                Mainmenu();
+            }
+        }
     }
     public class Guest : MainMenu  // Inherits from Abstract Class
     {
@@ -396,6 +379,15 @@ namespace ConsoleApp1
                     mainmenubool = false;
                 }
                 Console.Clear();
+            }
+        }
+        new public static void back()
+        {
+            ConsoleKeyInfo ckey = Console.ReadKey();
+            if (ckey.Key == ConsoleKey.Backspace)
+            {
+                Console.Clear();
+                Mainmenu();
             }
         }
     }

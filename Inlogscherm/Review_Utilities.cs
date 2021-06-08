@@ -13,6 +13,7 @@ namespace ConsoleApp1
     public class ReviewCreation : Utility  // Inherits from Abstract Class
     {
         public static string ReviewPath = Path.GetFullPath(@"Reviews.json");
+        public static Accounts accountObj = new Accounts();
         /// <summary>
         /// Generates a mew ID based on the Review Entries in Reviews.json
         /// </summary>
@@ -20,7 +21,7 @@ namespace ConsoleApp1
         public static int GenerateID()
         {
             /// Checks opens the json file given as parameter and creates a new ID based on previous ID's from the Json.
-            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var jsonData = File.ReadAllText(ReviewPath);
             var reviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
 
             int newID = 0;
@@ -50,7 +51,7 @@ namespace ConsoleApp1
         {
             /// Requires All and only Correct Parameters to Insert to the JSON File.
             // Read existing json data
-            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var jsonData = File.ReadAllText(ReviewPath);
             // De-serialize to object or create new list
             var reviews = JsonConvert.DeserializeObject<List<Review>>(jsonData)
                                   ?? new List<Review>();
@@ -87,6 +88,33 @@ namespace ConsoleApp1
             return reviews;
         }
 
+
+        /// <summary>
+        /// Lists all Reviews of Guests and Accounts that are active. Deserialized from Reviews.json
+        /// </summary>
+        /// <returns>List with all Review objects</returns>
+        public static List<Review> GetActiveReviews()
+        { 
+            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var reviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
+            var accountJsonData = System.IO.File.ReadAllText(@"Accounts.json");
+            var accounts  = JsonConvert.DeserializeObject<List<Review>>(accountJsonData);
+            List<Review> FilteredReviews = new List<Review>();
+
+            foreach (Review review in reviews )
+            {
+                if (review.UID == -1)
+                {
+                    FilteredReviews.Add(review);
+                } else {
+                    if (accountObj.GetActiveStatus(review.UID)){
+                        FilteredReviews.Add(review);
+                    }
+                }
+            }
+            return FilteredReviews;
+        }
+
         /// <summary>
         /// Delete Method
         /// Takes a review id as parameter and deletes the review with the matching id.
@@ -95,7 +123,7 @@ namespace ConsoleApp1
         public static void DeleteReview(int id)
         {
             /// Deletes a Review, with given ID.
-            var jsonData = System.IO.File.ReadAllText(ReviewPath);
+            var jsonData = File.ReadAllText(ReviewPath);
             var reviews = JsonConvert.DeserializeObject<List<Review>>(jsonData);
             List<Review> FilteredReviews = new List<Review>();
             foreach (Review review in reviews)

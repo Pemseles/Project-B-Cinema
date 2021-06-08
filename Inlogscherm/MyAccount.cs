@@ -259,7 +259,7 @@ namespace ConsoleApp1
                     if(CurrentUser.GetLevel(this.UID) >= 3) { 
                         AdminMenu.Mainmenu();
                     } else {
-                        MainMenu.Mainmenu();
+                        Mainmenu();
                     }
                 }
 

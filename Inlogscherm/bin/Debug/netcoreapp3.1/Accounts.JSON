@@ -128,26 +128,11 @@
     ]
   },
   {
-    "UID": 8,
-    "Level": 1,
-    "Email": "janssen@gmail.com",
-    "Pwd": "Y8zM4N5Swgund9TapPK0aZfo2I2WQ+W7Y7hmkBukpq1kRE2V",
-    "Active": true,
-    "Firstname": "Jacq",
-    "Lastname": "Janssen",
-    "Age": "5/4/1920",
-    "Address": "Kempenaar302992KEbARENDRECHT",
-    "Interests": [
-      "KOmedie",
-      "science"
-    ]
-  },
-  {
     "UID": 9,
     "Level": 1,
     "Email": "user9@mail.com",
     "Pwd": "jHCQCfBipWDxYxN23KdeYeel27X57VRuTc0EQvopqnqlXwwx",
-    "Active": true,
+    "Active": false,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
@@ -163,7 +148,7 @@
     "Level": 1,
     "Email": "user10@mail.com",
     "Pwd": "3lheQmz+orx96fVJ9LevLDgal2iHjSRVqoBLndhZA85RbVOy",
-    "Active": true,
+    "Active": false,
     "Firstname": "Pietje",
     "Lastname": "Precies",
     "Age": "2000-01-01",
