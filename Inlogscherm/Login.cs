@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
@@ -13,7 +13,7 @@ namespace ConsoleApp1
         public bool fail = false;
         public static int loginFunc()
         {
-            ConsoleApp1.Accounts userLogin = new Accounts();
+            Accounts userLogin = new Accounts();
 
             bool login = false;
             while (login == false)
@@ -51,8 +51,8 @@ namespace ConsoleApp1
                 }
                 if(userLogin.Login(email, pass) == -1)
                 {
-                    Console.WriteLine("E-mail of Wachtwoord is onjuist\nProbeer het nog een keer");
-                    return loginFunc();
+                    Console.WriteLine("E-mail of wachtwoord is onjuist.\nProbeer het alstublieft nog een keer.");
+                    loginFunc();
 
                 }
                 login = true;

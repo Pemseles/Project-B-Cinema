@@ -143,6 +143,10 @@ namespace ConsoleApp1
                         {
                             for (int i = 0; i < Filminstancelist.Count; i++)
                             {
+                                if (i==0)
+                                {
+                                    Logo.Print();
+                                }
                                 if (i == index3)
                                 {
                                     Console.Write("                                                ");
@@ -227,7 +231,7 @@ namespace ConsoleApp1
                         Console.Clear();
                         Logo.Print();
                         done = true;
-                        Console.Write("Geef hier op wat u zoekt :");
+                        Console.Write("Geef hier op wat u zoekt:");
 
                         string searchClassInput = Console.ReadLine();
                         SearchClass search1 = new SearchClass(searchClassInput);
@@ -250,7 +254,7 @@ namespace ConsoleApp1
                             List<string> items2 = new List<string>() {
                             "[      Vandaag     ]" ,
                             "[      Morgen      ]" ,
-                            "[     Overmorgen   ]" ,
+                            "[    Overmorgen    ]" ,
                             "[  Datum invoeren  ]" ,
                         };
                             Logo.Print();
@@ -312,7 +316,7 @@ namespace ConsoleApp1
                                     Console.Clear();
                                     selectedinstance = films.OpDatum(tomorrow);
                                 }
-                                else if (items2[index2] == "[     Overmorgen   ]")
+                                else if (items2[index2] == "[    Overmorgen    ]")
                                 {
                                     index2 = 0;
                                     Console.Clear();
@@ -323,7 +327,7 @@ namespace ConsoleApp1
                                 else if (items2[index2] == "[  Datum invoeren  ]")
                                 {
                                     Console.Clear();
-                                    Console.WriteLine("                                                Welke dag? (MM/dd/jjjj)");
+                                    Console.WriteLine("                                                Welke dag? (dd/MM/jjjj)");
                                     Console.Write("                                                ");
                                     var other = Console.ReadLine();
                                     Console.Clear();
@@ -397,8 +401,9 @@ namespace ConsoleApp1
                 else if (ckey.Key == ConsoleKey.Enter)
                 {
                     Console.Clear();
+                    Logo.Print();
                     Console.Write("      ");
-                    Console.WriteLine($"Wilt u {items[index]} selecteren? Zo ja klik op enter, zo nee klik op backspace.");
+                    Console.WriteLine($"Wilt u {items[index]} selecteren? Zo ja druk op enter, zo nee druk op backspace.");
                     Console.Write("      ");
                     var input = Console.ReadKey();
                     if (input.Key == ConsoleKey.Enter)
@@ -477,7 +482,10 @@ namespace ConsoleApp1
                 if (todayarray.Length != 0)
                 {
                     for (int i = 0; i < todayarray.Length; i++)
-                    {
+                    {   if (i==0)
+                        {
+                            Logo.Print();
+                        }
                         if (i == index)
                         {
                             Console.Write("                                                ");
@@ -531,11 +539,11 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         Console.Clear();
-                        Console.Write("                                                ");
-                        Console.WriteLine($"Wilt u {todayarray[index]} selecteren? (j/n)");
-                        Console.Write("                                                ");
-                        var input = Console.ReadLine();
-                        if (input == "j" || input == "J")
+                        Logo.Print();
+                        Console.Write("                        ");
+                        Console.WriteLine($"Wilt u {todayarray[index]} selecteren? (enter om door te gaan)");
+                        ConsoleKeyInfo ckey2 = Console.ReadKey();
+                        if (ckey2.Key == ConsoleKey.Enter)
                         {
                             Console.Clear();
                             done = true;
