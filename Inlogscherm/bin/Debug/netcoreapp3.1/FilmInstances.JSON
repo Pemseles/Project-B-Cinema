@@ -3,31 +3,263 @@
 			"ID": 0,
 			"MovieID": 7,
 			"TheaterhallID": 1,
-			"StartDateTime": "29/05/2021 05:50",
-			"EndDateTime": "29/05/2021 07:50",
-			"Type": "3D",
-			"Price": 14.99,
+			"StartDateTime": "08/06/2021 15:50",
+			"EndDateTime": "08/06/2021 18:50",
+			"Type": "2D",
+			"Price": 10.99,
 			"Active": true
 		},
 		{
 			"ID": 1,
 			"MovieID": 8,
 			"TheaterhallID": 2,
-			"StartDateTime": "30/05/2021 09:20",
-			"EndDateTime": "30/05/2021 11:00",
-			"Type": "2D",
-			"Price": 10.99,
+			"StartDateTime": "09/06/2021 12:50",
+			"EndDateTime": "09/06/2021 15:50",
+			"Type": "3D",
+			"Price": 14.99,
 			"Active": true
 		},
 		{
 			"ID": 2,
 			"MovieID": 3,
 			"TheaterhallID": 3,
-			"StartDateTime": "30/05/2021 09:20",
-			"EndDateTime": "30/05/2021 11:00",
+			"StartDateTime": "09/06/2021 13:50",
+			"EndDateTime": "09/06/2021 16:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 3,
+			"MovieID": 1,
+			"TheaterhallID": 1,
+			"StartDateTime": "08/06/2021 19:50",
+			"EndDateTime": "08/06/2021 22:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 4,
+			"MovieID": 2,
+			"TheaterhallID": 1,
+			"StartDateTime": "08/06/2021 23:50",
+			"EndDateTime": "09/06/2021 02:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 5,
+			"MovieID": 3,
+			"TheaterhallID": 2,
+			"StartDateTime": "09/06/2021 16:50",
+			"EndDateTime": "09/06/2021 19:50",
+			"Type": "3D",
+			"Price": 14.99,
+			"Active": true
+		},
+		{
+			"ID": 6,
+			"MovieID": 4,
+			"TheaterhallID": 3,
+			"StartDateTime": "09/06/2021 17:50",
+			"EndDateTime": "09/06/2021 20:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 7,
+			"MovieID": 5,
+			"TheaterhallID": 1,
+			"StartDateTime": "09/06/2021 15:50",
+			"EndDateTime": "09/06/2021 18:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 8,
+			"MovieID": 6,
+			"TheaterhallID": 2,
+			"StartDateTime": "09/06/2021 20:50",
+			"EndDateTime": "09/06/2021 23:50",
+			"Type": "3D",
+			"Price": 14.99,
+			"Active": true
+		},
+		{
+			"ID": 9,
+			"MovieID": 7,
+			"TheaterhallID": 3,
+			"StartDateTime": "09/06/2021 21:50",
+			"EndDateTime": "10/06/2021 00:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 10,
+			"MovieID": 8,
+			"TheaterhallID": 1,
+			"StartDateTime": "09/06/2021 19:50",
+			"EndDateTime": "09/06/2021 22:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 11,
+			"MovieID": 9,
+			"TheaterhallID": 2,
+			"StartDateTime": "10/06/2021 12:50",
+			"EndDateTime": "10/06/2021 15:50",
+			"Type": "3D",
+			"Price": 14.99,
+			"Active": true
+		},
+		{
+			"ID": 12,
+			"MovieID": 10,
+			"TheaterhallID": 3,
+			"StartDateTime": "10/06/2021 13:50",
+			"EndDateTime": "10/06/2021 16:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 13,
+			"MovieID": 11,
+			"TheaterhallID": 1,
+			"StartDateTime": "09/06/2021 23:50",
+			"EndDateTime": "10/06/2021 02:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 14,
+			"MovieID": 12,
+			"TheaterhallID": 2,
+			"StartDateTime": "10/06/2021 16:50",
+			"EndDateTime": "10/06/2021 19:50",
+			"Type": "3D",
+			"Price": 14.99,
+			"Active": true
+		},
+		{
+			"ID": 15,
+			"MovieID": 13,
+			"TheaterhallID": 3,
+			"StartDateTime": "10/06/2021 17:50",
+			"EndDateTime": "10/06/2021 20:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 16,
+			"MovieID": 14,
+			"TheaterhallID": 1,
+			"StartDateTime": "10/06/2021 15:50",
+			"EndDateTime": "10/06/2021 18:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 17,
+			"MovieID": 15,
+			"TheaterhallID": 2,
+			"StartDateTime": "10/06/2021 20:50",
+			"EndDateTime": "10/06/2021 23:50",
+			"Type": "3D",
+			"Price": 14.99,
+			"Active": true
+		},
+		{
+			"ID": 18,
+			"MovieID": 16,
+			"TheaterhallID": 3,
+			"StartDateTime": "10/06/2021 21:50",
+			"EndDateTime": "11/06/2021 00:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 19,
+			"MovieID": 17,
+			"TheaterhallID": 1,
+			"StartDateTime": "10/06/2021 19:50",
+			"EndDateTime": "10/06/2021 22:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 20,
+			"MovieID": 18,
+			"TheaterhallID": 2,
+			"StartDateTime": "11/06/2021 12:50",
+			"EndDateTime": "11/06/2021 15:50",
+			"Type": "3D",
+			"Price": 14.99,
+			"Active": true
+		},
+		{
+			"ID": 21,
+			"MovieID": 19,
+			"TheaterhallID": 3,
+			"StartDateTime": "11/06/2021 13:50",
+			"EndDateTime": "11/06/2021 16:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 22,
+			"MovieID": 1,
+			"TheaterhallID": 1,
+			"StartDateTime": "10/06/2021 23:50",
+			"EndDateTime": "11/06/2021 02:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		},
+		{
+			"ID": 23,
+			"MovieID": 2,
+			"TheaterhallID": 2,
+			"StartDateTime": "11/06/2021 16:50",
+			"EndDateTime": "11/06/2021 19:50",
+			"Type": "3D",
+			"Price": 14.99,
+			"Active": true
+		},
+		{
+			"ID": 24,
+			"MovieID": 3,
+			"TheaterhallID": 3,
+			"StartDateTime": "11/06/2021 17:50",
+			"EndDateTime": "11/06/2021 20:50",
 			"Type": "2D",
 			"Price": 10.99,
 			"Active": true
 		}
+,
+		{
+			"ID": 25,
+			"MovieID": 0,
+			"TheaterhallID": 3,
+			"StartDateTime": "11/06/2021 21:50",
+			"EndDateTime": "12/06/2021 00:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		}
+
 	]
 }
