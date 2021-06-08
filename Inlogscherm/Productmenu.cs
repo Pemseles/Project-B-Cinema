@@ -114,13 +114,13 @@ namespace ConsoleApp1
 
                                 Console.BackgroundColor = ConsoleColor.Gray;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.WriteLine($"[ snack : {Snack.Name},  prijs : {Snack.Price}] ");
+                                Console.WriteLine($"[ Snack : {Snack.Name},  Prijs : {Snack.Price}] ");
                             }
                             else
                             {
                                 Console.BackgroundColor = ConsoleColor.Black;
                                 Console.ForegroundColor = ConsoleColor.Gray;
-                                Console.WriteLine($"[ snack : {Snack.Name},  prijs : {Snack.Price}] ");
+                                Console.WriteLine($"[ Snack : {Snack.Name},  Prijs : {Snack.Price}] ");
                             }
                             i++;
                             Console.ResetColor();
@@ -150,7 +150,7 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Snacks[index].ID);
-                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan");
+                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan.");
                         Console.ReadKey();
                         // add the ID to an order JSON
                     }
@@ -176,13 +176,13 @@ namespace ConsoleApp1
                             {
                                 Console.BackgroundColor = ConsoleColor.Gray;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.WriteLine($"[ drankje : {Drink.Name}, prijs : {Drink.Price} ]");
+                                Console.WriteLine($"[ Drankje : {Drink.Name}, Prijs : {Drink.Price} ]");
                             }
                             else
                             {
                                 Console.BackgroundColor = ConsoleColor.Black;
                                 Console.ForegroundColor = ConsoleColor.Gray;
-                                Console.WriteLine($"[ drankje : {Drink.Name}, prijs : {Drink.Price} ]");
+                                Console.WriteLine($"[ Drankje : {Drink.Name}, Prijs : {Drink.Price} ]");
 
                             }
                             i++;
@@ -213,7 +213,7 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Drinks[index].ID);
-                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan");
+                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan.");
                         Console.ReadKey();
                         // add the ID to an order JSON
                     }
@@ -239,13 +239,13 @@ namespace ConsoleApp1
                             {
                                 Console.BackgroundColor = ConsoleColor.Gray;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.WriteLine($"[ alcohol: {Alcohol.Name}, prijs : {Alcohol.Price} ]");
+                                Console.WriteLine($"[ Alcohol: {Alcohol.Name}, Prijs : {Alcohol.Price} ]");
                             }
                             else
                             {
                                 Console.BackgroundColor = ConsoleColor.Black;
                                 Console.ForegroundColor = ConsoleColor.Gray;
-                                Console.WriteLine($"[ alcohol: {Alcohol.Name}, prijs : {Alcohol.Price} ]");
+                                Console.WriteLine($"[ Alcohol: {Alcohol.Name}, Prijs : {Alcohol.Price} ]");
                             }
                             Console.ResetColor();
                             i++;
@@ -276,7 +276,7 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Alcohols[index].ID);
-                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan");
+                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan.");
                         Console.ReadKey();
                         // add the ID to an order JSON
                     }
@@ -302,13 +302,13 @@ namespace ConsoleApp1
                             {
                                 Console.BackgroundColor = ConsoleColor.Gray;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.WriteLine($"[ deal : {Deal.Name}, prijs : {Deal.Price} ]");
+                                Console.WriteLine($"[ Deal : {Deal.Name}, Prijs : {Deal.Price} ]");
                             }
                             else
                             {
                                 Console.BackgroundColor = ConsoleColor.Black;
                                 Console.ForegroundColor = ConsoleColor.Gray;
-                                Console.WriteLine($"[ deal : {Deal.Name}, prijs : {Deal.Price} ]");
+                                Console.WriteLine($"[ Deal : {Deal.Name}, Prijs : {Deal.Price} ]");
                             }
                             Console.ResetColor();
                             i++;
@@ -338,7 +338,7 @@ namespace ConsoleApp1
                     else if (ckey.Key == ConsoleKey.Enter)
                     {
                         addOrder.Add(Deals[index].ID);
-                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan");
+                        Console.WriteLine("Product is toegevoegd aan winkelwagen, klik nog een keer om door te gaan.");
                         Console.ReadKey();
                         // add the ID to an order JSON
                     }

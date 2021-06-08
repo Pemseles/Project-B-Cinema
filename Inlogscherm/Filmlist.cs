@@ -227,7 +227,7 @@ namespace ConsoleApp1
                         Console.Clear();
                         Logo.Print();
                         done = true;
-                        Console.Write("Geef hier op wat u zoekt :");
+                        Console.Write("Geef hier op wat u zoekt:");
 
                         string searchClassInput = Console.ReadLine();
                         SearchClass search1 = new SearchClass(searchClassInput);
@@ -250,7 +250,7 @@ namespace ConsoleApp1
                             List<string> items2 = new List<string>() {
                             "[      Vandaag     ]" ,
                             "[      Morgen      ]" ,
-                            "[     Overmorgen   ]" ,
+                            "[    Overmorgen    ]" ,
                             "[  Datum invoeren  ]" ,
                         };
                             Logo.Print();
@@ -312,7 +312,7 @@ namespace ConsoleApp1
                                     Console.Clear();
                                     selectedinstance = films.OpDatum(tomorrow);
                                 }
-                                else if (items2[index2] == "[     Overmorgen   ]")
+                                else if (items2[index2] == "[    Overmorgen    ]")
                                 {
                                     index2 = 0;
                                     Console.Clear();
@@ -398,7 +398,7 @@ namespace ConsoleApp1
                 {
                     Console.Clear();
                     Console.Write("      ");
-                    Console.WriteLine($"Wilt u {items[index]} selecteren? Zo ja klik op enter, zo nee klik op backspace.");
+                    Console.WriteLine($"Wilt u {items[index]} selecteren? Zo ja druk op enter, zo nee druk op backspace.");
                     Console.Write("      ");
                     var input = Console.ReadKey();
                     if (input.Key == ConsoleKey.Enter)

@@ -95,7 +95,7 @@ namespace ConsoleApp1
                     Console.Clear();
                     if (index == 0)
                     {
-                        Console.WriteLine("(geef een dag tussen 1 en 31)");
+                        Console.WriteLine("(Geef een dag tussen 1 en 31.)");
                         Console.Write("Dag: ");
                         string Day = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, Day, 0) == false)
@@ -115,7 +115,7 @@ namespace ConsoleApp1
                     }
                     if (index == 1)
                     {
-                        Console.WriteLine("(geef een maand tussen 1 en 12)");
+                        Console.WriteLine("(Geef een maand tussen 1 en 12.)");
                         Console.Write("Maand: ");
                         string Month = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, Month, 0) == false)
@@ -135,7 +135,7 @@ namespace ConsoleApp1
                     }
                     if (index == 2)
                     {
-                        Console.WriteLine("(geef een jaar tussen 1900 en 2018)");
+                        Console.WriteLine("(Geef een jaar tussen 1900 en 2018.)");
                         string Year = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, Year, 0) == false)
                         {
@@ -166,8 +166,8 @@ namespace ConsoleApp1
                     switch (x)
                     {
                         case 1:
-                        Console.WriteLine("(geef een naam op die bestaat uit alleen maar letters)");
-                        Console.Write("voer uw naam in: ");
+                        Console.WriteLine("(Geef een naam op die bestaat uit alleen maar letters.)");
+                        Console.Write("Voer uw naam in: ");
                             name = Console.ReadLine();
                             if(ConsoleApp1.Restrictions.SW(5, name, 0) == true && name.Length > 1)
                             {
@@ -176,8 +176,8 @@ namespace ConsoleApp1
                             name = Name(1);
                             break;
                         case 2:
-                        Console.WriteLine("(geef een achternaam op die bestaat uit alleen maar letters)");
-                        Console.Write("voer uw achternaam in: ");
+                        Console.WriteLine("(Geef een achternaam op die bestaat uit alleen maar letters.)");
+                        Console.Write("Voer uw achternaam in: ");
                             name = Console.ReadLine();
                             if (ConsoleApp1.Restrictions.SW(5, name, 0) == true && name.Length > 1)
                             {
@@ -193,8 +193,8 @@ namespace ConsoleApp1
             {
                 if(clear) {Console.Clear();}
                     
-                Console.WriteLine("(het e-mailadres moet een @ en een . bevatten)");
-                Console.Write("voer uw e-mailadres in: ");
+                Console.WriteLine("(Het e-mailadres moet een @ en een . bevatten.)");
+                Console.Write("Voer uw e-mailadres in: ");
                 string email = Console.ReadLine();
                 for (int i = 0; i < email.Length; i++)
                 {
@@ -227,7 +227,7 @@ namespace ConsoleApp1
                     }
                 }
                 if(!(NewUser.CheckUniqueEmail(email))) {
-                    Console.WriteLine("Deze Email is al in gebruik.");
+                    Console.WriteLine("Dit e-mailadres is al in gebruik.");
                 }
                 Email(clear);
                 return "";
@@ -272,25 +272,25 @@ namespace ConsoleApp1
                         if (char.IsUpper(password, c))
                         {
                             letter = 1;
-                            pw_strenght = "[Je wachtwoord mist een nummer.]               ";
+                            pw_strenght = "[Uw wachtwoord mist een nummer.]               ";
                             Console.Write(pw_strenght);
                         }
                         // check digit 
                         if (char.IsDigit(password, c))
                         {
                             digit = 1;
-                            pw_strenght = "[Je wachtwoord mist een hoofdletter.]  ";
+                            pw_strenght = "[Uw wachtwoord mist een hoofdletter.]  ";
                         }
                         if (digit == 0 && letter == 0)
                         {
-                            pw_strenght = "[Je wachtwoord mist een hoofdletter en een cijfer.]  ";
+                            pw_strenght = "[Uw wachtwoord mist een hoofdletter en een cijfer.]  ";
                         }
                     }
                     // checks if the password is 8 or longer
                     if (password.Length < 8)
                     {
                         pw = true;
-                        pw_strenght = "[Je wachtwoord is niet lang genoeg.]    ";
+                        pw_strenght = "[Uw wachtwoord is niet lang genoeg.]    ";
 
                     }
                     // check if you are sure you want to use this as your password 
@@ -336,8 +336,8 @@ namespace ConsoleApp1
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("voer een getal in");
-                    Console.Write("hoeveel intresses heeft u: ");
+                    Console.WriteLine("Voer een getal in.");
+                    Console.Write("Hoeveel intresses heeft u: ");
                     times = Console.ReadLine();
                     if (ConsoleApp1.Restrictions.SW(3, times, 0) == true)
                     {
@@ -351,8 +351,8 @@ namespace ConsoleApp1
                     while (true)
                     {
                         Console.Clear();
-                        Console.Write("je antwoord mag alleen maar letters bevatten");
-                        Console.Write("voer een intresse in: ");
+                        Console.Write("Uw antwoord mag alleen maar letters bevatten.");
+                        Console.Write("Voer een intresse in: ");
                         intrest[i] = Console.ReadLine();
                         if(ConsoleApp1.Restrictions.SW(5, intrest[i], 0) == true && intrest[i].Length > 1)
                         {
@@ -370,8 +370,8 @@ namespace ConsoleApp1
                 switch (num) {
                     case 1:
                         // langste straatnaam is 55 letters in Nederland
-                        Console.WriteLine("je antwoord mag alleen maar letters bevatten");
-                        Console.Write("voer uw straat in: ");
+                        Console.WriteLine("Uw antwoord mag alleen maar letters bevatten.");
+                        Console.Write("Voer uw straat in: ");
                         address = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(5, address, 0) == true && address.Length < 56)
                         {
@@ -382,8 +382,8 @@ namespace ConsoleApp1
                         
                     case 2:
                         // hoogste huisnummer in Nederland is 5 getallen lang
-                        Console.WriteLine("je antwoord mag alleen maar cijfers bevatten en niet langer dan 6 tekens zijn");
-                        Console.Write("voer uw huisnummer in: ");
+                        Console.WriteLine("Uw antwoord mag alleen maar cijfers bevatten en niet langer dan 6 tekens zijn.");
+                        Console.Write("Voer uw huisnummer in: ");
                         address = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(3, address, 0) == true && address.Length < 6)
                         {
@@ -415,8 +415,8 @@ namespace ConsoleApp1
                         break;
                     case 4:
                         // langste woonplaatsnaam is 25 tekens lang
-                        Console.WriteLine("je antwoord mag alleen maar letters bevatten");
-                        Console.Write("voer uw woonplaats in: ");
+                        Console.WriteLine("Uw antwoord mag alleen maar letters bevatten.");
+                        Console.Write("Voer uw woonplaats in: ");
                         address = Console.ReadLine();
                         if (ConsoleApp1.Restrictions.SW(5, address, 0) == true && address.Length < 26)
                         {
@@ -456,7 +456,7 @@ namespace ConsoleApp1
                 "[    Woonplaats    ]" + city,
                 "[      E-mail      ]" + email,
                 "[    Wachtwoord    ]" + pass,
-                "[    Interessen    ]" + intreststring,
+                "[    Interesses    ]" + intreststring,
                 "[ Account aanmaken ]" + error,
                 "[     Annuleren    ]"
                  };
@@ -502,7 +502,7 @@ namespace ConsoleApp1
                         pass += "*";
                     }
                 }
-                if (selectedMenuItem == "[    Interessen    ]" + intreststring)
+                if (selectedMenuItem == "[    Interesses    ]" + intreststring)
                 {
                     intrest = Intrest();
                     intreststring = "";
@@ -520,7 +520,7 @@ namespace ConsoleApp1
                     }
                     else
                     {
-                        error = "U heeft niet alle velden ingevuld";
+                        error = "U heeft niet alle velden ingevuld.";
                     }
                 }
                 if(selectedMenuItem == "[     Annuleren    ]")

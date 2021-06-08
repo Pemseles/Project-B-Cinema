@@ -298,7 +298,7 @@ namespace ConsoleApp1
             }
             jsonData = JsonConvert.SerializeObject(accountsList, Formatting.Indented);
             System.IO.File.WriteAllText(accountPath, jsonData);
-            Console.WriteLine("Je Email Adres is Gewijzigd!");
+            Console.WriteLine("Uw e-mailadres is gewijzigd!");
         }
 
         /// <summary>
@@ -320,7 +320,7 @@ namespace ConsoleApp1
 
             jsonData = JsonConvert.SerializeObject(accountsList, Formatting.Indented);
             System.IO.File.WriteAllText(accountPath, jsonData);
-            Console.WriteLine("Je Wachtwoord is Gewijzigd!");
+            Console.WriteLine("Uw wachtwoord is gewijzigd!");
         }
 
         /// <summary>
@@ -344,12 +344,12 @@ namespace ConsoleApp1
                 {
                     if (obj.Level > 2)
                     {
-                        if (showErrors) { Console.WriteLine("FOUT: Een Administrator Account kan geen VIP worden"); }
+                        if (showErrors) { Console.WriteLine("FOUT: Een administratoraccount kan geen VIP worden."); }
                         break;
                     }
                     else if (obj.Level == 2)
                     {
-                        if (showErrors) { Console.WriteLine("FOUT: Account heeft al VIP status"); }
+                        if (showErrors) { Console.WriteLine("FOUT: Account heeft al VIP status."); }
                     }
                     else
                     {

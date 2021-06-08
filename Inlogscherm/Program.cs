@@ -59,7 +59,7 @@ namespace ConsoleApp1
                     {
                         // Account is Inactive
                         // Inform user about suspended account and deny further access
-                        Console.WriteLine("  Je account is (tijdelijk) opgeschort.");
+                        Console.WriteLine("  Uw account is (tijdelijk) geblokkeerd.");
                         Console.Write("  ");
                         Console.BackgroundColor = ConsoleColor.Gray;
                         Console.ForegroundColor = ConsoleColor.Black;
