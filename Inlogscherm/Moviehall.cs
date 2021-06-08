@@ -190,37 +190,35 @@ namespace ConsoleApp1
             if (x.Count > 1)
             {
                 
-                Console.WriteLine($"Je hebt deze stoel geselecteerd : {s} \n Klopt dit?");
-                Console.Write("Maak uw keuze : \n");
-                Console.WriteLine("Ja");
-                Console.WriteLine("Nee");
-                switch (Console.ReadLine())
+                Console.WriteLine($"Je hebt deze stoel geselecteerd : {s} \nKlopt dit?");
+                Console.Write("Zo ja klik op enter, zo nee klik op backspace");
+                var check = Console.ReadKey();
+                if (check.Key == ConsoleKey.Enter)
                 {
-                    case "Ja":
+                    MainMenu.Cart.UpdateSeats(x);
+                    Console.SetWindowSize(120, 30);
+                    Console.Clear();
+                    if (Program.Level >= 3)
+                    {
+                        Console.SetWindowSize(120, 30);
+                        AdminMenu.Mainmenu();
+                    }
+                    else if (Program.UID == -1)
+                    {
+                        Console.SetWindowSize(120, 30);
+                        Guest.Mainmenu();
+                    }
+                    else
+                    {
+                        Console.SetWindowSize(120, 30);
+                        MainMenu.Mainmenu();
+                    }
 
-                        MainMenu.Cart.UpdateSeats(x);
-                        Console.SetWindowSize(120, 30);
-                        Console.Clear();
-                        if (Program.Level >= 3)
-                        {
-                            Console.SetWindowSize(120, 30);
-                            AdminMenu.Mainmenu();
-                        }
-                        else if (Program.UID == -1)
-                        {
-                            Console.SetWindowSize(120, 30);
-                            Guest.Mainmenu();
-                        }
-                        else
-                        {
-                            Console.SetWindowSize(120, 30);
-                            MainMenu.Mainmenu();
-                        }
-                        break;
-                    case "Nee":
-                        Console.SetWindowSize(120, 30);
-                        // reset de seats
-                        break;
+                }
+                else if (check.Key == ConsoleKey.Backspace)
+                {
+                    Console.SetWindowSize(120, 30);
+                    // reset de seats   
                 }
             }
             // homescreen()
