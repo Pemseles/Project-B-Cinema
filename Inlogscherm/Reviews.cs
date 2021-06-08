@@ -307,8 +307,7 @@ namespace ConsoleApp1
                 }
                 Console.Clear();
             }
-            review_menu();
-            return "";
+            return review_menu();
         }
         public static void make_review(int kind)
         {

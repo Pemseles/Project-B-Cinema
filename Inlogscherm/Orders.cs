@@ -6,7 +6,6 @@ using System.Linq;
 using static System.Console;
 using System.IO;
 using Newtonsoft.Json;
-using System.Security.Cryptography;
 
 namespace ConsoleApp1
 {

@@ -47,12 +47,12 @@ namespace ConsoleApp1
                 if(pass.Length == 0 || email.Length == 0)
                 {
                     Console.WriteLine("Voer alle velden in.");
-                    loginFunc();
+                    return loginFunc();
                 }
                 if(userLogin.Login(email, pass) == -1)
                 {
                     Console.WriteLine("E-mail of Wachtwoord is onjuist\nProbeer het nog een keer");
-                    loginFunc();
+                    return loginFunc();
 
                 }
                 login = true;
