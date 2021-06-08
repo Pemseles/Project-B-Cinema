@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using System.IO;
+using System.Globalization;
 
 namespace ConsoleApp1
 {
@@ -113,18 +114,113 @@ namespace ConsoleApp1
                 {
                     if ( items[index]== "[    Alle films    ]")
                     {
+
                         Console.Clear();
                         done = true;
                         string moviesjson = File.ReadAllText(Path.GetFullPath(@"FilmList.json"));
                         var movielist = JsonSerializer.Deserialize<Filmsuperclass>(moviesjson);
+                        string movieinstancesjson = File.ReadAllText(Path.GetFullPath(@"FilmInstances.JSON"));
+                        Filmsuperclass movieinstancelist = JsonSerializer.Deserialize<Filmsuperclass>(movieinstancesjson);
                         string[] FilmList = new string[movielist.FilmArray.Length];
                         for (int i = 0; i < movielist.FilmArray.Length; i++)
                         {
                             FilmList[i] = movielist.FilmArray[i].Name;
                         }
                         var selectedmovie = films.Filmlijst(FilmList);
-                        Console.WriteLine($"                                                U heeft {selectedmovie.Name} geselecteerd.");
-                        Console.ReadLine();
+                        
+                        List<Filminstance> Filminstancelist = new List<Filminstance>();
+                        for (int i = 0;i<movieinstancelist.FilmInstances.Length;i++)
+                        {
+                            if (selectedmovie.ID==movieinstancelist.FilmInstances[i].MovieID)
+                            {
+                                Filminstancelist.Add(movieinstancelist.FilmInstances[i]);
+                            }
+                        }
+
+                        bool done3 = false;
+                        int index3 = 0;
+                        while (!done3)
+                        {
+                            for (int i = 0; i < Filminstancelist.Count; i++)
+                            {
+                                if (i == index3)
+                                {
+                                    Console.Write("                                                ");
+                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                                    Console.Write(selectedmovie.Name + "\n");
+                                    Console.ResetColor();
+                                    Console.Write("                                                ");
+                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                                    Console.Write("Tijd: " + Filminstancelist[i].StartDateTime + " tot " + Filminstancelist[i].EndDateTime + "\n");
+                                    Console.ResetColor();
+                                    Console.Write("                                                ");
+                                    Console.BackgroundColor = ConsoleColor.Gray; Console.ForegroundColor = ConsoleColor.Black;
+                                    Console.WriteLine("Zaal: " + Filminstancelist[i].TheaterhallID + " Type: " + Filminstancelist[i].Type + "\n");
+                                }
+                                else
+                                {
+                                    Console.Write("                                                ");
+                                    Console.Write(selectedmovie.Name + "\n");
+                                    Console.ResetColor();
+                                    Console.Write("                                                ");
+                                    Console.Write("Tijd: " + Filminstancelist[i].StartDateTime + " tot " + Filminstancelist[i].EndDateTime + "\n");
+                                    Console.ResetColor();
+                                    Console.Write("                                                ");
+                                    Console.WriteLine("Zaal: " + Filminstancelist[i].TheaterhallID + " Type: " + Filminstancelist[i].Type + "\n");
+                                }
+                                Console.ResetColor();
+                            }
+
+                            ConsoleKeyInfo ckey3 = Console.ReadKey();
+                            if (ckey3.Key == ConsoleKey.DownArrow)
+                            {
+                                if (index3 == Filminstancelist.Count - 1)
+                                {
+                                    index3 = 0;
+                                }
+                                else { index3++; }
+                            }
+                            else if (ckey3.Key == ConsoleKey.UpArrow)
+                            {
+                                if (index3 <= 0)
+                                {
+                                    index3 = Filminstancelist.Count - 1;
+                                }
+                                else { index3--; }
+                            }
+                            else if (ckey3.Key == ConsoleKey.Backspace)
+                            {
+                                Console.Clear();
+                                if (Program.Level >= 3)
+                                {
+                                    AdminMenu.Mainmenu();
+                                }
+                                else if (Program.UID == -1)
+                                {
+                                    Guest.Mainmenu();
+                                }
+                                else
+                                {
+                                    MainMenu.Mainmenu();
+                                }
+                            }
+                            else if (ckey3.Key == ConsoleKey.Enter)
+                            {
+                                
+                                Console.Clear();
+                                selectedinstance = Filminstancelist[index3];
+
+                                MainMenu.Cart.UpdateFilmName(selectedmovie.Name);
+                                MainMenu.Cart.UpdateFilmStartnEnd(selectedinstance.StartDateTime, selectedinstance.EndDateTime);
+                                MainMenu.Cart.UpdateFilmPrice(selectedinstance);
+                                int zaal = selectedinstance.TheaterhallID;
+                                int movieid = selectedinstance.MovieID;
+                                Theatherhalls.Moviehall(zaal, movieid);
+                                Console.SetWindowSize(120, 30);
+                            }
+                            Console.Clear();
+                        }
+
                     }
                     else if (items[index] == "[    Zoek films    ]")
                     {
@@ -146,9 +242,9 @@ namespace ConsoleApp1
                     {
                         Console.Clear();
                         done = true;
-                        var today = DateTime.Now.ToString("dd/MM/yyyy");
-                        var tomorrow = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
-                        var dayaftertomorrow = DateTime.Now.AddDays(2).ToString("dd/MM/yyyy");
+                        var today = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
+                        var tomorrow = DateTime.Today.AddDays(1).ToString("dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
+                        var dayaftertomorrow = DateTime.Today.AddDays(2).ToString("dd/MM/yyyy", CultureInfo.CreateSpecificCulture("en-US"));
                         while (!done2)
                         {
                             List<string> items2 = new List<string>() {
@@ -205,6 +301,7 @@ namespace ConsoleApp1
                                     index2 = 0;
                                     Console.Clear();
                                     done2 = true;
+                                    Console.Clear();
                                     selectedinstance = films.OpDatum(today);
                                 }
                                 else if (items2[index2] == "[      Morgen      ]")
@@ -212,6 +309,7 @@ namespace ConsoleApp1
                                     index2 = 0;
                                     Console.Clear();
                                     done2 = true;
+                                    Console.Clear();
                                     selectedinstance = films.OpDatum(tomorrow);
                                 }
                                 else if (items2[index2] == "[     Overmorgen   ]")
@@ -219,12 +317,13 @@ namespace ConsoleApp1
                                     index2 = 0;
                                     Console.Clear();
                                     done2 = true;
+                                    Console.Clear();
                                     selectedinstance = films.OpDatum(dayaftertomorrow);
                                 }
                                 else if (items2[index2] == "[  Datum invoeren  ]")
                                 {
                                     Console.Clear();
-                                    Console.WriteLine("                                                Welke dag? (MM/dd/jjjj) doe 29/05/2021 of 30/05/2021");
+                                    Console.WriteLine("                                                Welke dag? (MM/dd/jjjj)");
                                     Console.Write("                                                ");
                                     var other = Console.ReadLine();
                                     Console.Clear();
@@ -298,17 +397,17 @@ namespace ConsoleApp1
                 else if (ckey.Key == ConsoleKey.Enter)
                 {
                     Console.Clear();
-                    Console.Write("                                                ");
-                    Console.WriteLine($"Wilt u {items[index]} selecteren? (j/n)");
-                    Console.Write("                                                ");
-                    var input = Console.ReadLine();
-                    if (input == "j" || input == "J")
+                    Console.Write("      ");
+                    Console.WriteLine($"Wilt u {items[index]} selecteren? Zo ja klik op enter, zo nee klik op backspace.");
+                    Console.Write("      ");
+                    var input = Console.ReadKey();
+                    if (input.Key == ConsoleKey.Enter)
                     {
                         Console.Clear();
                         filmname = items[index];
                         done = true;
                     }
-                    else
+                    else if (input.Key == ConsoleKey.Backspace)
                     {
                         Console.Clear();
                     }

@@ -249,6 +249,17 @@
 			"Price": 10.99,
 			"Active": true
 		}
+,
+		{
+			"ID": 25,
+			"MovieID": 0,
+			"TheaterhallID": 3,
+			"StartDateTime": "11/06/2021 21:50",
+			"EndDateTime": "12/06/2021 00:50",
+			"Type": "2D",
+			"Price": 10.99,
+			"Active": true
+		}
 
 	]
 }
