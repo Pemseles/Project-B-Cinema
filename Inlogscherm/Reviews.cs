@@ -70,9 +70,10 @@ namespace ConsoleApp1
         {
             while (true)
             {
+                Logo.Print();
                 star = "";
                 int j = 0;
-                Console.Write("hoeveel sterren wilt u geven:");
+                Console.Write("Hoeveel sterren wilt u geven:");
                 for (int i = 0; i < 5; i++)
                 {
 
@@ -323,37 +324,41 @@ namespace ConsoleApp1
             }
             else if(kind == 1)
             {
-                Console.Write("waar gaat uw review over");
-                rev_arr[1] = Topic(kind);
+                Console.Write("Waar gaat uw review over");
+                rev_arr[1] = Console.ReadLine();
             }
             else if (kind == 2)
             {
-                Console.Write("waar gaat uw review over");
+                Console.Write("Waar gaat uw review over");
                 rev_arr[1] = Console.ReadLine();
             }
+            Console.Write("Schrijf hier uw review: ");
             rev_arr[2] = review_text(Console.ReadLine());
             rev_arr[3] = stars();
             reviews.Add(rev_arr);
-
+            Console.WriteLine("Uw review is toegevoegd druk [enter] om door te gaan.");
             ReviewCreation.AddReview(Program.UID, kind,index3 ,rev_arr[0], rev_arr[1],rev_arr[2],rev_arr[3].Length, $"{DateTime.Today}");
         }
-        public static void review_list()
+        public static void review_list(int x)
         {
-            var rev_list = ReviewCreation.GetAllReviews();
-            rev_list.Reverse();
+            List<Review> reviews = ReviewCreation.FilterReviews(x);
+
+
+            reviews.Reverse();
             int place = 0;
             int revs = 0;
 
             //ReviewCreation.FilterReviews();
-            int total_revs = rev_list.Count;
+            int total_revs = reviews.Count;
             if(total_revs > 0) {
                 while (true)
                 {
-                    Console.Write("                                  Gebruikersnaam: " + rev_list[revs].Author + "                "); Console.WriteLine("waardering: " + rev_list[revs].Stars);
+                    Logo.Print();
+                    Console.Write("                                  Gebruikersnaam: " + reviews[revs].Author + "                "); Console.WriteLine("waardering: " + reviews[revs].Stars);
                     Console.WriteLine();
-                    Console.WriteLine("                                       [ " + rev_list[revs].Title + " ]");
+                    Console.WriteLine("                                       [ " + reviews[revs].Title + " ]");
                     Console.WriteLine();
-                    Console.Write("                                  "); Console.Write(rev_list[revs].Description);
+                    Console.Write("                                  "); Console.Write(reviews[revs].Description);
                     Console.WriteLine();
 
                     if (place == 0)
@@ -502,7 +507,7 @@ namespace ConsoleApp1
             {
                 while (true)
                 {
-                    Console.WriteLine("Je onderwerp is te lang");
+                    Console.WriteLine("Uw onderwerp is te lang");
                     topic = Console.ReadLine();
                     if (topic.Length < len)
                     {
@@ -542,13 +547,14 @@ namespace ConsoleApp1
         {
 
             bool reviewscreenbool = true;
-            while (reviewscreenbool == true)
-            {
-                List<string> reviewscreen = new List<string>() {
+            List<string> reviewscreen = new List<string>() {
                 "[    Recensie maken    ]",
                 "[  Recensies bekijken  ]",
                 "[      Terugkeren      ]",
                  };
+            while (reviewscreenbool == true)
+            {
+                Logo.Print();         
                 string selectedMenuItem = rev_menu(reviewscreen); // Read write a Review
                 if (selectedMenuItem == reviewscreen[0])
                 {
@@ -605,7 +611,7 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    Reviews.review_list(0);
                     // ./ Contents
                     back();
                 }
@@ -614,7 +620,7 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    Reviews.review_list(2);
                     // ./ Contents
                     back();
                 }
@@ -623,7 +629,7 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    Reviews.review_list(1);
                     // ./ Contents
                     back();
                 } // Mainscreen.Count -1 to always get the last element of the list, as Logout is always last. 
@@ -669,7 +675,7 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     // Contents
-                    
+                    Reviews.make_review(2);
                     // ./ Contents
                     back();
                 }
@@ -678,7 +684,7 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    Reviews.make_review(1);
                     // ./ Contents
                     back();
                 } // Mainscreen.Count -1 to always get the last element of the list, as Logout is always last. 

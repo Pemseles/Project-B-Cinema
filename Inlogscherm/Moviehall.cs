@@ -432,8 +432,11 @@ namespace ConsoleApp1
                     }
                     else if (ckey.Key == ConsoleKey.DownArrow)
                     {
-
-                        index += 24;
+                        if (index > people)
+                        {
+                            index = people - 24;
+                        }
+                        else { index += 24; }
                     }
                     else if (ckey.Key == ConsoleKey.LeftArrow)
                     {
