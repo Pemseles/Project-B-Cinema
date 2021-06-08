@@ -554,12 +554,14 @@ namespace ConsoleApp1
                 if (selectedMenuItem == reviewscreen[0])
                 {
                     Console.Clear();
-                    make_review(0);
+                    AddReviewMenu.WriteReviewMenu();
+
                     back();
                 }
                 else if (selectedMenuItem == reviewscreen[1]) // Read Reviews
                 {
                     ResetIndex();
+                    AddReviewMenu.ReadReviewMenu();
                     Console.Clear();
                     // Contents
 
@@ -659,7 +661,7 @@ namespace ConsoleApp1
                     ResetIndex();
                     Console.Clear();
                     // Contents
-
+                    Reviews.make_review(0);
                     // ./ Contents
                     back();
                 }
